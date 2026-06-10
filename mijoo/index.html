@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주금은방 미주보석</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --dark-bg: #111111;
+            --text-main: #333333;
+        }
+        
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            color: var(--text-main);
+            background-color: #fafafa;
+        }
+
+        .font-serif {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .text-gold { color: var(--gold-primary); }
+        .bg-gold { background-color: var(--gold-primary); }
+        .border-gold { border-color: var(--gold-primary); }
+
+        .nav-link {
+            position: relative;
+            color: #111;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold-primary);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: var(--gold-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .tab-content { display: none; animation: fadeIn 0.5s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .luxury-card {
+            background: white;
+            border: 1px solid #eaeaea;
+            transition: all 0.4s ease;
+        }
+        .luxury-card:hover {
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+        }
+
+        /* 갤러리 이미지 호버 효과 */
+        .gallery-item { overflow: hidden; position: relative; }
+        .gallery-item img { transition: transform 0.6s ease; }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+    </style>
+</head>
+<body class="flex flex-col min-min-h-[100dvh]">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md fixed w-full z-50 border-b border-gray-100 shadow-sm transition-all duration-300" id="header">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#tab-home" class="flex items-center gap-3 cursor-pointer" style="text-decoration: none;">
+                <img src="/assets/logo-Bafjal9h.png" alt="미주보석 로고" class="h-12 w-auto rounded-lg shadow-sm" onerror="this.style.display='none';">
+                <div class="flex flex-col justify-center">
+                    <span class="font-serif font-black text-2xl md:text-3xl tracking-widest text-gray-900">미주보석</span>
+                </div>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex gap-10">
+                <a href="#tab-home" class="nav-link active" data-tab="home">홈</a>
+                <a href="#tab-gallery" class="nav-link" data-tab="gallery">갤러리</a>
+                <a href="#tab-news" class="nav-link" data-tab="news">소식</a>
+                <a href="#tab-reviews" class="nav-link" data-tab="reviews">방문자 리뷰</a>
+            </nav>
+
+            <!-- Mobile Menu Btn -->
+            <button class="md:hidden text-gray-800 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#tab-home" class="text-left font-medium text-gray-800 hover:text-yellow-600">홈</a>
+                <a href="#tab-gallery" class="text-left font-medium text-gray-800 hover:text-yellow-600">갤러리</a>
+                <a href="#tab-news" class="text-left font-medium text-gray-800 hover:text-yellow-600">소식</a>
+                <a href="#tab-reviews" class="text-left font-medium text-gray-800 hover:text-yellow-600">방문자 리뷰</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-20">
+        
+        <!-- ================= HOME TAB ================= -->
+        <section id="tab-home" class="tab-content active">
+            <!-- Hero Banner -->
+            <div class="relative h-[60vh] min-h-[500px] w-full bg-gray-900 overflow-hidden flex items-center justify-center">
+                <!-- 건물사진 두번째 사진 적용 위치 -->
+                <img src="/assets/main-D3lIiyve.jpg" alt="미주보석 매장 전경" class="absolute inset-0 w-full h-full object-cover opacity-60" onerror="this.src='https://images.unsplash.com/photo-1599643478524-fb524fa0a897?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                    <span class="text-yellow-400 font-bold tracking-widest text-sm md:text-base mb-4 block">JEJU PREMIUM JEWELRY</span>
+                    <h1 class="font-serif text-4xl md:text-6xl text-white font-bold mb-6 leading-tight drop-shadow-lg">
+                        작은 차이 하나로 달라지는<br>당신의 아름다움
+                    </h1>
+                    <p class="text-gray-200 text-lg md:text-xl font-light mb-10 drop-shadow-md">
+                        제주팔찌 · 제주금은방 · 제주예물 전문점 미주보석
+                    </p>
+                    <a href="#shop-info" class="inline-block border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full transition-all duration-300">
+                        매장 정보 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="max-w-4xl mx-auto px-6 py-24 text-center">
+                <div class="w-12 h-1 bg-gold mx-auto mb-8"></div>
+                <h2 class="font-serif text-3xl font-bold text-gray-900 mb-8">꾸민 듯 안 꾸민듯한 고급스러움</h2>
+                <div class="text-gray-600 leading-relaxed space-y-6 text-lg font-light text-justify md:text-center break-keep">
+                    <p>안녕하세요~ 제주금은방 / 제주예물 / 제주순금 전문점 <strong>미주보석</strong>입니다. 주얼리는 작은 차이 하나로 분위기가 완전히 달라지는데요~ 특히 손목 위에서 자연스럽게 움직이며 반짝이는 팔찌는 여름에 꾸준히 사랑받는 아이템입니다.</p>
+                    <p>오늘 소개해 드릴 상품은 심플하면서도 여성스러운 감성을 동시에 담은 코인 드롭 체인 팔찌입니다. 은은한 반짝임으로 손목에 포인트를 더할 수 있는 제품으로 이 팔찌의 가장 큰 매력은 바로 꾸민 듯 안 꾸민듯한 고급스러움입니다.</p>
+                    <p>얇고 섬세한 체인 라인에 포인트가 되는 코인 장식이 더해져 착용했을 때 손목이 훨씬 야리야리해 보이는 효과가 있어요. 단순한 체인 디자인이 아니라 중간중간에 디테일이 들어간 체인이라 자연 빛을 받을 때마다 반짝임이 살아나고 움직일 때마다 자연스럽게 시선이 갑니다.</p>
+                    <p>특히 코인 드롭 장식은 요즘 정말 인기가 많은 디자인 포인트인데요 너무 크지 않은 사이즈라 부담스럽지 않고 손목 아래로 살짝 떨어지는 느낌이 여성스럽고 세련된 분위기를 만들어줍니다.</p>
+                </div>
+            </div>
+
+            <!-- Key Features -->
+            <div class="bg-gray-50 py-20 border-y border-gray-100">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+                        <div class="p-6 bg-white rounded-2xl shadow-sm luxury-card">
+                            <h3 class="font-bold text-gray-800 text-lg">제주예물</h3>
+                        </div>
+                        <div class="p-6 bg-white rounded-2xl shadow-sm luxury-card">
+                            <h3 class="font-bold text-gray-800 text-lg">제주금은방</h3>
+                        </div>
+                        <div class="p-6 bg-white rounded-2xl shadow-sm luxury-card">
+                            <h3 class="font-bold text-gray-800 text-lg">제주금매입</h3>
+                        </div>
+                        <div class="p-6 bg-white rounded-2xl shadow-sm luxury-card">
+                            <h3 class="font-bold text-gray-800 text-lg">금시세</h3>
+                        </div>
+                        <div class="p-6 bg-white rounded-2xl shadow-sm luxury-card col-span-2 md:col-span-1">
+                            <h3 class="font-bold text-gray-800 text-lg">귀금속수리</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop Info -->
+            <div id="shop-info" class="max-w-6xl mx-auto px-6 py-24">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="w-full md:w-1/2">
+                        <img src="/assets/main-D3lIiyve.jpg" alt="미주보석 매장 위치" class="w-full rounded-2xl shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-8">
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-gray-900 mb-2">오시는 길</h2>
+                            <div class="w-12 h-1 bg-gold"></div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-600 mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">주소</h4>
+                                    <p class="text-gray-600">제주시 신광로 33-1 1층</p>
+                                    <p class="text-sm text-gray-500 mt-1 bg-gray-100 inline-block px-3 py-1 rounded">제원사거리에서 문화칼라 방향 내려가는 쪽 누발란스 옆</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-600 mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">영업시간</h4>
+                                    <p class="text-gray-600">오전 10:00 ~ 오후 10:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-600 mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">전화번호</h4>
+                                    <p class="text-xl font-bold text-yellow-600">0507-1310-9582</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://naver.me/FzSybu67" target="_blank" class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-[#03C75A] text-white font-bold rounded-xl hover:bg-[#02b350] transition-colors shadow-lg shadow-green-500/30">
+                            네이버 지도로 자세히 보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= GALLERY TAB ================= -->
+        <section id="tab-gallery" class="tab-content py-16 bg-white min-h-[70vh]">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">미주보석 사진첩 갤러리</h2>
+                    <p class="text-gray-500">아름다운 주얼리 컬렉션과 매장 전경을 확인하세요.<br>(네이버 플레이스 연동 업데이트 게시판)</p>
+                </div>
+                
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+                    <div class="gallery-item rounded-xl aspect-square bg-gray-100 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/gallery1-Cndl7SGX.jpg" alt="미주보석 주얼리 1" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="gallery-overlay"><span class="text-white font-bold text-lg border border-white px-4 py-2 rounded-full backdrop-blur-sm">자세히 보기</span></div>
+                    </div>
+                    <div class="gallery-item rounded-xl aspect-square bg-gray-100 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/gallery2-C84S5Pt6.jpg" alt="미주보석 주얼리 2" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="gallery-overlay"><span class="text-white font-bold text-lg border border-white px-4 py-2 rounded-full backdrop-blur-sm">자세히 보기</span></div>
+                    </div>
+                    <div class="gallery-item rounded-xl aspect-square bg-gray-100 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/gallery3-D6DccMM4.jpg" alt="미주보석 주얼리 3" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1599643478514-4a7a016629ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="gallery-overlay"><span class="text-white font-bold text-lg border border-white px-4 py-2 rounded-full backdrop-blur-sm">자세히 보기</span></div>
+                    </div>
+                    <div class="gallery-item rounded-xl aspect-square bg-gray-100 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/gallery4-DXcRq-vY.jpg" alt="미주보석 주얼리 4" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="gallery-overlay"><span class="text-white font-bold text-lg border border-white px-4 py-2 rounded-full backdrop-blur-sm">자세히 보기</span></div>
+                    </div>
+                    <div class="gallery-item rounded-xl aspect-square bg-gray-100 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/gallery1-Cndl7SGX.jpg" alt="미주보석 주얼리 5" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="gallery-overlay"><span class="text-white font-bold text-lg border border-white px-4 py-2 rounded-full backdrop-blur-sm">자세히 보기</span></div>
+                    </div>
+                    <div class="gallery-item rounded-xl aspect-square bg-gray-100 cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/gallery2-C84S5Pt6.jpg" alt="미주보석 주얼리 6" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1573408301145-b98c46544408?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="gallery-overlay"><span class="text-white font-bold text-lg border border-white px-4 py-2 rounded-full backdrop-blur-sm">자세히 보기</span></div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="https://pcmap.place.naver.com/place/1618848605/photo?bk_query=%EB%AF%B8%EC%A3%BC%EB%B3%B4%EC%84%9D%20%EC%97%B0%EB%8F%99&entry=pll&fromNxList=true&fromPanelNum=2&timestamp=202605152145&locale=ko&svcName=map_pcv5&searchText=%EB%AF%B8%EC%A3%BC%EB%B3%B4%EC%84%9D%20%EC%97%B0%EB%8F%99" target="_blank" class="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-black transition-colors">
+                        네이버에서 더 많은 사진 보기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= NEWS TAB ================= -->
+        <section id="tab-news" class="tab-content py-16 bg-gray-50 min-h-[70vh]">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">미주보석 소식</h2>
+                    <p class="text-gray-500">새로운 제품 입고 소식과 이벤트를 전해드립니다.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <!-- 뉴스 리스트 아이템 -->
+                    <a href="https://blog.naver.com/catseye1980" target="_blank" class="block border-b border-gray-100 hover:bg-gray-50 transition-colors p-6">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                            <div>
+                                <span class="text-xs font-bold text-yellow-600 bg-yellow-100 px-2 py-1 rounded mb-2 inline-block">신상품 입고</span>
+                                <h3 class="text-lg font-bold text-gray-900 mb-1">코인 드롭 체인 팔찌 입고 안내 (심플 & 여성스러움)</h3>
+                                <p class="text-gray-500 text-sm line-clamp-1">얇고 섬세한 체인 라인에 포인트가 되는 코인 장식이 더해져 착용했을 때 손목이 야리야리해 보이는 팔찌입니다.</p>
+                            </div>
+                            <span class="text-sm font-medium text-gray-400 whitespace-nowrap">2026. 05. 15</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://blog.naver.com/catseye1980" target="_blank" class="block border-b border-gray-100 hover:bg-gray-50 transition-colors p-6">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                            <div>
+                                <span class="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded mb-2 inline-block">안내</span>
+                                <h3 class="text-lg font-bold text-gray-900 mb-1">제주예물 상담 사전 예약 안내</h3>
+                                <p class="text-gray-500 text-sm line-clamp-1">프라이빗한 예물 상담을 원하시는 고객님께서는 네이버 예약 또는 전화로 미리 예약해 주시면 감사하겠습니다.</p>
+                            </div>
+                            <span class="text-sm font-medium text-gray-400 whitespace-nowrap">2026. 05. 01</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://blog.naver.com/catseye1980" target="_blank" class="block hover:bg-gray-50 transition-colors p-6">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                            <div>
+                                <span class="text-xs font-bold text-gray-600 bg-gray-100 px-2 py-1 rounded mb-2 inline-block">공지</span>
+                                <h3 class="text-lg font-bold text-gray-900 mb-1">미주보석 공식 네이버 블로그/인스타그램 오픈</h3>
+                                <p class="text-gray-500 text-sm line-clamp-1">다양한 주얼리 디자인과 매장 소식을 블로그와 인스타그램에서도 만나보실 수 있습니다.</p>
+                            </div>
+                            <span class="text-sm font-medium text-gray-400 whitespace-nowrap">2026. 04. 15</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <a href="https://blog.naver.com/catseye1980" target="_blank" class="inline-flex items-center text-gray-600 font-medium hover:text-yellow-600">
+                        공식 블로그에서 전체 소식 보기
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= REVIEWS TAB ================= -->
+        <section id="tab-reviews" class="tab-content py-16 bg-white min-h-[70vh]">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl font-bold text-gray-900 mb-4">방문자 리뷰 게시판</h2>
+                    <p class="text-gray-500">미주보석을 다녀가신 고객님들의 소중한 후기입니다.<br>(네이버 플레이스 연동 업데이트 게시판)</p>
+                </div>
+                
+                <div class="bg-[#f8f9fa] rounded-2xl p-6 md:p-8 border border-gray-200">
+                    <div class="flex justify-between items-center mb-8 border-b border-gray-200 pb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-black text-green-600">N</span>
+                            <span class="font-bold text-lg">네이버 방문자 리뷰</span>
+                        </div>
+                        <a href="https://pcmap.place.naver.com/place/1618848605/review/visitor?bk_query=%EB%AF%B8%EC%A3%BC%EB%B3%B4%EC%84%9D%20%EC%97%B0%EB%8F%99&entry=pll&fromNxList=true&fromPanelNum=2&locale=ko&searchText=%EB%AF%B8%EC%A3%BC%EB%B3%B4%EC%84%9D%20%EC%97%B0%EB%8F%99&svcName=map_pcv5&timestamp=202605152145" target="_blank" class="text-sm font-bold bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            리뷰 작성하기
+                        </a>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 리뷰 아이템 목업 -->
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">고객</div>
+                                <span class="font-bold text-gray-800">지**</span>
+                                <div class="flex text-yellow-400 text-sm ml-2">★★★★★</div>
+                                <span class="text-xs text-gray-400 ml-auto">방문일: 2026.05.10</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                여름에 찰 얇은 팔찌 보러 갔는데 코인 드롭 체인 팔찌 추천해주셔서 껴봤더니 너무 이뻐서 바로 구매했어요!! 사장님 엄청 친절하시고 설명도 잘해주십니다 ㅎㅎ 다이아 세팅이나 예물도 이쁜거 엄청 많더라구요 추천합니다!
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">고객</div>
+                                <span class="font-bold text-gray-800">김**</span>
+                                <div class="flex text-yellow-400 text-sm ml-2">★★★★★</div>
+                                <span class="text-xs text-gray-400 ml-auto">방문일: 2026.04.28</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                커플링 맞추러 갔는데 디자인 진짜 다양하고 예뻐요. 제원사거리 근처라 찾기도 쉽고 다른 금은방보다 세련된 디자인이 많은 것 같아요. 사이즈 조절도 꼼꼼히 체크해주시고 기분 좋게 맞추고 갑니다~
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">고객</div>
+                                <span class="font-bold text-gray-800">박**</span>
+                                <div class="flex text-yellow-400 text-sm ml-2">★★★★★</div>
+                                <span class="text-xs text-gray-400 ml-auto">방문일: 2026.04.15</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                부모님 순금 반지 해드리려고 방문했는데 금시세도 합리적이고 포장도 엄청 고급스럽게 해주셨어요. 퀄리티가 남다릅니다. 다음에는 제 악세사리 사러 다시 방문할게요!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="https://pcmap.place.naver.com/place/1618848605/review/visitor?bk_query=%EB%AF%B8%EC%A3%BC%EB%B3%B4%EC%84%9D%20%EC%97%B0%EB%8F%99&entry=pll&fromNxList=true&fromPanelNum=2&locale=ko&searchText=%EB%AF%B8%EC%A3%BC%EB%B3%B4%EC%84%9D%20%EC%97%B0%EB%8F%99&svcName=map_pcv5&timestamp=202605152145" target="_blank" class="inline-block px-6 py-3 border border-gray-300 rounded-xl font-bold text-gray-700 hover:bg-gray-50 transition-colors">
+                            리뷰 더보기 (업데이트)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Banner -->
+    <footer class="bg-gray-900 text-white mt-auto">
+        <div class="max-w-6xl mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Info -->
+                <div class="lg:col-span-2">
+                    <h3 class="font-serif text-2xl font-bold text-yellow-400 mb-6 tracking-wider">미주보석</h3>
+                    <div class="space-y-3 text-gray-400 font-light text-sm">
+                        <p class="flex items-start"><strong class="w-20 text-gray-200">주소</strong> 제주시 신광로 33-1 1층 (누발란스 옆)</p>
+                        <p class="flex items-start"><strong class="w-20 text-gray-200">영업시간</strong> 매일 10:00 - 22:00</p>
+                        <p class="flex items-start"><strong class="w-20 text-gray-200">키워드</strong> 제주예물, 제주금은방, 금매입, 귀금속수리</p>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <a href="https://naver.me/FzSybu67" target="_blank" class="bg-[#03C75A] text-white p-2 rounded-full hover:opacity-80 transition" title="네이버 플레이스">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/></svg>
+                        </a>
+                        <a href="https://blog.naver.com/catseye1980" target="_blank" class="bg-[#03C75A] text-white p-2 rounded-full hover:opacity-80 transition flex items-center justify-center font-bold text-sm w-9 h-9" title="네이버 블로그">B</a>
+                        <a href="https://www.instagram.com/mijooboseok" target="_blank" class="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white p-2 rounded-full hover:opacity-80 transition" title="인스타그램">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="lg:col-span-2 flex flex-col justify-center bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <p class="text-yellow-400 font-bold mb-2">사전 예약 및 문의안내</p>
+                    <h4 class="text-3xl font-black text-white mb-6">0507-1310-9582</h4>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="tel:0507-1310-9582" class="flex-1 text-center bg-yellow-500 text-black font-bold py-3 px-4 rounded-xl hover:bg-yellow-400 transition-colors">
+                            전화 문의하기
+                        </a>
+                        <a href="https://naver.me/FzSybu67" target="_blank" class="flex-1 text-center bg-white text-black font-bold py-3 px-4 rounded-xl hover:bg-gray-100 transition-colors">
+                            지도 보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-xs">
+                <p>&copy; 2026 미주보석 MIJOO JEWELRY. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('active');
+                if(el.getAttribute('data-tab') === tabId) {
+                    el.classList.add('active');
+                }
+            });
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+
+
+
+
+\n
+<!-- GLOBAL SPA & UX SCRIPT V2 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. SPA Navigation & Scroll Lock
+    const sections = Array.from(document.querySelectorAll('section[id], div.page-view, div[id^="view-"]')).filter(s => s.id);
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    
+    // Disable body scroll, enable inner scrolling
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100dvh';
+    document.body.style.display = 'flex';
+    document.body.style.flexDirection = 'column';
+    
+    if (header) header.style.flexShrink = '0';
+    // if (footer) footer.style.flexShrink = '0';
+
+    if (sections.length > 0) {
+        // Create a scrollable container for sections if not already existing
+        let mainContainer = document.querySelector('main');
+        if (!mainContainer) {
+            mainContainer = document.createElement('main');
+            mainContainer.style.flex = '1';
+            mainContainer.style.overflowY = 'auto';
+            mainContainer.style.overflowX = 'hidden';
+            mainContainer.style.position = 'relative';
+            
+            // Move sections into main
+            sections.forEach(sec => {
+                sec.parentNode.insertBefore(mainContainer, sec);
+            });
+            sections.forEach(sec => mainContainer.appendChild(sec));
+            if (footer) mainContainer.appendChild(footer);
+        } else {
+            mainContainer.style.flex = '1';
+            mainContainer.style.overflowY = 'auto';
+            mainContainer.style.overflowX = 'hidden';
+            if (footer && footer.parentNode !== mainContainer) mainContainer.appendChild(footer);
+        }
+
+        // Section toggle logic
+        function showSection(id) {
+            let found = false;
+            sections.forEach(sec => {
+                if(sec.id === id || sec.id === id.replace('#', '') || sec.id === 'view-' + id.replace('#', '')) {
+                    sec.style.display = 'block';
+                    sec.style.opacity = '1';
+                    sec.classList.add('active-view');
+                    sec.style.minHeight = '100dvh';
+                    found = true;
+                } else {
+                    sec.style.display = 'none';
+                    sec.style.opacity = '0';
+                    sec.classList.remove('active-view');
+                }
+            });
+            if(!found && sections[0]) {
+                sections[0].style.display = 'block';
+                sections[0].style.opacity = '1';
+                sections[0].classList.add('active-view');
+            }
+            
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('active');
+                const href = el.getAttribute('href');
+                if(href && (href === '#' + id || href === id)) {
+                    el.classList.add('active');
+                }
+            });
+
+            if (mainContainer) mainContainer.scrollTo(0,0);
+        }
+        
+        let initialHash = window.location.hash.replace('#', '') || (sections[0] ? sections[0].id.replace('view-', '') : '');
+        showSection(initialHash);
+        
+        // Navigation links intercept
+        document.querySelectorAll('a[href^="#"], button[onclick*="navigateTo"]').forEach(el => {
+            el.addEventListener('click', function(e) {
+                let targetId = '';
+                if(this.tagName === 'A') {
+                    targetId = this.getAttribute('href').replace('#', '');
+                } else if(this.getAttribute('onclick')) {
+                    const match = this.getAttribute('onclick').match(/navigateTo\(['"]([^'"]+)['"]\)/);
+                    if(match) targetId = match[1];
+                }
+                
+                if (!targetId || targetId === 'lightbox' || this.classList.contains('gallery-filter-btn')) return;
+                
+                e.preventDefault();
+                history.pushState({section: targetId}, '', '#' + targetId);
+                showSection(targetId);
+                
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // 8. Smartphone Hardware Back Button (Popstate)
+        window.addEventListener('popstate', function(e) {
+            if(e.state && e.state.section) {
+                showSection(e.state.section);
+            } else {
+                const hash = window.location.hash.replace('#', '');
+                showSection(hash || (sections[0] ? sections[0].id.replace('view-', '') : ''));
+            }
+        });
+        
+        // 7. Logo click -> First section
+        const logos = document.querySelectorAll('header a:first-child, .logo, a[href="javascript:void(0)"]');
+        logos.forEach(logo => {
+            logo.addEventListener('click', function(e) {
+                const isNav = this.classList.contains('nav-btn') || this.getAttribute('onclick');
+                if(isNav) return;
+                
+                e.preventDefault();
+                const firstId = sections[0].id.replace('view-', '');
+                history.pushState({section: firstId}, '', '#' + firstId);
+                showSection(firstId);
+            });
+        });
+        
+        // 9. Smartphone Swipe (Left/Right) for Prev/Next
+        let currentIdx = () => sections.findIndex(s => s.style.display === 'block' || s.classList.contains('active-view'));
+        function goNext() {
+            let idx = currentIdx();
+            if(idx >= 0 && idx < sections.length - 1) {
+                let nextId = sections[idx+1].id.replace('view-', '');
+                history.pushState({section: nextId}, '', '#' + nextId);
+                showSection(nextId);
+            }
+        }
+        function goPrev() {
+            let idx = currentIdx();
+            if(idx > 0) {
+                let prevId = sections[idx-1].id.replace('view-', '');
+                history.pushState({section: prevId}, '', '#' + prevId);
+                showSection(prevId);
+            }
+        }
+        
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'ArrowRight') goNext();
+            else if(e.key === 'ArrowLeft') goPrev();
+        });
+        
+        let touchstartX = 0, touchendX = 0, touchstartY = 0, touchendY = 0;
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+            touchstartY = e.changedTouches[0].screenY;
+        }, {passive: true});
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            touchendY = e.changedTouches[0].screenY;
+            const xDiff = touchendX - touchstartX;
+            const yDiff = touchendY - touchstartY;
+            if(Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 70) {
+                if(xDiff < 0) goNext();
+                else goPrev();
+            }
+        }, {passive: true});
+    }
+
+    // 6. Center Footer and Unified Information
+    if(footer) {
+        footer.classList.add('text-center');
+        footer.style.textAlign = 'center';
+        const elements = footer.querySelectorAll('ul, li, div, p, span, h4');
+        elements.forEach(el => {
+            if (el.tagName === 'LI' && el.classList.contains('flex')) {
+                el.classList.remove('justify-start', 'items-start', 'text-left');
+                el.classList.add('justify-center', 'items-center', 'text-center');
+            }
+            if (el.tagName === 'DIV' && el.classList.contains('text-left')) {
+                el.classList.remove('text-left');
+                el.classList.add('text-center');
+                el.style.textAlign = 'center';
+            }
+        });
+        const grids = footer.querySelectorAll('.grid');
+        grids.forEach(g => {
+            g.classList.add('text-center', 'justify-items-center');
+        });
+    }
+
+    // 3. Replace all map links with Naver Place
+    document.querySelectorAll('a[href*="map.kakao.com"], a[href*="google.com/maps"]').forEach(a => {
+        // Extract company name or just default to a search query based on title
+        const title = document.title.split('-')[0].trim();
+        a.href = `https://map.naver.com/v5/search/${encodeURIComponent(title)}`;
+        a.setAttribute('target', '_blank');
+        if(a.innerText.includes('카카오') || a.innerText.includes('구글')) {
+            a.innerHTML = '<i class="fa-solid fa-map-location-dot"></i> 네이버 플레이스 보기';
+        }
+    });
+
+    // 2. Remove Exit Button
+    const oldBtn = document.getElementById('global-exit-btn');
+    // if(oldBtn) oldBtn.remove();
+    const olderBtn = document.querySelector('a[href*="../index.html"], a[href*="/index.html"]');
+    if(olderBtn && olderBtn.innerHTML.includes('img') && olderBtn.parentElement && olderBtn.parentElement.classList.contains('fixed')) {
+        olderBtn.parentElement.remove();
+    }
+    
+    // 1. Mobile Meta Tag Check
+    if (!document.querySelector('meta[name="viewport"]')) {
+        const meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+        document.head.appendChild(meta);
+    } else {
+        const meta = document.querySelector('meta[name="viewport"]');
+    }
+});
+
+function openImageModal(src) {
+    const modal = document.getElementById('image-modal');
+    const img = document.getElementById('modal-img');
+    img.src = src;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('image-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = 'auto';
+}
+</script>
+
+    <!-- Custom Image Modal (1/2 Size on Desktop, Full Screen on Mobile) -->
+    <div id="image-modal" class="fixed inset-0 z-[10001] hidden items-center justify-center p-0 md:p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer" onclick="closeImageModal()"></div>
+        <!-- Modal Content (Responsive Width) -->
+        <div class="relative z-10 w-full h-full md:h-auto md:max-w-4xl bg-slate-950 rounded-none md:rounded-2xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-between md:justify-start">
+            <!-- Header -->
+            <div class="flex justify-between items-center p-4 border-b border-slate-900 bg-slate-950">
+                <h3 class="text-white font-bold">이미지 상세 보기</h3>
+                <button onclick="closeImageModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <!-- Image Container -->
+            <div class="flex-grow flex items-center justify-center bg-black p-2 md:p-6 overflow-hidden">
+                <img id="modal-img" src="" alt="Gallery Image" class="max-w-full max-h-[70vh] md:max-h-[60vh] object-contain rounded-lg">
+            </div>
+            <!-- Footer -->
+            <div class="flex justify-center p-4 bg-slate-950 border-t border-slate-900">
+                <button onclick="closeImageModal()" class="px-6 py-2.5 bg-slate-800 hover:bg-red-600 text-white font-bold rounded-xl transition-colors border border-slate-700 hover:border-red-500">
+                    닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Floating Exit Button -->
+    <a href="/#portfolio" class="fixed bottom-[110px] right-6 z-[9999] bg-gray-900 text-white w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-2xl hover:bg-red-600 hover:scale-110 transition-all group border-2 border-white/20" title="나가기" style="text-decoration: none;">
+      <span class="text-[12px] font-black tracking-wider">나가기</span>
+    </a>
+
+</body>
+</html>

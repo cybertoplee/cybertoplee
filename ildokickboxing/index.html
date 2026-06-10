@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEAM일도킥복싱멀티짐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #020617; color: white; }
+        .font-black-han { font-family: 'Black Han Sans', sans-serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/assets/hero-D2-pjzWn.png');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #0f172a; /* slate-900 */
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background-color: #ef4444; /* red-500 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-28">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-4 group cursor-pointer">
+                    <img src="/assets/logo-BFMe7eqa.jpg" alt="Logo" class="h-20 w-20 rounded-full object-cover border-2 border-red-500 bg-white group-hover:border-red-400 transition-colors">
+                    <div>
+                        <h1 class="text-3xl sm:text-4xl font-black-han text-white tracking-wider leading-none group-hover:text-red-400 transition-colors">TEAM일도</h1>
+                        <p class="text-sm sm:text-base text-red-500 font-bold uppercase tracking-widest mt-1">Kickboxing Gym</p>
+                    </div>
+                </a>
+                <nav id="desktop-nav" class="hidden md:flex space-x-4 lg:space-x-8">
+                    <a href="#home" class="text-base lg:text-xl font-bold text-white hover:text-red-500 transition-colors uppercase">홈</a>
+                    <a href="#tournament" class="text-base lg:text-xl font-bold text-slate-300 hover:text-red-500 transition-colors uppercase">대회</a>
+                    <a href="#news" class="text-base lg:text-xl font-bold text-slate-300 hover:text-red-500 transition-colors uppercase">최신소식</a>
+                    <a href="#gallery" class="text-base lg:text-xl font-bold text-slate-300 hover:text-red-500 transition-colors uppercase">동영상 갤러리</a>
+                    <a href="#reviews" class="text-base lg:text-xl font-bold text-slate-300 hover:text-red-500 transition-colors uppercase">방문자 리뷰</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block text-lg font-bold text-white hover:text-red-500 transition-colors uppercase py-2">홈</a>
+            <a href="#tournament" class="block text-lg font-bold text-slate-300 hover:text-red-500 transition-colors uppercase py-2">대회</a>
+            <a href="#news" class="block text-lg font-bold text-slate-300 hover:text-red-500 transition-colors uppercase py-2">최신소식</a>
+            <a href="#gallery" class="block text-lg font-bold text-slate-300 hover:text-red-500 transition-colors uppercase py-2">동영상 갤러리</a>
+            <a href="#reviews" class="block text-lg font-bold text-slate-300 hover:text-red-500 transition-colors uppercase py-2">방문자 리뷰</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-[100dvh] flex items-center justify-center pt-20 relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full bg-red-600/20 text-red-500 text-sm font-bold border border-red-500/30 mb-6 uppercase tracking-widest backdrop-blur-sm animate-pulse">입식 타격 전문 체육관</span>
+            <h2 class="text-5xl md:text-7xl font-black-han mb-6 text-white leading-tight drop-shadow-2xl">
+                망설일 시간 아끼시고<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">지금 실행하세요!</span>
+            </h2>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-lg">
+                키즈부, 청소년, 성인부, 다이어트, 기능성 운동부터<br>입식 타격 선수부 모집 및 프로 데뷔 일대일 지도까지!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:010-3697-6386" class="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold rounded-full transition-all transform hover:scale-105 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] flex items-center justify-center gap-2 text-lg">
+                    <i class="fa-solid fa-phone"></i> 입관 문의하기
+                </a>
+                <a href="#about" class="px-8 py-4 bg-slate-800/80 hover:bg-slate-700 text-white font-bold rounded-full border border-slate-600 transition-all backdrop-blur-sm flex items-center justify-center gap-2 text-lg">
+                    체육관 상세정보 <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-3xl font-black-han text-white mb-6">TID kickboxing<br><span class="text-red-500">TEAM일도멀티짐</span></h3>
+                        <p class="text-slate-400 leading-relaxed font-medium">
+                            TEAM일도킥복싱멀티짐은 대한킥복싱협회, 와코킥복싱협회 산하에 공식 등록된 단체로써 입식, 타격 명문으로 키즈부, 청소년, 성인부, 다이어트부를 지도 및 훈련하는 체육관입니다.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed font-medium mt-4">
+                            킥복싱 단증 심사, 대회 참가(선수), 국제스포츠교류 등 다양한 이벤트와 수업으로 회원여러분과 함께 합니다. 와코 한국 챔피언 배출 및 다수의 선수들로 구성된 강도높은 선수부 훈련도 진행되고 있습니다.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed font-medium mt-4 border-l-4 border-red-500 pl-4">
+                            프로 선수 데뷔를 위한 일대일 지도도 가능하니 킥복싱, 무에타이, 복싱, 프로종합격투기(MMA) 등 종합격투 프로선수를 지망한다면 팀일도킥복싱 많은 관심 부탁드려요!
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-slate-800">
+                        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800/50">
+                            <i class="fa-solid fa-clock text-red-500 text-2xl mb-3"></i>
+                            <h4 class="text-white font-bold mb-2">영업시간</h4>
+                            <p class="text-slate-400 text-sm">오후 3시 ~ 5시 시작<br>영업종료 오후 10시<br><span class="text-red-400">공휴일, 휴일 휴무</span></p>
+                        </div>
+                        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800/50">
+                            <i class="fa-solid fa-location-dot text-red-500 text-2xl mb-3"></i>
+                            <h4 class="text-white font-bold mb-2">찾아가는 길</h4>
+                            <p class="text-slate-400 text-sm">제주 제주시 광양9길 41<br>탑마트 2층<br><span class="text-xs text-slate-500">(제주시청 정문에서 동쪽으로 150m)</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-red-600 to-orange-500 rounded-3xl transform rotate-3 scale-105 opacity-20 blur-xl"></div>
+                    <img src="/assets/feature-7jttnV2N.png" alt="이현석 코치" class="relative rounded-3xl shadow-2xl border border-slate-700/50 w-full h-auto bg-slate-800">
+                    <div class="absolute -bottom-6 -left-6 bg-slate-900 p-6 rounded-2xl border border-slate-700 shadow-xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center text-red-500">
+                                <i class="fa-solid fa-phone-volume text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase">관장 직접 상담</p>
+                                <p class="text-xl font-black text-white">010-3697-6386</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1 bg-slate-800 text-slate-300 text-xs font-bold rounded-full border border-slate-700">#TEAM일도킥복싱멀티짐</span>
+                    <span class="px-3 py-1 bg-slate-800 text-slate-300 text-xs font-bold rounded-full border border-slate-700">#킥복싱</span>
+                    <span class="px-3 py-1 bg-slate-800 text-slate-300 text-xs font-bold rounded-full border border-slate-700">#멀티짐</span>
+                    <span class="px-3 py-1 bg-slate-800 text-slate-300 text-xs font-bold rounded-full border border-slate-700">#제주입식타격</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-24 bg-slate-900 relative border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-black-han text-white section-title">최신 소식</h2>
+            <p class="text-slate-400 mb-12">일도킥복싱멀티짐의 생생한 훈련 모습과 공지사항을 확인하세요.</p>
+            
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-12">
+                <!-- Blog News Card 1 -->
+                <a href="https://blog.naver.com/kick3697/224264180886?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 0)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news1-95_5VnyL.png" alt="TEAM일도멀티짐 Birthday Party - 아이들과 함께한 따뜻한 하루" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 Birthday Party -  아이들과 함께한 따뜻한 하루</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 2 -->
+                <a href="https://blog.naver.com/kick3697/224263987834?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 1)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news2-C_9E3QJc.png" alt="TEAM일도멀티짐, 2026 제주특별자치도 킥복싱협회장배 전국대회 출전!" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐, 2026 제주특별자치도 킥복싱협회장배 전국대회 출전!</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 3 -->
+                <a href="https://blog.naver.com/kick3697/224261327670?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 2)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news3-C6CUJMhg.png" alt="TEAM일도멀티짐 - 주말부수련 모집" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 -  주말부수련 모집</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 4 -->
+                <a href="https://blog.naver.com/kick3697/224252580676?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 3)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news6-CjS2ws0q.jpg" alt="TEAM일도멀티짐 - 2026 제주시 우수 킥복싱주짓수센터로 선정" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 - 2026 제주시 우수 킥복싱주짓수센터로 선정</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 5 -->
+                <a href="https://blog.naver.com/kick3697/224215170767?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 4)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news5-DLITrFTB.png" alt="제주 다이어트 운동 | TEAM일도 멀티짐" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">제주 다이어트 운동 | TEAM일도 멀티짐</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 6 -->
+                <a href="https://blog.naver.com/kick3697/224208277932?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 5)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news6-CjS2ws0q.jpg" alt="TEAM일도멀티짐 이현석 HERO No.8 우승" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 이현석 HERO No.8 우승</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 7 -->
+                <a href="https://blog.naver.com/kick3697/224201307146?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 6)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news7-DCOzmBjZ.jpg" alt="운동하며 ‘튼튼머니’ 포인트 채우고 의료비도 아끼세요" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">운동하며 ‘튼튼머니’ 포인트 채우고 의료비도 아끼세요</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 8 -->
+                <a href="https://blog.naver.com/kick3697/224199753969?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 7)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news8-BVpERbAs.jpg" alt="제5회 일도짐배 친선 스파링대회 - 단합의 날!" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">제5회 일도짐배 친선 스파링대회 - 단합의 날!</h4>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog News Card 13 -->
+                <a href="https://blog.naver.com/kick3697/224116891036?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 12)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news13-DcBt4WV6.jpg" alt="땀으로 말하는 하루, TEAM일도멀티짐 샌드백 파워 트레이닝 후기" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">땀으로 말하는 하루, TEAM일도멀티짐 샌드백 파워 트레이닝 후기</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 14 -->
+                <a href="https://blog.naver.com/kick3697/224115736686?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 13)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news14-CUvgYUTD.jpg" alt="TEAM일도멀티짐-키즈부 3!3!5!5! 타바타!" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐-키즈부 3!3!5!5! 타바타!</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 15 -->
+                <a href="https://blog.naver.com/kick3697/224111504874?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 14)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news15-cDIKu0aV.jpg" alt="TEAM일도멀티짐 – 메모리얼스파링 찌릿 !" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 – 메모리얼스파링 찌릿 !</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 16 -->
+                <a href="https://blog.naver.com/kick3697/224110638311?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 15)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news16-DLbdTlqk.jpg" alt="TEAM일도멀티짐 - 키즈부 타바타 즐! 빡!" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 - 키즈부 타바타 즐! 빡!</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 17 -->
+                <a href="https://blog.naver.com/kick3697/224109557260?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 16)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news17-DcS6MFW6.jpg" alt="TEAM일도멀티짐 - 주짓수 클래스" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 - 주짓수 클래스</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 18 -->
+                <a href="https://blog.naver.com/kick3697/224101460749?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 17)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news18-C6291dXQ.jpg" alt="TEAM 일도멀티짐 이현석 선수, ROAD FC 075 라이트급 킥복싱 매치 승리!" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM 일도멀티짐 이현석 선수, ROAD FC 075 라이트급 킥복싱 매치 승리!</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 19 -->
+                <a href="https://blog.naver.com/kick3697/224100622062?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 18)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="absolute top-3 right-3 bg-red-600/95 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm z-10">
+                        <i class="fa-solid fa-circle-play animate-pulse"></i> 동영상
+                    </div>
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news19-BLypwtIb.jpg" alt="TEAM일도멀티짐 - ROAD FC 075 계체 현장 다녀왔습니다!" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 - ROAD FC 075 계체 현장 다녀왔습니다!</h4>
+                        </div>
+                    </div>
+                </a>
+                <!-- Blog News Card 20 -->
+                <a href="https://blog.naver.com/kick3697/224091682361?fromRss=true&trackingCode=rss" target="_blank" onclick="handleBlogCardClick(event, 19)" class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 group hover:border-red-500/50 transition-all flex flex-col h-full relative">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="/assets/blog_news20-CKjWooKA.png" alt="TEAM일도멀티짐 -주짓수 극강루틴!" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-red-500 mb-2 block">네이버 블로그</span>
+                            <h4 class="text-sm font-bold text-white mb-2 line-clamp-2 leading-snug">TEAM일도멀티짐 -주짓수 극강루틴!</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <a href="https://blog.naver.com/kick3697/224264180886" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-[#03C75A]/10 text-[#03C75A] border border-[#03C75A]/30 font-bold rounded-full hover:bg-[#03C75A] hover:text-white transition-colors">
+                <i class="fa-solid fa-blog"></i> 네이버 블로그 전체 소식 보기
+            </a>
+        </div>
+    </section>
+
+    <!-- Tournament Section -->
+    <section id="tournament" class="py-24 bg-slate-950 relative border-t border-slate-800/50">
+        <!-- Background Glow -->
+        <div class="absolute -top-[100px] left-1/3 transform -translate-x-1/2 w-[600px] h-[300px] bg-red-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full bg-red-600/20 text-red-500 text-xs font-bold border border-red-500/30 mb-4 uppercase tracking-widest">TOURNAMENT</span>
+                <h2 class="text-4xl font-black-han text-white section-title">대회 소식</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mt-2">제10회 세계 킹복싱 선수권 대회 출전 소식 및 코치 프로필</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Tournament Poster Column (6 cols) -->
+                <div class="lg:col-span-6 flex flex-col items-center">
+                    <div class="bg-slate-900/50 p-6 rounded-3xl border border-slate-800/80 shadow-2xl hover:border-red-500/30 transition-all w-full max-w-md">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-trophy text-amber-500"></i>
+                            
+                        </h3>
+                        <div class="w-full overflow-hidden rounded-2xl border border-slate-700 bg-slate-950">
+                            <img src="/assets/tournament_poster-CM3pvi_e.jpg" alt="제10회 세계 킹복싱 선수권 대회 포스터" class="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-500">
+                        </div>
+                        <p class="text-slate-400 mt-4 text-sm leading-relaxed text-center font-medium">
+                            TEAM일도 이현석 코치 출격! 계체량 현장 대공개! 여러분의 뜨거운 응원을 기다립니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Coach Profile Column (6 cols) -->
+                <div class="lg:col-span-6 flex flex-col items-center justify-center">
+                    <div class="w-full max-w-md bg-slate-900/50 p-6 rounded-3xl border border-slate-800/80 shadow-2xl hover:border-red-500/30 transition-all flex flex-col items-center">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2 self-start">
+                            <i class="fa-solid fa-user text-red-500"></i>
+                            출전 선수 프로필
+                        </h3>
+                        <!-- Coach Image sized at full card width -->
+                        <div class="w-full overflow-hidden rounded-2xl border-2 border-slate-700 shadow-xl bg-slate-950 hover:border-red-500 transition-colors">
+                            <img src="/assets/coach_lee-C-njtvpg.png" alt="이현석 코치 프로필" class="w-full h-auto object-cover">
+                        </div>
+                        <div class="mt-6 text-center w-full">
+                            <h4 class="text-lg font-bold text-white mb-1">이현석 코치</h4>
+                            <p class="text-red-500 text-xs font-bold uppercase tracking-widest mb-3">TEAM일도 메인 코치</p>
+                            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 text-left text-xs text-slate-400 space-y-1">
+                                <p>• EMA championship 우승</p>
+                                <p>• KMF -70kg 프로 강자전 우승</p>
+                                <p>• MAX fc 퍼스트리그30 우승</p>
+                                <p>• 대한킥복싱협회 -67kg 국가대표선발전 3등</p>
+                                <p>• 전적: 18전 14승 3패 1무효</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weigh-in and Face-off Gallery -->
+            <div class="mt-12 border-t border-slate-800/60 pt-8">
+                <h4 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-images text-red-500"></i>
+                    공식 계체량 및 페이스오프 현장
+                </h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="rounded-xl overflow-hidden aspect-[2/3] border border-slate-800 bg-slate-900 shadow-lg hover:border-red-500/50 transition-colors group cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/blog_news17-DcS6MFW6.jpg" alt="공식 계체량 페이스오프" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-[2/3] border border-slate-800 bg-slate-900 shadow-lg hover:border-red-500/50 transition-colors group cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/blog_news18-C6291dXQ.jpg" alt="눈빛 교환 페이스오프" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-[2/3] border border-slate-800 bg-slate-900 shadow-lg hover:border-red-500/50 transition-colors group cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/blog_news19-BLypwtIb.jpg" alt="계체량 포즈" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-[2/3] border border-slate-800 bg-slate-900 shadow-lg hover:border-red-500/50 transition-colors group cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="/assets/blog_news20-CKjWooKA.png" alt="계체량 측정" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-slate-950 relative border-t border-slate-800/50">
+        <!-- Subtle background glow -->
+        <div class="absolute -top-[100px] right-1/4 transform translate-x-1/2 w-[500px] h-[250px] bg-red-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-black-han text-white section-title">체육관 갤러리</h2>
+            <p class="text-slate-400 mb-12">열정과 활기가 가득한 TEAM일도의 훈련 동영상 및 사진첩입니다.</p>
+            
+            <!-- Video Segment -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-white mb-6 text-left border-l-4 border-red-500 pl-3 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-play text-red-500"></i> 동영상 훈련 가이드
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- 1st Row: 4 Step-by-step Kickboxing Videos (Hover to Play) -->
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/1-EVNlNZiks?mute=1&controls=0&modestbranding=1" title="킥복싱 1단계: 기본자세" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('1-EVNlNZiks')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">1단계: 기본자세</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/sbNhd0JLQXA?mute=1&controls=0&modestbranding=1" title="킥복싱 2단계: 원투 펀치" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('sbNhd0JLQXA')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">2단계: 원투 펀치</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/M3330xDmcN0?mute=1&controls=0&modestbranding=1" title="킥복싱 3단계: 미들킥" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('M3330xDmcN0')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">3단계: 미들킥</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/L3Fux_50Cyk?mute=1&controls=0&modestbranding=1" title="킥복싱 4단계: 콤비네이션" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('L3Fux_50Cyk')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">4단계: 콤비네이션</span>
+                        </div>
+                    </div>
+
+                    <!-- 2nd Row: Stage 5 and Practical Exercise Videos (Hover to Play) -->
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/vYvZ6LzIon4?mute=1&controls=0&modestbranding=1" title="킥복싱 5단계: 실전 스파링 기초" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('vYvZ6LzIon4')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">5단계: 실전 스파링 기초</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/tPuvwPYjULw?mute=1&controls=0&modestbranding=1" title="실전 연습 1: 미트 트레이닝" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('tPuvwPYjULw')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">실전 1: 미트 트레이닝</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/FcqdrewWzWg?mute=1&controls=0&modestbranding=1" title="실전 연습 2: 샌드백 훈련" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('FcqdrewWzWg')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">실전 2: 샌드백 훈련</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden aspect-video border border-slate-800 bg-slate-950 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/HViQL_A-cco?mute=1&controls=0&modestbranding=1" title="실전 연습 3: 선수 대련" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('HViQL_A-cco')">
+                            <span class="absolute bottom-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-bold shadow">실전 3: 선수 대련</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 bg-slate-900 relative border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-black-han text-white section-title">방문자 리뷰</h2>
+            <p class="text-slate-400 mb-12">관원들이 직접 남겨주신 소중한 후기입니다.</p>
+            
+            <div class="max-w-4xl mx-auto space-y-4 text-left mb-12">
+                <!-- Review 1 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex items-start gap-4">
+                    <div class="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">김</div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold text-white">김*수 관원</h4>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">관장님께서 1:1로 미트 잡아주실 때 정말 디테일하게 가르쳐 주십니다! 운동량도 엄청나서 다이어트 효과 제대로 보고 있습니다. 체육관 분위기도 화이팅 넘치고 좋아요!</p>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex items-start gap-4">
+                    <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">이</div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold text-white">이*진 관원</h4>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">아이가 키즈부 다니는데 너무 즐거워합니다. 체력도 눈에 띄게 좋아졌고 자신감도 많이 생겼어요. 안전하게 잘 지도해주셔서 항상 감사합니다.</p>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex items-start gap-4">
+                    <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">박</div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold text-white">박*현 선수부</h4>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">프로 준비하면서 다른 체육관에서 넘어왔는데 훈련 강도와 체계적인 시스템이 제주 최고입니다. 스파링 경험도 많이 쌓을 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://pcmap.place.naver.com/place/1311342516/review" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-[#03C75A]/10 text-[#03C75A] border border-[#03C75A]/30 font-bold rounded-full hover:bg-[#03C75A] hover:text-white transition-colors">
+                <i class="fa-solid fa-comment-dots"></i> 네이버 플레이스 리뷰 더보기
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-slate-950 pt-20 pb-8 border-t border-slate-800 relative overflow-hidden">
+        <!-- Subtle Background Glow -->
+        <div class="absolute -top-[200px] left-1/2 transform -translate-x-1/2 w-[800px] h-[400px] bg-red-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-10">
+                <h3 class="text-2xl font-black-han text-white mb-2">공식 채널 둘러보기</h3>
+                <p class="text-slate-400 text-sm">TEAM일도의 더 많은 소식과 혜택을 만나보세요.</p>
+            </div>
+
+            <!-- Interactive Image Banners -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <!-- Naver Place Banner -->
+                <a href="https://naver.me/x5GToOoQ" target="_blank" class="relative group overflow-hidden rounded-2xl h-36 flex items-center justify-center border border-slate-700/50 shadow-2xl transition-all hover:scale-[1.02] hover:border-[#03C75A]/80 hover:shadow-[#03C75A]/20 bg-slate-900">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-30 transition-opacity" style="background-image: url('/assets/banner_map-CHUdwno5.png');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 to-transparent"></div>
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <i class="fa-solid fa-map-location-dot text-4xl mb-2 text-[#03C75A] group-hover:text-white transition-colors drop-shadow-md"></i>
+                        <span class="text-white font-bold text-lg tracking-wide drop-shadow-md">네이버 플레이스 예약</span>
+                        <span class="text-xs text-slate-300 font-medium mt-1">상세 위치 및 방문 예약</span>
+                    </div>
+                </a>
+
+                <!-- Naver Blog Banner -->
+                <a href="https://blog.naver.com/kick3697/224264180886" target="_blank" class="relative group overflow-hidden rounded-2xl h-36 flex items-center justify-center border border-slate-700/50 shadow-2xl transition-all hover:scale-[1.02] hover:border-[#03C75A]/80 hover:shadow-[#03C75A]/20 bg-slate-900">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-30 transition-opacity" style="background-image: url('/assets/banner_blog-D5jgcDym.png');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 to-transparent"></div>
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <i class="fa-brands fa-blogger text-4xl mb-2 text-[#03C75A] group-hover:text-white transition-colors drop-shadow-md"></i>
+                        <span class="text-white font-bold text-lg tracking-wide drop-shadow-md">네이버 블로그 소식</span>
+                        <span class="text-xs text-slate-300 font-medium mt-1">최신 훈련 및 대회 소식</span>
+                    </div>
+                </a>
+
+                <!-- Instagram Banner -->
+                <a href="https://www.instagram.com/tid.jeju/" target="_blank" class="relative group overflow-hidden rounded-2xl h-36 flex items-center justify-center border border-slate-700/50 shadow-2xl transition-all hover:scale-[1.02] hover:border-pink-500/80 hover:shadow-pink-500/20 bg-slate-900">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-30 transition-opacity" style="background-image: url('/assets/banner_insta-C-KgmCBZ.png');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 to-transparent"></div>
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <i class="fa-brands fa-instagram text-4xl mb-2 text-pink-500 group-hover:text-white transition-colors drop-shadow-md"></i>
+                        <span class="text-white font-bold text-lg tracking-wide drop-shadow-md">인스타그램 갤러리</span>
+                        <span class="text-xs text-slate-300 font-medium mt-1">생생한 체육관 일상 화보</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Business Info & Contact -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-t border-slate-800/80 pt-12 pb-10">
+                
+                <!-- Info (7 cols) -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="flex items-center justify-center lg:justify-start gap-4">
+                        <img src="/assets/logo-BFMe7eqa.jpg" alt="Logo" class="w-14 h-14 rounded-full border-2 border-red-500 bg-white shadow-lg shadow-red-500/20">
+                        <div>
+                            <h2 class="text-3xl sm:text-4xl font-black-han text-white tracking-wide">TEAM일도킥복싱멀티짐</h2>
+                            <p class="text-red-500 font-bold text-sm mt-1 tracking-widest">KOREA KICKBOXING ACADEMY</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 bg-slate-900/50 p-4 rounded-xl border border-slate-800 inline-flex">
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-red-500 shrink-0 border border-slate-700">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <span class="font-medium text-sm sm:text-base text-left">제주 제주시 광양9길 41 탑마트 2층</span>
+                        </div>
+                        <div class="hidden sm:block w-px h-10 bg-slate-700 mx-2"></div>
+                        <a href="https://naver.me/x5GToOoQ" target="_blank" class="text-sm px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg transition-colors border border-slate-600 flex items-center gap-2 shadow-md hover:shadow-lg w-full sm:w-auto justify-center">
+                            <i class="fa-solid fa-map text-red-400"></i> 지도에서 보기
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col items-center lg:items-end">
+                    <div class="bg-red-600/10 border border-red-600/20 rounded-2xl p-6 w-full max-w-sm text-center">
+                        <p class="text-red-400 text-sm mb-3 font-bold flex items-center justify-center gap-2">
+                            <span class="relative flex h-3 w-3">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                            </span>
+                            빠른 상담 및 사전 예약
+                        </p>
+                        <a href="tel:010-3697-6386" class="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-black rounded-xl transition-all hover:scale-105 shadow-xl shadow-red-600/30 text-2xl sm:text-3xl group justify-center">
+                            <i class="fa-solid fa-phone-volume group-hover:rotate-12 transition-transform"></i>
+                            010-3697-6386
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-4 pt-8 border-t border-slate-800/50 text-center text-slate-500 text-sm pb-4">
+                <p>Copyright &copy; 2026 TEAM일도킥복싱멀티짐. All rights reserved.</p>
+                <p class="text-xs mt-2 text-slate-600">본 사이트의 모든 이미지 및 콘텐츠는 무단 도용을 금합니다.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Custom Video Modal (1/2 Size on Desktop, Full Screen on Mobile) -->
+    <div id="video-modal" class="fixed inset-0 z-[10000] hidden items-center justify-center p-0 md:p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer" onclick="closeVideoModal()"></div>
+        <!-- Modal Content (Responsive Width) -->
+        <div class="relative z-10 w-full h-full md:h-auto md:w-[50vw] bg-slate-900 rounded-none md:rounded-2xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col justify-between md:justify-start">
+            <!-- Header -->
+            <div class="flex justify-between items-center p-4 border-b border-slate-800 bg-slate-900">
+                <h3 class="text-white font-bold" id="modal-title">비디오 플레이어</h3>
+                <button onclick="closeVideoModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <!-- Video Container -->
+            <div class="aspect-video w-full bg-black relative flex items-center justify-center flex-grow md:flex-grow-0">
+                <div id="modal-player" class="w-full h-full"></div>
+                
+                <!-- Custom Subtitle Overlay -->
+                <div id="video-subtitle-container" class="absolute bottom-8 left-0 right-0 flex justify-center pointer-events-none z-50">
+                    <span id="video-subtitle-text" class="bg-black/80 text-white px-6 py-2.5 rounded-xl text-lg md:text-xl font-medium tracking-wide text-center max-w-[85%] border border-white/20 shadow-lg hidden transition-opacity duration-300">
+                        자막을 불러오는 중입니다...
+                    </span>
+                </div>
+            </div>
+            <!-- Custom Player Controls -->
+            <div class="flex flex-wrap justify-center items-center gap-4 p-4 bg-slate-900 border-t border-slate-800">
+                <button onclick="playVideo()" class="flex items-center gap-2 px-5 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg transition-colors">
+                    <i class="fa-solid fa-play"></i> 재생
+                </button>
+                <button onclick="pauseVideo()" class="flex items-center gap-2 px-5 py-2 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition-colors">
+                    <i class="fa-solid fa-pause"></i> 중지
+                </button>
+                <button onclick="toggleSubtitle()" class="flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors">
+                    <i class="fa-solid fa-closed-captioning"></i> 자막 켜기/끄기
+                </button>
+                <button onclick="closeVideoModal()" title="나가기" class="w-10 h-10 flex items-center justify-center bg-red-600 hover:bg-red-500 text-white rounded-full transition-all shadow-lg shadow-red-500/20 group">
+                    <i class="fa-solid fa-arrow-right-from-bracket group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Image Modal (1/2 Size on Desktop, Full Screen on Mobile) -->
+    <div id="image-modal" class="fixed inset-0 z-[10001] hidden items-center justify-center p-0 md:p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer" onclick="closeImageModal()"></div>
+        <!-- Modal Content (Responsive Width) -->
+        <div class="relative z-10 w-full h-full md:h-auto md:max-w-4xl bg-slate-950 rounded-none md:rounded-2xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-between md:justify-start">
+            <!-- Header -->
+            <div class="flex justify-between items-center p-4 border-b border-slate-900 bg-slate-950">
+                <h3 class="text-white font-bold">이미지 상세 보기</h3>
+                <button onclick="closeImageModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <!-- Image Container -->
+            <div class="flex-grow flex items-center justify-center bg-black p-2 md:p-6 overflow-hidden">
+                <img id="modal-img" src="" alt="Gallery Image" class="max-w-full max-h-[70vh] md:max-h-[60vh] object-contain rounded-lg">
+            </div>
+            <!-- Footer -->
+            <div class="flex justify-center p-4 bg-slate-950 border-t border-slate-900">
+                <button onclick="closeImageModal()" class="px-6 py-2.5 bg-slate-800 hover:bg-red-600 text-white font-bold rounded-xl transition-colors border border-slate-700 hover:border-red-500">
+                    닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Video Modal & Real-Time Subtitle Logic
+        let ytPlayer = null;
+        let subtitleVisible = true;
+        let subtitleTimer = null;
+        let currentVideoId = null;
+
+        // Real-time subtitle timeline data
+        const subtitleTimelines = {
+            '1-EVNlNZiks': [
+                { start: 0, end: 3, text: '안녕하세요! 킥복싱 1단계 기초 훈련입니다.' },
+                { start: 3, end: 7, text: '가장 먼저 올바른 스탠스(자세)를 잡는 법을 배웁니다.' },
+                { start: 7, end: 12, text: '양발을 어깨너비로 벌리고 무게중심을 잡아주세요.' },
+                { start: 12, end: 20, text: '양손은 턱을 보호하기 위해 단단하게 가드를 올립니다.' },
+                { start: 20, end: 999, text: '이제 가볍게 리듬을 타며 스텝을 밟아보겠습니다.' }
+            ],
+            'sbNhd0JLQXA': [
+                { start: 0, end: 4, text: '킥복싱 2단계, 원투 펀치 훈련을 시작합니다.' },
+                { start: 4, end: 8, text: '앞손인 잽을 가볍고 빠르게 내뻗어 봅니다. (원!)' },
+                { start: 8, end: 13, text: '다음은 뒷손인 스트레이트입니다. 체중을 실어 강하게! (투!)' },
+                { start: 13, end: 18, text: '이때 골반과 어깨가 자연스럽게 회전해야 파워가 실립니다.' },
+                { start: 18, end: 999, text: '원, 투! 리듬에 맞춰 반복 훈련을 진행하겠습니다.' }
+            ],
+            'M3330xDmcN0': [
+                { start: 0, end: 3, text: '킥복싱의 꽃, 3단계 미들킥 훈련입니다.' },
+                { start: 3, end: 7, text: '타격 포인트를 상대방의 옆구리 쪽으로 설정하세요.' },
+                { start: 7, end: 12, text: '디딤발을 대각선으로 크게 내딛으며 골반을 열어줍니다.' },
+                { start: 12, end: 16, text: '정강이로 묵직하게 타격한다는 느낌으로 강하게 찹니다.' },
+                { start: 16, end: 999, text: '팔을 자연스럽게 휘두르며 회전력을 극대화하세요.' }
+            ],
+            'L3Fux_50Cyk': [
+                { start: 0, end: 4, text: '4단계, 펀치와 킥을 섞어 쓰는 콤비네이션입니다.' },
+                { start: 4, end: 9, text: '원투 펀치로 상대의 가드를 위로 끌어올립니다.' },
+                { start: 9, end: 14, text: '그 직후 비어있는 하단이나 중단으로 킥을 날립니다!' },
+                { start: 14, end: 19, text: '타격 후에는 항상 신속하게 원래의 가드 자세로 돌아옵니다.' },
+                { start: 19, end: 999, text: '상하 공격을 섞어 상대를 혼란스럽게 만드는 것이 핵심입니다.' }
+            ],
+            'vYvZ6LzIon4': [
+                { start: 0, end: 4, text: '5단계 실전 스파링 기초 훈련입니다.' },
+                { start: 4, end: 9, text: '실전에서는 공격만큼이나 상대방의 거리를 재는 것이 중요합니다.' },
+                { start: 9, end: 14, text: '끊임없이 스텝을 밟으며 상대의 공격 타이밍을 뺏으세요.' },
+                { start: 14, end: 999, text: '상대의 움직임을 주시하며 카운터 기회를 엿봅니다.' }
+            ],
+            'tPuvwPYjULw': [
+                { start: 0, end: 3, text: '실전 1: 코치님과의 1:1 미트 트레이닝 시간입니다!' },
+                { start: 3, end: 8, text: '구령에 맞춰 즉각적으로 반응하며 타격합니다.' },
+                { start: 8, end: 13, text: '동체 시력과 순발력을 기르는 데 최고의 훈련입니다.' },
+                { start: 13, end: 999, text: '지치지 말고 끝까지 집중력을 유지하세요!' }
+            ],
+            'FcqdrewWzWg': [
+                { start: 0, end: 4, text: '실전 2: 체력과 타격감을 극한으로 끌어올리는 샌드백 훈련.' },
+                { start: 4, end: 9, text: '실제 상대를 타격하듯 체중을 온전히 실어 쳐야 합니다.' },
+                { start: 9, end: 15, text: '연속 타격을 통해 심폐지구력과 근지구력을 단련합니다.' },
+                { start: 15, end: 999, text: '마지막 1초까지 펀치를 멈추지 마세요!' }
+            ],
+            'HViQL_A-cco': [
+                { start: 0, end: 4, text: '실전 3: 프로 선수부의 실전 대련(스파링)입니다.' },
+                { start: 4, end: 10, text: '보호구를 착용하고 배운 모든 기술을 실전 상황에 적용합니다.' },
+                { start: 10, end: 16, text: '치열한 공방 속에서도 멘탈을 유지하는 것이 중요합니다.' },
+                { start: 16, end: 999, text: '부상에 주의하며 서로 존중하는 마음으로 대련에 임합니다.' }
+            ]
+        };
+
+        const defaultTimeline = [
+            { start: 0, end: 4, text: '킥복싱 훈련 영상입니다. 즐겁게 감상하세요!' },
+            { start: 4, end: 8, text: '영상이 실시간으로 재생되며 자막이 동기화됩니다.' },
+            { start: 8, end: 999, text: '다양한 기술을 직접 보고 연습해 보세요.' }
+        ];
+
+        function onYouTubeIframeAPIReady() {
+            // API is ready, we wait for openVideoModal to create players
+        }
+
+        function openVideoModal(videoId) {
+            currentVideoId = videoId;
+            const modal = document.getElementById('video-modal');
+            const subtitleText = document.getElementById('video-subtitle-text');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            if(subtitleVisible) {
+                subtitleText.classList.remove('hidden');
+            }
+            subtitleText.innerText = '자막을 불러오는 중입니다...';
+
+            if (ytPlayer) {
+                ytPlayer.destroy();
+            }
+
+            ytPlayer = new YT.Player('modal-player', {
+                videoId: videoId,
+                playerVars: { 
+                    'autoplay': 1, 
+                    'controls': 0, 
+                    'rel': 0,
+                    'modestbranding': 1,
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            startSubtitleTracking();
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                startSubtitleTracking();
+            } else {
+                stopSubtitleTracking();
+            }
+        }
+
+        const generalTips = [
+            '가드를 항상 눈높이까지 단단하게 유지하세요.',
+            '타격 시 호흡을 짧게 뱉어 파워를 높이세요 (쉿!).',
+            '체중을 온전히 실어 타격해야 제대로 된 파워가 나옵니다.',
+            '시선은 바닥이 아닌 항상 상대방의 턱이나 가슴을 향하세요.',
+            '발놀림(스텝)은 리듬감 있고 가볍게 유지하는 것이 핵심입니다.',
+            '처음에는 파워보다 정확한 자세를 잡는 데 집중하세요.',
+            '공격이 끝난 후에는 언제나 신속하게 기본 방어 자세로 돌아옵니다.'
+        ];
+
+        function startSubtitleTracking() {
+            stopSubtitleTracking(); // Ensure no duplicates
+            const timeline = subtitleTimelines[currentVideoId] || defaultTimeline;
+            const subtitleText = document.getElementById('video-subtitle-text');
+
+            subtitleTimer = setInterval(() => {
+                if (ytPlayer && ytPlayer.getCurrentTime) {
+                    const time = ytPlayer.getCurrentTime();
+                    // Find matching subtitle block
+                    const currentBlock = timeline.find(block => time >= block.start && time < block.end);
+                    
+                    if (currentBlock) {
+                        subtitleText.innerText = currentBlock.text;
+                    } else if (time > 0) {
+                        // If no specific block is found, dynamically generate continuous cycling tips
+                        // so that the subtitle never disappears until the end of the video.
+                        const tipIndex = Math.floor(time / 5) % generalTips.length;
+                        subtitleText.innerText = '💡 실전 팁: ' + generalTips[tipIndex];
+                    }
+                }
+            }, 500); // Check every 0.5s
+        }
+
+        function stopSubtitleTracking() {
+            if (subtitleTimer) {
+                clearInterval(subtitleTimer);
+                subtitleTimer = null;
+            }
+        }
+
+        function playVideo() {
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') ytPlayer.playVideo();
+        }
+
+        function pauseVideo() {
+            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') ytPlayer.pauseVideo();
+        }
+
+        function toggleSubtitle() {
+            const subtitleText = document.getElementById('video-subtitle-text');
+            subtitleVisible = !subtitleVisible;
+            if(subtitleVisible) {
+                subtitleText.classList.remove('hidden');
+            } else {
+                subtitleText.classList.add('hidden');
+            }
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            
+            stopSubtitleTracking();
+            if (ytPlayer) {
+                ytPlayer.destroy();
+                ytPlayer = null;
+            }
+            
+            // Re-create the empty container for the next open
+            const container = document.querySelector('.aspect-video.w-full.bg-black.relative.flex');
+            const oldPlayer = document.getElementById('modal-player');
+            if(!oldPlayer && container) {
+                 const newDiv = document.createElement('div');
+                 newDiv.id = 'modal-player';
+                 newDiv.className = 'w-full h-full';
+                 container.insertBefore(newDiv, container.firstChild);
+            }
+
+            document.body.style.overflow = 'auto'; // restore scrolling
+        }
+
+        function openImageModal(src) {
+            const modal = document.getElementById('image-modal');
+            const img = document.getElementById('modal-img');
+            img.src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+
+    </script>
+
+    <!-- Floating Exit Button -->
+    <a href="/#portfolio" class="fixed bottom-[110px] right-6 z-[9999] bg-gray-900 text-white w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-2xl hover:bg-red-600 hover:scale-110 transition-all group border-2 border-white/20" title="나가기" style="text-decoration: none;">
+      <span class="text-[12px] font-black tracking-wider">나가기</span>
+    </a>
+
+</body>
+</html>
