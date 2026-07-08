@@ -16,7 +16,7 @@ export default function BenefitsPage() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-center pb-6 border-b border-slate-800 mb-10 gap-6 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start gap-3">
-            <h2 className="text-[21px] sm:text-3xl md:text-4xl font-black text-white tracking-tight flex flex-col sm:flex-row items-center gap-2">
+            <h2 className="text-[19px] sm:text-3xl md:text-4xl font-black text-white tracking-tight flex flex-col sm:flex-row items-center gap-2">
               월 12만원의 <span className="text-blue-400">압도적 종합 혜택</span>
             </h2>
             <span className="bg-blue-500/15 text-blue-300 border border-blue-400/30 text-[10px] sm:text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
