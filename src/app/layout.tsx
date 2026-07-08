@@ -30,6 +30,19 @@ export default function RootLayout({
       lang="ko"
       className={`${notoSansKr.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('unhandledrejection', function(event) {
+                if (event.reason && (event.reason.code === 4001 || (event.reason.message && event.reason.message.indexOf('wallet') !== -1))) {
+                  event.preventDefault();
+                }
+              });
+            `
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#08134a] text-white font-sans selection:bg-blue-650 selection:text-white overflow-x-hidden">
         <Header />
         <main className="flex-grow relative">{children}</main>
