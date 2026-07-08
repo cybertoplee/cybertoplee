@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영평OK셀프세차타운 - 자연속의 힐링세차</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pretendard Font Import (For modern premium typography) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QRious QR Code Generator Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jejuGreen: '#0fa37d',
+                        jejuLightGreen: '#e6f7f3',
+                        jejuDarkGreen: '#0a6c53',
+                        premiumBlue: '#1a365d',
+                        premiumDark: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+        }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.45)), url('../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(9)-BGVzAxNb.jpg');
+            background-size: cover;
+            background-position: center 35%;
+        }
+        .zoom-img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .zoom-img:hover {
+            transform: scale(1.08);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-emerald-100 transition-all duration-300 shadow-sm py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Premium Header Logo - Left logo image, Brand name directly next to it -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <!-- 1. Left aligned logo image -->
+                    <div class="h-10 sm:h-12 overflow-hidden rounded-xl border border-slate-200/80 bg-white p-1 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md flex items-center justify-center">
+                        <img src="../../assets/로고-Brp8IraY.jpeg" alt="영평OK셀프세차타운 공식로고" class="h-full w-auto object-contain rounded-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden h-full px-2.5 bg-gradient-to-tr from-jejuGreen to-emerald-500 items-center justify-center text-white font-black text-xs rounded-md">영평OK</div>
+                    </div>
+                    
+                    <!-- 2. Vertical Divider -->
+                    <div class="h-6 w-px bg-slate-200 mx-0.5 sm:mx-1"></div>
+                    
+                    <!-- 3. Brand name and sub-brand -->
+                    <div class="flex flex-col justify-center">
+                        <div class="flex items-center space-x-1">
+                            <span class="text-sm sm:text-base md:text-lg font-black text-premiumBlue tracking-tight leading-none">영평OK셀프세차타운</span>
+                            <span class="hidden sm:inline-block bg-emerald-500 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded-full uppercase tracking-wider leading-none">Premium</span>
+                        </div>
+                        <span class="text-[9px] sm:text-[10px] text-emerald-600 font-bold block mt-1 leading-none">제주도 자연 속 명품 힐링 세차</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Menu (Scroll Spy Active Link styling handled dynamically in JS) -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-slate-600 hover:text-jejuGreen font-bold transition-colors py-2 text-sm tracking-wide border-b-2 border-transparent">홈</a>
+                    <a href="#prices" class="text-slate-600 hover:text-jejuGreen font-bold transition-colors py-2 text-sm tracking-wide border-b-2 border-transparent">가격표</a>
+                    <a href="#gallery" class="text-slate-600 hover:text-jejuGreen font-bold transition-colors py-2 text-sm tracking-wide border-b-2 border-transparent">시설 갤러리</a>
+                    <a href="#reviews" class="text-slate-600 hover:text-jejuGreen font-bold transition-colors py-2 text-sm tracking-wide border-b-2 border-transparent">방문자 리뷰</a>
+                </nav>
+
+                <!-- Right Side Info (Phone Action) -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="tel:010-4155-7277" class="bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100 px-4 py-2.5 rounded-xl text-xs font-bold tracking-wider transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>문의: 010-4155-7277</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-700 hover:text-jejuGreen focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg px-4 py-4 space-y-3">
+            <a href="#home" class="block text-slate-700 hover:text-jejuGreen font-bold px-3 py-2 rounded-lg text-sm">홈</a>
+            <a href="#prices" class="block text-slate-700 hover:text-jejuGreen font-bold px-3 py-2 rounded-lg text-sm">가격표</a>
+            <a href="#gallery" class="block text-slate-700 hover:text-jejuGreen font-bold px-3 py-2 rounded-lg text-sm">시설 갤러리</a>
+            <a href="#reviews" class="block text-slate-700 hover:text-jejuGreen font-bold px-3 py-2 rounded-lg text-sm">방문자 리뷰</a>
+            <a href="tel:010-4155-7277" class="block w-full text-center bg-jejuGreen text-white font-bold py-2.5 rounded-xl text-sm shadow-md">
+                <i class="fa-solid fa-phone mr-1.5"></i> 문의하기 (010-4155-7277)
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (HOME) -->
+    <section id="home" class="relative pt-20 overflow-hidden">
+        <!-- Main Hero Banner with Real Self Car Wash Image -->
+        <div class="hero-bg h-[650px] flex items-center justify-center relative">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+            
+            <div class="relative max-w-5xl mx-auto px-4 text-center text-white z-10 space-y-6">
+                <!-- Branding Display incorporating the brand logo image -->
+                <div class="inline-flex items-center space-x-2 bg-slate-900/80 text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest shadow-lg border border-emerald-500/30 backdrop-blur-sm animate-bounce">
+                    <i class="fa-solid fa-soap text-emerald-400"></i>
+                    <span>Premium Self Car Wash Place</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight pt-2">
+                    자연 속의 <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-400">힐링 세차</span>
+                </h1>
+                <p class="text-base sm:text-xl text-slate-100 font-light max-w-2xl mx-auto leading-relaxed">
+                    제주도 천혜의 푸른 자연 경관을 마주하며 느끼는 최고의 만족!<br>
+                    최고급 세차 인프라와 쾌적한 전용 휴게 공간을 합리적인 비용으로 즐겨보세요.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#prices" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-jejuGreen to-emerald-500 hover:from-jejuDarkGreen hover:to-jejuGreen text-white font-bold rounded-2xl shadow-xl shadow-emerald-500/20 transform hover:-translate-y-0.5 transition-all text-sm tracking-wider">
+                        <i class="fa-solid fa-wallet mr-2"></i> 합리적인 요금 보기
+                    </a>
+                    <a href="#gallery" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-2xl border border-white/20 backdrop-blur-md transform hover:-translate-y-0.5 transition-all text-sm tracking-wider">
+                        <i class="fa-solid fa-images mr-2"></i> 실제 현장 갤러리 둘러보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Jeju Weather Indicator (Interactive Widget) -->
+            <div class="absolute bottom-6 right-6 z-20 hidden md:block bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-emerald-50/20 text-slate-800 max-w-xs transition-transform hover:scale-105">
+                <div class="flex items-center justify-between space-x-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+                            <i id="weather-icon" class="fa-solid fa-cloud-sun text-lg animate-pulse"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 block font-medium">제주 아라동 세차지수</span>
+                            <span class="text-sm font-bold text-slate-700">추천 (매우 맑음)</span>
+                        </div>
+                    </div>
+                    <span class="text-lg font-black text-emerald-600">95%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location & Contact Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-30">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Contact info cards -->
+                <div class="lg:col-span-4 bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-emerald-50/50 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-premiumBlue mb-6 flex items-center">
+                            <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 text-sm">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </span>
+                            매장 기본 안내
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="w-6 text-emerald-500 mt-1"><i class="fa-solid fa-map-location-dot"></i></span>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">매장 주소</span>
+                                    <span class="text-sm font-bold text-slate-700">제주시 사송길 137</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 text-emerald-500 mt-1"><i class="fa-solid fa-compass"></i></span>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">위치 안내</span>
+                                    <span class="text-sm font-bold text-slate-700">아라119센터 맞은 편 길건너</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-6 text-emerald-500 mt-1"><i class="fa-solid fa-user-tie"></i></span>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">세차타운 대표자</span>
+                                    <span class="text-sm font-bold text-slate-700">이계민 대표</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-slate-100 mt-6">
+                        <a href="tel:010-4155-7277" class="w-full py-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-2xl transition-all flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-phone-volume text-base"></i>
+                            <span>바로 전화 문의하기</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Custom Visual Map Guide (Sashong-ro intersection style) -->
+                <div class="lg:col-span-8 bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-emerald-50/50">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-premiumBlue flex items-center">
+                                <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 text-sm">
+                                    <i class="fa-solid fa-map"></i>
+                                </span>
+                                사송로 교차로 안내 지도
+                            </h3>
+                            <p class="text-xs text-slate-400 mt-1">아라119센터 바로 맞은편에 있어 진입이 매우 쉽고 주차가 편리합니다.</p>
+                        </div>
+                        <a href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%82%AC%EC%86%A1%EA%B8%B8%20137" target="_blank" class="inline-flex items-center space-x-1 text-xs font-bold text-emerald-600 hover:text-emerald-700 transition-colors">
+                            <span>네이버 지도로 보기</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <!-- Beautifully Designed Vector Map Mockup with realistic layout -->
+                    <div class="relative w-full h-56 bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden flex items-center justify-center">
+                        <!-- Simulated Grid Streets -->
+                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#0fa37d 1px, transparent 1px); background-size: 24px 24px;"></div>
+                        
+                        <!-- Map Roads -->
+                        <div class="absolute w-full h-12 bg-slate-200 top-1/2 -translate-y-1/2 rotate-0"></div> <!-- 사송로 -->
+                        <div class="absolute w-12 h-full bg-slate-200 left-1/3 -translate-x-1/2 rotate-12"></div> <!-- 중앙로 사선 -->
+
+                        <!-- Intersection Text -->
+                        <div class="absolute top-[35%] left-[25%] bg-slate-400/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                            사송로 교차로
+                        </div>
+
+                        <!-- Ara 119 center landmark -->
+                        <div class="absolute bottom-6 left-[15%] bg-rose-50 border border-rose-200 px-3 py-1.5 rounded-xl shadow-sm text-center">
+                            <div class="text-[10px] text-rose-500 font-bold flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-truck-medical"></i> 랜드마크
+                            </div>
+                            <span class="text-xs font-black text-rose-700">아라 119 안전센터</span>
+                        </div>
+
+                        <!-- OK Car Wash Landmark -->
+                        <div class="absolute top-6 right-[20%] bg-emerald-600 text-white px-5 py-3 rounded-2xl shadow-lg ring-4 ring-emerald-100 flex flex-col items-center">
+                            <span class="text-[9px] uppercase tracking-widest font-bold text-emerald-200">현재 위치</span>
+                            <span class="text-sm font-black flex items-center gap-1.5">
+                                <i class="fa-solid fa-car-wash"></i> 영평OK셀프세차타운
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-2 right-4 text-[10px] text-slate-400 font-medium">
+                            <i class="fa-solid fa-circle-info mr-1"></i> 사송길 137 로타리 2분 거리
+                        </div>
+                    </div>
+                </div>
+
+            
+
+
+
+        </div>
+    </section>
+
+        <!-- PRICE LIST SECTION -->
+    <section id="prices" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full inline-block mb-3">Best Price & Quality</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-premiumBlue tracking-tight">세차 요금 및 프리미엄 손 세차 안내</h2>
+            <p class="text-slate-500 mt-3 text-sm sm:text-base">최고의 전문 세차 옵션을 전국 최저가 수준의 합리적인 비용으로 제공합니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Side: Basic Wash & Wash Items -->
+            <div class="lg:col-span-6 space-y-6">
+                <!-- Basic Wash Card -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider">셀프 기본 세차</div>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl shadow-sm transition-transform group-hover:scale-110 duration-300">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 block font-medium">BASIC CHARGE</span>
+                            <h3 class="text-xl font-bold text-slate-800">기본 세차</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-baseline space-x-2 mb-4">
+                        <span class="text-3xl font-black text-premiumBlue">3,000원</span>
+                        <span class="text-sm text-slate-500">/ 기본시간 4분 제공</span>
+                    </div>
+                    
+                    <div class="space-y-2 text-sm text-slate-600 border-t border-slate-100 pt-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-slate-700">시간 연장 요금</span>
+                            <span class="font-black text-emerald-600">1분당 500원</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">
+                            <i class="fa-solid fa-circle-info mr-1"></i> 기기 사용시간에 따라 최종 이용 요금 차이가 있을 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Wash Items Card -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
+                    <h3 class="text-lg font-bold text-slate-800 mb-6 flex items-center">
+                        <span class="w-2.5 h-6 bg-emerald-500 rounded-full mr-2.5 inline-block"></span>
+                        전문 셀프 세차 항목
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Item 1 -->
+                        <div class="bg-slate-50 hover:bg-emerald-50/30 p-4 rounded-2xl border border-slate-100 hover:border-emerald-100 transition-colors flex items-center space-x-3.5 group">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg transition-transform group-hover:scale-110">
+                                <i class="fa-solid fa-shower"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-800 block">고압 세차</span>
+                                <span class="text-[10px] text-slate-400">강력 고압 헹굼</span>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="bg-slate-50 hover:bg-emerald-50/30 p-4 rounded-2xl border border-slate-100 hover:border-emerald-100 transition-colors flex items-center space-x-3.5 group">
+                            <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg transition-transform group-hover:scale-110">
+                                <i class="fa-solid fa-soap"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-800 block">폼건 세차</span>
+                                <span class="text-[10px] text-slate-400">오염 완벽 불림</span>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="bg-slate-50 hover:bg-emerald-50/30 p-4 rounded-2xl border border-slate-100 hover:border-emerald-100 transition-colors flex items-center space-x-3.5 group">
+                            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg transition-transform group-hover:scale-110">
+                                <i class="fa-solid fa-sparkles"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-800 block">왁스 세차</span>
+                                <span class="text-[10px] text-slate-400">반짝이는 코팅막</span>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="bg-slate-50 hover:bg-emerald-50/30 p-4 rounded-2xl border border-slate-100 hover:border-emerald-100 transition-colors flex items-center space-x-3.5 group">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-lg transition-transform group-hover:scale-110">
+                                <i class="fa-solid fa-car-side"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-800 block">하부 세차</span>
+                                <span class="text-[10px] text-slate-400">염분 및 오염 제거</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Special Wash & Glass Film Removal -->
+            <div class="lg:col-span-6 space-y-6">
+                <!-- Special Wash Card -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider">특별 세차</div>
+                    
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl shadow-sm transition-transform group-hover:scale-110 duration-300">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 block font-medium">PREMIUM HAND WASH</span>
+                            <h3 class="text-xl font-bold text-slate-800">프리미엄 손 세차</h3>
+                        </div>
+                    </div>
+
+                    <!-- Pricing by Car Sizes -->
+                    <div class="grid grid-cols-3 gap-3 mb-6">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center">
+                            <span class="text-xs text-slate-400 block font-bold mb-1">소형 차량</span>
+                            <span class="text-lg font-black text-premiumBlue">20,000원</span>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center">
+                            <span class="text-xs text-slate-400 block font-bold mb-1">중형 차량</span>
+                            <span class="text-lg font-black text-premiumBlue">30,000원</span>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center">
+                            <span class="text-xs text-slate-400 block font-bold mb-1">대형 차량</span>
+                            <span class="text-lg font-black text-premiumBlue">50,000원</span>
+                        </div>
+                    </div>
+
+                    <!-- Details and Options -->
+                    <div class="space-y-3.5 text-xs text-slate-600 border-t border-slate-100 pt-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-calendar-check text-emerald-500 text-sm"></i>
+                            <span class="font-bold text-slate-700">1일 전 사전 예약제 서비스</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-square-xmark text-rose-500 text-sm"></i>
+                            <span class="text-rose-600 font-bold">내부 세차는 기본 요금에 미포함</span>
+                        </div>
+                        <div class="bg-emerald-50/50 p-3.5 rounded-2xl border border-emerald-100/60 mt-2 space-y-2">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="font-bold text-slate-800">내부 세차 추가 옵션</span>
+                                <span class="font-black text-emerald-700">+10,000원</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">
+                                <i class="fa-solid fa-triangle-exclamation mr-0.5 text-amber-500"></i> 단, 도난 및 분실은 책임지지 않으며, 반려동물 털 등 상태에 따라 세차가 상이할 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glass Film Removal Card -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider">전문 클리닝</div>
+                    
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl shadow-sm transition-transform group-hover:scale-110 duration-300">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 block font-medium">GLASS FILM REMOVAL</span>
+                            <h3 class="text-xl font-bold text-slate-800">유막 제거 서비스</h3>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        <div class="flex justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            <span class="text-sm font-bold text-slate-700">전면 앞 유리 유막제거</span>
+                            <span class="text-lg font-black text-premiumBlue">35,000원</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            <span class="text-sm font-bold text-slate-700">전체 유리 유막제거</span>
+                            <span class="text-lg font-black text-premiumBlue">80,000원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recruitment Banner Notice -->
+        <div class="mt-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white rounded-3xl p-8 border border-emerald-700/30 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl animate-fade-in">
+            <div class="flex items-center space-x-5 text-left">
+                <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 text-white flex items-center justify-center text-2xl animate-pulse">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] font-black tracking-widest text-emerald-300 uppercase block">RECRUITMENT</span>
+                    <h3 class="text-xl font-black leading-tight mt-0.5">손 세차 전담 프리랜서 구함</h3>
+                    <p class="text-xs text-emerald-100/80 mt-1">세차가 즐거운 누구나! 초보자 가능하며, 면접 후 결정됩니다.</p>
+                </div>
+            </div>
+            <a href="tel:010-4155-7277" class="bg-white hover:bg-emerald-50 text-emerald-900 font-black text-sm px-7 py-4 rounded-2xl shadow-lg transition-all flex items-center space-x-2 transform hover:-translate-y-0.5">
+                <i class="fa-solid fa-phone"></i>
+                <span>지원 문의 전화하기</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FACILITY GALLERY SECTION (Categorized with Videos and Photos) -->
+    <section id="gallery" class="py-24 bg-emerald-50/30 hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+                                    <!-- Video Section (1 Row of 4 Videos each = 4 Videos) -->
+            <div>
+                <div class="mb-8">
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full inline-block mb-3">Eco-Friendly Facilities</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-premiumBlue tracking-tight">영평 OK 세차타운 셀프 세차 안내 영상</h2>
+                    <p class="text-slate-500 mt-2 text-sm">초보자도 당황하지 않고 손쉽게 마스터할 수 있는 셀프 세차 이용 가이드 영상입니다.</p>
+                </div>
+                
+                <!-- Videos Grid: 4 items in a row (Total 1 row, 4 videos) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Video 1 -->
+                    <div class="rounded-2xl overflow-hidden aspect-video border border-slate-200 bg-slate-900 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/6IRpZHyaIR0?mute=1&controls=0&modestbranding=1" title="초보 셀프세차 완벽 가이드" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('6IRpZHyaIR0')">
+                            <span class="absolute bottom-2 left-2 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded font-bold shadow">초보 셀프세차 완벽 가이드</span>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="rounded-2xl overflow-hidden aspect-video border border-slate-200 bg-slate-900 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/okFue3X3EGk?mute=1&controls=0&modestbranding=1" title="셀프세차장 처음 이용 가이드" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('okFue3X3EGk')">
+                            <span class="absolute bottom-2 left-2 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded font-bold shadow">셀프세차장 처음 이용 가이드</span>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden aspect-video border border-slate-200 bg-slate-900 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/pI1hf5DPszU?mute=1&controls=0&modestbranding=1" title="초보 맞춤 셀프세차 꿀팁" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('pI1hf5DPszU')">
+                            <span class="absolute bottom-2 left-2 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded font-bold shadow">초보 맞춤 셀프세차 꿀팁</span>
+                        </div>
+                    </div>
+                    <!-- Video 4 -->
+                    <div class="rounded-2xl overflow-hidden aspect-video border border-slate-200 bg-slate-900 shadow-lg relative group">
+                        <iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.youtube.com/embed/R-F68V_02nE?mute=1&controls=0&modestbranding=1" title="초보 셀프세차 5분 정복" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div class="absolute inset-0 z-10 cursor-pointer bg-black/20 group-hover:bg-transparent transition-colors" 
+                             onmouseenter="this.previousElementSibling.src += '&autoplay=1'"
+                             onmouseleave="this.previousElementSibling.src = this.previousElementSibling.src.replace('&autoplay=1', '')"
+                             onclick="openVideoModal('R-F68V_02nE')">
+                            <span class="absolute bottom-2 left-2 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded font-bold shadow">초보 셀프세차 5분 정복</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Photo Gallery Section (2 Rows of 4 Photos each = 8 Photos) -->
+            <div>
+                <div class="mb-8">
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full inline-block mb-3">Eco-Friendly Facilities</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-premiumBlue tracking-tight">영평 OK 세차타운 사진 갤러리</h2>
+                    <p class="text-slate-500 mt-2 text-sm">넓고 쾌적한 세차 타운의 최신식 부대 시설 전경입니다.</p>
+                </div>
+                
+                <!-- Photos Grid: 4 items in a row (Total 2 rows, 8 photos) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" id="gallery-grid">
+                    <!-- Row 1 -->
+                    <!-- Photo 1 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드.jpeg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-BcvwdWfg.jpeg" alt="영평OK셀프세차타운 힐링 가이드" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">소개 가이드</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">자연속 힐링 세차 가이드</h4>
+                        </div>
+                    </div>
+                    <!-- Photo 2 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드 (1).jpeg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(1)-f_-MHDnv.jpeg" alt="매장 기본 정보 안내" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">안내서</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">매장 위치 및 운영시간 안내</h4>
+                        </div>
+                    </div>
+                    <!-- Photo 3 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드 (2).jpeg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(2)-BWm1IIcn.jpeg" alt="요금 및 서비스 안내" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">요금표</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">세차 요금 및 서비스 안내</h4>
+                        </div>
+                    </div>
+                    <!-- Photo 4 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드 (3).jpeg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(3)-DcW63pjY.jpeg" alt="하부 세차 시스템" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">세차 시스템</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">전문 세차 시스템 정보</h4>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <!-- Photo 5 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드 (5).jpeg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(5)-DVHIGWLr.jpeg" alt="채용 안내" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">채용 안내</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">프리랜서 채용 모집공고</h4>
+                        </div>
+                    </div>
+                    <!-- Photo 6 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드 (7).jpeg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(7)-eUGzbxB_.jpeg" alt="디테일링 팁" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">세차 정보</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">셀프 세차 디테일링 팁</h4>
+                        </div>
+                    </div>
+                    <!-- Photo 7 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드 (8).jpeg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(8)-_qE1pjKR.jpeg" alt="도장 광택 피니시" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">디테일링</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">유리막 광택 마감 팁</h4>
+                        </div>
+                    </div>
+                    <!-- Photo 8 -->
+                    <div class="bg-white rounded-3xl p-3 shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 cursor-pointer" onclick="openImageModal('다운로드 (9).jpg')">
+                        <div class="h-48 rounded-2xl overflow-hidden relative group">
+                            <img src="../../assets/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(9)-BGVzAxNb.jpg" alt="실제 세차 진행 전경" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-expand mr-1"></i> 크게 보기</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase">갤러리</span>
+                            <h4 class="text-sm font-bold text-slate-800 mt-1">영평 OK 세차타운 전경</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- External Synchronizing Button -->
+                <div class="text-center mt-12">
+                    <a href="https://pcmap.place.naver.com/place/1812001941/photo" target="_blank" class="inline-flex items-center space-x-2.5 px-7 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/20 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-sync"></i>
+                        <span>네이버 플레이스 실시간 갤러리 동기화</span>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- VISITOR REVIEWS SECTION (Interactive board & Naver integration) -->
+    <section id="reviews" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full inline-block mb-3">Customer Love</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-premiumBlue tracking-tight">방문자 생생 리뷰 게시판</h2>
+            <p class="text-slate-500 mt-3 text-sm sm:text-base">제주도 최고의 힐링 세차 공간으로 인정받은 고객님들의 솔직한 후기입니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Review Submission Form -->
+            <div class="lg:col-span-4 bg-white rounded-3xl p-8 shadow-md border border-slate-100">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">실시간 리뷰 작성하기</h3>
+                <p class="text-xs text-slate-400 mb-6">방문하셨던 소중한 소감을 아래 별점과 함께 가감없이 공유해 주세요.</p>
+                
+                <form id="review-form" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1.5">별점 선택</label>
+                        <div class="flex items-center space-x-1.5 text-slate-300 text-xl" id="star-rating-selector">
+                            <i class="fa-solid fa-star cursor-pointer hover:text-amber-400 transition-colors" onclick="setRating(1)"></i>
+                            <i class="fa-solid fa-star cursor-pointer hover:text-amber-400 transition-colors" onclick="setRating(2)"></i>
+                            <i class="fa-solid fa-star cursor-pointer hover:text-amber-400 transition-colors" onclick="setRating(3)"></i>
+                            <i class="fa-solid fa-star cursor-pointer hover:text-amber-400 transition-colors" onclick="setRating(4)"></i>
+                            <i class="fa-solid fa-star cursor-pointer hover:text-amber-400 transition-colors" onclick="setRating(5)"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1.5">작성자 닉네임</label>
+                        <input type="text" id="review-author" required placeholder="예: 한라산라이더" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1.5">리뷰 후기 내용</label>
+                        <textarea id="review-text" required rows="3" placeholder="세차 공간의 청결함, 시설 만족도 등을 자유롭게 작성해 주세요!" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/15 transition-all text-xs tracking-wider">
+                        <i class="fa-solid fa-paper-plane mr-1.5"></i> 리뷰 등록하기
+                    </button>
+                </form>
+            </div>
+
+            <!-- Review Lists in Board layout -->
+            <div class="lg:col-span-8 bg-white rounded-3xl shadow-md border border-slate-100 overflow-hidden">
+                <div class="p-6 bg-slate-50/50 border-b border-slate-100 flex items-center justify-between">
+                    <span class="text-sm font-bold text-slate-700">전체 등록 리뷰 (<span id="review-count">3</span>개)</span>
+                    <span class="text-xs text-emerald-600 font-bold"><i class="fa-solid fa-check-double mr-1"></i> 검증된 안심 후기</span>
+                </div>
+
+                <!-- Feed Lists container -->
+                <div id="review-feed" class="divide-y divide-slate-100">
+                    <!-- Preloaded Review 1 -->
+                    <div class="p-6 space-y-3 transition-colors hover:bg-emerald-50/10">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-emerald-700 text-sm">
+                                    제
+                                </div>
+                                <div>
+                                    <span class="text-sm font-bold text-slate-800 block">제주올레드라이브</span>
+                                    <span class="text-xs text-slate-400 block">방문일: 2026.05.10</span>
+                                </div>
+                            </div>
+                            <div class="text-amber-400 text-sm font-bold">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            아라119 안전센터 바로 길건너 맞은편에 있어서 주소 찾기 쉽고 오가기 엄청 편리합니다. 세차장 뒤로 제주의 짙은 초록빛 나무들이 가득 차 있어서, 고압수 뿌리면서 바람 쐬니까 정말 스트레스 해소되고 힐링이 절로 돼요! 버블세차 스노우폼 밀도도 대단하네요. 단연 시설 최고입니다!
+                        </p>
+                    </div>
+
+                    <!-- Preloaded Review 2 -->
+                    <div class="p-6 space-y-3 transition-colors hover:bg-emerald-50/10">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-emerald-700 text-sm">
+                                    M
+                                </div>
+                                <div>
+                                    <span class="text-sm font-bold text-slate-800 block">ModelXJeju</span>
+                                    <span class="text-xs text-slate-400 block">방문일: 2026.05.08</span>
+                                </div>
+                            </div>
+                            <div class="text-amber-400 text-sm font-bold">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            자동세차랑 하부세차 복합으로 이용했는데, 단돈 만원에 바닷가 드라이브 다녀오며 걱정됐던 염화성분들 확실하게 씻어냈습니다! 드라이 에어건 공간에 칸막이도 잘 되어 있고, 온수 잘 나오는 전용 원목 개수대에 매트 세척기까지 최신식이라 힘 안 들이고 내부 세차까지 깔끔하게 끝마칩니다!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-50/30 text-center border-t border-slate-100">
+                    <a href="https://pcmap.place.naver.com/place/1812001941/review" target="_blank" class="inline-flex items-center space-x-2 text-xs font-bold text-emerald-600 hover:text-emerald-700 transition-colors">
+                        <span>네이버 지도 방문자 전체 영수증 리뷰 보기</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10">
+            <!-- Brand Column -->
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="h-10 rounded-lg bg-white p-0.5 flex items-center justify-center overflow-hidden">
+                        <img src="../../assets/로고-Brp8IraY.jpeg" alt="로고" class="h-full w-auto object-contain rounded" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-slate-800 font-black text-xs">OK</span>
+                    </div>
+                    <span class="text-xl font-black text-white tracking-tight">영평OK셀프세차타운</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                    제주 천혜의 자연속 청명한 정취와 첨단 고압 셀프 세차 시스템의 완벽한 어우러짐. 합리적인 가격과 정성이 담긴 관리로 늘 쾌적함을 선물하겠습니다.
+                </p>
+                <div class="flex space-x-3 text-lg">
+                    <a href="https://pcmap.place.naver.com/place/1812001941" target="_blank" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all"><i class="fa-solid fa-map-location-dot text-xs"></i></a>
+                    <a href="tel:010-4155-7277" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all"><i class="fa-solid fa-phone text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- Direct Contact Links -->
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-white">세차타운 상세소재</h4>
+                <ul class="space-y-3 text-xs text-slate-400">
+                    <li class="flex items-start">
+                        <span class="w-5 text-emerald-400"><i class="fa-solid fa-location-dot"></i></span>
+                        <span>제주시 사송길 137 (아라119센터 맞은 편 길건너)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-5 text-emerald-400"><i class="fa-solid fa-user"></i></span>
+                        <span>대표: 이계민</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-5 text-emerald-400"><i class="fa-solid fa-headset"></i></span>
+                        <span>010-4155-7277 (예약 및 가맹 상담 환영)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Operations Info -->
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-white">이용 안내</h4>
+                <ul class="space-y-2 text-xs text-slate-400">
+                    <li>365일 연중무휴 24시간 오픈</li>
+                    <li>고압 / 버블 세차 라인 완비</li>
+                    <li>스마트 IC카드 충전 시 보너스 혜택</li>
+                    <li>주변 아라동, 영평동 최고의 접근성</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 mt-10 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <span class="text-slate-500">© 2026 영평OK셀프세차타운. All rights reserved.</span>
+            <div class="flex space-x-6">
+                <a href="#home" class="hover:text-white transition-colors">홈으로</a>
+                <a href="#prices" class="hover:text-white transition-colors">요금표</a>
+                <a href="#gallery" class="hover:text-white transition-colors">갤러리</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE LIGHTBOX MODAL FOR GALLERY -->
+    <div id="lightbox" class="hidden fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-emerald-400 transition-colors text-3xl focus:outline-none">
+            <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full flex flex-col items-center px-4">
+            <div class="relative w-full max-h-[70vh] rounded-3xl overflow-hidden bg-slate-900 border border-white/10 shadow-2xl flex items-center justify-center">
+                <img id="lightbox-img" src="" alt="확대 이미지" class="max-w-full max-h-[70vh] object-contain">
+            </div>
+            <h3 id="lightbox-title" class="text-emerald-400 text-lg font-black mt-5 text-center tracking-wide"></h3>
+            <p id="lightbox-caption" class="text-slate-200 text-sm mt-2 text-center max-w-2xl leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- SECURITY REPORT MODAL (QR 스탬프 인증 결과 안내 모달) -->
+    <div id="stamp-view-modal" class="hidden fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 space-y-4 animate-fade-in">
+            <div class="text-center">
+                <div class="mx-auto w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-3">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-sm font-black text-slate-900">QR 스탬프 인증 결과서</h3>
+                <p class="text-[10px] text-slate-400 mt-0.5">실시간 스캔된 보안 토큰의 상태 검증 결과입니다.</p>
+            </div>
+            
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-xs space-y-2 font-mono">
+                <div class="flex justify-between">
+                    <span class="text-slate-400">인증 상태:</span>
+                    <span id="scanned-modal-status" class="font-bold text-emerald-600">성공</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">생성 시간:</span>
+                    <span id="scanned-modal-created" class="text-slate-700">09:43:12</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">검증 지연:</span>
+                    <span id="scanned-modal-delay" class="text-slate-700">2초 간격</span>
+                </div>
+                <div class="border-t border-slate-200 my-1 pt-1">
+                    <span class="text-slate-400 block mb-0.5">보안 해시 토큰:</span>
+                    <span id="scanned-modal-token" class="text-[9px] text-slate-500 break-all leading-relaxed block">YPOK-STAMP-...</span>
+                </div>
+            </div>
+            
+            <button onclick="closeStampModal()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl transition-all text-xs tracking-wider">
+                확인 및 닫기
+            </button>
+        </div>
+    </div>
+
+    <!-- LEDGER COUNT MODAL (스탬프 및 쿠폰 통합 관리 대장) -->
+    <div id="ledger-modal" class="hidden fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-hidden shadow-2xl border border-slate-100 flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-slate-150 flex justify-between items-center bg-slate-50">
+                <div>
+                    <h3 class="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-emerald-600"></i>
+                        <span>실시간 세차 이용 및 쿠폰 대장</span>
+                    </h3>
+                    <p class="text-[10px] text-slate-400 mt-0.5">금월 스탬프 적립 및 발급된 30일 세차 무료 교환권 현황입니다.</p>
+                </div>
+                <button onclick="closeLedgerModal()" class="text-slate-400 hover:text-slate-700 transition-colors text-xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-6 overflow-y-auto space-y-6 flex-1 bg-slate-50/50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Stamp Ledger Column -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-slate-800 flex items-center gap-1.5">
+                                <i class="fa-solid fa-stamp text-emerald-600"></i> 스탬프 발행 내역
+                            </span>
+                            <span id="ledger-stamp-count" class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full">총 0건</span>
+                        </div>
+                        <div id="ledger-stamp-rows" class="space-y-2.5 max-h-[45vh] overflow-y-auto pr-1">
+                            <div class="text-center py-10 text-xs text-slate-400 font-medium">발행된 스탬프 정보가 아직 존재하지 않습니다.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Coupon Ledger Column -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-slate-800 flex items-center gap-1.5">
+                                <i class="fa-solid fa-ticket text-amber-600"></i> 쿠폰 발행 및 정산
+                            </span>
+                            <span id="ledger-coupon-count" class="bg-amber-50 text-amber-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full">총 0건</span>
+                        </div>
+                        <div id="ledger-coupon-rows" class="space-y-2.5 max-h-[45vh] overflow-y-auto pr-1">
+                            <div class="text-center py-10 text-xs text-slate-400 font-medium">사용 만료 또는 교환된 쿠폰 내역이 없습니다.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST MESSAGE BOX -->
+    <div id="toast-message-box" class="hidden fixed bottom-10 left-1/2 -translate-x-1/2 z-[150] px-5 py-3 rounded-2xl text-white font-bold text-xs shadow-2xl flex items-center space-x-2 transition-all duration-300">
+        <i class="fa-solid fa-bell text-sm"></i>
+        <span>알림 메시지</span>
+    </div>
+
+    <!-- CORE SCRIPTS -->
+    <script>
+        // --- MOBILE MENU TOGGLE ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking any link
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- STICKY HEADER SCROLL EFFECT ---
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'py-1');
+                header.classList.remove('shadow-sm', 'py-2');
+            } else {
+                header.classList.remove('shadow-lg', 'py-1');
+                header.classList.add('shadow-sm', 'py-2');
+            }
+        });
+
+        // --- TAB/PAGE NAVIGATION ROUTING (HASH-BASED) ---
+        const navSections = document.querySelectorAll('section[id]');
+        const desktopNavLinks = document.querySelectorAll('header nav a[href^="#"]');
+
+        function navigateToSection() {
+            const hash = window.location.hash || '#home';
+            const targetId = hash.substring(1);
+            const validSections = ['home', 'prices', 'gallery', 'reviews'];
+            
+            if (!validSections.includes(targetId)) return;
+
+            // Hide all sections
+            validSections.forEach(id => {
+                const sec = document.getElementById(id);
+                if (sec) sec.classList.add('hidden');
+            });
+
+            // Show active section
+            const activeSec = document.getElementById(targetId);
+            if (activeSec) {
+                activeSec.classList.remove('hidden');
+                // Scroll to top of the page so they are at the top of the tab
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+
+            // Update Desktop Menu
+            desktopNavLinks.forEach(link => {
+                link.classList.remove('text-jejuGreen', 'border-jejuGreen');
+                link.classList.add('text-slate-600', 'border-transparent');
+                if (link.getAttribute('href') === hash) {
+                    link.classList.add('text-jejuGreen', 'border-jejuGreen');
+                    link.classList.remove('text-slate-600', 'border-transparent');
+                }
+            });
+            
+            // Update Mobile Menu
+            const mobileLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+            mobileLinks.forEach(link => {
+                link.classList.remove('text-jejuGreen', 'bg-emerald-50/50');
+                link.classList.add('text-slate-700');
+                if (link.getAttribute('href') === hash) {
+                    link.classList.add('text-jejuGreen', 'bg-emerald-50/50');
+                    link.classList.remove('text-slate-700');
+                }
+            });
+        }
+
+        window.addEventListener('hashchange', navigateToSection);
+
+        // --- 맞춤형 요금 계산기 ---
+        function calculateTotal() {
+            const checkboxes = document.querySelectorAll('#calculator-checkboxes input[type="checkbox"]');
+            let total = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    total += parseInt(cb.value);
+                }
+            });
+            document.getElementById('total-price').textContent = total.toLocaleString() + '원';
+        }
+
+        // --- GALLERY CATEGORY FILTER ---
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.gallery-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-emerald-600', 'text-white', 'shadow-md', 'shadow-emerald-600/10');
+                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-100');
+            });
+            
+            event.target.classList.add('bg-emerald-600', 'text-white', 'shadow-md', 'shadow-emerald-600/10');
+            event.target.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-100');
+
+            const items = document.querySelectorAll('.gallery-card-item');
+            items.forEach(item => {
+                item.classList.remove('animate-fade-in');
+                void item.offsetWidth; // Force reflow
+                
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    item.classList.add('animate-fade-in');
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // --- GALLERY LIGHTBOX MODAL ---
+        function openLightbox(src, title, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = src;
+            lightboxTitle.textContent = title;
+            lightboxCaption.textContent = caption;
+            
+            lightboxImg.onerror = function() {
+                // High-quality Unsplash fallbacks if file fails to load
+                if (src.includes('다운로드 (3)') || src.includes('bay')) {
+                    this.src = 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80';
+                } else if (src.includes('다운로드 (9)') || src.includes('foam')) {
+                    this.src = 'https://images.unsplash.com/photo-1552930294-6b595f4c2974?auto=format&fit=crop&w=1200&q=80';
+                } else if (src.includes('다운로드 (1)')) {
+                    this.src = 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80';
+                } else {
+                    this.src = 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80';
+                }
+            };
+
+            lightbox.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // --- REVIEWS STAR RATING SELECTOR ---
+        let selectedRating = 5;
+        function setRating(rating) {
+            selectedRating = rating;
+            const stars = document.querySelectorAll('#star-rating-selector i');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('text-slate-300');
+                    star.classList.add('text-amber-400');
+                } else {
+                    star.classList.remove('text-amber-400');
+                    star.classList.add('text-slate-300');
+                }
+            });
+        }
+
+        // --- REVIEW FORM SUBMISSION ---
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const authorInput = document.getElementById('review-author');
+            const textInput = document.getElementById('review-text');
+            const reviewFeed = document.getElementById('review-feed');
+            const reviewCountSpan = document.getElementById('review-count');
+
+            let starHtml = '';
+            for (let i = 0; i < 5; i++) {
+                if (i < selectedRating) {
+                    starHtml += '<i class="fa-solid fa-star text-amber-400"></i>';
+                } else {
+                    starHtml += '<i class="fa-solid fa-star text-slate-300"></i>';
+                }
+            }
+
+            const newReview = document.createElement('div');
+            newReview.className = 'p-6 space-y-3 transition-colors hover:bg-emerald-50/10 animate-fade-in';
+            newReview.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-sm">
+                            ${authorInput.value.charAt(0)}
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-slate-800 block">${authorInput.value}</span>
+                            <span class="text-xs text-slate-400 block">방문일: 오늘 (실시간)</span>
+                        </div>
+                    </div>
+                    <div class="text-sm font-bold">
+                        ${starHtml}
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">${textInput.value}</p>
+            `;
+
+            reviewFeed.insertBefore(newReview, reviewFeed.firstChild);
+
+            const currentCount = parseInt(reviewCountSpan.textContent);
+            reviewCountSpan.textContent = currentCount + 1;
+
+            authorInput.value = '';
+            textInput.value = '';
+            setRating(5);
+            showToast("📝 작성해주신 소중한 이용 후기가 실시간 리뷰 목록에 등록되었습니다.", "bg-emerald-600");
+        }
+
+
+        // ==========================================
+        // --- QR STAMP & SYSTEM CLOCK SIMULATION ---
+        // ==========================================
+
+        // --- LOCAL STORAGE STATE MANAGEMENT ---
+        const STORAGE_KEYS = {
+            DATABASE: 'ypok_user_db_v1',
+            STAMP_LOGS: 'ypok_stamp_logs_v1',
+            COUPON_LOGS: 'ypok_coupon_logs_v1',
+            SIM_DATE: 'ypok_sim_date_v1'
+        };
+
+        let userDatabase = {};
+        let globalStampLogs = [];
+        let globalCouponLogs = [];
+        let simulatedDateStr = "2026-05-17";
+
+        function initLocalStorage() {
+            try {
+                const db = localStorage.getItem(STORAGE_KEYS.DATABASE);
+                if (db) userDatabase = JSON.parse(db);
+
+                const sLogs = localStorage.getItem(STORAGE_KEYS.STAMP_LOGS);
+                if (sLogs) globalStampLogs = JSON.parse(sLogs);
+
+                const cLogs = localStorage.getItem(STORAGE_KEYS.COUPON_LOGS);
+                if (cLogs) globalCouponLogs = JSON.parse(cLogs);
+
+                const sDate = localStorage.getItem(STORAGE_KEYS.SIM_DATE);
+                if (sDate) {
+                    simulatedDateStr = sDate;
+                } else {
+                    simulatedDateStr = "2026-05-17";
+                }
+            } catch (e) {
+                console.error("LocalStorage initialization failed", e);
+            }
+        }
+
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEYS.DATABASE, JSON.stringify(userDatabase));
+                localStorage.setItem(STORAGE_KEYS.STAMP_LOGS, JSON.stringify(globalStampLogs));
+                localStorage.setItem(STORAGE_KEYS.COUPON_LOGS, JSON.stringify(globalCouponLogs));
+                localStorage.setItem(STORAGE_KEYS.SIM_DATE, simulatedDateStr);
+            } catch (e) {
+                console.error("LocalStorage save failed", e);
+            }
+        }
+
+        // --- GLOBAL VARIABLES FOR QR ---
+        let activeQRValue = "";
+        let qrTimestamp = 0;
+        let qrTimer = 5.0;
+        let qrInterval = null;
+
+        // Classy Golden Maybach SVG Icon Maker for Stamped Slots
+        const goldenMaybachSVG = `
+            <svg class="w-full h-full object-contain p-0.5 animate-pulse" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fef08a" />
+                        <stop offset="50%" stop-color="#eab308" />
+                        <stop offset="100%" stop-color="#ca8a04" />
+                    </linearGradient>
+                </defs>
+                <!-- Outer class circle -->
+                <circle cx="50" cy="50" r="45" stroke="url(#goldGrad)" stroke-width="3" fill="#064e3b" />
+                <circle cx="50" cy="50" r="39" stroke="url(#goldGrad)" stroke-dasharray="3 2" stroke-width="1" />
+                <!-- Luxury Maybach Car Silhouette -->
+                <path d="M22 60 C22 55, 26 48, 38 46 L42 38 C44 35, 56 35, 58 38 L62 46 C74 48, 78 55, 78 60 C78 64, 74 65, 50 65 C26 65, 22 64, 22 60 Z" fill="url(#goldGrad)" />
+                <!-- Wheels -->
+                <circle cx="34" cy="62" r="6" fill="#1e293b" stroke="url(#goldGrad)" stroke-width="2" />
+                <circle cx="66" cy="62" r="6" fill="#1e293b" stroke="url(#goldGrad)" stroke-width="2" />
+                <!-- Double-M Style Logo -->
+                <path d="M42 32 L46 22 L50 28 L54 22 L58 32 M46 22 H54" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        `;
+
+        // --- TOAST NOTIFICATIONS HELPER ---
+        function showToast(text, colorClass) {
+            const toast = document.getElementById('toast-message-box');
+            toast.className = `fixed bottom-10 left-1/2 -translate-x-1/2 z-[150] px-5 py-3 rounded-2xl text-white font-bold text-xs shadow-2xl flex items-center space-x-2 transition-all duration-300 ${colorClass}`;
+            toast.innerHTML = `<i class="fa-solid fa-bell text-sm"></i><span>${text}</span>`;
+            toast.classList.remove('hidden');
+            
+            if (window.toastTimeout) clearTimeout(window.toastTimeout);
+            window.toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4500);
+        }
+
+        // --- SECURITY REPORT MODAL HANDLER ---
+        function showModalReport(token, tokenTime, timeDiff, statusText, bgClass) {
+            const modal = document.getElementById('stamp-view-modal');
+            document.getElementById('scanned-modal-token').textContent = token;
+            
+            const timeObj = new Date(tokenTime * 1000);
+            document.getElementById('scanned-modal-created').textContent = timeObj.toLocaleTimeString('ko-KR', { hour12: false });
+            
+            const delayElement = document.getElementById('scanned-modal-delay');
+            delayElement.textContent = `${timeDiff}초 간격`;
+            delayElement.className = timeDiff > 15 ? "text-rose-600 font-bold" : "text-emerald-600 font-bold";
+
+            const statusElement = document.getElementById('scanned-modal-status');
+            statusElement.textContent = statusText;
+            statusElement.className = statusText.includes("실패") ? "text-rose-600 font-black" : "text-emerald-600 font-black";
+
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeStampModal() {
+            document.getElementById('stamp-view-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // --- LEDGER MODAL HANDLERS ---
+        function openLedgerModal() {
+            document.getElementById('ledger-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            rebuildLedgerLists();
+        }
+
+        function closeLedgerModal() {
+            document.getElementById('ledger-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // --- 5s GENERATION LOOP ---
+        let isQrRunning = false;
+        function startDynamicQR(silent = false) {
+            if (isQrRunning) return;
+            isQrRunning = true;
+
+            const qrImg = document.getElementById('live-qr-img');
+
+            // Button visual feedback
+            const startBtn = document.getElementById('qr-start-btn');
+            const stopBtn = document.getElementById('qr-stop-btn');
+            if (startBtn) startBtn.className = 'px-5 py-2 bg-emerald-700 text-white font-black text-xs rounded-xl shadow-md transition-all flex items-center space-x-1.5 ring-2 ring-emerald-300';
+            if (stopBtn) stopBtn.className = 'px-5 py-2 bg-slate-400 hover:bg-slate-500 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center space-x-1.5';
+
+            const generateToken = () => {
+                const nowSec = Math.floor(Date.now() / 1000);
+                const randomNonce = Math.random().toString(36).substring(2, 6);
+                qrTimestamp = nowSec;
+
+                // Secure Scheme Token Format
+                activeQRValue = `YPOK-STAMP-${qrTimestamp}-${randomNonce}`;
+                if (qrImg) {
+                    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(activeQRValue)}`;
+                }
+                const tokenHashEl = document.getElementById('current-token-hash');
+                if (tokenHashEl) tokenHashEl.textContent = activeQRValue;
+                qrTimer = 10.0;
+            };
+
+            generateToken();
+
+            if (qrInterval) clearInterval(qrInterval);
+            qrInterval = setInterval(() => {
+                qrTimer -= 0.1;
+                if (qrTimer <= 0) {
+                    const overlay = document.getElementById('qr-refresh-overlay');
+                    if (overlay) {
+                        overlay.classList.remove('hidden');
+                        overlay.classList.add('flex');
+                    }
+
+                    setTimeout(() => {
+                        if (isQrRunning) {
+                            generateToken();
+                        }
+                        if (overlay) {
+                            overlay.classList.remove('flex');
+                            overlay.classList.add('hidden');
+                        }
+                    }, 400);
+                } else {
+                    const timerText = document.getElementById('qr-timer-text');
+                    const timerBar = document.getElementById('qr-timer-bar');
+                    if (timerText) timerText.textContent = qrTimer.toFixed(1) + '초';
+                    if (timerBar) timerBar.style.width = (qrTimer / 10.0 * 100) + '%';
+                }
+            }, 100);
+
+            if (!silent) {
+                showToast("▶️ 실시간 가변 보안 QR 코드 생성이 시작되었습니다.", "bg-emerald-600");
+            }
+        }
+
+        function stopDynamicQR() {
+            if (!isQrRunning) return;
+            isQrRunning = false;
+
+            if (qrInterval) {
+                clearInterval(qrInterval);
+                qrInterval = null;
+            }
+
+            // Reset timers & text
+            const timerText = document.getElementById('qr-timer-text');
+            const timerBar = document.getElementById('qr-timer-bar');
+            const tokenHashEl = document.getElementById('current-token-hash');
+            if (timerText) timerText.textContent = '대기 중';
+            if (timerBar) timerBar.style.width = '0%';
+            if (tokenHashEl) tokenHashEl.textContent = '큐알코드 생성 대기 중';
+            activeQRValue = ""; // Clear active value
+
+            // Button visual feedback
+            const startBtn = document.getElementById('qr-start-btn');
+            const stopBtn = document.getElementById('qr-stop-btn');
+            if (startBtn) startBtn.className = 'px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center space-x-1.5';
+            if (stopBtn) stopBtn.className = 'px-5 py-2 bg-slate-800 text-white font-black text-xs rounded-xl shadow-md transition-all flex items-center space-x-1.5 ring-2 ring-slate-400';
+
+            showToast("⏸️ QR 코드 생성이 중지되었으며, 대기 상태로 전환되었습니다.", "bg-slate-700");
+        }
+
+        // --- PHONE NUMBER INPUT HANDLER ---
+        function handlePhoneInput(element) {
+            let value = element.value.replace(/[^0-9]/g, ''); // Numeric only
+            let formatted = "";
+
+            if (value.length < 4) {
+                formatted = value;
+            } else if (value.length < 8) {
+                formatted = value.substring(0, 3) + "-" + value.substring(3);
+            } else {
+                formatted = value.substring(0, 3) + "-" + value.substring(3, 7) + "-" + value.substring(7, 11);
+            }
+            element.value = formatted;
+
+            const scanBtn = document.getElementById('scan-action-btn');
+            const tipText = document.getElementById('phone-helper-tip');
+
+            if (formatted.length === 13) {
+                scanBtn.removeAttribute('disabled');
+                scanBtn.classList.remove('bg-slate-700', 'opacity-50', 'cursor-not-allowed');
+                scanBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
+                if (tipText) {
+                    tipText.className = "text-[10px] text-emerald-600 font-bold";
+                    tipText.innerHTML = "✨ 번호 입력 완료! 이제 우측 [스캔하기] 버튼을 누를 수 있습니다.";
+                }
+            } else {
+                scanBtn.setAttribute('disabled', 'true');
+                scanBtn.className = "bg-slate-700 opacity-50 cursor-not-allowed text-white text-xs font-black px-4 py-1.5 rounded-xl transition-all";
+                if (tipText) {
+                    tipText.className = "text-[10px] text-amber-500 font-medium";
+                    tipText.innerHTML = "⚠️ 스캔하려면 휴대폰 번호 11자리를 먼저 채워 입력해 주십시오.";
+                }
+            }
+
+            syncCurrentStampsWithInput();
+        }
+
+        // --- DATE SYNC CONTROL ---
+        function updateSimulatedDate(val) {
+            simulatedDateStr = val;
+            document.getElementById('simulated-date-display').textContent = `시뮬레이션 일자: ${val}`;
+            saveToLocalStorage();
+            syncCurrentStampsWithInput();
+        }
+
+        function addSimulatedDays(days) {
+            const curDate = new Date(simulatedDateStr);
+            curDate.setDate(curDate.getDate() + days);
+            
+            const yyyy = curDate.getFullYear();
+            const mm = String(curDate.getMonth() + 1).padStart(2, '0');
+            const dd = String(curDate.getDate()).padStart(2, '0');
+            
+            const newDateStr = `${yyyy}-${mm}-${dd}`;
+            document.getElementById('simulated-scan-date').value = newDateStr;
+            updateSimulatedDate(newDateStr);
+            
+            showToast(`⏰ 시뮬레이션 날짜가 30일 앞으로 이동했습니다! (${newDateStr})`, "bg-slate-800");
+        }
+
+        // --- STAMP SYNC & POCKETBOOK LOGIC ---
+        function syncCurrentStampsWithInput() {
+            const phoneInput = document.getElementById('scanner-user-nickname');
+            const phoneVal = phoneInput.value.trim();
+
+            if (phoneVal.length === 13) {
+                if (!userDatabase[phoneVal]) {
+                    userDatabase[phoneVal] = { stamps: [], coupon: null };
+                }
+
+                const userData = userDatabase[phoneVal];
+                cleanInvalidStamps(userData);
+                evaluateCouponStatus(userData);
+
+                const monthlyStamps = getMonthlyStamps(userData);
+                updateStampPocketbook(monthlyStamps, userData.coupon);
+            } else {
+                updateStampPocketbook([], null);
+            }
+        }
+
+        function cleanInvalidStamps(userData) {
+            const curDate = new Date(simulatedDateStr);
+            const curYearMonth = `${curDate.getFullYear()}-${String(curDate.getMonth() + 1).padStart(2, '0')}`;
+
+            userData.stamps = userData.stamps.filter(stamp => {
+                const sDate = new Date(stamp.date);
+                const sYearMonth = `${sDate.getFullYear()}-${String(sDate.getMonth() + 1).padStart(2, '0')}`;
+                return sYearMonth === curYearMonth;
+            });
+            saveToLocalStorage();
+        }
+
+        function getMonthlyStamps(userData) {
+            const curDate = new Date(simulatedDateStr);
+            const curYearMonth = `${curDate.getFullYear()}-${String(curDate.getMonth() + 1).padStart(2, '0')}`;
+
+            return userData.stamps.filter(stamp => {
+                const sDate = new Date(stamp.date);
+                const sYearMonth = `${sDate.getFullYear()}-${String(sDate.getMonth() + 1).padStart(2, '0')}`;
+                return sYearMonth === curYearMonth;
+            });
+        }
+
+        function evaluateCouponStatus(userData) {
+            if (!userData.coupon || userData.coupon.status !== 'active') return;
+
+            const curDate = new Date(simulatedDateStr);
+            const expiryDate = new Date(userData.coupon.expiryDate);
+
+            if (curDate > expiryDate) {
+                userData.coupon.status = 'expired';
+                userData.stamps = []; // Clear stamps
+
+                const expLog = {
+                    phone: userData.coupon.phone,
+                    time: new Date().toLocaleTimeString('ko-KR', { hour12: false }),
+                    date: simulatedDateStr,
+                    ticketId: userData.coupon.ticketId,
+                    amount: userData.coupon.amount,
+                    status: 'expired',
+                    stamp1Detail: userData.coupon.stamp1Detail,
+                    stamp2Detail: userData.coupon.stamp2Detail,
+                    formula: userData.coupon.formula
+                };
+                globalCouponLogs.unshift(expLog);
+                saveToLocalStorage();
+                rebuildLedgerLists();
+            }
+        }
+
+        // --- SIMULATE SCAN TRIGGER ---
+        function simulateSmartphoneScan() {
+            const phoneInput = document.getElementById('scanner-user-nickname');
+            const phoneVal = phoneInput.value.trim();
+
+            if (phoneVal.length < 13) {
+                showToast("⚠️ 스캔할 대상 휴대폰 번호 11자리를 전부 기입해 주세요!", "bg-amber-500");
+                return;
+            }
+
+            processScannedToken(activeQRValue, phoneVal);
+        }
+
+        // --- VERIFY AND PROCESS SCAN TOKEN ---
+        function processScannedToken(token, phoneNum) {
+            const phoneRegex = /^010-\d{3,4}-\d{4}$/;
+            if (!phoneRegex.test(phoneNum)) {
+                showToast("❌ [전화번호 오류] 올바른 휴대폰 번호 형식이 아닙니다.", "bg-rose-600");
+                return;
+            }
+
+            const parts = token.split('-');
+            if (parts.length < 4 || parts[0] !== 'YPOK' || parts[1] !== 'STAMP') {
+                showToast("❌ [보안 위반] 변조되었거나 식별 불가능한 적격 세차장 코드입니다.", "bg-rose-600");
+                return;
+            }
+
+            const tokenTime = parseInt(parts[2]);
+            const currentTime = Math.floor(Date.now() / 1000);
+            const timeDiff = currentTime - tokenTime;
+
+            // Screenshot security validation (Expires in 15 seconds)
+            if (timeDiff > 15) {
+                showModalReport(token, tokenTime, timeDiff, "실패 (인증 만료 - 사진 캡처 의심)", "bg-rose-50");
+                showToast("❌ [인증 만료] 실시간 생성된 보안 코드가 아닙니다. (부정 캡처 방지)", "bg-rose-600");
+                return;
+            }
+
+            if (!userDatabase[phoneNum]) {
+                userDatabase[phoneNum] = { stamps: [], coupon: null };
+            }
+            const userData = userDatabase[phoneNum];
+
+            cleanInvalidStamps(userData);
+            evaluateCouponStatus(userData);
+
+            const monthlyStamps = getMonthlyStamps(userData);
+
+            if (monthlyStamps.length >= 2) {
+                showModalReport(token, tokenTime, timeDiff, "실패 (스탬프 수첩 초과적립)", "bg-rose-50");
+                showToast("⚠️ [스탬프 초과] 해당 휴대폰번호의 이번 달 적립 제한(월 2회)에 이미 도달했습니다.", "bg-amber-600");
+                return;
+            }
+
+            const serviceSelect = document.getElementById('simulated-wash-service');
+            const selectedText = serviceSelect.options[serviceSelect.selectedIndex].text;
+            const amount = parseInt(serviceSelect.value);
+            const cleanServiceName = selectedText.split(' ')[0];
+
+            const newStamp = {
+                date: simulatedDateStr,
+                serviceName: cleanServiceName,
+                amount: amount,
+                token: token.substring(11)
+            };
+            userData.stamps.push(newStamp);
+
+            const updatedMonthlyStamps = getMonthlyStamps(userData);
+            const stampIndex = updatedMonthlyStamps.length;
+
+            const logEntry = {
+                phone: phoneNum,
+                token: newStamp.token,
+                stampNo: stampIndex,
+                serviceName: cleanServiceName,
+                amount: amount,
+                time: new Date().toLocaleTimeString('ko-KR', { hour12: false }),
+                date: simulatedDateStr
+            };
+            globalStampLogs.unshift(logEntry);
+
+            // Stamp Coupon logic
+            if (stampIndex === 2) {
+                const totalCost = updatedMonthlyStamps[0].amount + updatedMonthlyStamps[1].amount;
+                const couponVal = totalCost / 2;
+
+                const expDate = new Date(simulatedDateStr);
+                expDate.setDate(expDate.getDate() + 30);
+                const expStr = `${expDate.getFullYear()}-${String(expDate.getMonth() + 1).padStart(2, '0')}-${String(expDate.getDate()).padStart(2, '0')}`;
+                
+                const s1Detail = `${updatedMonthlyStamps[0].serviceName} (${updatedMonthlyStamps[0].amount.toLocaleString()}원)`;
+                const s2Detail = `${updatedMonthlyStamps[1].serviceName} (${updatedMonthlyStamps[1].amount.toLocaleString()}원)`;
+                const formulaStr = `(${updatedMonthlyStamps[0].amount.toLocaleString()}원 + ${updatedMonthlyStamps[1].amount.toLocaleString()}원) / 2 = ${couponVal.toLocaleString()}원`;
+
+                userData.coupon = {
+                    phone: phoneNum,
+                    issuedDate: simulatedDateStr,
+                    expiryDate: expStr,
+                    amount: couponVal,
+                    status: 'active',
+                    stamp1Detail: s1Detail,
+                    stamp2Detail: s2Detail,
+                    formula: formulaStr,
+                    ticketId: `YPOK-GOLD-${Math.floor(1000 + Math.random() * 9000)}`
+                };
+
+                const couponLog = {
+                    phone: phoneNum,
+                    time: new Date().toLocaleTimeString('ko-KR', { hour12: false }),
+                    date: simulatedDateStr,
+                    ticketId: userData.coupon.ticketId,
+                    amount: couponVal,
+                    status: 'issued',
+                    stamp1Detail: s1Detail,
+                    stamp2Detail: s2Detail,
+                    formula: formulaStr
+                };
+                globalCouponLogs.unshift(couponLog);
+            }
+
+            saveToLocalStorage();
+            updateStampPocketbook(updatedMonthlyStamps, userData.coupon);
+            addStampLogBoard(token, phoneNum, timeDiff);
+            rebuildLedgerLists();
+
+            showModalReport(token, tokenTime, timeDiff, "성공 (스탬프 정상 적립)", "bg-emerald-50");
+            showToast(`✨ [적립 성공] ${phoneNum} 고객님, 스탬프 #${stampIndex} 적립 완료!`, "bg-emerald-600");
+        }
+
+        // --- UPDATE POCKETBOOK VISUALS ---
+        function updateStampPocketbook(stamps, coupon) {
+            const slot1 = document.getElementById('stamp-slot-1');
+            const icon1 = document.getElementById('stamp-icon-1');
+            const label1 = document.getElementById('stamp-label-1');
+
+            if (stamps.length >= 1) {
+                const s = stamps[0];
+                slot1.className = 'bg-emerald-500/10 border-2 border-amber-400/50 rounded-2xl p-2 flex flex-col items-center justify-center text-center relative h-28 transition-all shadow-md';
+                icon1.className = 'w-10 h-10 rounded-full bg-[#064e3b] flex items-center justify-center mb-1 shadow-inner';
+                icon1.innerHTML = goldenMaybachSVG;
+                label1.innerHTML = `<span class="text-amber-400 text-[10px] font-black tracking-wide">${s.serviceName} (${s.amount.toLocaleString()}원)</span>`;
+            } else {
+                slot1.className = 'bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col items-center justify-center text-center relative h-28 transition-all';
+                icon1.className = 'w-10 h-10 rounded-full border border-dashed border-white/20 flex items-center justify-center text-white/20 text-sm mb-1';
+                icon1.innerHTML = '<i class="fa-solid fa-car"></i>';
+                label1.textContent = '비어있음';
+            }
+
+            const slot2 = document.getElementById('stamp-slot-2');
+            const icon2 = document.getElementById('stamp-icon-2');
+            const label2 = document.getElementById('stamp-label-2');
+
+            if (stamps.length >= 2) {
+                const s = stamps[1];
+                slot2.className = 'bg-emerald-500/10 border-2 border-amber-400/50 rounded-2xl p-2 flex flex-col items-center justify-center text-center relative h-28 transition-all shadow-md';
+                icon2.className = 'w-10 h-10 rounded-full bg-[#064e3b] flex items-center justify-center mb-1 shadow-inner';
+                icon2.innerHTML = goldenMaybachSVG;
+                label2.innerHTML = `<span class="text-amber-400 text-[10px] font-black tracking-wide">${s.serviceName} (${s.amount.toLocaleString()}원)</span>`;
+            } else {
+                slot2.className = 'bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col items-center justify-center text-center relative h-28 transition-all';
+                icon2.className = 'w-10 h-10 rounded-full border border-dashed border-white/20 flex items-center justify-center text-white/20 text-sm mb-1';
+                icon2.innerHTML = '<i class="fa-solid fa-car"></i>';
+                label2.textContent = '비어있음';
+            }
+
+            const breakdownEl = document.getElementById('coupon-calc-breakdown');
+            const calcStamp1 = document.getElementById('calc-stamp-1');
+            const calcStamp2 = document.getElementById('calc-stamp-2');
+            const calcFormula = document.getElementById('calc-formula');
+
+            if (stamps.length > 0) {
+                breakdownEl.classList.remove('hidden');
+                const amt1 = stamps[0].amount;
+                const amt2 = stamps[1] ? stamps[1].amount : 0;
+                
+                calcStamp1.textContent = `${stamps[0].serviceName} (${amt1.toLocaleString()}원)`;
+                
+                if (stamps[1]) {
+                    calcStamp2.textContent = `${stamps[1].serviceName} (${amt2.toLocaleString()}원)`;
+                    const couponVal = (amt1 + amt2) / 2;
+                    calcFormula.textContent = `(${amt1.toLocaleString()}원 + ${amt2.toLocaleString()}원) / 2 = ${couponVal.toLocaleString()}원 무료 세차권`;
+                } else {
+                    calcStamp2.textContent = '2회차 세차 대기 중';
+                    calcFormula.textContent = `(${amt1.toLocaleString()}원 + 2회차 미정) / 2 = 대기 중`;
+                }
+            } else {
+                breakdownEl.classList.add('hidden');
+            }
+
+            const redeemBtn = document.getElementById('redeem-reward-btn');
+            const statusText = document.getElementById('coupon-status-text');
+
+            if (coupon) {
+                if (coupon.status === 'active') {
+                    redeemBtn.removeAttribute('disabled');
+                    redeemBtn.className = 'bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 text-xs font-black px-4 py-2 rounded-xl transition-all shadow-lg shadow-amber-500/30 hover:scale-105 cursor-pointer';
+                    statusText.innerHTML = `<span class="text-emerald-400 font-extrabold animate-pulse">🎁 교환 금액: ${coupon.amount.toLocaleString()}원 (~${coupon.expiryDate} 만료)</span>`;
+                } else if (coupon.status === 'expired') {
+                    redeemBtn.setAttribute('disabled', 'true');
+                    redeemBtn.className = 'bg-slate-700 text-slate-400 text-xs font-black px-4 py-2 rounded-xl transition-all cursor-not-allowed';
+                    statusText.innerHTML = `<span class="text-rose-500 font-extrabold">🚨 쿠폰 사용 기간(30일)이 만료되었습니다.</span>`;
+                } else {
+                    // Redeemed
+                    redeemBtn.setAttribute('disabled', 'true');
+                    redeemBtn.className = 'bg-slate-700 text-slate-400 text-xs font-black px-4 py-2 rounded-xl transition-all cursor-not-allowed';
+                    statusText.innerHTML = '<span class="text-slate-400">이번 달 스탬프 2장 적립 완료 (쿠폰 소진)</span>';
+                }
+            } else {
+                redeemBtn.setAttribute('disabled', 'true');
+                redeemBtn.className = 'bg-slate-700 text-slate-400 text-xs font-black px-4 py-2 rounded-xl transition-all cursor-not-allowed';
+                statusText.textContent = '2개 모으면 무상세차권';
+            }
+        }
+
+        // --- COUPON REDEMPTION ACTION ---
+        function redeemFreeWashCoupon() {
+            const phoneInput = document.getElementById('scanner-user-nickname');
+            const phoneVal = phoneInput.value.trim();
+
+            if (phoneVal.length < 13) {
+                showToast("⚠️ 사용하실 스마트폰 번호를 올바르게 입력 후 터치해 주세요.", "bg-amber-500");
+                return;
+            }
+
+            const userData = userDatabase[phoneVal];
+            if (!userData || !userData.coupon || userData.coupon.status !== 'active') return;
+
+            // Reset stamps for loop cycles
+            userData.stamps = [];
+            userData.coupon.status = 'redeemed';
+
+            const couponLog = {
+                phone: phoneVal,
+                time: new Date().toLocaleTimeString('ko-KR', { hour12: false }),
+                date: simulatedDateStr,
+                ticketId: userData.coupon.ticketId,
+                amount: userData.coupon.amount,
+                status: 'redeemed',
+                stamp1Detail: userData.coupon.stamp1Detail,
+                stamp2Detail: userData.coupon.stamp2Detail,
+                formula: userData.coupon.formula
+            };
+            globalCouponLogs.unshift(couponLog);
+
+            saveToLocalStorage();
+            updateStampPocketbook([], userData.coupon);
+            rebuildLedgerLists();
+            
+            showToast(`🎁 [사용 처리 완료] ${phoneVal} 고객님의 '1회 무료 세차 교환권 (${userData.coupon.amount.toLocaleString()}원 상당)'이 사용 및 정상 소진 처리되었습니다.`, "bg-emerald-600");
+        }
+
+        // --- APPEND LOG ROW TO SCAN VIEW ---
+        function addStampLogBoard(token, phoneNum, timeDiff) {
+            const container = document.getElementById('stamp-certification-log-container');
+            const emptyMsg = document.getElementById('empty-log-msg');
+            if (emptyMsg) emptyMsg.remove();
+
+            const dateStr = new Date().toLocaleTimeString('ko-KR', { hour12: false });
+
+            const logRow = document.createElement('div');
+            logRow.className = 'bg-slate-50 border border-slate-200/80 p-4 rounded-2xl text-xs text-slate-600 space-y-1.5 animate-fade-in';
+            logRow.innerHTML = `
+                <div class="flex justify-between items-center font-bold">
+                    <span class="text-emerald-700"><i class="fa-solid fa-circle-check mr-0.5"></i> 인증 완료</span>
+                    <span class="text-slate-400 font-normal">${dateStr}</span>
+                </div>
+                <div class="font-bold flex justify-between">
+                    <div>번호: ${phoneNum}</div>
+                    <div>지연: ${timeDiff}초</div>
+                </div>
+            `;
+
+            container.insertBefore(logRow, container.firstChild);
+        }
+
+        // --- REBUILD LEDGER LISTS IN MODAL ---
+        function rebuildLedgerLists() {
+            // Update Headers count
+            document.getElementById('ledger-stamp-count').textContent = `총 ${globalStampLogs.length}건`;
+            document.getElementById('ledger-coupon-count').textContent = `총 ${globalCouponLogs.length}건`;
+
+            // 1. Stamp Rows
+            const stampContainer = document.getElementById('ledger-stamp-rows');
+            if (globalStampLogs.length === 0) {
+                stampContainer.innerHTML = `<div class="text-center py-10 text-xs text-slate-400 font-medium">발행된 스탬프 정보가 아직 존재하지 않습니다.</div>`;
+            } else {
+                stampContainer.innerHTML = globalStampLogs.map(log => `
+                    <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-3 flex items-center justify-between text-xs animate-fade-in">
+                        <div class="flex items-center space-x-2.5">
+                            <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs"><i class="fa-solid fa-stamp"></i></div>
+                            <div>
+                                <span class="font-black text-slate-800 block text-xs">${log.phone}</span>
+                                <span class="text-[9px] text-slate-400 block mt-0.5">${log.date} ${log.time}</span>
+                                <span class="text-[10px] text-emerald-600 font-bold block mt-1"><i class="fa-solid fa-car-wash mr-0.5"></i> ${log.serviceName} (${log.amount.toLocaleString()}원)</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-amber-100 text-amber-800 font-black px-2 py-0.5 rounded text-[9px]">스탬프 #${log.stampNo}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 2. Coupon Rows
+            const couponContainer = document.getElementById('ledger-coupon-rows');
+            if (globalCouponLogs.length === 0) {
+                couponContainer.innerHTML = `<div class="text-center py-10 text-xs text-slate-400 font-medium">사용 만료 또는 교환된 쿠폰 내역이 없습니다.</div>`;
+            } else {
+                couponContainer.innerHTML = globalCouponLogs.map(log => {
+                    let statusBadge = "";
+                    if (log.status === 'issued') {
+                        statusBadge = `<span class="bg-blue-100 text-blue-800 font-black px-2 py-0.5 rounded text-[9px] inline-block">발급 완료</span>`;
+                    } else if (log.status === 'redeemed') {
+                        statusBadge = `<span class="bg-emerald-600 text-white font-black px-2 py-0.5 rounded text-[9px] inline-block">교환 완료</span>`;
+                    } else if (log.status === 'expired') {
+                        statusBadge = `<span class="bg-rose-100 text-rose-800 font-black px-2 py-0.5 rounded text-[9px] inline-block">기간 만료</span>`;
+                    }
+                    return `
+                        <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-3 flex flex-col space-y-2 text-xs animate-fade-in">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2.5">
+                                    <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-700 flex items-center justify-center text-xs"><i class="fa-solid fa-ticket"></i></div>
+                                    <div>
+                                        <span class="font-black text-slate-800 block text-xs">${log.phone}</span>
+                                        <span class="text-[9px] text-slate-400 block mt-0.5">${log.date} ${log.time}</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    ${statusBadge}
+                                </div>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-slate-100 text-[10px] space-y-1 text-slate-600">
+                                <div>• 1회차: ${log.stamp1Detail}</div>
+                                <div>• 2회차: ${log.stamp2Detail}</div>
+                                <div class="text-emerald-600 font-bold border-t border-slate-100 pt-1 mt-1">• 정산식: ${log.formula}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // --- WINDOW ONLOAD INITIALIZATION ---
+        window.onload = function() {
+            setRating(5);
+            navigateToSection();
+        }
+    </script>
+
+
+
+    <!-- Custom Video Modal (1/2 Size on Desktop, Full Screen on Mobile) -->
+    <div id="video-modal" class="fixed inset-0 z-[10000] hidden items-center justify-center p-0 md:p-4">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer" onclick="closeVideoModal()"></div>
+        <div class="relative z-10 w-full h-full md:h-auto md:w-[50vw] bg-slate-900 rounded-none md:rounded-2xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col justify-between md:justify-start">
+            <div class="flex justify-between items-center p-4 border-b border-slate-800 bg-slate-900">
+                <h3 class="text-white font-bold" id="modal-title">비디오 플레이어</h3>
+                <button onclick="closeVideoModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <div class="aspect-video w-full bg-black relative flex items-center justify-center flex-grow md:flex-grow-0">
+                <div id="modal-player" class="w-full h-full"></div>
+                <div id="video-subtitle-container" class="absolute bottom-8 left-0 right-0 flex justify-center pointer-events-none z-50">
+                    <span id="video-subtitle-text" class="bg-black/80 text-white px-6 py-2.5 rounded-xl text-lg md:text-xl font-medium tracking-wide text-center max-w-[85%] border border-white/20 shadow-lg hidden transition-opacity duration-300">
+                        자막을 불러오는 중입니다...
+                    </span>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-4 p-4 bg-slate-900 border-t border-slate-800">
+                <button onclick="playVideo()" class="flex items-center gap-2 px-5 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg transition-colors">
+                    <i class="fa-solid fa-play"></i> 재생
+                </button>
+                <button onclick="pauseVideo()" class="flex items-center gap-2 px-5 py-2 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition-colors">
+                    <i class="fa-solid fa-pause"></i> 중지
+                </button>
+                <button onclick="toggleSubtitle()" class="flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors">
+                    <i class="fa-solid fa-closed-captioning"></i> 자막 켜기/끄기
+                </button>
+                <button onclick="closeVideoModal()" title="나가기" class="w-10 h-10 flex items-center justify-center bg-red-600 hover:bg-red-500 text-white rounded-full transition-all shadow-lg shadow-red-500/20 group">
+                    <i class="fa-solid fa-arrow-right-from-bracket group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Image Modal -->
+    <div id="image-modal" class="fixed inset-0 z-[10001] hidden items-center justify-center p-0 md:p-4">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer" onclick="closeImageModal()"></div>
+        <div class="relative z-10 w-full h-full md:h-auto md:max-w-4xl bg-slate-950 rounded-none md:rounded-2xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-between md:justify-start">
+            <div class="flex justify-between items-center p-4 border-b border-slate-900 bg-slate-950">
+                <h3 class="text-white font-bold">이미지 상세 보기</h3>
+                <button onclick="closeImageModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <div class="flex-grow flex items-center justify-center bg-black p-2 md:p-6 overflow-hidden">
+                <img id="modal-img" src="" alt="Gallery Image" class="max-w-full max-h-[70vh] md:max-h-[60vh] object-contain rounded-lg">
+            </div>
+            <div class="flex justify-center p-4 bg-slate-950 border-t border-slate-900">
+                <button onclick="closeImageModal()" class="px-6 py-2.5 bg-slate-800 hover:bg-red-600 text-white font-bold rounded-xl transition-colors border border-slate-700 hover:border-red-500">
+                    닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // Video Modal & Real-Time Subtitle Logic
+        let ytPlayer = null;
+        let subtitleVisible = true;
+        let subtitleTimer = null;
+        let currentVideoId = null;
+
+                const subtitleTimelines = {
+            '6IRpZHyaIR0': [
+                { start: 0, end: 3, text: '셀프세차장에 처음 오신 초보자분들을 위한 실전 세차 단계별 완벽 가이드입니다.' },
+                { start: 3, end: 7, text: '도착 후 엔진 열을 식히고 휠 클리너를 도포한 뒤 고압수로 1차 프리워시를 진행합니다.' },
+                { start: 7, end: 11, text: '그 다음 버킷에 카샴푸를 풀어 워시미트로 위에서 아래로 부드럽게 닦아줍니다.' },
+                { start: 11, end: 999, text: '마무리 고압수 헹굼 후 드라잉존으로 이동해 물왁스 코팅으로 완성해 보세요.' }
+            ],
+            'okFue3X3EGk': [
+                { start: 0, end: 3, text: '세알남과 함께하는 셀프세차장 첫걸음! 당황하지 않고 완벽하게 이용하는 방법입니다.' },
+                { start: 3, end: 7, text: '먼저 충전 기기에서 멤버십 카드를 발급하고 원하는 액수만큼 금액을 충전해 줍니다.' },
+                { start: 7, end: 11, text: '세차 베이에 차량을 진입시킨 후 충전 카드를 터치하여 고압수 및 거품솔을 선택합니다.' },
+                { start: 11, end: 999, text: '드라잉존으로 이동하여 에어건과 진공청소기로 실내 세차까지 마스터해보세요.' }
+            ],
+            'pI1hf5DPszU': [
+                { start: 0, end: 3, text: '불필요한 제품 없이 최소한의 장비와 정석 루트로 세차하는 초보 맞춤형 루틴입니다.' },
+                { start: 3, end: 7, text: '차체 흠집을 막기 위해 솔을 직접 대는 대신 개인 워시미트를 이용해 부드럽게 문질러줍니다.' },
+                { start: 7, end: 11, text: '고압수는 노즐과 차체의 적정 거리인 30cm를 유지하며 위에서 아래로 씻어내립니다.' },
+                { start: 11, end: 999, text: '드라잉 타월을 얹어서 쓸어내리듯 물기를 흡수시키면 스크래치를 완벽히 방지합니다.' }
+            ],
+            'R-F68V_02nE': [
+                { start: 0, end: 3, text: '시간이 없거나 빠르게 셀프세차의 핵심 개념만 익히고 싶을 때 보는 5분 요약 가이드입니다.' },
+                { start: 3, end: 7, text: '바람이 부는 날이나 직사광선 아래에서는 물자국(워터스팟)이 생길 수 있으니 그늘을 이용하세요.' },
+                { start: 7, end: 11, text: '차량 윗지붕부터 보닛, 도어 순으로 가볍게 먼지를 밀어내듯 닦는 것이 요령입니다.' },
+                { start: 11, end: 999, text: '어렵게 생각하지 말고 간단한 퀵디테일러 물왁스로 쉽고 빠르게 광택을 올려보세요.' }
+            ],
+            'N6UqO94Y-xY': [
+                { start: 0, end: 3, text: '세차장에 도착하자마자 보닛을 열어 엔진과 브레이크 패드의 열을 충분히 식혀줍니다.' },
+                { start: 3, end: 7, text: '차가 뜨거운 상태에서 차가운 고압수를 뿌리면 변형이나 도장 손상이 생길 수 있습니다.' },
+                { start: 7, end: 11, text: '카드를 태그할 때마다 기기 기본 시간이 충전되는 방식을 꼭 숙지하여 낭비를 줄입니다.' },
+                { start: 11, end: 999, text: '드라잉존에서 문과 틈새 구석구석 남은 물기까지 에어건으로 불어서 날려줍니다.' }
+            ],
+            'QyF6fJ9T80c': [
+                { start: 0, end: 3, text: '타이어와 휠의 찌든 분진과 때를 먼저 불리고 닦아주는 휠 클리닝 정석 노하우입니다.' },
+                { start: 3, end: 7, text: '휠 세정제를 골고루 분사한 후 분진이 불어날 수 있도록 1~2분 정도 방치해둡니다.' },
+                { start: 7, end: 11, text: '부드러운 브러시를 이용해 휠 살 안쪽까지 꼼꼼히 문지른 다음 고압수로 강하게 헹굽니다.' },
+                { start: 11, end: 999, text: '차체를 닦는 타월과 휠 타이어용 타월을 반드시 구분해야 교차 오염을 방지할 수 있습니다.' }
+            ],
+            'R9U0Jm779Xw': [
+                { start: 0, end: 3, text: '알칼리성, 산성, 중성 세제를 활용해 고착된 모든 오염물질을 화학적으로 제거하는 3pH 세차입니다.' },
+                { start: 3, end: 7, text: '알칼리성 프리워시로 단백질과 유기물 때를 먼저 녹여내고 고압수로 1차 헹굼을 진행합니다.' },
+                { start: 7, end: 11, text: '산성 폼샴푸를 활용해 도장면에 맺힌 석회물 및 워터스팟 미네랄 오염을 깨끗이 날려줍니다.' },
+                { start: 11, end: 999, text: '마지막으로 중성 카샴푸 본세차를 진행하여 완벽하고 깨끗한 유리막 도장면 상태로 돌려놓습니다.' }
+            ],
+            'F3wYlJ1G9kY': [
+                { start: 0, end: 3, text: '가장 오래 머무는 소중한 자동차 내부 공간의 쾌적함을 위한 정밀 실내 세차 가이드입니다.' },
+                { start: 3, end: 7, text: '차량 매트를 완전히 탈거해 털어낸 후 고성능 진공청소기로 실내 바닥의 모래를 흡입합니다.' },
+                { start: 7, end: 11, text: '다목적 세정제(APC)를 묻힌 타월로 핸들, 콘솔박스, 대시보드의 손때와 세균을 닦아냅니다.' },
+                { start: 11, end: 999, text: '마지막으로 가죽 관리제를 가볍게 도포하여 시트의 갈라짐을 방지하고 새 차 느낌을 살려줍니다.' }
+            ]
+        };
+
+        function openVideoModal(videoId) {
+            currentVideoId = videoId;
+            const modal = document.getElementById('video-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+                        const titles = {
+                '6IRpZHyaIR0': '초보 셀프세차 완벽 가이드',
+                'okFue3X3EGk': '셀프세차장 처음 이용 가이드',
+                'pI1hf5DPszU': '초보 맞춤 셀프세차 꿀팁',
+                'R-F68V_02nE': '초보 셀프세차 5분 정복',
+                'N6UqO94Y-xY': '눈높이 세차교실 1편',
+                'QyF6fJ9T80c': '정석 휠 클리닝 가이드',
+                'R9U0Jm779Xw': '3pH 세차의 모든 것',
+                'F3wYlJ1G9kY': '자동차 실내세차의 모든 것'
+            };
+            document.getElementById('modal-title').textContent = titles[videoId] || '세차 안내 비디오';
+
+            if (ytPlayer) {
+                try { ytPlayer.destroy(); } catch(e) {}
+            }
+
+            ytPlayer = new YT.Player('modal-player', {
+                height: '100%',
+                width: '100%',
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'rel': 0,
+                    'modestbranding': 1,
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            startSubtitleSync();
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                startSubtitleSync();
+            } else {
+                clearInterval(subtitleTimer);
+            }
+        }
+
+        function playVideo() {
+            if (ytPlayer && ytPlayer.playVideo) {
+                ytPlayer.playVideo();
+            }
+        }
+
+        function pauseVideo() {
+            if (ytPlayer && ytPlayer.pauseVideo) {
+                ytPlayer.pauseVideo();
+            }
+        }
+
+        function toggleSubtitle() {
+            subtitleVisible = !subtitleVisible;
+            const textEl = document.getElementById('video-subtitle-text');
+            if (subtitleVisible) {
+                textEl.classList.remove('hidden');
+            } else {
+                textEl.classList.add('hidden');
+            }
+        }
+
+        function startSubtitleSync() {
+            clearInterval(subtitleTimer);
+            const textEl = document.getElementById('video-subtitle-text');
+            
+            if (subtitleVisible) {
+                textEl.classList.remove('hidden');
+            } else {
+                textEl.classList.add('hidden');
+            }
+
+            subtitleTimer = setInterval(() => {
+                if (!ytPlayer || !ytPlayer.getCurrentTime) return;
+                try {
+                    const currentTime = ytPlayer.getCurrentTime();
+                    const timelines = subtitleTimelines[currentVideoId] || [];
+                    
+                    let activeSubtitle = '';
+                    for (let item of timelines) {
+                        if (currentTime >= item.start && currentTime < item.end) {
+                            activeSubtitle = item.text;
+                            break;
+                        }
+                    }
+
+                    if (activeSubtitle) {
+                        textEl.textContent = activeSubtitle;
+                        textEl.classList.remove('opacity-0');
+                        textEl.classList.add('opacity-100');
+                    } else {
+                        textEl.classList.remove('opacity-100');
+                        textEl.classList.add('opacity-0');
+                    }
+                } catch(e) {}
+            }, 250);
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            clearInterval(subtitleTimer);
+            if (ytPlayer && ytPlayer.stopVideo) {
+                try {
+                    ytPlayer.stopVideo();
+                    ytPlayer.destroy();
+                } catch(e) {}
+                ytPlayer = null;
+            }
+        }
+
+        function openImageModal(src) {
+            const modal = document.getElementById('image-modal');
+            const img = document.getElementById('modal-img');
+            img.src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
+    <!-- Floating Exit Button -->
+    <a href="../../#portfolio" class="fixed bottom-6 right-6 z-[9999] bg-gray-900 text-white w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-2xl hover:bg-red-600 hover:scale-110 transition-all group border-2 border-white/20" title="나가기" style="text-decoration: none;">
+      <span class="text-[12px] font-black tracking-wider">나가기</span>
+    </a>
+
+
+  <!-- EGDesk Preparation Modal Injected -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allowedPages = ['index.html', ''];
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
+          const pageName = href.split('?')[0].split('#')[0];
+          if (pageName.endsWith('.html') && !allowedPages.includes(pageName)) {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              showPreparationModal();
+            });
+          }
+        }
+      });
+      
+      function showPreparationModal() {
+        let modal = document.getElementById('egdesk-prep-modal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'egdesk-prep-modal';
+          modal.style.position = 'fixed';
+          modal.style.inset = '0';
+          modal.style.zIndex = '99999';
+          modal.style.display = 'flex';
+          modal.style.alignItems = 'center';
+          modal.style.justifyContent = 'center';
+          modal.style.backgroundColor = 'rgba(15, 23, 42, 0.65)';
+          modal.style.backdropFilter = 'blur(6px)';
+          modal.style.opacity = '0';
+          modal.style.transition = 'opacity 0.25s ease';
+          
+          const card = document.createElement('div');
+          card.style.backgroundColor = '#ffffff';
+          card.style.borderRadius = '24px';
+          card.style.padding = '36px 32px';
+          card.style.maxWidth = '420px';
+          card.style.width = '90%';
+          card.style.textAlign = 'center';
+          card.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+          card.style.border = '1px solid rgba(226, 232, 240, 0.8)';
+          card.style.transform = 'scale(0.9)';
+          card.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          
+          card.innerHTML = `
+            <div style="width: 60px; height: 60px; background-color: #fef3c7; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+              <svg style="width: 32px; height: 32px; color: #d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif; letter-spacing: -0.02em;">준비 중인 서비스</h3>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 28px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;">현재 데모 페이지에서는 제공되지 않는 기능입니다.<br>무료 제작 및 가입 문의는 보상 플랫폼으로 연락주세요!</p>
+            <button id="egdesk-prep-close" style="width: 100%; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; border: none; padding: 14px 24px; border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);">확인</button>
+          `;
+          
+          modal.appendChild(card);
+          document.body.appendChild(modal);
+          
+          const closeBtn = card.querySelector('#egdesk-prep-close');
+          closeBtn.addEventListener('click', hidePreparationModal);
+          closeBtn.addEventListener('mouseover', () => closeBtn.style.transform = 'translateY(-1px)');
+          closeBtn.addEventListener('mouseout', () => closeBtn.style.transform = 'translateY(0)');
+          
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) hidePreparationModal();
+          });
+        }
+        
+        modal.style.display = 'flex';
+        modal.offsetHeight;
+        modal.style.opacity = '1';
+        modal.querySelector('div').style.transform = 'scale(1)';
+      }
+      
+      function hidePreparationModal() {
+        const modal = document.getElementById('egdesk-prep-modal');
+        if (modal) {
+          modal.style.opacity = '0';
+          modal.querySelector('div').style.transform = 'scale(0.9)';
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 250);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

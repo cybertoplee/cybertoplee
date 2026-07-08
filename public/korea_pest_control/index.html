@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>(주)한국방역공사 제주 - 완벽 방역 가이드</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans KR"', '"Inter"', 'sans-serif'], },
+                    colors: {
+                        primary: '#1E40AF', secondary: '#0EA5E9', accent: '#10B981',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles */
+        body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
+        
+        /* View transitions */
+        .page-view {
+            display: none;
+            min-height: calc(100vh - 200px); /* 공간 확보 */
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Background */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/hero_bg-Cs1hOYoi.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Standalone view padding */
+        .standalone-view { padding-top: 100px; }
+
+        /* Floating Button Animation */
+        .fab-hover:hover { transform: scale(1.1) translateY(-5px); }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased overflow-x-hidden flex flex-col min-min-h-[100dvh]">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer nav-brand-link">
+                    <div class="w-10 h-10 bg-primary text-white rounded-lg flex items-center justify-center text-xl font-bold shadow-lg">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">(주)한국방역공사 <span class="text-secondary font-medium text-sm ml-1">제주</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="nav-link text-gray-600 hover:text-secondary transition font-medium text-sm" data-target="home">홈</a>
+                    <a href="#" class="nav-link text-gray-600 hover:text-secondary transition font-medium text-sm" data-target="pests">여름철 5대 해충</a>
+                    <a href="#" class="nav-link text-gray-600 hover:text-secondary transition font-medium text-sm" data-target="prevention">예방 가이드</a>
+                    <a href="#" class="nav-link text-gray-600 hover:text-secondary transition font-medium text-sm" data-target="diy">DIY 퇴치법</a>
+                    <a href="#" class="nav-link bg-secondary hover:bg-blue-500 text-white px-6 py-2.5 rounded-full font-bold transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" data-target="contact">상담 문의</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-900 hover:text-secondary focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl absolute w-full border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#" class="nav-link block px-4 py-4 text-gray-700 font-medium border-b border-gray-50 active:bg-gray-50" data-target="home"><i class="fa-solid fa-house w-6 text-center text-gray-400"></i> 홈으로</a>
+                <a href="#" class="nav-link block px-4 py-4 text-gray-700 font-medium border-b border-gray-50 active:bg-gray-50" data-target="pests"><i class="fa-solid fa-bug w-6 text-center text-gray-400"></i> 여름철 5대 해충</a>
+                <a href="#" class="nav-link block px-4 py-4 text-gray-700 font-medium border-b border-gray-50 active:bg-gray-50" data-target="prevention"><i class="fa-solid fa-shield-halved w-6 text-center text-gray-400"></i> 예방 가이드</a>
+                <a href="#" class="nav-link block px-4 py-4 text-gray-700 font-medium border-b border-gray-50 active:bg-gray-50" data-target="diy"><i class="fa-solid fa-spray-can w-6 text-center text-gray-400"></i> DIY 퇴치법</a>
+                <a href="#" class="nav-link block px-4 py-4 text-primary font-bold active:bg-blue-50" data-target="contact"><i class="fa-solid fa-phone w-6 text-center text-primary"></i> 상담 문의하기</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="app-container" class="flex-grow">
+        
+        <!-- ================= VIEW 1: HOME ================= -->
+        <div id="view-home" class="page-view active">
+            <!-- Hero Section -->
+            <section class="hero-bg relative min-h-[85vh] flex items-center justify-center pt-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90"></div>
+                <div class="relative z-10 text-center px-4 max-w-4xl mx-auto" data-aos="fade-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-secondary/20 text-secondary border border-secondary/30 text-sm font-semibold mb-6 backdrop-blur-sm">제주 방역 전문 기업</span>
+                    <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6 break-keep">
+                        여름철 해충과의 전쟁?<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">쾌적한 우리 집</span>을 위한 완벽 방역
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 break-keep font-light leading-relaxed">
+                        활기찬 여름휴가를 꿈꾸지만, 윙윙거리는 모기와 바퀴벌레 때문에 스트레스받고 계시나요?<br class="hidden md:block">
+                        단순한 불편함을 넘어 질병까지 매개하는 여름철 해충, 완벽하게 관리해 드립니다.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="nav-link bg-primary hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2" data-target="contact">
+                            <i class="fa-solid fa-phone-volume"></i> 바로 상담하기
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intro / Why Summer? -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-primary font-bold tracking-wider text-sm mb-2 uppercase">Why Now?</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">여름만 되면 찾아오는 불청객,<br>왜 하필 지금일까요? 😟</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        여름철은 <strong class="text-gray-900">높은 기온과 습도</strong>로 인해 해충들이 번식하기에 가장 최적화된 시기입니다. 
+                        특히 음식물이 쉽게 부패하면서 파리나 개미 같은 해충들을 강력하게 유인하게 되죠. 
+                        단순히 불편함을 넘어 <span class="text-red-500 font-medium">질병까지 매개할 수 있는</span> 여름철 해충, 철저한 관리가 필수입니다.
+                    </p>
+                    <button class="nav-link mt-10 text-primary font-bold hover:underline flex items-center justify-center gap-2 mx-auto" data-target="pests">
+                        위험한 5대 해충 알아보기 <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= VIEW 2: PESTS ================= -->
+        <div id="view-pests" class="page-view standalone-view bg-gray-50 pb-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-secondary font-bold tracking-wider text-sm mb-2 uppercase block">Pest Info</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">여름철 5대 해충, 왜 위험할까요? 🦠</h2>
+                    <p class="text-gray-500">집 안팎을 위협하는 대표적인 여름 해충 리스트</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Pest Cards -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-transform transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-3xl mb-6">🦟</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center justify-between">모기 <span class="text-sm font-normal text-gray-400">Mosquitoes</span></h3>
+                        <p class="text-gray-600 leading-relaxed">가려움은 물론 말라리아, 일본뇌염 등 심각한 질병을 옮길 수 있어 고인 물 관리가 필수적입니다.</p>
+                        <div class="mt-4 inline-block bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded font-medium">#고인물제거 #질병매개</div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-transform transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center text-3xl mb-6">🪰</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center justify-between">파리 <span class="text-sm font-normal text-gray-400">Flies</span></h3>
+                        <p class="text-gray-600 leading-relaxed">음식물 주변의 세균을 옮기는 주범으로, 음식물 쓰레기 관리가 소홀하면 순식간에 늘어납니다.</p>
+                        <div class="mt-4 inline-block bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded font-medium">#식중독유발 #음식물관리</div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-transform transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-amber-900/10 text-amber-900 rounded-full flex items-center justify-center text-3xl mb-6">🪳</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center justify-between">바퀴벌레 <span class="text-sm font-normal text-gray-400">Cockroaches</span></h3>
+                        <p class="text-gray-600 leading-relaxed">습하고 어두운 곳에 서식하며 알레르기와 병원균을 유발합니다. 번식력이 강해 초기 박멸이 어렵습니다.</p>
+                        <div class="mt-4 inline-block bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded font-medium">#번식력최강 #초기박멸</div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-transform transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center text-3xl mb-6">🐜</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center justify-between">개미 <span class="text-sm font-normal text-gray-400">Ants</span></h3>
+                        <p class="text-gray-600 leading-relaxed">단 음식을 찾아 군집으로 침투하므로 꼼꼼한 실내 관리가 필요합니다. 한 번 집을 지으면 골칫거리입니다.</p>
+                        <div class="mt-4 inline-block bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded font-medium">#군집생활 #단음식차단</div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-transform transform hover:-translate-y-2 lg:col-span-2 xl:col-span-1">
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-6">🕷️</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center justify-between">진드기 <span class="text-sm font-normal text-gray-400">Mites & Ticks</span></h3>
+                        <p class="text-gray-600 leading-relaxed">야외 활동 시 옮겨올 수 있으며 SFTS 등 위험 질병을 유발하거나 아토피 등 알레르기의 주범이 됩니다.</p>
+                        <div class="mt-4 inline-block bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded font-medium">#야외활동주의 #알레르기원인</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW 3: PREVENTION ================= -->
+        <div id="view-prevention" class="page-view standalone-view bg-white pb-24 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-20">
+                    <span class="bg-accent/10 text-accent font-bold px-4 py-1.5 rounded-full text-sm inline-block mb-4">해결 솔루션</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">지금 바로 실천하는<br>해충 예방 전략 3단계 🛠️</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto">일상의 작은 습관 변화만으로도 해충의 침입을 크게 줄일 수 있습니다.</p>
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="w-full md:w-1/2">
+                            <div class="relative w-full max-w-md aspect-video rounded-2xl overflow-hidden shadow-2xl mx-auto">
+                                <img src="../assets/step1-BIS0ywAx.jpg" alt="실내 청소" class="object-cover w-full h-full">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                    <span class="text-white font-bold text-xl">STEP 1. 실내 위생</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 space-y-4">
+                            <div class="text-5xl font-black text-gray-200 mb-2">01</div>
+                            <h3 class="text-2xl font-bold text-gray-900">철저한 실내 위생 및 음식물 관리</h3>
+                            <ul class="space-y-4 text-gray-600 mt-4">
+                                <li class="flex gap-3 items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <i class="fa-solid fa-check-circle text-accent mt-1 text-xl"></i>
+                                    <span>바닥, 주방, 화장실 등 <strong>습한 곳을 정기적으로 청소</strong>하세요.</span>
+                                </li>
+                                <li class="flex gap-3 items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <i class="fa-solid fa-check-circle text-accent mt-1 text-xl"></i>
+                                    <span>음식물 쓰레기는 <strong>밀봉하여 즉시 버리고</strong>, 모든 음식은 밀폐 용기에 보관합니다.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="w-full md:w-1/2">
+                            <div class="relative w-full max-w-md aspect-video rounded-2xl overflow-hidden shadow-2xl mx-auto">
+                                <img src="../assets/step2-C6XnYUSA.jpg" alt="창문 방충망" class="object-cover w-full h-full">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                    <span class="text-white font-bold text-xl">STEP 2. 차단</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 space-y-4">
+                            <div class="text-5xl font-black text-gray-200 mb-2">02</div>
+                            <h3 class="text-2xl font-bold text-gray-900">외부 침입 경로 완벽 차단</h3>
+                            <ul class="space-y-4 text-gray-600 mt-4">
+                                <li class="flex gap-3 items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <i class="fa-solid fa-check-circle text-accent mt-1 text-xl"></i>
+                                    <span>찢어진 방충망을 보수하고, <strong>창문 틈이나 벽 갈라진 틈</strong>을 실리콘으로 메워주세요.</span>
+                                </li>
+                                <li class="flex gap-3 items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <i class="fa-solid fa-check-circle text-accent mt-1 text-xl"></i>
+                                    <span>하수구 덮개를 닫고 <strong>정기적으로 배수구를 청소</strong>하여 서식지를 없앱니다.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="w-full md:w-1/2">
+                            <div class="relative w-full max-w-md aspect-video rounded-2xl overflow-hidden shadow-2xl mx-auto">
+                                <img src="../assets/step3-OAitibOo.jpg" alt="제습 및 화분" class="object-cover w-full h-full">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                    <span class="text-white font-bold text-xl">STEP 3. 환경 관리</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 space-y-4">
+                            <div class="text-5xl font-black text-gray-200 mb-2">03</div>
+                            <h3 class="text-2xl font-bold text-gray-900">스마트한 습기 및 환경 관리</h3>
+                            <ul class="space-y-4 text-gray-600 mt-4">
+                                <li class="flex gap-3 items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <i class="fa-solid fa-check-circle text-accent mt-1 text-xl"></i>
+                                    <span>제습기와 환기를 통해 <strong>실내 습도를 낮춰</strong> 쾌적한 환경을 유지하세요.</span>
+                                </li>
+                                <li class="flex gap-3 items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <i class="fa-solid fa-check-circle text-accent mt-1 text-xl"></i>
+                                    <span>집 주변 화분 받침대 등 <strong>모기 유충이 번식할 수 있는 고인 물</strong>을 제거합니다.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW 4: DIY TIPS ================= -->
+        <div id="view-diy" class="page-view standalone-view bg-accent/5 pb-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">셀프 방역 꿀팁 💡</h2>
+                    <p class="text-gray-500">주변에서 쉽게 구하는 재료로 해충을 막아보세요.</p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden max-w-5xl mx-auto">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-2/5 bg-accent p-10 text-white flex flex-col justify-center">
+                            <div class="text-5xl mb-6">🌿</div>
+                            <h2 class="text-3xl font-bold mb-4 leading-snug">집에서 간편하게!<br>DIY 해충 퇴치법</h2>
+                            <p class="text-accent-50 opacity-90 mb-6">화학 살충제가 부담스럽다면 천연 재료를 활용한 해충 접근 금지법을 실천해 보세요.</p>
+                        </div>
+                        <div class="lg:w-3/5 p-6 md:p-10">
+                            <ul class="space-y-6">
+                                <li class="flex gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-100">
+                                    <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center text-2xl shrink-0 shadow-sm">🧪</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg mb-1">식초 (Vinegar)</h4>
+                                        <p class="text-gray-600 text-sm md:text-base">물과 1:1로 섞어 분무기로 뿌리면 특유의 산성 냄새로 파리와 개미를 쫓는 데 매우 효과적입니다.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-100">
+                                    <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-2xl shrink-0 shadow-sm">🪵</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg mb-1">계피 (Cinnamon)</h4>
+                                        <p class="text-gray-600 text-sm md:text-base">망에 넣어 집안 곳곳에 두거나 계피 우린 물을 분사하면 모기와 진드기 퇴치에 큰 도움을 줍니다.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-100">
+                                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-2xl shrink-0 shadow-sm">🌸</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg mb-1">에센셜 오일 (Essential Oils)</h4>
+                                        <p class="text-gray-600 text-sm md:text-base">라벤더, 페퍼민트, 유칼립투스 등을 물에 희석해 사용하면 강한 향으로 해충의 접근을 자연스럽게 막아줍니다.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW 5: CONTACT ================= -->
+        <div id="view-contact" class="page-view standalone-view bg-gray-900 text-white pb-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">전문가의 도움이 필요할 땐?</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                        대량 발생하여 스스로 통제가 어렵다면, 근본적인 원인을 파악하고 완벽하게 해결해 줄 <strong>방역 전문가</strong>를 찾아주세요.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch max-w-5xl mx-auto">
+                    <!-- Info Card -->
+                    <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-4 mb-8 pb-6 border-b border-gray-700">
+                                <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center text-3xl shadow-lg">
+                                    <i class="fa-solid fa-user-shield text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">(주)한국방역공사</h3>
+                                    <p class="text-secondary font-medium mt-1">제주특별자치도 방역 우수기업</p>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-6 text-gray-300">
+                                <li class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-location-dot text-gray-400"></i></div>
+                                    <div class="mt-1">
+                                        <p class="font-bold text-white mb-1">오시는 길</p>
+                                        <p>제주특별자치도 제주시 동광로13길 1</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-phone text-gray-400"></i></div>
+                                    <div class="flex flex-col mt-1">
+                                        <p class="font-bold text-white mb-1">고객센터 (24시간 상담)</p>
+                                        <a href="tel:064-756-5995" class="hover:text-white transition font-bold text-xl text-blue-400">064-756-5995</a>
+                                        <a href="tel:010-8458-0012" class="hover:text-white transition font-bold text-xl text-blue-400">010-8458-0012</a>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-star text-gray-400"></i></div>
+                                    <div class="mt-1">
+                                        <p class="font-bold text-white mb-1">서비스 특징</p>
+                                        <p>꼼꼼한 맞춤형 방역, 철저한 사후 관리 시스템</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <a href="tel:064-756-5995" class="w-full mt-10 bg-secondary hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg flex justify-center items-center gap-2 text-lg block text-center">
+                            <i class="fa-solid fa-phone-volume"></i> 전화로 상담하기
+                        </a>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="relative h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl border border-gray-700 group bg-gray-800">
+                        <img src="../assets/map-DMp_vP9s.jpg" alt="Map View" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500">
+                        
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center flex-col pointer-events-none">
+                            <div class="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-2xl shadow-2xl animate-bounce mb-4 border-4 border-white">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="bg-white/95 backdrop-blur text-gray-900 px-6 py-4 rounded-2xl shadow-2xl font-bold flex flex-col items-center pointer-events-auto">
+                                <span class="text-lg">한국방역공사 제주본부</span>
+                                <span class="text-sm text-gray-600 font-normal mt-1">제주시 동광로13길 1</span>
+                                <a href="https://map.naver.com/p/search/제주특별자치도 제주시 동광로13길 1" target="_blank" rel="noopener noreferrer" class="mt-3 w-full bg-gray-900 hover:bg-black text-white px-4 py-2 rounded-lg text-sm transition text-center inline-block">
+                                    <i class="fa-solid fa-map-location-dot"></i> 지도 앱 열기
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Consistent Footer -->
+    <footer class="bg-[#111827] text-gray-400 py-10 text-center border-t border-gray-800 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col items-center justify-center gap-2">
+            <h4 class="font-bold text-gray-200 text-lg mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-shield-virus text-primary"></i> (주)한국방역공사
+            </h4>
+            <div class="flex flex-col md:flex-row gap-2 md:gap-6 text-sm">
+                <p><span class="text-gray-500">상호명:</span> (주)한국방역공사 제주지사</p>
+                <p class="hidden md:block text-gray-700">|</p>
+                <p><span class="text-gray-500">대표자:</span> 고명철</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-2 md:gap-6 text-sm mt-1">
+                <p><span class="text-gray-500">연락처:</span> 064-756-5995 / 010-8458-0012</p>
+                <p class="hidden md:block text-gray-700">|</p>
+                <p><span class="text-gray-500">주소:</span> 제주특별자치도 제주시 동광로13길 1</p>
+            </div>
+            <p class="mt-6 text-xs text-gray-600">&copy; 2026 (주)한국방역공사 제주지사. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons (Bottom Right) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+        <!-- Home Button -->
+        <button id="fab-home" class="bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl fab-hover transition-all duration-300 outline-none focus:outline-none border-2 border-white/20">
+            <i class="fa-solid fa-house"></i>
+        </button>
+        <!-- Exit Button -->
+        
+    </div>
+
+    <script>
+        // Page Definitions
+        const pages = ['home', 'pests', 'prevention', 'diy', 'contact'];
+        let currentPageIndex = 0;
+
+        // Elements
+        const mobileMenu = document.getElementById('mobile-menu');
+        const fabHome = document.getElementById('fab-home');
+
+        // Navigation Logic (SPA)
+        function navigateTo(pageId, pushToHistory = true) {
+            if (!pages.includes(pageId)) return;
+
+            // 1. Hide all views
+            document.querySelectorAll('.page-view').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // 2. Show target view
+            document.getElementById('view-' + pageId).classList.add('active');
+            
+            // 3. Scroll to top instantly
+            window.scrollTo(0, 0);
+
+            // 4. Update state variables
+            currentPageIndex = pages.indexOf(pageId);
+
+            // 5. Update History API for Browser Back Button
+            if (pushToHistory) {
+                history.pushState({ page: pageId }, "", `#${pageId}`);
+            }
+
+            // 6. Close mobile menu if open
+            mobileMenu.classList.add('hidden');
+
+            // 7. Re-trigger AOS animations for the new view (Optional but good for UX)
+            if(typeof AOS !== 'undefined') {
+                setTimeout(() => AOS.refresh(), 100);
+            }
+
+            // 8. Toggle FAB visibility (hide on home)
+            if(pageId === 'home') {
+                fabHome.style.opacity = '0';
+                fabHome.style.pointerEvents = 'none';
+            } else {
+                fabHome.style.opacity = '1';
+                fabHome.style.pointerEvents = 'auto';
+            }
+        }
+
+        // --- Event Listeners ---
+
+        // 1. Navbar & Link Clicks
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('data-target');
+                navigateTo(target);
+            });
+        });
+
+        // 2. Logo/Brand Click
+        document.querySelectorAll('.nav-brand-link').forEach(logo => {
+            logo.addEventListener('click', (e) => {
+                e.preventDefault();
+                navigateTo('home');
+            });
+        });
+
+        // 3. FAB (Home Button) Click
+        fabHome.addEventListener('click', () => {
+            navigateTo('home');
+        });
+
+        // 4. Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 5. Hardware Back Button Handling (History API)
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.page) {
+                navigateTo(e.state.page, false); // Don't push to history again
+            } else {
+                navigateTo('home', false);
+            }
+        });
+
+        // 6. Swipe Gestures (Left/Right)
+        let touchstartX = 0;
+        let touchendX = 0;
+        const swipeThreshold = 50;
+
+        function handleSwipe() {
+            if (touchendX < touchstartX - swipeThreshold) {
+                // Swiped Left -> Next Page
+                if (currentPageIndex < pages.length - 1) {
+                    navigateTo(pages[currentPageIndex + 1]);
+                }
+            }
+            if (touchendX > touchstartX + swipeThreshold) {
+                // Swiped Right -> Previous Page
+                if (currentPageIndex > 0) {
+                    navigateTo(pages[currentPageIndex - 1]);
+                }
+            }
+        }
+
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        // 7. Keyboard Arrow Keys (Left/Right)
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft' && currentPageIndex > 0) {
+                navigateTo(pages[currentPageIndex - 1]);
+            } else if (e.key === 'ArrowRight' && currentPageIndex < pages.length - 1) {
+                navigateTo(pages[currentPageIndex + 1]);
+            }
+        });
+
+        // --- Initialization ---
+        
+        // Setup initial history state
+        const initialHash = window.location.hash.replace('#', '');
+        if (pages.includes(initialHash)) {
+            navigateTo(initialHash, false);
+            history.replaceState({ page: initialHash }, "", `#${initialHash}`);
+        } else {
+            navigateTo('home', false);
+            history.replaceState({ page: 'home' }, "", `#home`);
+        }
+
+        // Initialize AOS
+        AOS.init({ once: true, offset: 50, duration: 600 });
+        
+    </script>
+
+
+
+
+
+
+    
+
+
+    <!-- Floating Exit Button -->
+    <a href="../#portfolio" class="fixed bottom-6 right-6 z-[9999] bg-gray-900 text-white w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-2xl hover:bg-red-600 hover:scale-110 transition-all group border-2 border-white/20" title="나가기" style="text-decoration: none;">
+      <span class="text-[12px] font-black tracking-wider">나가기</span>
+    </a>
+
+
+  <!-- EGDesk Preparation Modal Injected -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allowedPages = ['index.html', ''];
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
+          const pageName = href.split('?')[0].split('#')[0];
+          if (pageName.endsWith('.html') && !allowedPages.includes(pageName)) {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              showPreparationModal();
+            });
+          }
+        }
+      });
+      
+      function showPreparationModal() {
+        let modal = document.getElementById('egdesk-prep-modal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'egdesk-prep-modal';
+          modal.style.position = 'fixed';
+          modal.style.inset = '0';
+          modal.style.zIndex = '99999';
+          modal.style.display = 'flex';
+          modal.style.alignItems = 'center';
+          modal.style.justifyContent = 'center';
+          modal.style.backgroundColor = 'rgba(15, 23, 42, 0.65)';
+          modal.style.backdropFilter = 'blur(6px)';
+          modal.style.opacity = '0';
+          modal.style.transition = 'opacity 0.25s ease';
+          
+          const card = document.createElement('div');
+          card.style.backgroundColor = '#ffffff';
+          card.style.borderRadius = '24px';
+          card.style.padding = '36px 32px';
+          card.style.maxWidth = '420px';
+          card.style.width = '90%';
+          card.style.textAlign = 'center';
+          card.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+          card.style.border = '1px solid rgba(226, 232, 240, 0.8)';
+          card.style.transform = 'scale(0.9)';
+          card.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          
+          card.innerHTML = `
+            <div style="width: 60px; height: 60px; background-color: #fef3c7; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+              <svg style="width: 32px; height: 32px; color: #d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif; letter-spacing: -0.02em;">준비 중인 서비스</h3>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 28px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;">현재 데모 페이지에서는 제공되지 않는 기능입니다.<br>무료 제작 및 가입 문의는 보상 플랫폼으로 연락주세요!</p>
+            <button id="egdesk-prep-close" style="width: 100%; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; border: none; padding: 14px 24px; border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);">확인</button>
+          `;
+          
+          modal.appendChild(card);
+          document.body.appendChild(modal);
+          
+          const closeBtn = card.querySelector('#egdesk-prep-close');
+          closeBtn.addEventListener('click', hidePreparationModal);
+          closeBtn.addEventListener('mouseover', () => closeBtn.style.transform = 'translateY(-1px)');
+          closeBtn.addEventListener('mouseout', () => closeBtn.style.transform = 'translateY(0)');
+          
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) hidePreparationModal();
+          });
+        }
+        
+        modal.style.display = 'flex';
+        modal.offsetHeight;
+        modal.style.opacity = '1';
+        modal.querySelector('div').style.transform = 'scale(1)';
+      }
+      
+      function hidePreparationModal() {
+        const modal = document.getElementById('egdesk-prep-modal');
+        if (modal) {
+          modal.style.opacity = '0';
+          modal.querySelector('div').style.transform = 'scale(0.9)';
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 250);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

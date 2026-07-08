@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>제주리치하우스 - 최정진 대표 | 투명한 견적과 정직한 시공</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            scroll-behavior: smooth; 
+            -webkit-font-smoothing: antialiased;
+        }
+        section, footer {
+            scroll-margin-top: 64px;
+        }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .hero-gradient-overlay {
+            background: linear-gradient(135deg, rgba(7, 89, 133, 0.85) 0%, rgba(2, 132, 199, 0.75) 100%);
+        }
+        .img-loading {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        /* 모바일 터치 타겟 최적화 */
+        .touch-target {
+            min-height: 44px;
+            min-width: 44px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 w-full z-50 glass-morphism shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <!-- Logo with Link -->
+            <a href="#" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span class="text-lg sm:text-xl font-black text-sky-900 tracking-tight leading-none">제주리치하우스</span>
+            </a>
+            <nav class="hidden md:flex gap-6 lg:gap-8 text-sm font-medium text-slate-600">
+                <a href="#philosophy" class="hover:text-sky-600 transition-colors">시공철학</a>
+                <a href="#services" class="hover:text-sky-600 transition-colors">전문분야</a>
+                <a href="#tips" class="hover:text-sky-600 transition-colors">제주꿀팁</a>
+                <a href="#contact" class="text-sky-600 font-bold border-b-2 border-sky-600 pb-1">상담하기</a>
+            </nav>
+            <!-- Mobile Call Button for Header -->
+            <a href="tel:010-7762-0151" class="md:hidden flex items-center justify-center w-10 h-10 bg-sky-100 rounded-full text-sky-600 touch-target">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[500px] md:min-h-[650px] flex items-center justify-center overflow-hidden">
+        <!-- Hero Background Image -->
+        <div id="hero-bg-container" class="absolute inset-0 bg-slate-900 img-loading">
+            <img id="hero-img" class="w-full h-full object-cover opacity-50 transition-opacity duration-1000" src="" alt="제주도 건물 방수">
+            <div class="absolute inset-0 hero-gradient-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 py-20 text-white text-center">
+            <div class="inline-block bg-sky-400/20 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-6 backdrop-blur-md border border-white/10">
+                제주 전 지역 누수 해결 전문가
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight drop-shadow-lg">
+                부르는 게 값인 방수 공사,<br>
+                <span class="text-sky-300 italic">거품 싹 뺐습니다!</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-2xl text-sky-50 mb-10 leading-relaxed max-w-2xl mx-auto opacity-95">
+                천장에서 뚝뚝 떨어지는 물줄기, 외벽 곰팡이 걱정 끝.<br class="hidden sm:block">
+                자재비 실비 + 인건비 일당제의 투명한 견적을 약속합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:010-7762-0151" class="w-full sm:w-auto bg-white text-sky-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:bg-sky-50 transition-all flex items-center justify-center gap-3 touch-target">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    전화 상담하기
+                </a>
+                <a href="#philosophy" class="w-full sm:w-auto bg-sky-900/40 border border-white/20 px-8 py-4 rounded-2xl font-bold text-lg backdrop-blur-sm hover:bg-sky-900/60 transition-all touch-target">
+                    시공 방식 확인
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Philosophy -->
+    <section id="philosophy" class="py-16 md:py-24 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">업계 최초! 투명 견적 시스템</h2>
+                <div class="h-1 w-20 bg-sky-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-500 text-sm sm:text-base max-w-xl mx-auto">광고비와 과도한 수수료를 걷어낸 '진짜' 양심 시공으로 신뢰를 드립니다.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+                <div class="bg-white p-6 sm:p-10 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-6 items-start hover:shadow-xl transition-shadow">
+                    <div class="bg-sky-100 p-4 rounded-2xl shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-sky-900">자재비 실비 정산</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm sm:text-base">우레탄, 발포지수제 등 시공에 들어가는 모든 자재는 구입 영수증 그대로 투명하게 청구합니다. 현장에서 고객님이 직접 확인하실 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 sm:p-10 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-6 items-start hover:shadow-xl transition-shadow">
+                    <div class="bg-orange-100 p-4 rounded-2xl shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-sky-900">인건비 일당제</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm sm:text-base">숙련된 기술자의 정당한 일당만 책정합니다. 기업의 과도한 마진이나 불필요한 중간 수수료를 완벽히 제거하여 합리적인 금액을 산출합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16 md:py-24 px-4 sm:px-6 bg-slate-100/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 italic text-sky-950">제주리치하우스 핵심 전문 시공</h2>
+                <p class="text-slate-500 text-sm sm:text-base mt-4">방수부터 화장실 리모델링까지, 확실한 책임 시공을 약속합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Service 1: 화장실 리모델링 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="aspect-video bg-slate-200 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="../assets/wp_remodel-CLECL80Q.png" alt="화장실 리모델링">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
+                            <h4 class="text-xl font-bold text-sky-900">화장실 전면 리모델링</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">타일 설비, 양변기 교체부터 하수구 막힘 및 악취 제거까지 화장실의 모든 문제를 완벽하게 해결합니다.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#타일설비</span>
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#냄새제거</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: 화장실 도색 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="aspect-video bg-slate-200 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="../assets/wp_paint-DeJET5ko.png" alt="화장실 도색">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
+                            <h4 class="text-xl font-bold text-sky-900">오래된 화장실 특수 도색</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">고객님이 원하시는 색상으로 우레탄 코팅제를 시공하여 낡은 화장실을 새것처럼 화사하게 변신시킵니다.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#우레탄코팅</span>
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#맞춤색상</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: 화장실 바닥 미끄럼 방지 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="aspect-video bg-slate-200 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="../assets/wp_floor-BuQ-EJiJ.png" alt="화장실 바닥">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
+                            <h4 class="text-xl font-bold text-sky-900">바닥 미끄럼 방지 & 방수</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">일반 페인트가 아닌 특수 방수제와 우레탄을 사용하여 미끄럼을 완벽하게 방지하고 물고임을 해결합니다.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#미끄럼방지</span>
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#전문방수제</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: 외벽/창틀 누수 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="aspect-video bg-slate-200 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="../assets/wp_window-Cjf71-Tf.png" alt="창틀 누수">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
+                            <h4 class="text-xl font-bold text-sky-900">외벽 크랙 보수 & 창틀 누수</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">창틀 방수 책임 시공! 폼 시공 없이 시멘트 휠링과 고성능 실리콘만 사용하여 내구성을 극대화합니다.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#책임시공</span>
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#시멘트휠링</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5: 하지면 처리 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="aspect-video bg-slate-200 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="../assets/wp_grinder-DoThMHxf.png" alt="하지면 처리">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
+                            <h4 class="text-xl font-bold text-sky-900">완벽한 하지면 처리</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">모든 방수 및 보수 공사의 기초! 그라인더 연삭과 고압 세척기를 활용하여 이물질을 완벽히 제거 후 시공합니다.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#고압세척</span>
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#기초공사</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6: 옥상/기본 방수 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group">
+                    <div class="aspect-video bg-slate-200 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="../assets/wp_roof_new-1a81tavI.png" alt="옥상 우레탄 방수">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
+                            <h4 class="text-xl font-bold text-sky-900">제주 맞춤 옥상 방수</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">하도, 중도, 상도 정석 시공은 기본이며, 현장 상황에 맞는 최적의 인젝션(고압 주입) 공법을 병행합니다.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#옥상방수</span>
+                            <span class="px-3 py-1 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full">#정석시공</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" class="py-16 md:py-24 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-sky-900 text-white rounded-[3rem] p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
+            <h2 class="text-2xl sm:text-3xl font-black mb-10 flex items-center gap-4 text-sky-300">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-2xl flex items-center justify-center text-xl shadow-lg">💡</span>
+                제주 건물 관리 꿀팁
+            </h2>
+            <div class="space-y-8">
+                <div class="flex gap-5">
+                    <div class="shrink-0 text-sky-400 font-black text-2xl opacity-50">01</div>
+                    <div>
+                        <p class="text-lg font-bold mb-2">제주는 누수 방치가 곧 건물 훼손입니다.</p>
+                        <p class="text-sky-100/80 text-sm sm:text-base leading-relaxed italic">"염분이 섞인 제주 특유의 해풍은 철근 부식을 타 지역보다 3배 이상 빠르게 촉진합니다. 작은 습기라도 발견 즉시 조치하는 것이 비용을 아끼는 지름길입니다."</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <div class="shrink-0 text-sky-400 font-black text-2xl opacity-50">02</div>
+                    <div>
+                        <p class="text-lg font-bold mb-2">임시방편보다는 '물길' 차단이 핵심입니다.</p>
+                        <p class="text-sky-100/80 text-sm sm:text-base leading-relaxed italic">"겉만 덧칠하는 방식은 재발률 90% 이상입니다. 고압 주입 등을 통해 물의 근본 통로를 찾아 완전히 밀폐해야 합니다."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-white py-16 md:py-24 px-4 sm:px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+                <!-- CEO Profile Card -->
+                <div class="bg-slate-50 p-6 sm:p-10 rounded-[3rem] border border-slate-200 relative group overflow-hidden">
+                    <div class="flex flex-col sm:flex-row items-center gap-8 relative z-10">
+                        <div class="w-40 h-40 rounded-[2.5rem] bg-slate-200 shadow-inner overflow-hidden border-4 border-white img-loading shrink-0">
+                            <img id="ceo-img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="" alt="최정진 대표">
+                        </div>
+                        <div class="text-center sm:text-left">
+                            <div class="bg-sky-600 text-white text-[10px] font-bold px-3 py-1 rounded-full inline-block mb-3 uppercase tracking-wider">Construction Expert</div>
+                            <h3 class="text-3xl font-black text-slate-900 mb-2">최정진 <span class="text-base font-medium text-slate-400 ml-1 underline decoration-sky-500 underline-offset-4">대표</span></h3>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                                "비싼 수수료를 빼고 오직 실력과 정직함으로 승부합니다. 내 집처럼 꼼꼼하게 시공하겠습니다."
+                            </p>
+                            <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+                                <span class="bg-white px-4 py-1.5 rounded-full text-xs font-bold text-slate-500 border border-slate-200 shadow-sm">#제주현지인</span>
+                                <span class="bg-white px-4 py-1.5 rounded-full text-xs font-bold text-slate-500 border border-slate-200 shadow-sm">#맛집정보통</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Area -->
+                <div class="flex flex-col gap-8">
+                    <div>
+                        <h4 class="text-2xl sm:text-3xl font-black mb-2">문의 및 상담 신청</h4>
+                        <p class="text-slate-500 text-sm font-medium">부재 시 문자를 남겨주시면 현장 확인 후 즉시 연락드립니다.</p>
+                    </div>
+                    <div class="space-y-5">
+                        <a href="tel:010-7762-0151" class="flex items-center gap-5 group p-4 rounded-3xl bg-sky-50 border border-sky-100 hover:bg-sky-100 transition-all touch-target">
+                            <div class="w-14 h-14 rounded-2xl bg-sky-600 flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-sky-600 font-black uppercase tracking-widest mb-1">Direct Call</span>
+                                <span class="text-2xl sm:text-3xl font-black text-sky-900">010-7762-0151</span>
+                            </div>
+                        </a>
+                        <div class="flex items-start gap-4 p-5 bg-orange-50 border border-orange-100 rounded-[1.5rem]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-orange-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            <p class="text-sm text-orange-900 leading-relaxed font-medium">
+                                <strong>시공 안내:</strong> 최정진 대표는 직접 시공을 담당합니다. 현장 작업 중에는 통화가 어려울 수 있으니 <strong>문자로 '지역과 증상'</strong>을 남겨주시면 더욱 빠른 상담이 가능합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 pt-10 border-t border-slate-100 text-center">
+                <!-- Footer Company Name Changed -->
+                <p class="text-base sm:text-lg font-bold text-slate-800 mb-2 italic">제주리치하우스</p>
+                <p class="text-[10px] tracking-[0.2em] text-slate-400 uppercase mb-6">COPYRIGHT © 2024 제주리치하우스. ALL RIGHTS RESERVED.</p>
+                <div class="flex justify-center gap-4 text-slate-300 text-[10px]">
+                    <span>사업자등록번호: 준비중</span>
+                    <span>|</span>
+                    <span>서비스 지역: 제주 전 지역</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button for Mobile -->
+    <div class="fixed bottom-6 right-6 z-[60] sm:hidden">
+        <a href="tel:010-7762-0151" class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center shadow-2xl animate-bounce active:scale-95 transition-transform touch-target">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        window.onload = () => {
+            const images = [
+                { id: "hero-img", src: "./image/wp_hero.jpg" },
+                { id: "service-img-1", src: "./image/wp_crack.jpg" },
+                { id: "service-img-2", src: "./image/wp_injection.jpg" },
+                { id: "service-img-3", src: "./image/wp_roof.jpg" },
+                { id: "ceo-img", src: "./image/wp_ceo.png" }
+            ];
+            
+            images.forEach(imgData => {
+                const el = document.getElementById(imgData.id);
+                if (el) {
+                    const container = el.parentElement;
+                    el.onload = () => {
+                        container.classList.remove('img-loading');
+                        el.classList.add('opacity-100');
+                    };
+                    el.src = imgData.src;
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            document.querySelector('header').classList.toggle('shadow-lg', window.scrollY > 20);
+        });
+    </script>
+
+    
+
+  
+    
+
+  
+    
+
+  
+
+
+
+
+
+    
+
+
+    <!-- Floating Exit Button -->
+    <a href="../#portfolio" class="fixed bottom-6 right-6 z-[9999] bg-gray-900 text-white w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-2xl hover:bg-red-600 hover:scale-110 transition-all group border-2 border-white/20" title="나가기" style="text-decoration: none;">
+      <span class="text-[12px] font-black tracking-wider">나가기</span>
+    </a>
+
+
+  <!-- EGDesk Preparation Modal Injected -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allowedPages = ['index.html', ''];
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
+          const pageName = href.split('?')[0].split('#')[0];
+          if (pageName.endsWith('.html') && !allowedPages.includes(pageName)) {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              showPreparationModal();
+            });
+          }
+        }
+      });
+      
+      function showPreparationModal() {
+        let modal = document.getElementById('egdesk-prep-modal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'egdesk-prep-modal';
+          modal.style.position = 'fixed';
+          modal.style.inset = '0';
+          modal.style.zIndex = '99999';
+          modal.style.display = 'flex';
+          modal.style.alignItems = 'center';
+          modal.style.justifyContent = 'center';
+          modal.style.backgroundColor = 'rgba(15, 23, 42, 0.65)';
+          modal.style.backdropFilter = 'blur(6px)';
+          modal.style.opacity = '0';
+          modal.style.transition = 'opacity 0.25s ease';
+          
+          const card = document.createElement('div');
+          card.style.backgroundColor = '#ffffff';
+          card.style.borderRadius = '24px';
+          card.style.padding = '36px 32px';
+          card.style.maxWidth = '420px';
+          card.style.width = '90%';
+          card.style.textAlign = 'center';
+          card.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+          card.style.border = '1px solid rgba(226, 232, 240, 0.8)';
+          card.style.transform = 'scale(0.9)';
+          card.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          
+          card.innerHTML = `
+            <div style="width: 60px; height: 60px; background-color: #fef3c7; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+              <svg style="width: 32px; height: 32px; color: #d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif; letter-spacing: -0.02em;">준비 중인 서비스</h3>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 28px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;">현재 데모 페이지에서는 제공되지 않는 기능입니다.<br>무료 제작 및 가입 문의는 보상 플랫폼으로 연락주세요!</p>
+            <button id="egdesk-prep-close" style="width: 100%; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; border: none; padding: 14px 24px; border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);">확인</button>
+          `;
+          
+          modal.appendChild(card);
+          document.body.appendChild(modal);
+          
+          const closeBtn = card.querySelector('#egdesk-prep-close');
+          closeBtn.addEventListener('click', hidePreparationModal);
+          closeBtn.addEventListener('mouseover', () => closeBtn.style.transform = 'translateY(-1px)');
+          closeBtn.addEventListener('mouseout', () => closeBtn.style.transform = 'translateY(0)');
+          
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) hidePreparationModal();
+          });
+        }
+        
+        modal.style.display = 'flex';
+        modal.offsetHeight;
+        modal.style.opacity = '1';
+        modal.querySelector('div').style.transform = 'scale(1)';
+      }
+      
+      function hidePreparationModal() {
+        const modal = document.getElementById('egdesk-prep-modal');
+        if (modal) {
+          modal.style.opacity = '0';
+          modal.querySelector('div').style.transform = 'scale(0.9)';
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 250);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

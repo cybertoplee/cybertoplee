@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리동네학원 문제은행 플랫폼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; overflow-x: hidden; }
+        .serif { font-family: 'Nanum Myeongjo', serif; }
+        .sidebar-transition { transition: all 0.3s ease-in-out; }
+        .active-menu { background-color: #f3f4f6; border-left: 4px solid #4f46e5; color: #4f46e5; font-weight: 700; }
+        
+        .floating-pill { 
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            user-select: none; touch-action: none; cursor: default;
+        }
+        .drag-handle { cursor: grab; }
+        .drag-handle:active { cursor: grabbing; }
+
+        .hanja-large { font-size: 3.8rem; font-weight: 800; line-height: 1.1; color: #1e1b4b; cursor: pointer; transition: all 0.3s; }
+        .hanja-large:hover { color: #4f46e5; transform: scale(1.05); }
+        
+        .modal-enter-active, .modal-leave-active { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .modal-enter-from, .modal-leave-to { opacity: 0; transform: scale(0.95); }
+
+        .content-scroll { max-height: calc(100vh - 280px); overflow-y: auto; padding-right: 8px; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 10px; }
+
+        .board-text-custom { font-size: 0.9rem; font-weight: 400 !important; color: #4b5563; }
+        .board-table th { border-bottom: 2px solid #e5e7eb; padding: 12px 10px; background-color: #f9fafb; font-weight: 600; font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; }
+        .board-table td { border-bottom: 1px solid #f3f4f6; padding: 12px 10px; }
+        
+        .idiom-card { border: 1px solid #f3f4f6; transition: all 0.25s; }
+        .idiom-card:hover { transform: translateY(-4px); border-color: #6366f1; box-shadow: 0 12px 20px -5px rgba(0,0,0,0.05); }
+        
+        .plan-card { transition: all 0.3s ease; position: relative; overflow: hidden; cursor: pointer; }
+        .plan-card-selected { border-color: #4f46e5 !important; background-color: rgba(79, 70, 229, 0.02); }
+        .plan-card-selected::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: #4f46e5; }
+
+        .reg-content-box { min-height: 500px; line-height: 2.2; }
+        .reg-content-box strong { color: #1e1b4b; font-weight: 900; background: linear-gradient(to top, #e0e7ff 40%, transparent 40%); }
+        .reg-content-box .clause { color: #4338ca; font-weight: 800; display: block; margin-top: 2rem; margin-bottom: 0.5rem; border-left: 4px solid #4338ca; padding-left: 10px; }
+
+        .pay-npay { background-color: #03C75A; }
+        .pay-kpay { background-color: #FEE500; }
+        .pay-toss { background-color: #0083FF; }
+
+        [v-cloak] { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div id="app" v-cloak>
+        <!-- Header -->
+        <header class="fixed top-0 w-full bg-white border-b border-gray-100 z-[100] h-16 flex items-center justify-between px-4 lg:px-8 shadow-sm">
+            <div @click="view = 'stats'" class="cursor-pointer bg-slate-50 hover:bg-indigo-50 transition-colors p-2 px-3 rounded-xl flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-3">
+                    <div class="flex flex-col text-left"><span class="text-gray-400 font-medium uppercase text-[9px]">Today</span><span class="text-indigo-600 font-bold">1,245</span></div>
+                    <div class="flex flex-col text-left"><span class="text-gray-400 font-medium uppercase text-[9px]">Total</span><span class="text-indigo-600 font-bold">458,920</span></div>
+                </div>
+                <div class="w-px h-6 bg-gray-200"></div>
+                <div class="flex items-center gap-2">
+                    <div class="flex flex-col text-left"><span class="text-gray-400 font-medium text-[9px]">문제은행 문항수</span><span class="text-slate-800 font-black">46,470</span></div>
+                </div>
+            </div>
+
+            <div @click="resetHome" class="cursor-pointer flex items-center gap-2">
+                <div class="bg-indigo-600 text-white p-1.5 rounded-lg shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>
+                </div>
+                <h1 class="text-lg font-black tracking-tighter hidden sm:block italic text-slate-800 uppercase tracking-tighter">우리동네학원 <span class="text-indigo-600 not-italic">문제은행</span></h1>
+            </div>
+
+            <nav class="hidden lg:flex items-center gap-7 font-bold text-[13px] text-gray-500">
+                <button @click="openBoard('notice')" class="hover:text-indigo-600" :class="view === 'notice' ? 'text-indigo-600' : ''">공지사항</button>
+                <button @click="setSubject('국어')" class="hover:text-indigo-600" :class="currentSubject === '국어' && view === 'subject' ? 'text-indigo-600' : ''">국어</button>
+                <button @click="setSubject('영어')" class="hover:text-indigo-600" :class="currentSubject === '영어' && view === 'subject' ? 'text-indigo-600' : ''">영어</button>
+                <button @click="setSubject('수학')" class="hover:text-indigo-600" :class="currentSubject === '수학' && view === 'subject' ? 'text-indigo-600' : ''">수학</button>
+                <button @click="view = 'info'" class="hover:text-indigo-600" :class="view === 'info' ? 'text-indigo-600' : ''">이용방법</button>
+                <button @click="openBoard('board')" class="hover:text-indigo-600" :class="view === 'board' ? 'text-indigo-600' : ''">게시판</button>
+            </nav>
+
+            <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16m-7 6h7" /></svg></button>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="pt-16 min-min-h-[100dvh] flex flex-col md:flex-row">
+            <!-- Sidebar -->
+            <aside v-if="view === 'subject'" :class="mobileMenu ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'" class="sidebar-transition fixed lg:static w-72 h-[calc(100vh-64px)] bg-white border-r border-gray-100 flex flex-col z-40 shadow-sm lg:shadow-none">
+                <div class="p-6 flex-1 overflow-y-auto">
+                    <div class="mb-6 flex items-center gap-2">
+                        <div class="w-1.5 h-6 bg-indigo-600 rounded-full"></div>
+                        <h2 class="text-xl font-bold text-gray-900">{{ currentSubject }}</h2>
+                    </div>
+
+                    <div v-for="(large, lIdx) in currentCategories" :key="lIdx" class="mb-4">
+                        <button @click="toggleLarge(large)" class="flex items-center justify-between w-full text-left font-bold text-gray-800 text-base mb-1 group">
+                            <span>{{ large.name }}</span>
+                            <svg :class="large.expanded ? 'rotate-180' : ''" class="h-4 w-4 transition-transform text-gray-300 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        
+                        <div v-show="large.expanded" class="space-y-0.5 ml-2">
+                            <div v-for="(medium, mIdx) in (large.items || [])" :key="mIdx">
+                                <button @click="toggleMedium(large, medium)" class="flex items-center justify-between w-full text-left px-3 py-1.5 text-[13px] font-semibold text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">
+                                    <span>{{ medium.name }}</span>
+                                    <svg v-if="medium.items && medium.items.length" :class="medium.expanded ? 'rotate-180' : ''" class="h-3.5 w-3.5 transition-transform text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 9l-7 7-7-7" /></svg>
+                                </button>
+                                
+                                <div v-show="medium.expanded" class="ml-4 mt-0.5 space-y-0.5">
+                                    <template v-if="medium.items && medium.items.length">
+                                        <button v-for="(small, sIdx) in medium.items" :key="sIdx" 
+                                                @click="selectPage(large.name, medium.name, small)"
+                                                :class="selectedItem === small ? 'active-menu' : 'text-gray-500 hover:bg-gray-50'"
+                                                class="w-full text-left px-3 py-1.5 text-xs rounded-md transition-all flex justify-between items-center">
+                                            <span>{{ small }}</span>
+                                            <span class="text-[9px] text-gray-300 font-mono">{{ getAbsolutePage(small) }}</span>
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5 border-t border-gray-100 bg-slate-50/50 text-center">
+                    <p class="text-[9px] text-gray-400 font-bold italic">Wooridongne Academy</p>
+                    <p class="text-[9px] text-gray-400 leading-tight">사업자: 344-23-02227 | 대표: 신정수</p>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="flex-1 overflow-y-auto relative p-4 md:p-6 bg-slate-50/30">
+                
+                <!-- Home View -->
+                <div v-if="view === 'home'" class="max-w-4xl mx-auto py-8 text-center px-4">
+                     <div class="bg-indigo-900 rounded-[48px] p-10 md:p-14 text-white shadow-2xl relative overflow-hidden mb-12">
+                        <img src="../assets/exam_hero_bg-DiRUlUeC.png" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay" />
+                        <div class="absolute top-0 right-0 w-80 h-80 bg-indigo-500/20 rounded-full -mr-32 -mt-32 shadow-inner"></div>
+                        <div class="relative z-10">
+                            <h1 class="text-2xl font-bold mb-4 text-indigo-300 uppercase tracking-widest">우리동네학원 문제은행 플랫폼</h1>
+                            <h2 class="text-4xl md:text-5xl font-black mb-8 tracking-tighter leading-tight italic">국내 최고 문제은행 플랫폼</h2>
+                            <p class="text-indigo-100 text-lg mb-10 leading-relaxed font-light px-4">
+                                전국 학교 및 학원, 문제은행 서비스 업체에서 제공하는 모든 시험문제들을 제공하는 국내 최고의 문제은행 플랫폼입니다.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mt-12 text-center">
+                                <div @click="setSubject('국어')" class="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-[32px] cursor-pointer hover:bg-white/20 transition-all shadow-lg overflow-hidden relative group">
+                                    <img src="../assets/subject_korean-C9EgieIF.png" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity mix-blend-overlay" />
+                                    <div class="relative z-10">
+                                        <div class="w-10 h-10 bg-white text-indigo-900 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg font-bold">국어</div>
+                                        <h4 class="text-base font-black text-white">국어 학습</h4>
+                                    </div>
+                                </div>
+                                <div @click="goToHanja" class="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-[32px] cursor-pointer hover:bg-white/20 transition-all shadow-lg overflow-hidden relative group">
+                                    <img src="../assets/subject_hanja-BvEp-FS0.png" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity mix-blend-overlay" />
+                                    <div class="relative z-10">
+                                        <div class="w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg font-black text-sm">한자</div>
+                                        <h4 class="text-base font-black text-white">한자성어</h4>
+                                    </div>
+                                </div>
+                                <div @click="openRegulation" class="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-[32px] cursor-pointer hover:bg-white/20 transition-all shadow-lg overflow-hidden relative group">
+                                    <img src="../assets/subject_standard-CcRSiH4o.png" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity mix-blend-overlay" />
+                                    <div class="relative z-10">
+                                        <div class="w-10 h-10 bg-slate-100 text-indigo-900 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg font-bold">표준</div>
+                                        <h4 class="text-base font-black text-white">표준어 규정</h4>
+                                    </div>
+                                </div>
+                                <div @click="openSpelling" class="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-[32px] cursor-pointer hover:bg-white/20 transition-all shadow-lg overflow-hidden relative group">
+                                    <img src="../assets/subject_spelling-7Kjl9eQx.png" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity mix-blend-overlay" />
+                                    <div class="relative z-10">
+                                        <div class="w-10 h-10 bg-indigo-400 text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg font-bold">맞춤</div>
+                                        <h4 class="text-base font-black text-white">한글 맞춤법</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Content View -->
+                <div v-if="view === 'subject' && selectedItem" class="max-w-5xl mx-auto pb-10">
+                    <div class="mb-4 flex flex-col md:flex-row md:items-center justify-between px-2 gap-4">
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                <span>{{ currentPath.large }}</span>
+                                <span v-if="currentPath.medium" class="mx-1 opacity-50">/</span>
+                                <span>{{ currentPath.medium }}</span>
+                            </div>
+                            <p class="text-[11px] text-indigo-400 font-bold mt-1 italic underline decoration-indigo-100">{{ getViewDescription() }}</p>
+                        </div>
+                        <div class="bg-indigo-600 text-white text-[10px] font-black px-4 py-2 rounded-full shadow-lg self-start md:self-auto uppercase">PAGE {{ currentPath.pageNum }}</div>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-10 rounded-[40px] shadow-sm border border-gray-100 min-h-[750px]">
+                        <h2 class="text-3xl font-black text-indigo-950 mb-10 flex items-center gap-4 italic underline decoration-indigo-50 decoration-8 underline-offset-[-2px]">
+                            <span class="w-2.5 h-8 bg-indigo-600 rounded-full shadow-sm"></span>
+                            {{ currentPath.title }}
+                        </h2>
+
+                        <div class="content-scroll">
+                            <!-- ERROR FIX: idiomContents existence check before looping -->
+                            <div v-if="idiomContents && idiomContents[currentPath.title]" class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-20 px-2">
+                                <div v-for="(item, idx) in idiomContents[currentPath.title]" :key="idx" @click="openIdiomDetail(item)" class="idiom-card bg-white p-8 rounded-[36px] cursor-pointer group shadow-sm border-slate-100">
+                                    <div class="flex flex-col items-center text-center">
+                                        <div class="hanja-large serif mb-6 tracking-tighter">{{ item.hanja }}</div>
+                                        <h4 class="text-2xl font-black text-indigo-900 mb-3 group-hover:text-indigo-600 transition-colors">{{ item.word }}</h4>
+                                        <p class="text-[15px] text-gray-500 leading-relaxed line-clamp-1 font-medium italic">{{ item.mean }}</p>
+                                    </div>
+                                    <div class="mt-6 flex justify-center border-t border-slate-50 pt-4">
+                                        <span class="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] group-hover:text-indigo-500 italic">Play commentary</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-else class="max-w-3xl mx-auto py-10 px-4 text-center">
+                                <div class="bg-indigo-50/40 p-10 rounded-[48px] border border-indigo-100 shadow-inner">
+                                    <h3 class="text-xl font-black text-indigo-900 mb-6 flex items-center gap-3 justify-center italic uppercase">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                        {{ currentPath.large }} > {{ currentPath.medium }}
+                                    </h3>
+                                    <p class="serif text-slate-600 text-lg leading-loose">현재 선택하신 <strong>{{ currentPath.title }}</strong> 단원은 해당 카테고리의 필수 학습 과정입니다. 최신 기출 문항을 기반으로 분석된 단원별 요약 데이터를 체계적으로 학습하실 수 있습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info View: Guide & Payment -->
+                <div v-if="view === 'info'" class="p-8 max-w-6xl mx-auto min-min-h-[100dvh] bg-white rounded-[40px] mb-12 shadow-sm text-center px-4">
+                    <div class="mb-12">
+                        <h2 class="text-4xl font-black text-indigo-950 tracking-tighter mb-2 italic">이용방법 및 결제</h2>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">Guide & Payment</p>
+                    </div>
+
+                    <div class="flex justify-center gap-4 mb-16">
+                        <button @click="infoTab = 'guide'" :class="infoTab === 'guide' ? 'bg-indigo-600 text-white shadow-xl' : 'bg-slate-50 text-slate-400'" class="px-12 py-3 rounded-full font-black transition-all">
+                            <span class="text-base block">가이드</span><span class="text-[9px] uppercase tracking-widest opacity-70">Guide</span>
+                        </button>
+                        <button @click="infoTab = 'payment'" :class="infoTab === 'payment' ? 'bg-indigo-600 text-white shadow-xl' : 'bg-slate-50 text-slate-400'" class="px-10 py-3 rounded-full font-black transition-all">
+                            <span class="text-base block">요금제/결제</span><span class="text-[9px] uppercase tracking-widest opacity-70">Payment</span>
+                        </button>
+                    </div>
+
+                    <div v-if="infoTab === 'guide'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 pb-20">
+                        <div v-for="(guide, idx) in usageGuides" :key="idx" class="bg-indigo-50/20 p-10 rounded-[48px] border-2 border-indigo-50 hover:border-indigo-300 transition-all group shadow-sm hover:shadow-lg text-left">
+                            <div class="mb-6 flex items-center justify-between">
+                                <span class="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-lg font-bold shadow-lg group-hover:scale-110 transition-transform">{{ idx + 1 }}</span>
+                                <div class="text-right">
+                                    <h4 class="text-xl font-black text-indigo-900">{{ guide.title }}</h4>
+                                    <span class="text-[9px] font-bold text-indigo-300 uppercase tracking-widest">{{ guide.sub }}</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed font-medium text-[14px]">{{ guide.desc }}</p>
+                        </div>
+                    </div>
+
+                    <div v-if="infoTab === 'payment'" class="space-y-24 animate-fadeIn pb-20 px-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div v-for="(plan, pIdx) in pricingPlans" :key="pIdx" @click="selectedPlan = pIdx" :class="{'plan-card-selected': selectedPlan === pIdx}" class="plan-card bg-white p-8 rounded-[56px] border-2 border-slate-100 shadow-sm flex flex-col items-center">
+                                <h5 class="text-slate-400 font-black text-[10px] mb-3 uppercase tracking-widest">{{ plan.name }} PLAN</h5>
+                                <div class="flex items-baseline gap-1 mb-8"><span class="text-3xl font-black text-indigo-950">{{ plan.price }}</span><span class="text-slate-400 font-bold text-sm">원</span></div>
+                                <ul class="space-y-4 mb-10 flex-1"><li v-for="feat in plan.features" class="flex items-center justify-center gap-2 text-[11px] font-bold text-slate-500 italic"><svg class="h-4 w-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg> {{ feat }}</li></ul>
+                                <button class="w-full py-5 rounded-[24px] font-black text-xs transition-all bg-slate-50 text-slate-800">선택 완료 (Select)</button>
+                            </div>
+                        </div>
+
+                        <!-- Smart Payment Icons UI -->
+                        <div class="max-w-5xl mx-auto border-t border-slate-50 pt-20">
+                            <h4 class="text-3xl font-black mb-12 tracking-tight text-slate-800 italic uppercase underline decoration-indigo-100 decoration-8 underline-offset-8">Smart Payment Systems</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 px-4">
+                                <div class="flex flex-col items-center gap-4"><div class="pay-npay w-20 h-20 rounded-[30px] flex items-center justify-center shadow-xl shadow-green-50 hover:scale-110 transition-all cursor-pointer"><span class="text-white font-black italic text-3xl">N</span></div><div class="flex flex-col items-center"><span class="font-black text-slate-800 text-[13px]">네이버페이</span><span class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Naver Pay</span></div></div>
+                                <div class="flex flex-col items-center gap-4"><div class="pay-kpay w-20 h-20 rounded-[30px] flex items-center justify-center shadow-xl shadow-yellow-50 hover:scale-110 transition-all text-[#191919] font-black text-xl cursor-pointer">talk</div><div class="flex flex-col items-center"><span class="font-black text-slate-800 text-[13px]">카카오페이</span><span class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Kakao Pay</span></div></div>
+                                <div class="flex flex-col items-center gap-4"><div class="pay-toss w-20 h-20 rounded-[30px] flex items-center justify-center shadow-xl shadow-blue-50 hover:scale-110 transition-all text-white font-black italic text-xl uppercase cursor-pointer">toss</div><div class="flex flex-col items-center"><span class="font-black text-slate-800 text-[13px]">토스페이</span><span class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Toss Pay</span></div></div>
+                                <div class="flex flex-col items-center gap-4"><div class="bg-slate-900 w-20 h-20 rounded-[30px] flex items-center justify-center shadow-xl shadow-slate-200 hover:scale-110 transition-all cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg></div><div class="flex flex-col items-center"><span class="font-black text-slate-800 text-[13px]">카드결제</span><span class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Credit Card</span></div></div>
+                                <div class="flex flex-col items-center gap-4"><div class="bg-white border-2 border-indigo-100 w-20 h-20 rounded-[30px] flex items-center justify-center shadow-xl shadow-indigo-50 hover:scale-110 transition-all text-indigo-500 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div><div class="flex flex-col items-center"><span class="font-black text-slate-800 text-[13px]">휴대폰 결제</span><span class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Mobile Pay</span></div></div>
+                                <div class="flex flex-col items-center gap-4 text-slate-400"><div class="bg-white border-2 border-slate-100 w-20 h-20 rounded-[30px] flex items-center justify-center shadow-xl shadow-slate-50 hover:scale-110 transition-all cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div><div class="flex flex-col items-center"><span class="font-black text-slate-800 text-[13px]">무통장 입금</span><span class="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Transfer</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Board Views: Bilingual Applied -->
+                <div v-if="view === 'notice' || view === 'board'" class="p-8 max-w-6xl mx-auto min-min-h-[100dvh] bg-white rounded-[40px] shadow-sm mb-12">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 text-center md:text-left px-2">
+                        <div>
+                            <h2 class="text-3xl font-black text-slate-900 tracking-tighter mb-1">{{ view === 'notice' ? '공지사항' : '게시판' }}</h2>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">{{ view === 'notice' ? 'Notice' : 'Bulletin Board' }}</p>
+                        </div>
+                        <button v-if="boardMode === 'list'" @click="boardMode = 'write'; editIndex = -1" class="bg-indigo-600 text-white px-10 py-3.5 rounded-2xl font-black hover:bg-indigo-700 shadow-xl transition-all">
+                            <span class="text-sm block">글쓰기</span><span class="text-[8px] font-bold uppercase tracking-widest opacity-70">Write</span>
+                        </button>
+                    </div>
+                    <div v-if="boardMode === 'list'" class="overflow-hidden px-2">
+                        <table class="w-full board-table">
+                            <thead><tr><th class="w-20 py-4 text-slate-300 uppercase text-[10px] font-black tracking-widest text-center">No.</th><th class="text-left text-slate-300 uppercase text-[10px] font-black tracking-widest">Title</th><th class="w-32 text-slate-300 uppercase text-[10px] font-black tracking-widest text-center">Author</th><th class="w-32 text-slate-300 uppercase text-[10px] font-black tracking-widest text-center">Date</th></tr></thead>
+                            <tbody>
+                                <tr v-for="(post, index) in (view === 'notice' ? notices : posts)" :key="index" class="cursor-pointer group" @click="openPost(index)">
+                                    <td class="text-center board-text-custom">{{ (view === 'notice' ? notices : posts).length - index }}</td>
+                                    <td class="board-text-custom group-hover:text-indigo-600 transition-colors font-medium">{{ post.title }}</td>
+                                    <td class="text-center board-text-custom">{{ post.author }}</td>
+                                    <td class="text-center text-slate-300 text-[0.8rem]">{{ post.date }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div v-if="boardMode === 'detail' && currentPost" class="p-4 md:p-10 text-left">
+                        <h3 class="text-3xl font-black text-slate-900 mb-6 border-b-2 border-indigo-50 pb-6 italic">{{ currentPost.title }}</h3>
+                        <div class="min-h-[400px] board-text-custom leading-loose serif whitespace-pre-wrap text-[17px] text-slate-600">{{ currentPost.content }}</div>
+                        <button @click="boardMode = 'list'" class="mt-12 text-indigo-600 font-black border-b-2 border-indigo-100 transition-all hover:bg-indigo-50 px-4 py-2 rounded-lg text-sm">목록으로</button>
+                    </div>
+                </div>
+
+                <!-- Regulation & Orthography System (264P) -->
+                <div v-if="view === 'regulation' || view === 'spelling'" class="max-w-6xl mx-auto pb-20 px-4">
+                    <div class="mb-6">
+                        <h2 class="text-4xl font-black text-slate-900 tracking-tighter mb-1 italic">{{ view === 'regulation' ? '표준어 규정' : '한글 맞춤법' }}</h2>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{{ view === 'regulation' ? 'Standard Regulation' : 'Hangul Orthography' }}</p>
+                    </div>
+                    <div class="bg-white p-10 md:p-16 rounded-[60px] shadow-2xl border border-slate-100 min-h-[750px] relative flex flex-col">
+                        <div class="border-b-4 border-indigo-600 pb-6 mb-10 flex justify-between items-center">
+                            <span class="text-[10px] font-black text-indigo-600 uppercase bg-indigo-50 px-3 py-1 rounded-full italic">Page {{ regPage }} / {{ view === 'regulation' ? 28 : 264 }}</span>
+                            <h3 class="text-lg font-bold text-slate-400 serif italic">{{ getPageHeader() }}</h3>
+                        </div>
+                        <div class="reg-content-box serif text-[18px] text-slate-700 space-y-6 overflow-y-auto pr-4" v-html="getCurrentRegContent()"></div>
+                        <div class="mt-auto pt-16 flex items-center justify-center gap-10">
+                            <button @click="moveRegPage(-1)" class="group flex flex-col items-center gap-2" :class="regPage === 1 ? 'opacity-20 pointer-events-none' : 'hover:scale-110'"><div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 group-hover:bg-indigo-600 group-hover:text-white shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M15 19l-7-7 7-7"/></svg></div><span class="text-xs font-black text-slate-800">이전</span></button>
+                            <div class="flex flex-col items-center bg-slate-50 p-4 rounded-3xl border border-slate-100 shadow-inner">
+                                <div class="flex items-center gap-2 mb-2"><input type="number" min="1" :max="view === 'regulation' ? 28 : 264" v-model="regInput" @keyup.enter="jumpToPage" class="w-16 h-10 text-center font-black text-lg text-indigo-600 rounded-xl border-2 border-indigo-100 focus:border-indigo-500 focus:outline-none bg-white"><span class="text-slate-300 font-bold text-xs">/ {{ view === 'regulation' ? 28 : 264 }}</span></div>
+                                <button @click="jumpToPage" class="text-[9px] font-black text-indigo-400 uppercase tracking-widest hover:text-indigo-600">Jump</button>
+                            </div>
+                            <button @click="moveRegPage(1)" class="group flex flex-col items-center gap-2" :class="regPage === (view === 'regulation' ? 28 : 264) ? 'opacity-20 pointer-events-none' : 'hover:scale-110'"><div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 group-hover:bg-indigo-600 group-hover:text-white shadow-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg></div><span class="text-xs font-black text-slate-800">다음</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Pagination -->
+                <div v-if="view === 'subject' && selectedItem" 
+                     class="floating-pill fixed z-[200] bg-white/90 backdrop-blur-xl rounded-full px-5 py-3 flex items-center gap-6 border border-gray-100 shadow-2xl"
+                     :style="{ top: pillY + 'px', left: pillX + 'px' }">
+                    <div class="drag-handle text-slate-300 hover:text-indigo-400 transition-colors" @mousedown="startDrag" @touchstart="startDrag"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16"><path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></div>
+                    <button @click="movePage(-1)" class="text-slate-400 hover:text-indigo-600 transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M15 19l-7-7 7-7"/></svg></button>
+                    <div class="flex items-center gap-2"><div class="bg-indigo-600 text-white rounded-xl px-4 py-1.5 font-black text-xl shadow-md">{{ currentPath.pageNum }}</div><span class="text-slate-300 font-bold">/</span><span class="text-slate-400 font-bold">{{ totalPages }}</span></div>
+                    <button @click="movePage(1)" class="text-slate-400 hover:text-indigo-600 transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg></button>
+                </div>
+            </main>
+        </div>
+
+        <!-- Detail Modal -->
+        <transition name="modal">
+            <div v-if="activeIdiom" class="fixed inset-0 z-[250] flex items-center justify-center p-4 text-center">
+                <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-md" @click="closeIdiomDetail"></div>
+                <div class="bg-white w-full max-w-lg rounded-[64px] shadow-2xl relative overflow-hidden flex flex-col p-12 md:p-16">
+                    <button @click="closeIdiomDetail" class="absolute top-10 right-10 text-slate-300 hover:text-indigo-600 transition-colors font-bold"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12"/></svg></button>
+                    <div class="mb-10">
+                        <div class="text-[84px] serif font-black text-indigo-950 mb-4 tracking-tighter leading-none">{{ activeIdiom.hanja }}</div>
+                        <h3 class="text-5xl font-black text-indigo-600 mb-2">{{ activeIdiom.word }}</h3>
+                        <div class="w-16 h-1.5 bg-indigo-100 mx-auto rounded-full mt-6 shadow-sm"></div>
+                    </div>
+                    <div class="space-y-10 px-4">
+                        <div><p class="text-2xl font-black text-slate-800 leading-snug tracking-tight">{{ activeIdiom.mean }}</p></div>
+                        <div class="bg-slate-50 p-8 rounded-[40px] border border-slate-100 shadow-inner">
+                            <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.3em] mb-4 italic text-center"><span class="w-2 h-2 bg-indigo-500 rounded-full inline-block mr-1"></span>History & Narrative</h4>
+                            <p class="text-[17px] text-slate-600 leading-relaxed serif text-center">{{ activeIdiom.origin }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    view: 'home', currentSubject: '국어', selectedItem: '', regPage: 1, regInput: 1, mobileMenu: false, infoTab: 'guide',
+                    currentPath: { large: '', medium: '', title: '', pageNum: 1 },
+                    pillX: window.innerWidth - 300, pillY: window.innerHeight - 150,
+                    isDragging: false, startX: 0, startY: 0, activeIdiom: null,
+                    boardMode: 'list', currentPost: null, editIndex: -1,
+                    selectedPlan: 1, writeForm: { title: '', author: '', content: '' },
+                    currentCategories: [],
+                    // 한자성어 데이터 완벽 복구
+                    idiomContents: {
+                        '학문 및 노력': [
+                            { word: '수불석권', hanja: '手不釋卷', mean: '손에서 책을 놓지 않음. 늘 공부함.', origin: '전쟁 중에도 공부에 매진한 여몽 장군의 고사입니다.' },
+                            { word: '형설지공', hanja: '螢雪之功', mean: '반딧불과 눈빛으로 이룬 공. 고생하며 공부함.', origin: '가난한 환경에서도 빛을 모아 공부하여 성공한 차윤과 손강의 이야기입니다.' },
+                            { word: '위편삼절', hanja: '韋編三絶', mean: '책의 가죽 끈이 세 번 끊어짐. 책을 반복해서 읽음.', origin: '공자가 주역을 너무 많이 읽어 가죽 끈이 세 번이나 끊어졌다는 고사입니다.' },
+                            { word: '절차탁마', hanja: '切磋琢磨', mean: '옥돌을 쏘고 갈 듯 학문과 덕행을 닦음.', origin: '자신의 학문을 끊임없이 연마하는 성실한 태도를 말합니다.' },
+                            { word: '독서삼도', hanja: '讀書三到', mean: '입, 눈, 마음으로 정성을 다해 책을 읽음.', origin: '공부의 세 가지 필수 과정을 뜻합니다.' },
+                            { word: '주경야독', hanja: '晝耕夜讀', mean: '낮에는 밭 갈고 밤에는 글을 읽음.', origin: '어려운 환경에서도 학업의 끈을 놓지 않은 옛 선비들의 정신입니다.' },
+                            { word: '괄목상대', hanja: '刮目相對', mean: '눈을 비비고 상대를 대함. 학식이 부쩍 진보함.', origin: '몰라보게 달라진 여몽의 학식을 보고 노숙이 감탄한 일화입니다.' },
+                            { word: '일취월장', hanja: '日就月將', mean: '날로 달로 끊임없이 발전함.', origin: '실력이 눈부시게 향상되는 상태를 칭송하는 성어입니다.' },
+                            { word: '마부작침', hanja: '磨斧作針', mean: '도끼를 갈아 바늘을 만듦. 끈기 있게 노력함.', origin: '시인 이백이 도끼를 가는 할머니를 보고 끈기의 중요성을 깨달은 고사입니다.' },
+                            { word: '우보천리', hanja: '牛步千里', mean: '소의 걸음으로 천 리를 감. 서둘지 않고 꾸준히 함.', origin: '우직한 소의 걸음이 결국은 큰 목표에 도달함을 강조합니다.' }
+                        ],
+                        '인간관계 및 우정': [
+                            { word: '관포지교', hanja: '管鮑之交', mean: '관중과 포숙아의 사귐. 아주 친한 우정.', origin: '춘추시대 전설적인 우정에서 유래했습니다.' },
+                            { word: '수어지교', hanja: '水魚之交', mean: '물과 물고기의 관계. 떼려야 뗄 수 없는 친밀함.', origin: '유비와 제갈량의 사이를 비유한 고사입니다.' },
+                            { word: '금란지교', hanja: '金蘭之交', mean: '쇠처럼 단단하고 난초처럼 향기로운 우정.', origin: '마음을 합친 사람들의 사귐은 쇠도 자를 만큼 단단하다는 뜻입니다.' },
+                            { word: '죽마고우', hanja: '竹馬故友', mean: '대나무 말을 타고 놀던 옛 친구.', origin: '어린 시절부터 함께 뛰놀며 자란 변치 않는 친구를 말합니다.' },
+                            { word: '막역지우', hanja: '莫逆之友', mean: '거스를 수 없는, 허물없는 친구.', origin: '서로의 마음이 너무 잘 맞아 거스름이 전혀 없는 사이를 의미합니다.' },
+                            { word: '단금지교', hanja: '斷金之交', mean: '쇠를 자를 정도로 굳은 우정.', origin: '두 사람의 합심이 쇠도 자를 만큼 단단함을 뜻합니다.' },
+                            { word: '문경지교', hanja: '刎頸之交', mean: '목을 벨 수 있을 정도로 생사를 같이하는 우정.', origin: '생사를 함께하기로 맹세한 절친한 사이입니다.' },
+                            { word: '백아절현', hanja: '伯牙絶絃', mean: '백아가 거문고 줄을 끊음. 진정한 이해자의 죽음.', origin: '자신의 연주를 알아주던 종자기가 죽자 줄을 끊었다는 고사입니다.' },
+                            { word: '지란지교', hanja: '芝蘭之交', mean: '지초와 난초의 사귐. 맑고 높은 우정.', origin: '맑고 향기로운 벗 사이의 우정입니다.' },
+                            { word: '교칠지교', hanja: '膠漆之交', mean: '아교와 칠처럼 끈끈한 사귐.', origin: '아교와 옻칠처럼 떼려야 뗄 수 없는 아주 끈끈한 우정을 뜻합니다.' }
+                        ],
+                        '처세와 지혜': [
+                            { word: '새옹지마', hanja: '塞翁之馬', mean: '인생의 길흉화복은 예측하기 어려움.', origin: '복이 화가 되고 화가 복이 된다는 교훈입니다.' },
+                            { word: '전화위복', hanja: '轉禍爲福', mean: '화가 바뀌어 복이 됨.', origin: '재앙을 계기로 삼아 상황을 반전시켜 더 좋은 결과를 만들어내는 현명한 처세입니다.' },
+                            { word: '토사구팽', hanja: '兎死狗烹', mean: '토끼가 죽으면 사냥개를 삶음. 필요할 땐 쓰고 버림.', origin: '사기 회음후열전 유래.' },
+                            { word: '과유불급', hanja: '過猶不及', mean: '지나침은 모자람보다 못함.', origin: '논어 선진편 유래했으며, 중용의 가치를 가르칩니다.' },
+                            { word: '우이독경', hanja: '牛耳讀經', mean: '소귀에 경 읽기. 아무리 말해도 알아듣지 못함.', origin: '아무리 어진 가르침도 들을 마음이 없는 사람에게 소용없음을 비유합니다.' },
+                            { word: '연목구어', hanja: '緣木求魚', mean: '나무에 올라가 물고기를 구함. 불가능한 일을 하려 함.', origin: '맹자 양혜왕 편 유래.' },
+                            { word: '읍참마속', hanja: '泣斬馬謖', mean: '울면서 마속의 목을 . 대의를 위해 정을 버림.', origin: '제갈량이 법을 위해 참한 고사입니다.' },
+                            { word: '역지사지', hanja: '易地思之', mean: '처지를 바꾸어 생각함.', origin: '상대방의 입장에서 상황을 바라보는 배려와 지혜를 일컫습니다.' },
+                            { word: '교각살우', hanja: '矯角殺牛', mean: '뿔을 고치려다 소를 죽임. 작은 흠을 고치려다 큰 일을 망침.', origin: '작은 단점을 고치려다 전체를 망치는 어리석음을 경계합니다.' },
+                            { word: '방약무인', hanja: '傍若無人', mean: '곁에 사람이 없는 듯 제멋대로 행동함.', origin: '사기 자객열전 유래.' },
+                            { word: '감언이설', hanja: '甘言利說', mean: '달콤한 말과 이로운 이야기. 남을 꾀는 말.', origin: '비위를 맞추는 말과 이익으로 남을 유혹하는 태도입니다.' },
+                            { word: '양두구육', hanja: '羊頭狗肉', mean: '양 머리를 걸고 개고기를 팜. 겉과 속이 다름.', origin: '안자춘추에서 유래. 겉으로는 그럴듯하나 속은 실속이 없음을 뜻합니다.' },
+                            { word: '표리부동', hanja: '表裏不同', mean: '겉과 속이 같지 않음.', origin: '겉으로 드러나는 모습과 마음속에 품은 생각이 다른 위선을 비판합니다.' },
+                            { word: '면종복배', hanja: '面從腹背', mean: '앞에서는 따르는 척하고 뒤로는 배신함.', origin: '겉으로는 순종하는 체하면서 속으로는 반항하는 간사함을 뜻합니다.' },
+                            { word: '구밀복검', hanja: '口蜜腹劍', mean: '입에는 꿀, 배에는 칼을 품음. 겉으론 친하나 속은 악함.', origin: '당나라 현종 때 간신 이임보의 행태에서 유래했습니다.' },
+                            { word: '권불십년', hanja: '權不十年', mean: '권세는 십 년을 가지 못함. 영원한 권력은 없음.', origin: '아무리 큰 권력이라도 시간이 지나면 결국 쇠퇴하게 마련이라는 진리입니다.' },
+                            { word: '화무십일홍', hanja: '花無十日紅', mean: '열흘 붉은 꽃은 없음. 부귀영화는 일시적임.', origin: '아름다운 꽃도 결국 지듯이, 사람의 전성기도 영원할 수 없음을 비유합니다.' },
+                            { word: '옹고집', hanja: '壅固執', mean: '억지가 매우 심한 고집.', origin: '전래 소설 옹고집전의 주인공처럼 융통성 없는 성격을 말합니다.' },
+                            { word: '독불장군', hanja: '獨不將軍', mean: '혼자서는 장군을 못 함. 남과 협력해야 함.', origin: '혼자서 모든 일을 잘할 수는 없으며 협력자가 있어야 함을 강조합니다.' },
+                            { word: '수주대토', hanja: '守株待兎', mean: '그루터기를 지키며 토끼를 기다림. 낡은 관습에 얽매임.', origin: '요행만 바라고 낡은 생각에 사로잡혀 발전을 꾀하지 못함을 뜻합니다.' }
+                        ],
+                        '위기 및 상황의 심각성': [
+                            { word: '사면초가', hanja: '四面楚歌', mean: '사방에서 초나라 노래가 들림. 완전히 고립된 상태.', origin: '항우가 한나라 군에 포위되었을 때 전의를 상실한 상황에서 유래했습니다.' },
+                            { word: '진퇴양난', hanja: '進退兩難', mean: '나아갈 수도 물러설 수도 없는 궁지.', origin: '앞뒤가 모두 막혀 어찌할 도리가 없는 난처한 처지를 이르는 말입니다.' },
+                            { word: '설상가상', hanja: '雪上加霜', mean: '눈 위에 서리가 내림. 불행이 겹침.', origin: '안 좋은 일이 일어났는데 또 다른 불행이 뒤따라 오는 상황입니다.' },
+                            { word: '금상첨화', hanja: '錦上添花', mean: '비단 위에 꽃을 더함. 좋은 일에 좋은 일이 겹침.', origin: '좋은 것에 더 좋은 요소를 더해 더욱 아름다워짐을 뜻합니다.' },
+                            { word: '풍전등화', hanja: '風前燈火', mean: '바람 앞의 등불. 매우 위태로운 처지.', origin: '바람이 불면 곧 꺼질 등불처럼 운명이 위태로운 상태를 비유합니다.' },
+                            { word: '누란지위', hanja: '累卵之危', mean: '달걀을 쌓아놓은 듯한 위기.', origin: '사기 범저열전 유래. 언제 무너질지 모르는 극도의 위험을 뜻합니다.' },
+                            { word: '백척간두', hanja: '百尺竿頭', mean: '백 자나 되는 장대 끝. 몹시 위태로움.', origin: '이미 한계에 도달한 상황에서 한 발짝도 더 나갈 수 없는 위급 상황입니다.' },
+                            { word: '위기일발', hanja: '危機一髮', mean: '머리카락 한 가닥에 매달린 위기.', origin: '한 가닥 머리카락으로 천 근의 무게를 견디는 듯한 아슬아슬한 순간입니다.' },
+                            { word: '고립무원', hanja: '孤立無援', mean: '외톨이가 되어 도움을 받을 데가 없음.', origin: '주변의 도움 없이 혼자서 외로운 싸움을 이어가야 하는 상태입니다.' },
+                            { word: '일촉즉발', hanja: '一觸即發', mean: '살짝 건드리기만 해도 폭발할 것 같은 위기.', origin: '조금의 자극에도 큰 파국이 일어날 수 있는 팽팽한 긴장 상태입니다.' }
+                        ],
+                        '가치와 소중함': [
+                            { word: '천금만마', hanja: '千金萬馬', mean: '매우 귀중한 것.', origin: '천 냥의 금과 만 마리의 말처럼 막대한 가치를 지닌 존재를 뜻합니다.' },
+                            { word: '다다익선', hanja: '多多益善', mean: '많으면 많을수록 좋음.', origin: '사기 한신열전. 한신이 유방에게 군사는 많으면 많을수록 지휘하기 좋다고 답한 데서 유래했습니다.' },
+                            { word: '일거양득', hanja: '一擧兩得', mean: '한 가지 일로 두 가지 이득을 얻음.', origin: '진서 장의전.' },
+                            { word: '일석이조', hanja: '一石二鳥', mean: '돌 하나로 새 두 마리를 잡음.', origin: '영국 속담에서 유래한 한자 번역어로, 한 번의 행동으로 두 가지 성과를 거둠을 뜻합니다.' },
+                            { word: '금지옥엽', hanja: '金枝玉葉', mean: '금가지와 옥잎. 아주 귀한 자손.', origin: '매우 귀하게 자란 자식이나 왕족의 후손을 일컫는 아름다운 말입니다.' },
+                            { word: '명경지수', hanja: '明鏡止水', mean: '맑은 거울과 멈춘 물. 고요하고 깨끗한 마음.', origin: '장자 덕충부. 잡념이 없이 아주 맑고 평온한 마음의 정점인 상태를 말합니다.' },
+                            { word: '청출어람', hanja: '靑出於藍', mean: '쪽보다 더 푸름. 제자가 스승보다 나음.', origin: '순자의 권학편에서 유래하여 노력을 통해 스승을 능가함을 비유합니다.' },
+                            { word: '난형난제', hanja: '難兄難弟', mean: '누구를 형이라 아우라 하기 어려움. 실력이 막상막하임.', origin: '세설신어. 진식의 두 아들이 우열을 가리기 힘들 정도로 똑똑했던 일화에서 유래했습니다.' },
+                            { word: '용호상박', hanja: '龍虎相搏', mean: '용과 호랑이가 싸움. 강자끼리의 대결.', origin: '힘이 비슷한 두 강자의 치열한 승부를 묘사합니다.' },
+                            { word: '막상막하', hanja: '莫上莫下', mean: '더 낫고 못함의 차이가 없음.', origin: '어느 쪽이 위인지 아래인지 구별하기 어려울 정도로 실력이 비슷한 상태입니다.' }
+                        ],
+                        '비판 및 부정적 상황': [
+                            { word: '견강부회', hanja: '牽強附會', mean: '이치에 맞지 않는 말을 억지로 끌어 붙임.', origin: '억지 논리를 펼쳐 자기에게 유리하게 상황을 이끌려는 태도를 비판합니다.' },
+                            { word: '아전인수', hanja: '我田引水', mean: '자기 논에 물 대기. 자기에게만 유리하게 함.', origin: "'내 논에 물 대기'라는 뜻으로, 타인을 배려하지 않고 자기 중심적으로 생각하고 행동하는 태도를 꼬집습니다." },
+                            { word: '자가당착', hanja: '自家撞着', mean: '앞뒤가 맞지 않는 말이나 행동.', origin: '자신이 한 말이나 행동이 모순되어 스스로 곤경에 빠지는 상황입니다.' },
+                            { word: '후안무치', hanja: '厚顏無恥', mean: '얼굴이 두꺼워 부끄러움을 모름.', origin: '뻔뻔스럽고 도덕적 수치심이 없는 사람을 비판할 때 사용합니다.' },
+                            { word: '적반하장', hanja: '賊反荷杖', mean: '도둑이 도리어 매를 듦.', origin: '잘못한 사람이 오히려 잘한 사람에게 화를 내는 어처구니없는 상황입니다.' },
+                            { word: '오비이락', hanja: '烏飛梨落', mean: '까마귀 날자 배 떨어짐.', origin: '아무 관계 없는 일이 동시에 일어나 의심을 사게 됨을 경계하는 말입니다.' },
+                            { word: '함구무언', hanja: '緘口無言', mean: '입을 다물고 말이 없음.', origin: '입을 굳게 다물고 침묵하며 책임을 회피하거나 상황을 관망하는 태도입니다.' },
+                            { word: '부화뇌동', hanja: '附和雷同', mean: '주관 없이 남의 의견에 따라 움직임.', origin: '자기 줏대 없이 남의 말에 휩쓸려 다니는 경솔한 태도를 꼬집습니다.' },
+                            { word: '당동벌이', hanja: '黨同伐異', mean: '무리끼리는 돕고 다른 무리는 배척함.', origin: '편협한 파벌 의식으로 공정성을 잃은 무리를 비판합니다.' },
+                            { word: '침소봉대', hanja: '針小棒大', mean: '바늘만 한 것을 몽둥이만 하게 과장함.', origin: '작은 일을 크게 부풀려 말하는 과장된 태도를 경계합니다.' }
+                        ],
+                        '자연 및 정서': [
+                            { word: '안빈낙도', hanja: '安貧樂道', mean: '가난해도 도를 즐기며 편안히 지냄.', origin: '구차한 생활 속에서도 마음의 평화를 잃지 않는 선비의 기개입니다.' },
+                            { word: '안사낙업', hanja: '安事樂業', mean: '자기 일에 만족하며 즐겁게 지냄.', origin: '자신의 직분에 충실하며 현재의 삶에 자족하는 평화로운 모습입니다.' },
+                            { word: '물외한인', hanja: '物外閑人', mean: '세상 속세에서 벗어나 한가롭게 지내는 사람.', origin: '복잡한 세상사를 잊고 자연과 벗하며 유유자적하는 이를 일컫습니다.' },
+                            { word: '유유자적', hanja: '悠悠自適', mean: '속세를 떠나 아무 속박 없이 조용히 즐김.', origin: '여유롭고 한가로운 삶의 정취를 의미합니다.' },
+                            { word: '무위이치', hanja: '無為而治', mean: '억지로 꾸미지 않아도 자연스럽게 다스려짐.', origin: '노자의 도덕경 유래. 인위적인 힘을 가하지 않아도 조화롭게 운영됨을 뜻합니다.' },
+                            { word: '강호연파', hanja: '江湖煙波', mean: '강과 호수의 안개와 물결. 자연의 아름다운 풍경.', origin: '자연의 신비롭고 아름다운 정경을 시적으로 표현했습니다.' },
+                            { word: '물아일체', hanja: '物我一體', mean: '자연과 내가 하나가 됨.', origin: '장자의 제물론 유래. 대상과 주체가 하나로 융합되는 몰입의 경지입니다.' },
+                            { word: '단표누항', hanja: '單瓢陋巷', mean: '소박한 음식과 누추한 거리. 선비의 청빈한 삶.', origin: '공자의 제자 안연의 청빈한 삶에서 유래했습니다.' },
+                            { word: '단사표음', hanja: '簞食瓢飲', mean: '대구니 밥과 표고박 물. 소박한 생활.', origin: '매우 검소하고 청렴한 생활 태도를 상징합니다.' },
+                            { word: '유만부동', hanja: '類萬不同', mean: '모든 것이 서로 같지 않음.', origin: '만물이 서로 달라 하나로 규정할 수 없음을 뜻하며, 주로 어처구니없는 상황에서 쓰입니다.' }
+                        ],
+                        '기타 고사성어 및 빈출 표현': [
+                            { word: '결초보은', hanja: '結草報恩', mean: '풀을 묶어 은혜를 갚음. 죽어서도 잊지 않음.', origin: '진나라 위과의 고사에서 유래한 감동적인 은혜 갚기 일화입니다.' },
+                            { word: '각골난망', hanja: '刻骨難忘', mean: '뼈에 새겨 잊지 못함. 고마움이 지극함.', origin: '남에게 입은 은혜가 너무 커서 뼈에 사무칠 정도로 잊지 못함을 뜻합니다.' },
+                            { word: '백골난망', hanja: '白骨難忘', mean: '죽어서 백골이 되어도 잊지 못함.', origin: '죽어서 시신이 가루가 되어도 베풀어준 은혜를 결코 잊지 않겠다는 감사입니다.' },
+                            { word: '망양보뢰', hanja: '亡羊補牢', mean: '양 잃고 외양간 고침.', origin: '실패한 뒤에 대책을 세우는 어리석음, 혹은 늦더라도 보완해야 함을 뜻합니다.' },
+                            { word: '연전연승', hanja: '連戰連勝', mean: '싸울 때마다 계속 이김.', origin: '전전마다 승리를 거두는 무적의 기세를 말합니다.' },
+                            { word: '승승장구', hanja: '乘勝長驅', mean: '이긴 기세를 타고 계속 몰아침.', origin: '승리의 기세를 발판 삼아 중단 없이 앞으로 계속 나아가는 형세입니다.' },
+                            { word: '파죽지세', hanja: '破竹之勢', mean: '대나무를 쪼개는 기세. 거침없이 나아감.', origin: '아무도 막을 수 없는 강력하고 빠른 기세를 비유합니다.' },
+                            { word: '지록위마', hanja: '指鹿爲馬', mean: '사슴을 가리켜 말이라 함.', origin: '간악한 꾀로 윗사람을 속이고 권력을 휘두르는 상황입니다.' },
+                            { word: '와신상담', hanja: '臥薪嘗膽', mean: '섶에 눕고 쓸개를 씹음.', origin: '복수를 위해 고난을 견디며 기회를 기다리는 태도입니다.' },
+                            { word: '절치부심', hanja: '切齒腐心', mean: '이를 갈며 속을 썩임.', origin: '몹시 분하여 이를 갈고 마음을 썩이는 원한의 상태입니다.' },
+                            { word: '불문가지', hanja: '不問可知', mean: '묻지 않아도 알 수 있음.', origin: '빤한 사실입니다.' },
+                            { word: '명실상부', hanja: '名實相符', mean: '이름과 실제가 서로 맞음.', origin: '명성과 실제 내용이 일치함을 뜻합니다.' },
+                            { word: '동분서주', hanja: '東奔西走', mean: '동쪽 서쪽으로 바쁘게 뛰어다님.', origin: '사방으로 바삐 움직이는 모습을 묘사합니다.' },
+                            { word: '좌불안석', hanja: '坐不安席', mean: '불안해서 자리에 앉아 있지 못함.', origin: '불안, 초조함으로 잠시도 마음을 가라앉히지 못하는 상태입니다.' },
+                            { word: '노심초사', hanja: '勞心焦思', mean: '애를 써서 속을 태움.', origin: '몹시 걱정하고 고심함을 뜻합니다.' },
+                            { word: '전전반측', hanja: '輾轉反側', mean: '근심으로 잠을 이루지 못하고 몸을 뒤척임.', origin: '걱정 때문에 밤새 잠 못 이루고 뒤척이는 마음을 표현합니다.' },
+                            { word: '허장성세', hanja: '虛張聲勢', mean: '실속 없이 허세만 부림.', origin: '실력은 없으면서 겉으로만 위풍당당하게 보이려 애쓰는 태도입니다.' },
+                            { word: '탁상공론', hanja: '卓上空論', mean: '현실성 없는 헛된 이론.', origin: '실제 현장을 모르고 책상 위에서만 나누는 실효성 없는 논의입니다.' },
+                            { word: '고진감래', hanja: '苦盡甘來', mean: '고생 끝에 낙이 옴.', origin: '어려운 시기를 견뎌내면 반드시 좋은 결실이 온다는 메시지입니다.' },
+                            { word: '흥진비래', hanja: '興盡悲來', mean: '즐거운 일이 다하면 슬픈 일이 옴.', origin: '즐거움이 극에 달하면 슬픔이 온다는 경계의 말입니다.' },
+                            { word: '동병상련', hanja: '同病상憐', mean: '같은 처지의 사람끼리 서로 동정함.', origin: '같은 아픔을 겪는 사람만이 서로를 진정으로 이해할 수 있다는 뜻입니다.' },
+                            { word: '고장난명', hanja: '孤掌難鳴', mean: '외손뼉은 소리가 나지 않음.', origin: '협력자가 있어야 일을 성취할 수 있음을 의미합니다.' },
+                            { word: '등화가친', hanja: '燈火可親', mean: '등불을 가까이하기 좋음. 가을은 독서하기 좋은 계절.', origin: '가을철 독서의 중요성을 강조하는 성어입니다.' },
+                            { word: '방휼지쟁', hanja: '蚌鷸之爭', mean: '조개와 도요새의 싸움.', origin: '둘이 싸우는 틈을 타 어부가 둘 다 잡아갔다는 고사입니다.' },
+                            { word: '어부지리', hanja: '漁夫之利', mean: '둘이 싸우는 틈을 타 엉뚱한 사람이 이익을 가로챔.', origin: '제삼자가 손쉽게 이득을 취하는 상황입니다.' },
+                            { word: '견물생심', hanja: '見物生心', mean: '물건을 보면 갖고 싶은 마음이 생김.', origin: '좋은 것을 보면 없던 욕심도 생겨나게 됨을 경계하는 말입니다.' },
+                            { word: '격세지감', hanja: '隔世之感', mean: '세대 차이가 느껴질 정도로 변함.', origin: '짧은 시간 동안 세상이 몰라보게 바뀐 것에 대한 놀라움입니다.' },
+                            { word: '만시지탄', hanja: '晚時之歎', mean: '시기가 늦었음을 한탄함.', origin: '이미 기회를 놓치고 난 뒤에야 뒤늦게 탄식해도 소용없음을 일컫습니다.' },
+                            { word: '비일비재', hanja: '非一非再', mean: '한두 번이 아님. 아주 흔함.', origin: '어떤 현상이 아주 빈번하게 일어나는 상태입니다.' },
+                            { word: '살신성인', hanja: '殺身成仁', mean: '자신을 희생하여 어진 일을 이룸.', origin: '대의를 위해 목숨까지 바치는 숭고한 정신을 뜻합니다.' },
+                            { word: '언중유골', hanja: '言中有骨', mean: '예사로운 말 속에 뼈가 있음.', origin: '평범해 보이는 말속에 숨겨진 날카로운 비판이나 의도를 뜻합니다.' },
+                            { word: '오월동주', hanja: '吳越同舟', mean: '원수끼리 같은 배를 탐.', origin: '서로 돕지 않으면 공멸하는 상황에서의 협력을 뜻합니다.' },
+                            { word: '일장춘몽', hanja: '一場春夢', mean: '한바탕 봄꿈. 인생의 허무함.', origin: '인생의 부귀영화가 깨고 나면 덧없는 꿈처럼 허망함을 비유합니다.' },
+                            { word: '조변석개', hanja: '朝變夕改', mean: '아침에 바꾸고 저녁에 고침.', origin: '일관성 없이 계획을 너무 자주 바꾸어 신뢰를 잃음을 비판합니다.' },
+                            { word: '주객전도', hanja: '主客顚倒', mean: '주인과 손님이 바뀜. 앞뒤가 바뀜.', origin: '상하가 뒤바뀐 비정상적인 상황입니다.' },
+                            { word: '천고마비', hanja: '天高馬肥', mean: '하늘은 높고 말은 살찜.', origin: '풍요로운 가을철을 상징합니다.' },
+                            { word: '천방지축', hanja: '天方地軸', mean: '너무 바빠서 허둥지둥함.', origin: '철없이 행동하거나 방향을 잃고 헤매는 모습입니다.' },
+                            { word: '철두철미', hanja: '徹頭徹尾', mean: '처음부터 끝까지 철저함.', origin: '소홀함 없이 완벽하게 처리함을 뜻합니다.' },
+                            { word: '초지일관', hanja: '初志一貫', mean: '처음 세운 뜻을 끝까지 밀고 나감.', origin: '어려움 속에서도 변심하지 않고 목표를 향해 나아가는 의지입니다.' },
+                            { word: '칠전팔기', hanja: '七戰八起', mean: '일곱 번 넘어져도 여덟 번 일어남.', origin: '실패를 거듭해도 다시 일어서는 투지입니다.' },
+                            { word: '타산지석', hanja: '他山之石', mean: '다른 산의 돌.', origin: '타인의 실수조차 자신의 인격을 닦는 거울로 삼는 지혜입니다.' },
+                            { word: '함흥차사', hanja: '咸興差使', mean: '심부름 간 사람이 소식이 없음.', origin: '이성계의 고사에서 유래했습니다.' },
+                            { word: '호사다마', hanja: '好事多魔', mean: '좋은 일에는 마가 많이 낌.', origin: '좋은 일일수록 방해되는 일이 생기기 쉬우니 늘 조심해야 함을 경계합니다.' },
+                            { word: '혼비백산', hanja: '魂飛魄散', mean: '넋이 나갈 정도로 몹시 놀람.', origin: '정신을 잃을 만큼 큰 충격이나 공포를 겪은 상태를 묘사합니다.' },
+                            { word: '환골탈태', hanja: '換骨奪胎', mean: '뼈를 바꾸고 태를 벗음. 완전히 새롭게 변함.', origin: '낡은 모습에서 벗어나 전혀 새로운 존재로 거듭남을 뜻합니다.' },
+                            { word: '횡설수설', hanja: '橫說竪說', mean: '조리 없이 말을 함부로 함.', origin: '앞뒤가 맞지 않는 말을 두서없이 늘어놓는 모습입니다.' },
+                            { word: '구우일모', hanja: '九牛一毛', mean: '아홉 마리 소 중의 털 하나.', origin: '수많은 것 중의 아주 보잘것없는 극히 일부를 비유합니다.' },
+                            { word: '군계일학', hanja: '群鷄一鶴', mean: '닭 무리 속의 한 마리 학. 뛰어난 인물.', origin: '평범한 사람들 사이에서 유독 돋보이는 인재를 상징합니다.' },
+                            { word: '권토중래', hanja: '捲土重來', mean: '흙먼지를 일으키며 다시 옴. 실패 후 다시 재기함.', origin: '한 번의 실패에 굴하지 않고 다시 도전함을 뜻합니다.' },
+                            { word: '금과옥조', hanja: '金科玉條', mean: '금이나 옥처럼 귀중한 법칙.', origin: '절대로 어겨서는 안 되는 가장 소중하고 엄격한 규칙입니다.' },
+                            { word: '기우', hanja: '杞憂', mean: '기나라 사람의 걱정. 쓸데없는 걱정.', origin: '하늘이 무너질까 봐 걱정해 밥도 못 먹은 기나라 사람의 이야기입니다.' },
+                            { word: '노익장', hanja: '老益壯', mean: '늙을수록 더욱 기운이 참.', origin: '나이가 들어도 젊은이 못지않게 정정하고 기운찬 기개입니다.' },
+                            { word: '대기만성', hanja: '大器晩成', mean: '큰 그릇은 늦게 만들어짐.', origin: '수많은 인내와 시간을 견뎌야 비로소 큰 인물이 완성된다는 격려입니다.' },
+                            { word: '도로아미타불', hanja: '徒勞阿彌陀佛', mean: '헛수고가 됨.', origin: '애써 쌓은 공이 한순간에 무용지물이 된 상황입니다.' },
+                            { word: '동문서답', hanja: '東問西答', mean: '동쪽을 묻는데 서쪽을 답함.', origin: '질문의 의도를 파악하지 못하거나 짐짓 딴소리를 하는 상황입니다.' },
+                            { word: '마이동풍', hanja: '馬耳東風', mean: '말의 귀에 동풍이 붊. 남의 말을 귀담아듣지 않음.', origin: '남의 충고를 완전히 무시함을 비유합니다.' },
+                            { word: '맥수지탄', hanja: '麥秀之歎', mean: '보리만 무성한 것을 한탄함. 고국의 멸망을 슬퍼함.', origin: '나라 망함을 슬퍼한 기자의 노래에서 유래했습니다.' },
+                            { word: '무릉도원', hanja: '武陵桃源', mean: '이상향, 별천지.', origin: '도연명의 도화원기에서 전하는 신비롭고 평화로운 낙원입니다.' },
+                            { word: '반포지효', hanja: '反哺之孝', mean: '까마귀가 자라 부모에게 먹이를 물어다 줌. 효도.', origin: '부모에게 먹이를 되물어다 주는 까마귀의 지극한 효성입니다.' },
+                            { word: '발본색원', hanja: '拔本塞源', mean: '근본을 뽑고 원천을 막음. 폐단을 완전히 뿌리 뽑음.', origin: '악의 뿌리를 완전히 제거함을 의미합니다.' },
+                            { word: '배은망덕', hanja: '背恩忘德', mean: '은혜를 저버리고 덕을 잊음.', origin: '입은 은혜를 배신으로 갚는 비인간적 행위를 비판합니다.' },
+                            { word: '백미', hanja: '白眉', mean: '흰 눈썹. 여럿 중 가장 뛰어난 사람.', origin: '삼국지 마씨 오형제 중 마량이 가장 뛰어났던 데서 유래했습니다.' },
+                            { word: '사필귀정', hanja: '事必歸正', mean: '모든 일은 결국 바른길로 돌아감.', origin: '결국 정의가 승리한다는 진리입니다.' },
+                            { word: '삼고초려', hanja: '三顧草慮', mean: '초가집을 세 번 찾음.', origin: '유비가 제갈량을 얻기 위해 세 번이나 찾아간 정성 어린 고사입니다.' },
+                            { word: '심심상인', hanja: '心心相印', mean: '마음과 마음이 통함.', origin: '서로의 진심을 깨닫는 고도의 교감을 뜻합니다.' },
+                            { word: '아비규환', hanja: '阿鼻叫喚', mean: '끔찍한 고통으로 울부짖는 상황.', origin: '참혹하기 그지없는 아수라장을 뜻합니다.' },
+                            { word: '이구동성', hanja: '異口同聲', mean: '입은 다르나 소리는 같음. 여러 사람의 의견이 일치함.', origin: '수많은 사람의 견해가 하나로 일치하는 현상입니다.' },
+                            { word: '조삼모사', hanja: '朝三暮四', mean: '아침에 셋, 저녁에 넷.', origin: '눈앞의 이익만 알고 실속을 모르는 어리석음을 풍자합니다.' },
+                            { word: '천생연분', hanja: '天生緣分', mean: '하늘이 정해준 인연.', origin: '하늘이 미리 짝지어 준 것처럼 아주 잘 어울리는 한 쌍의 인연입니다.' }
+                        ]
+                    },
+                    usageGuides: [
+                        { title: '맞춤형 문제 검색', sub: 'Custom Search', desc: '좌측 카테고리에서 단원을 선택하세요. 소분류를 클릭하면 해당 단원의 핵심 개념 정리와 문제 리스트가 나타납니다.' },
+                        { title: '한자성어 정밀 학습', sub: 'Precision Idioms', desc: '약 140여 개의 한자성어를 8개 테마로 분류하여 수록했습니다. 역사적 유래와 상세한 속뜻을 학습하세요.' },
+                        { title: '묵직한 보이스 해설', sub: 'Deep Voice Commentary', desc: '한자성어를 클릭하면 전문 남성 성우의 묵직한 목소리로 해설을 들을 수 있습니다.' },
+                        { title: 'PDF 무제한 출력', sub: 'Unlimited PDF', desc: '학습 자료나 문제지를 PDF 파일로 즉시 다운로드하거나 인쇄할 수 있습니다.' },
+                        { title: '스마트 오답 관리', sub: 'Smart Note', desc: '틀린 문제는 지능형 오답노트에 자동으로 저장됩니다. 취약 단원을 정밀 분석하세요.' },
+                        { title: '결제 및 계정 보안', sub: 'Secure Payment', desc: '네이버페이, 카카오페이 등 다양한 결제 수단을 지원하며 학습 데이터를 안전하게 보호합니다.' }
+                    ],
+                    spellData: Array.from({ length: 264 }, (_, i) => {
+                        if (i === 0) return `<span class='clause'>제1장 총칙</span><strong>제1항</strong> 한글 맞춤법은 표준어를 소리대로 적되, 어법에 맞도록 함을 원칙으로 한다.<br><strong>제2항</strong> 문장의 각 단어는 띄어 적음을 원칙으로 한다.`;
+                        return `<div class='flex flex-col items-center justify-center py-20 text-slate-300 italic text-center'>- PAGE ${i+1} CONTENT AREA -<br><br>정밀 분석 데이터 수록 지점입니다.</div>`;
+                    }),
+                    regData: Array.from({ length: 28 }, (_, i) => {
+                        if (i === 0) return `<span class='clause'>제1장 총칙</span><strong>제1항</strong> 표준어는 교양 있는 사람들이 두루 쓰는 현대 서울말로 정함을 원칙으로 함.`;
+                        return `<div class='py-20 text-slate-300 text-center italic'>표준어 규정 정밀 분석 데이터 PAGE ${i+1}</div>`;
+                    }),
+                    notices: [
+                        { title: '2025학년도 6월 모의평가 대비 핵심 요약집 업데이트 완료', author: '운영진', date: '2026-05-07', content: '다가오는 6월 모의평가를 대비하여 전 과목 단원별 핵심 요약집이 업데이트되었습니다.' },
+                        { title: '[중요] 플랫폼 보안 강화 및 정기 서버 점검 안내 (5/15)', author: '기술팀', date: '2026-05-12', content: '안정적인 서비스 제공을 위해 정기 서버 점검을 실시합니다.' },
+                        { title: '한자성어 음성 해설 남성 성우 버전 고도화 완료', author: '기술팀', date: '2026-05-02', content: '더욱 신뢰감 있는 학습을 위해 묵직한 남성 배우의 목소리로 해설을 개편했습니다.' },
+                        { title: '신규 프리미엄 이용권 출시 및 할인 안내', author: '영업팀', date: '2026-04-28', content: '전 과목 프리패스와 무제한 PDF 출력이 가능한 신규 이용권이 출시되었습니다.' },
+                        { title: '2025년 상반기 기출문제 분석 완료 및 신규 문항 등록', author: '운영진', date: '2026-04-15', content: '전국 주요 고등학교의 기출 문항 분석 데이터가 업로드되었습니다.' }
+                    ],
+                    posts: [
+                        { title: '국어 문법 단원 오타 제보 드립니다.', author: '학부모님', date: '2026-05-07', content: '언어와 어문규정 파트 15페이지 세 번째 문제의 보기 지문에 오타가 확인됩니다.' },
+                        { title: '프리미엄 요금제 PDF 출력 횟수 문의', author: '수험생A', date: '2026-05-06', content: '출력 횟수에 일일 제한이 있는지 궁금합니다.' },
+                        { title: '한자성어 음성이 정말 신뢰감이 가네요.', author: '선생님', date: '2026-05-05', content: '묵직한 목소리 덕분에 학생들이 더 집중해서 학습합니다.' },
+                        { title: '수학 기출문제 난이도 조절 건의드립니다.', author: '준비생', date: '2026-05-03', content: '심화 문제들만 따로 모아볼 수 있는 고난도 전용 탭이 필요합니다.' },
+                        { title: '이용방법 가이드가 직관적이라 편합니다.', author: '신규회원', date: '2026-04-20', content: '메뉴 구성이 깔끔해서 사용하기 편리하네요.' }
+                    ],
+                    pricingPlans: [{ name: 'BASIC', price: '29,000', features: ['단일 과목 무제한', '기본 검색', '모바일 학습'] }, { name: 'PREMIUM', price: '79,000', features: ['전 과목 프리패스', '무제한 PDF', '음성 가이드'] }, { name: 'PRO', price: '129,000', features: ['전 과목 프리패스', '오답 분석', '실시간 기출'] }, { name: 'INSTITUTE', price: '490,000', features: ['학원 전용 관리', '성적 리포트'] }],
+                    koreanData: [
+                        { name: '문학', expanded: false, items: [{ name: '고전운문', items: ['고대가요', '향가', '한시', '고려가요', '시조'] }, { name: '현대소설', items: ['작품 분석'] }] },
+                        { name: '문법', expanded: false, items: [{ name: '언어와 규범', items: ['언어의 특징', '표준어 규범', '한글맞춤법'] }] },
+                        { name: '비문학', expanded: false, items: [{ name: '독서 유형', items: ['인문/예술', '사회/문화', '과학/기술'] }] },
+                        { name: '어휘 및 기타', expanded: false, items: [{ name: '한자성어', expanded: false, items: ['학문 및 노력', '인간관계 및 우정', '처세와 지혜', '위기 및 상황의 심각성', '가치와 소중함', '비판 및 부정적 상황', '자연 및 정서', '기타 고사성어 및 빈출 표현'] }, { name: '속담 격언', items: ['필수 속담'] }] }
+                    ]
+                }
+            },
+            computed: {
+                flatItems() {
+                    const items = [];
+                    if (!this.currentCategories || !Array.isArray(this.currentCategories)) return items;
+                    this.currentCategories.forEach(large => {
+                        if (large.items) {
+                            large.items.forEach(medium => {
+                                if (medium.items && medium.items.length > 0) {
+                                    medium.items.forEach(small => items.push(small));
+                                } else {
+                                    items.push(medium.name);
+                                }
+                            });
+                        }
+                    });
+                    return items;
+                },
+                totalPages() { return this.flatItems ? this.flatItems.length : 0; }
+            },
+            mounted() {
+                window.addEventListener('mousemove', this.onDrag); window.addEventListener('mouseup', this.stopDrag);
+                this.setSubject('국어'); this.view = 'home';
+            },
+            methods: {
+                resetHome() { this.view = 'home'; this.currentSubject = ''; this.stopAudio(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+                openBoard(vn) { this.view = vn; this.boardMode = 'list'; this.stopAudio(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+                setSubject(sub) {
+                    this.currentSubject = sub; this.view = 'subject'; this.selectedItem = '';
+                    if (sub === '국어') this.currentCategories = JSON.parse(JSON.stringify(this.koreanData));
+                    else if (sub === '영어') this.currentCategories = [{name: 'Grammar', items: [{name: 'Basic Rules', items: ['Nouns', 'Verbs']}]}];
+                    else if (sub === '수학') this.currentCategories = [{name: 'Algebra', items: [{name: 'Equations', items: ['Linear', 'Quadratic']}]}];
+                    this.stopAudio();
+                },
+                openRegulation() { this.view = 'regulation'; this.regPage = 1; this.regInput = 1; this.stopAudio(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+                openSpelling() { this.view = 'spelling'; this.regPage = 1; this.regInput = 1; this.stopAudio(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+                getPageHeader() {
+                    const max = this.view === 'regulation' ? 28 : 264;
+                    if (this.view === 'regulation') return this.regPage <= 10 ? '제1부 표준어 사정 원칙' : '제2부 표준 발음법';
+                    return this.regPage <= 50 ? '총칙 및 소리' : (this.regPage <= 150 ? '형태 및 띄어쓰기' : '부록 및 해설');
+                },
+                getCurrentRegContent() {
+                    const data = this.view === 'regulation' ? this.regData : this.spellData;
+                    return (data && data[this.regPage - 1]) ? data[this.regPage - 1] : "내용을 불러올 수 없습니다.";
+                },
+                moveRegPage(dir) {
+                    const max = this.view === 'regulation' ? 28 : 264;
+                    const next = this.regPage + dir;
+                    if (next >= 1 && next <= max) { this.regPage = next; this.regInput = next; }
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                },
+                jumpToPage() {
+                    const max = this.view === 'regulation' ? 28 : 264;
+                    const target = parseInt(this.regInput);
+                    if (!isNaN(target) && target >= 1 && target <= max) { this.regPage = target; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+                    else { this.regInput = this.regPage; }
+                },
+                goToHanja() {
+                    this.setSubject('국어');
+                    const large = this.currentCategories.find(c => c.name === '어휘 및 기타');
+                    if (large) { large.expanded = true; const medium = large.items.find(m => m.name === '한자성어'); if (medium) { medium.expanded = true; this.selectPage(large, medium, '학문 및 노력'); } }
+                },
+                toggleLarge(target) { const prevState = target.expanded; this.currentCategories.forEach(c => c.expanded = false); target.expanded = !prevState; },
+                toggleMedium(large, target) { const prevState = target.expanded; (large.items || []).forEach(m => m.expanded = false); target.expanded = !prevState; },
+                getViewDescription() { return this.view === 'subject' ? "플랫폼 문제은행 데이터 기반의 정밀 학습 단원 페이지입니다." : ""; },
+                getAbsolutePage(name) { 
+                    if (!this.flatItems) return 0;
+                    const idx = this.flatItems.indexOf(name);
+                    return idx === -1 ? 0 : idx + 1;
+                },
+                selectPage(large, medium, title) {
+                    this.stopAudio();
+                    const lName = (large && large.name) ? large.name : large;
+                    const mName = (medium && medium.name) ? medium.name : medium;
+                    this.currentCategories.forEach(c => {
+                        if (c.name !== lName) c.expanded = false;
+                        else { (c.items || []).forEach(m => { if (m.name !== mName) m.expanded = false; }); }
+                    });
+                    this.currentPath = { large: lName, medium: mName, title, pageNum: this.getAbsolutePage(title) };
+                    this.selectedItem = title;
+                    this.mobileMenu = false;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                },
+                movePage(dir) {
+                    const next = this.flatItems.indexOf(this.selectedItem) + dir;
+                    if (next >= 0 && next < this.flatItems.length) {
+                        const targetName = this.flatItems[next];
+                        for (let large of this.currentCategories) {
+                            for (let medium of (large.items || [])) {
+                                if (medium.items && medium.items.includes(targetName)) { this.selectPage(large, medium, targetName); return; }
+                            }
+                        }
+                    }
+                },
+                openIdiomDetail(item) {
+                    this.activeIdiom = item;
+                    const textToRead = `${item.word}. , , ${item.mean}. , , 유래와 역사를 설명해 드립니다. , , ${item.origin}`;
+                    this.speakDetail(textToRead);
+                },
+                closeIdiomDetail() { this.activeIdiom = null; this.stopAudio(); },
+                speakDetail(txt) {
+                    if (!window.speechSynthesis) return;
+                    this.stopAudio();
+                    const msg = new SpeechSynthesisUtterance(txt);
+                    msg.lang = 'ko-KR'; msg.rate = 0.9; msg.pitch = 0.7;
+                    const voices = window.speechSynthesis.getVoices();
+                    const maleVoice = voices.find(v => v.lang === 'ko-KR' && (v.name.includes('Male') || v.name.includes('Kore'))) || voices.find(v => v.lang === 'ko-KR');
+                    if (maleVoice) msg.voice = maleVoice;
+                    window.speechSynthesis.speak(msg);
+                },
+                stopAudio() { if (window.speechSynthesis) window.speechSynthesis.cancel(); },
+                startDrag(e) { this.isDragging = true; const ex = e.type.includes('touch') ? e.touches[0].clientX : e.clientX; const ey = e.type.includes('touch') ? e.touches[0].clientY : e.clientY; this.startX = ex - this.pillX; this.startY = ey - this.pillY; },
+                onDrag(e) {
+                    if (!this.isDragging) return;
+                    const ex = e.type.includes('touch') ? e.touches[0].clientX : e.clientX; const ey = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+                    this.pillX = Math.max(10, Math.min(ex - this.startX, window.innerWidth - 260));
+                    this.pillY = Math.max(80, Math.min(ey - this.startY, window.innerHeight - 60));
+                },
+                stopDrag() { this.isDragging = false; },
+                openPost(index) { const list = this.view === 'notice' ? this.notices : this.posts; this.currentPost = list[index]; this.boardMode = 'detail'; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+            }
+        }).mount('#app');
+    </script>
+
+    
+
+  
+    
+
+  
+    
+
+  
+
+
+
+
+\n
+<!-- GLOBAL SPA & UX SCRIPT V2 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. SPA Navigation & Scroll Lock
+    const sections = Array.from(document.querySelectorAll('section[id], div.page-view, div[id^="view-"]')).filter(s => s.id);
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    
+    // Disable body scroll, enable inner scrolling
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100dvh';
+    document.body.style.display = 'flex';
+    document.body.style.flexDirection = 'column';
+    
+    if (header) header.style.flexShrink = '0';
+    // if (footer) footer.style.flexShrink = '0';
+
+    if (sections.length > 0) {
+        // Create a scrollable container for sections if not already existing
+        let mainContainer = document.querySelector('main');
+        if (!mainContainer) {
+            mainContainer = document.createElement('main');
+            mainContainer.style.flex = '1';
+            mainContainer.style.overflowY = 'auto';
+            mainContainer.style.overflowX = 'hidden';
+            mainContainer.style.position = 'relative';
+            
+            // Move sections into main
+            sections.forEach(sec => {
+                sec.parentNode.insertBefore(mainContainer, sec);
+            });
+            sections.forEach(sec => mainContainer.appendChild(sec));
+            if (footer) mainContainer.appendChild(footer);
+        } else {
+            mainContainer.style.flex = '1';
+            mainContainer.style.overflowY = 'auto';
+            mainContainer.style.overflowX = 'hidden';
+            if (footer && footer.parentNode !== mainContainer) mainContainer.appendChild(footer);
+        }
+
+        // Section toggle logic
+        function showSection(id) {
+            let found = false;
+            sections.forEach(sec => {
+                if(sec.id === id || sec.id === id.replace('#', '') || sec.id === 'view-' + id.replace('#', '')) {
+                    sec.style.display = 'block';
+                    sec.style.opacity = '1';
+                    sec.classList.add('active-view');
+                    sec.style.minHeight = '100dvh';
+                    found = true;
+                } else {
+                    sec.style.display = 'none';
+                    sec.style.opacity = '0';
+                    sec.classList.remove('active-view');
+                }
+            });
+            if(!found && sections[0]) {
+                sections[0].style.display = 'block';
+                sections[0].style.opacity = '1';
+                sections[0].classList.add('active-view');
+            }
+            if (mainContainer) mainContainer.scrollTo(0,0);
+        }
+        
+        let initialHash = window.location.hash.replace('#', '') || (sections[0] ? sections[0].id.replace('view-', '') : '');
+        showSection(initialHash);
+        
+        // Navigation links intercept
+        document.querySelectorAll('a[href^="#"], button[onclick*="navigateTo"]').forEach(el => {
+            el.addEventListener('click', function(e) {
+                let targetId = '';
+                if(this.tagName === 'A') {
+                    targetId = this.getAttribute('href').replace('#', '');
+                } else if(this.getAttribute('onclick')) {
+                    const match = this.getAttribute('onclick').match(/navigateTo\(['"]([^'"]+)['"]\)/);
+                    if(match) targetId = match[1];
+                }
+                
+                if (!targetId || targetId === 'lightbox' || this.classList.contains('gallery-filter-btn')) return;
+                
+                e.preventDefault();
+                history.pushState({section: targetId}, '', '#' + targetId);
+                showSection(targetId);
+                
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // 8. Smartphone Hardware Back Button (Popstate)
+        window.addEventListener('popstate', function(e) {
+            if(e.state && e.state.section) {
+                showSection(e.state.section);
+            } else {
+                const hash = window.location.hash.replace('#', '');
+                showSection(hash || (sections[0] ? sections[0].id.replace('view-', '') : ''));
+            }
+        });
+        
+        // 7. Logo click -> First section
+        const logos = document.querySelectorAll('header a:first-child, .logo, a[href="javascript:void(0)"]');
+        logos.forEach(logo => {
+            logo.addEventListener('click', function(e) {
+                const isNav = this.classList.contains('nav-btn') || this.getAttribute('onclick');
+                if(isNav) return;
+                
+                e.preventDefault();
+                const firstId = sections[0].id.replace('view-', '');
+                history.pushState({section: firstId}, '', '#' + firstId);
+                showSection(firstId);
+            });
+        });
+        
+        // 9. Smartphone Swipe (Left/Right) for Prev/Next
+        let currentIdx = () => sections.findIndex(s => s.style.display === 'block' || s.classList.contains('active-view'));
+        function goNext() {
+            let idx = currentIdx();
+            if(idx >= 0 && idx < sections.length - 1) {
+                let nextId = sections[idx+1].id.replace('view-', '');
+                history.pushState({section: nextId}, '', '#' + nextId);
+                showSection(nextId);
+            }
+        }
+        function goPrev() {
+            let idx = currentIdx();
+            if(idx > 0) {
+                let prevId = sections[idx-1].id.replace('view-', '');
+                history.pushState({section: prevId}, '', '#' + prevId);
+                showSection(prevId);
+            }
+        }
+        
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'ArrowRight') goNext();
+            else if(e.key === 'ArrowLeft') goPrev();
+        });
+        
+        let touchstartX = 0, touchendX = 0, touchstartY = 0, touchendY = 0;
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+            touchstartY = e.changedTouches[0].screenY;
+        }, {passive: true});
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            touchendY = e.changedTouches[0].screenY;
+            const xDiff = touchendX - touchstartX;
+            const yDiff = touchendY - touchstartY;
+            if(Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 70) {
+                if(xDiff < 0) goNext();
+                else goPrev();
+            }
+        }, {passive: true});
+    }
+
+    // 6. Center Footer and Unified Information
+    if(footer) {
+        footer.classList.add('text-center');
+        footer.style.textAlign = 'center';
+        const elements = footer.querySelectorAll('ul, li, div, p, span, h4');
+        elements.forEach(el => {
+            if (el.tagName === 'LI' && el.classList.contains('flex')) {
+                el.classList.remove('justify-start', 'items-start', 'text-left');
+                el.classList.add('justify-center', 'items-center', 'text-center');
+            }
+            if (el.tagName === 'DIV' && el.classList.contains('text-left')) {
+                el.classList.remove('text-left');
+                el.classList.add('text-center');
+                el.style.textAlign = 'center';
+            }
+        });
+        const grids = footer.querySelectorAll('.grid');
+        grids.forEach(g => {
+            g.classList.add('text-center', 'justify-items-center');
+        });
+    }
+
+    // 3. Replace all map links with Naver Place
+    document.querySelectorAll('a[href*="map.kakao.com"], a[href*="google.com/maps"]').forEach(a => {
+        // Extract company name or just default to a search query based on title
+        const title = document.title.split('-')[0].trim();
+        a.href = `https://map.naver.com/v5/search/${encodeURIComponent(title)}`;
+        a.setAttribute('target', '_blank');
+        if(a.innerText.includes('카카오') || a.innerText.includes('구글')) {
+            a.innerHTML = '<i class="fa-solid fa-map-location-dot"></i> 네이버 플레이스 보기';
+        }
+    });
+
+    // 2. Remove Exit Button
+    const oldBtn = document.getElementById('global-exit-btn');
+    // if(oldBtn) oldBtn.remove();
+    const olderBtn = document.querySelector('a[href*="../index.html"], a[href*="/index.html"]');
+    if(olderBtn && olderBtn.innerHTML.includes('img') && olderBtn.parentElement && olderBtn.parentElement.classList.contains('fixed')) {
+        olderBtn.parentElement.remove();
+    }
+    
+    // 1. Mobile Meta Tag Check
+    if (!document.querySelector('meta[name="viewport"]')) {
+        const meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+        document.head.appendChild(meta);
+    } else {
+        const meta = document.querySelector('meta[name="viewport"]');
+        if(!meta.content.includes('user-scalable=no')) {
+            meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+        }
+    }
+});
+</script>
+\n
+    
+
+
+    <!-- Floating Exit Button -->
+    <a href="../#portfolio" class="fixed bottom-6 right-6 z-[9999] bg-gray-900 text-white w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-2xl hover:bg-red-600 hover:scale-110 transition-all group border-2 border-white/20" title="나가기" style="text-decoration: none;">
+      <span class="text-[12px] font-black tracking-wider">나가기</span>
+    </a>
+
+
+  <!-- EGDesk Preparation Modal Injected -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allowedPages = ['index.html', ''];
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
+          const pageName = href.split('?')[0].split('#')[0];
+          if (pageName.endsWith('.html') && !allowedPages.includes(pageName)) {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              showPreparationModal();
+            });
+          }
+        }
+      });
+      
+      function showPreparationModal() {
+        let modal = document.getElementById('egdesk-prep-modal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'egdesk-prep-modal';
+          modal.style.position = 'fixed';
+          modal.style.inset = '0';
+          modal.style.zIndex = '99999';
+          modal.style.display = 'flex';
+          modal.style.alignItems = 'center';
+          modal.style.justifyContent = 'center';
+          modal.style.backgroundColor = 'rgba(15, 23, 42, 0.65)';
+          modal.style.backdropFilter = 'blur(6px)';
+          modal.style.opacity = '0';
+          modal.style.transition = 'opacity 0.25s ease';
+          
+          const card = document.createElement('div');
+          card.style.backgroundColor = '#ffffff';
+          card.style.borderRadius = '24px';
+          card.style.padding = '36px 32px';
+          card.style.maxWidth = '420px';
+          card.style.width = '90%';
+          card.style.textAlign = 'center';
+          card.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+          card.style.border = '1px solid rgba(226, 232, 240, 0.8)';
+          card.style.transform = 'scale(0.9)';
+          card.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          
+          card.innerHTML = `
+            <div style="width: 60px; height: 60px; background-color: #fef3c7; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+              <svg style="width: 32px; height: 32px; color: #d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif; letter-spacing: -0.02em;">준비 중인 서비스</h3>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 28px; font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;">현재 데모 페이지에서는 제공되지 않는 기능입니다.<br>무료 제작 및 가입 문의는 보상 플랫폼으로 연락주세요!</p>
+            <button id="egdesk-prep-close" style="width: 100%; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; border: none; padding: 14px 24px; border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);">확인</button>
+          `;
+          
+          modal.appendChild(card);
+          document.body.appendChild(modal);
+          
+          const closeBtn = card.querySelector('#egdesk-prep-close');
+          closeBtn.addEventListener('click', hidePreparationModal);
+          closeBtn.addEventListener('mouseover', () => closeBtn.style.transform = 'translateY(-1px)');
+          closeBtn.addEventListener('mouseout', () => closeBtn.style.transform = 'translateY(0)');
+          
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) hidePreparationModal();
+          });
+        }
+        
+        modal.style.display = 'flex';
+        modal.offsetHeight;
+        modal.style.opacity = '1';
+        modal.querySelector('div').style.transform = 'scale(1)';
+      }
+      
+      function hidePreparationModal() {
+        const modal = document.getElementById('egdesk-prep-modal');
+        if (modal) {
+          modal.style.opacity = '0';
+          modal.querySelector('div').style.transform = 'scale(0.9)';
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 250);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
