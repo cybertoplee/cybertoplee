@@ -562,8 +562,18 @@ export default function Home() {
                   <span>👑</span> 통합 ALL-IN-ONE 패키지
                 </div>
                 <div className="text-sm font-extrabold opacity-95 leading-relaxed">
-                  월 12만원 {paymentMethod === 'sangjo' ? '상조 상품' : '종신/보장 보험'} 가입 시 (36개월 유지)<br />
-                  <span className="font-black text-base">위 모든 서비스 무료 구축 + 문자 발송 시스템 제공</span>
+                  {paymentMethod === 'sangjo' ? (
+                    <>
+                      월 12만원 상당의 상조 상품 가입 시 (24개월 유지조건)<br />
+                      * 월 22,500원(1구좌) * 5구좌 = 112,500원<br />
+                      <span className="font-black text-base">위 모든 서비스 무료 구축 + 문자 발송 시스템 제공</span>
+                    </>
+                  ) : (
+                    <>
+                      월 12만원 이상 종신 / 건강 보험 가입 시 (24개월 의무 유지조건)<br />
+                      <span className="font-black text-base">위 모든 서비스 무료 구축 + 문자 발송 시스템 제공</span>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

@@ -131,7 +131,8 @@ export default function BenefitsPage() {
               <div className="text-xs sm:text-sm font-extrabold opacity-95 leading-relaxed">
                 {paymentMethod === 'sangjo' ? (
                   <>
-                    월 12만원 상조 상품 가입 시 (36개월 유지)<br />
+                    월 12만원 상당의 상조 상품 가입 시 (24개월 유지조건)<br />
+                    * 월 22,500원(1구좌) * 5구좌 = 112,500원<br />
                     <span className="font-black text-sm sm:text-base">위 모든 서비스 무료 구축 + 문자 발송 시스템 제공</span>
                   </>
                 ) : (
