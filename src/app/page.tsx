@@ -391,10 +391,10 @@ export default function Home() {
               href="https://tunneling-service.onrender.com/t/mcp-server-cybertoplee/p/egdesk-FreeSMS/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#0c1329] border border-slate-800 rounded-3xl p-8 sm:p-10 flex items-center justify-between relative group hover:border-blue-500/50 transition-all duration-300 shadow-lg min-h-[180px] block"
+              className="bg-[#0c1329] border border-slate-800 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between relative group hover:border-blue-500/50 transition-all duration-300 shadow-lg min-h-[180px] text-center sm:text-left gap-6 block"
             >
-              <div>
-                <span className="inline-block px-3 py-1.5 mb-3 rounded-full bg-blue-500/15 text-blue-300 text-[10px] font-black tracking-widest uppercase">
+              <div className="flex flex-col items-center sm:items-start">
+                <span className="inline-block px-3 py-1.5 mb-3 rounded-full bg-blue-500/15 text-blue-300 text-[10px] font-black tracking-widest uppercase mx-auto sm:mx-0">
                   SPECIAL FEATURE
                 </span>
                 <h3 className="text-2xl font-black mb-2 text-white">EGDESK SMS</h3>
@@ -404,7 +404,7 @@ export default function Home() {
                   <span className="text-sm">→</span>
                 </div>
               </div>
-              <div className="w-28 h-28 rounded-2xl overflow-hidden border border-slate-800/80 shadow-inner shrink-0 transform group-hover:scale-105 group-hover:border-blue-500/30 transition-all duration-300 relative ml-4">
+              <div className="w-28 h-28 rounded-2xl overflow-hidden border border-slate-800/80 shadow-inner shrink-0 transform group-hover:scale-105 group-hover:border-blue-500/30 transition-all duration-300 relative sm:ml-4">
                 <img 
                   src="/assets/egdesk_sms_feature.png" 
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" 
@@ -415,9 +415,9 @@ export default function Home() {
             </a>
 
             {/* Card 2: 출결관리 시스템 */}
-            <div className="bg-[#0c1329] border border-slate-800 rounded-3xl p-8 sm:p-10 flex items-center justify-between relative group hover:border-emerald-500/50 transition-all duration-300 shadow-lg min-h-[180px]">
-              <div>
-                <span className="inline-block px-3 py-1.5 mb-3 rounded-full bg-emerald-500/15 text-emerald-350 text-[10px] font-black tracking-widest uppercase">
+            <div className="bg-[#0c1329] border border-slate-800 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between relative group hover:border-emerald-500/50 transition-all duration-300 shadow-lg min-h-[180px] text-center sm:text-left gap-6">
+              <div className="flex flex-col items-center sm:items-start">
+                <span className="inline-block px-3 py-1.5 mb-3 rounded-full bg-emerald-500/15 text-emerald-350 text-[10px] font-black tracking-widest uppercase mx-auto sm:mx-0">
                   CORE SOLUTION
                 </span>
                 <h3 className="text-2xl font-black mb-2 text-white">전국학원/회사출퇴근</h3>
@@ -427,7 +427,7 @@ export default function Home() {
                   <span className="text-sm">→</span>
                 </a>
               </div>
-              <div className="w-28 h-28 rounded-2xl overflow-hidden border border-slate-800/80 shadow-inner shrink-0 transform group-hover:scale-105 group-hover:border-emerald-500/30 transition-all duration-300 relative ml-4">
+              <div className="w-28 h-28 rounded-2xl overflow-hidden border border-slate-800/80 shadow-inner shrink-0 transform group-hover:scale-105 group-hover:border-emerald-500/30 transition-all duration-300 relative sm:ml-4">
                 <img 
                   src="/assets/attendance_feature.png" 
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" 
@@ -495,10 +495,10 @@ export default function Home() {
 
                 <div className="space-y-8">
                   {/* Item 1 */}
-                  <div className="flex justify-between items-start gap-4">
-                    <div>
+                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
+                    <div className="flex flex-col items-center sm:items-start w-full">
                       <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">출결 및 CCTV 보안 관제</h4>
-                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium">
+                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
                         <li className="flex items-start gap-2">
                           <span className="text-blue-400 mt-1">•</span>
                           24시간 원격 실시간 모니터링 및 클라우드 영상 저장
@@ -509,16 +509,16 @@ export default function Home() {
                         </li>
                       </ul>
                     </div>
-                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm">
+                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
                       {paymentMethod === 'sangjo' ? '상조 1구좌(현금 또는 카드 30만원)' : '보험가입'}
                     </span>
                   </div>
 
                   {/* Item 2 */}
-                  <div className="flex justify-between items-start gap-4">
-                    <div>
+                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
+                    <div className="flex flex-col items-center sm:items-start w-full">
                       <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">프리미엄 반응형 홈페이지</h4>
-                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium">
+                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
                         <li className="flex items-start gap-2">
                           <span className="text-blue-455 mt-1">•</span>
                           SEO 최적화 및 모바일 기기 완벽 대응 UI/UX 설계
@@ -529,16 +529,16 @@ export default function Home() {
                         </li>
                       </ul>
                     </div>
-                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm">
+                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
                       {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
                     </span>
                   </div>
 
                   {/* Item 3 */}
-                  <div className="flex justify-between items-start gap-4">
-                    <div>
+                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
+                    <div className="flex flex-col items-center sm:items-start w-full">
                       <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">SNS 홍보 및 매출 성장</h4>
-                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium">
+                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
                         <li className="flex items-start gap-2">
                           <span className="text-blue-450 mt-1">•</span>
                           네이버 블로그 월 4회 포스팅 및 유튜브 숏츠 월 2회 제작
@@ -549,7 +549,7 @@ export default function Home() {
                         </li>
                       </ul>
                     </div>
-                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm">
+                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
                       {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
                     </span>
                   </div>
@@ -595,15 +595,15 @@ export default function Home() {
       {/* 4. Portfolio Section (Solid White Theme based on screenshot) */}
       <section id="portfolio" className="py-24 bg-white text-slate-900 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-            <div>
-              <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-50 text-blue-600 font-extrabold tracking-widest text-xs border border-blue-100">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left w-full">
+            <div className="flex flex-col items-center md:items-start w-full md:w-auto">
+              <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-50 text-blue-600 font-extrabold tracking-widest text-xs border border-blue-100 mx-auto md:mx-0">
                 PORTFOLIO
               </span>
-              <h2 className="text-[24px] sm:text-4xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-[24px] sm:text-4xl font-black text-slate-900 tracking-tight text-center md:text-left">
                 제작사례 포트폴리오
               </h2>
-              <p className="text-slate-500 text-sm mt-2 font-medium">
+              <p className="text-slate-500 text-sm mt-2 font-medium text-center md:text-left">
                 업종별로 맞춤화 및 최적화되어 제공되는 반응형 전면 홈페이지 목록입니다. 각 카드를 클릭하여 개별 홈페이지를 자세히 확인해보세요.
               </p>
             </div>
@@ -685,19 +685,19 @@ export default function Home() {
           <div className="bg-white rounded-[3rem] border border-slate-200 shadow-2xl overflow-hidden flex flex-col md:flex-row">
             
             {/* Left Info Panel */}
-            <div className="md:w-5/12 bg-blue-600 p-10 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+            <div className="md:w-5/12 bg-blue-600 p-10 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden text-center md:text-left items-center md:items-start">
               <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
-              <div className="relative z-10 flex flex-col justify-between h-full">
+              <div className="relative z-10 flex flex-col justify-between h-full items-center md:items-start text-center md:text-left w-full">
                 <div>
-                  <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-black uppercase tracking-wider backdrop-blur-sm">
+                  <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-black uppercase tracking-wider backdrop-blur-sm mx-auto md:mx-0">
                     Inquiry
                   </div>
-                  <h3 className="text-3xl font-black mb-4 leading-tight">제작 및 호스팅 문의</h3>
+                  <h3 className="text-[24px] sm:text-3xl font-black mb-4 leading-tight">제작 및 호스팅 문의</h3>
                   <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
                     가까운 대표님이나 지인을 소개해 주시면 최적의 솔루션과 더불어 파격적인 적금 및 마케팅 혜택을 설계해 드립니다.
                   </p>
                 </div>
-                <div className="mt-8 border-t border-white/20 pt-8">
+                <div className="mt-8 border-t border-white/20 pt-8 w-full">
                   <p className="text-[10px] text-blue-200 uppercase font-black tracking-widest mb-1">Direct Call</p>
                   <a href="tel:010-9697-3927" className="text-2xl sm:text-3xl font-black text-white hover:text-cyan-300 transition-colors">
                     010-9697-3927

@@ -262,9 +262,9 @@ export default function PortfolioPage() {
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-          <div>
-            <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-500/15 text-blue-300 font-extrabold tracking-widest text-xs border border-blue-400/30">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left w-full">
+          <div className="flex flex-col items-center md:items-start w-full md:w-auto">
+            <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-500/15 text-blue-300 font-extrabold tracking-widest text-xs border border-blue-400/30 mx-auto md:mx-0">
               PORTFOLIO
             </span>
             <h2 className="text-[24px] sm:text-4xl font-black text-white tracking-tight">

@@ -48,11 +48,11 @@ export default function ContactPage() {
         <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-[3rem] border border-slate-800 shadow-2xl overflow-hidden flex flex-col md:flex-row">
           
           {/* Left Info Panel */}
-          <div className="md:w-5/12 bg-blue-600 p-10 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+          <div className="md:w-5/12 bg-blue-600 p-10 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden text-center md:text-left items-center md:items-start">
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
-            <div className="relative z-10 flex flex-col justify-between h-full">
+            <div className="relative z-10 flex flex-col justify-between h-full items-center md:items-start text-center md:text-left w-full">
               <div>
-                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-black uppercase tracking-wider backdrop-blur-sm">
+                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-black uppercase tracking-wider backdrop-blur-sm mx-auto md:mx-0">
                   Inquiry
                 </div>
                 <h3 className="text-[24px] sm:text-3xl font-black mb-4 leading-tight">제작 및 호스팅 문의</h3>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                   가까운 대표님이나 지인을 소개해 주시면 최적의 솔루션과 더불어 파격적인 적금 및 마케팅 혜택을 설계해 드립니다.
                 </p>
               </div>
-              <div className="mt-8 border-t border-white/20 pt-8">
+              <div className="mt-8 border-t border-white/20 pt-8 w-full">
                 <p className="text-[10px] text-blue-200 uppercase font-black tracking-widest mb-1">Direct Call</p>
                 <a href="tel:010-9697-3927" className="text-2xl sm:text-3xl font-black text-white hover:text-cyan-300 transition-colors">
                   010-9697-3927
