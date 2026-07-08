@@ -77,7 +77,7 @@ export default function BenefitsPage() {
                     </ul>
                   </div>
                   <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto max-w-[150px] sm:max-w-none">
-                    {paymentMethod === 'sangjo' ? '상조 1구좌' : '보험가입'}
+                    {paymentMethod === 'sangjo' ? '상조 1구좌(현금 또는 카드 30만원)' : '보험가입'}
                   </span>
                 </div>
 
@@ -97,7 +97,7 @@ export default function BenefitsPage() {
                     </ul>
                   </div>
                   <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto max-w-[150px] sm:max-w-none">
-                    {paymentMethod === 'sangjo' ? '상조 2구좌' : '보험가입'}
+                    {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
                   </span>
                 </div>
 
@@ -117,7 +117,7 @@ export default function BenefitsPage() {
                     </ul>
                   </div>
                   <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto max-w-[150px] sm:max-w-none">
-                    {paymentMethod === 'sangjo' ? '상조 2구좌' : '보험가입'}
+                    {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
                   </span>
                 </div>
               </div>
