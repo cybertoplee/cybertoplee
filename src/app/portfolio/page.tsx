@@ -31,6 +31,26 @@ export default function PortfolioPage() {
 
   const cases: CaseItem[] = [
     {
+      id: 'suyong',
+      title: '차귀도 수용배낚시',
+      category: 'service_const',
+      categoryLabel: 'LEISURE & SERVICE',
+      desc: '제주 고산 차귀도 대표 배낚시 체험 공식 안내 및 실시간 네이버 예약 랜딩 페이지',
+      link: `${basePath}/suyong/index.html`,
+      bgGradient: 'from-sky-955 via-slate-900 to-sky-900',
+      tagColor: 'bg-sky-400/20 text-sky-300 border-sky-400/30'
+    },
+    {
+      id: 'preed',
+      title: '웅진프리드라이프 제주오라사업점',
+      category: 'finance_tech',
+      categoryLabel: 'FINANCE & LIFE CARE',
+      desc: '업계 1위 웅진프리드라이프 제주지점 공식 리뉴얼 홈페이지 및 정밀 수당 계산기 시뮬레이터 연동',
+      link: `${basePath}/preed/index.html`,
+      bgGradient: 'from-indigo-955 via-slate-900 to-indigo-900',
+      tagColor: 'bg-indigo-400/20 text-indigo-300 border-indigo-400/30'
+    },
+    {
       id: 'jejuowner',
       title: '(주)오너 / 제주오너센터',
       category: 'wellness_health',

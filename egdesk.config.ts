@@ -1,6 +1,6 @@
 /**
  * EGDesk User Data Configuration
- * Generated at: 2026-07-08T07:53:28.644Z
+ * Generated at: 2026-07-12T07:25:01.296Z
  *
  * This file contains type-safe definitions for your EGDesk tables.
  */
@@ -24,16 +24,16 @@ export const TABLES = {
   table1: {
     name: 'inquiries',
     displayName: 'Inquiries',
-    rowCount: 4,
-    columnCount: 6,
-    columns: []
+    rowCount: 0,
+    columnCount: 7,
+    columns: ['id', '_version', 'name', 'phone', 'email', 'message', 'created_at']
   } as TableDefinition,
   table2: {
     name: 'example_table',
     displayName: 'Example Table',
     rowCount: 0,
-    columnCount: 3,
-    columns: []
+    columnCount: 4,
+    columns: ['id', '_version', 'name', 'created_at']
   } as TableDefinition
 } as const;
 

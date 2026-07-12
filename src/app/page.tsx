@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useTransition } from 'react';
+import Link from 'next/link';
 import { getEgdeskBasePath } from '../../egdesk-helpers';
 import { submitInquiry } from './actions';
 
@@ -31,12 +32,31 @@ export default function Home() {
   const [isPending, startTransition] = useTransition();
   const [formState, setFormState] = useState<{ success?: boolean; error?: string; note?: string }>({});
   const [showVideo, setShowVideo] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'sangjo' | 'insurance'>('sangjo');
   const [showPrepModal, setShowPrepModal] = useState(false);
 
   const previewImg = `${basePath}/assets/dashboard-lDZ0PVPU.png`;
 
   const cases: CaseItem[] = [
+    {
+      id: 'suyong',
+      title: '차귀도 수용배낚시',
+      category: 'service_const',
+      categoryLabel: 'LEISURE & SERVICE',
+      desc: '제주 고산 차귀도 대표 배낚시 체험 공식 안내 및 실시간 네이버 예약 랜딩 페이지',
+      link: `${basePath}/suyong/index.html`,
+      tagColor: 'text-sky-600',
+      tagBg: 'bg-sky-50'
+    },
+    {
+      id: 'preed',
+      title: '웅진프리드라이프 제주오라사업점',
+      category: 'finance_tech',
+      categoryLabel: 'FINANCE & LIFE CARE',
+      desc: '업계 1위 웅진프리드라이프 제주지점 공식 리뉴얼 홈페이지 및 정밀 수당 계산기 시뮬레이터 연동',
+      link: `${basePath}/preed/index.html`,
+      tagColor: 'text-indigo-600',
+      tagBg: 'bg-indigo-50'
+    },
     {
       id: 'jejuowner',
       title: '(주)오너 / 제주오너센터',
@@ -278,7 +298,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 bg-[#0f172a] flex-grow flex flex-col">
       {/* Preparation Modal */}
       {showPrepModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/70 backdrop-blur-md transition-opacity duration-300" onClick={() => setShowPrepModal(false)}>
@@ -296,7 +316,7 @@ export default function Home() {
       )}
 
       {/* 1. Hero Section (Dark theme based on screenshot) */}
-      <section className="relative pt-16 md:pt-24 pb-20 bg-[#0f172a] text-white">
+      <section className="relative pt-6 md:pt-10 pb-6 bg-[#0f172a] text-white">
         <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-blue-900/20 via-slate-900/10 to-transparent pointer-events-none z-0" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -306,25 +326,25 @@ export default function Home() {
                 <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                 THIS WEBSITE WAS CREATED WITH EGDESK AI PLATFORM
               </div>
-              <h1 className="text-[24px] sm:text-5xl md:text-[3.6rem] lg:text-[3.68rem] font-black leading-[1.2] mb-8 tracking-tight text-white">
-                성공을 위한<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">EGDesk AI 웹 호스팅</span> 서비스
+              <h1 className="text-[19.2px] sm:text-[2.4rem] md:text-[2.88rem] lg:text-[2.944rem] font-black leading-[1.2] mb-8 tracking-tight text-white">
+                성공을 위한 AI 업무 자동화<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">EGDesk AI Agent</span> 서비스
               </h1>
               <p className="text-lg sm:text-xl text-slate-200 mb-12 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
-                최고의 기술력과 안정적인 인프라를 바탕으로 최적화된 홈페이지 및 모바일 웹 호스팅 서비스를 지원합니다. 이지데스크 AI 플랫폼의 통합 마케팅 교육까지 제공해 드립니다.
+                최고의 기술력과 안정적인 인프라를 바탕으로 최적화된 홈페이지 및 모바일 웹 호스팅 서비스를 지원합니다. 또한 이지데스크 AI 업무 자동화를 위한 바이브 코딩 전문교육을 지원합니다.
               </p>
               
               {/* CTAs styled with clean rounded buttons matching screenshot */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <a href="#contact" className="w-full sm:w-auto px-10 py-4.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-black text-lg shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 group">
-                  무료 호스팅 및 제작 문의
+                <Link href="/contact" className="w-full sm:w-auto px-10 py-4.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-black text-[21px] shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 group">
+                  상담문의
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </a>
-                <a href="#portfolio" className="w-full sm:w-auto px-10 py-4.5 bg-transparent hover:bg-white/10 text-white rounded-xl font-bold text-lg border border-white/20 transition-all flex items-center justify-center">
-                  포트폴리오(20종) 확인
-                </a>
+                </Link>
+                 <Link href="/portfolio" className="w-full sm:w-auto px-10 py-4.5 bg-transparent hover:bg-white/10 text-white rounded-xl font-bold text-[21px] border border-white/20 transition-all flex items-center justify-center">
+                   포트폴리오(22종)
+                 </Link>
               </div>
             </div>
 
@@ -332,39 +352,12 @@ export default function Home() {
             <div className="relative flex justify-center w-full max-w-lg mx-auto lg:max-w-none">
               <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
                 {!showVideo ? (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center relative group cursor-pointer bg-[#0b0f19]" onClick={() => setShowVideo(true)}>
-                    {/* Tech Grid Background */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-60" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-blue-600/10 via-transparent to-slate-950/80 pointer-events-none" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none" />
-
-                    {/* Logo Graphic */}
-                    <div className="relative z-10 flex flex-col items-center mb-8 transform group-hover:scale-105 transition-transform duration-500">
-                      {/* Logo Icon Mark */}
-                      <div className="w-24 h-24 bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-500 rounded-[2rem] flex items-center justify-center text-white shadow-2xl shadow-blue-500/30 border border-blue-400/20 mb-5 relative">
-                        <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-500 opacity-80 blur-xl -z-10 group-hover:opacity-100 transition-opacity" />
-                        <svg className="w-12 h-12 text-white drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                          {/* Modern Hexagonal Tech Node logo */}
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                      </div>
-                      {/* Brand Text */}
-                      <div className="flex items-center gap-2">
-                        <span className="text-3xl font-black text-white tracking-tight uppercase">EGDesk</span>
-                        <span className="bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950 text-[11px] font-black px-2.5 py-1 rounded-md shadow-md">AI</span>
-                      </div>
-                      <span className="text-[10px] font-black text-slate-400 tracking-widest mt-2 uppercase">Web Hosting &amp; Cloud Platform</span>
-                    </div>
-
-                    {/* Styled Play Button (replacing red YouTube button) */}
-                    <div className="relative z-10 w-16 h-16 bg-slate-950/80 backdrop-blur-md border border-slate-700/80 rounded-full flex items-center justify-center text-white shadow-xl shadow-blue-500/5 group-hover:scale-110 group-hover:border-blue-500 group-hover:text-blue-400 transition-all duration-300">
-                      <svg className="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <span className="relative z-10 mt-5 text-white font-extrabold tracking-widest text-[11px] bg-slate-950/90 hover:bg-slate-900 px-6 py-3 rounded-full border border-slate-800 shadow-lg transition-colors">
-                      유튜브 소개 영상 시청
-                    </span>
+                  <div className="absolute inset-0 flex items-center justify-center relative group cursor-pointer bg-[#0b0f19]" onClick={() => setShowVideo(true)}>
+                    <img 
+                      src="/assets/vibe_coding_intro.jpg" 
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500" 
+                      alt="YouTube Intro Cover" 
+                    />
                   </div>
                 ) : (
                   <iframe
@@ -383,7 +376,7 @@ export default function Home() {
       </section>
 
       {/* 2. Feature Cards Section (Aligned horizontally below hero as in screenshot) */}
-      <section className="py-16 bg-[#0f172a] text-white border-t border-slate-900">
+      <section className="pt-2 pb-16 bg-[#0f172a] text-white border-t border-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Card 1: EGDESK SMS */}
@@ -397,8 +390,8 @@ export default function Home() {
                 <span className="inline-block px-3 py-1.5 mb-3 rounded-full bg-blue-500/15 text-blue-300 text-[10px] font-black tracking-widest uppercase mx-auto sm:mx-0">
                   SPECIAL FEATURE
                 </span>
-                <h3 className="text-2xl font-black mb-2 text-white">EGDESK SMS</h3>
-                <p className="text-slate-350 text-sm font-semibold mb-6">평생 무료 문자 발송 시스템(데모용)</p>
+                <h3 className="text-2xl font-black mb-2 text-white">EGDesk AI Agent</h3>
+                <p className="text-slate-350 text-sm font-semibold mb-6">SMS Platform 50 AI Agent</p>
                 <div className="text-blue-400 group-hover:text-blue-300 font-extrabold text-xs flex items-center gap-1.5">
                   자세히 보기
                   <span className="text-sm">→</span>
@@ -420,8 +413,8 @@ export default function Home() {
                 <span className="inline-block px-3 py-1.5 mb-3 rounded-full bg-emerald-500/15 text-emerald-350 text-[10px] font-black tracking-widest uppercase mx-auto sm:mx-0">
                   CORE SOLUTION
                 </span>
-                <h3 className="text-2xl font-black mb-2 text-white">전국학원/회사출퇴근</h3>
-                <p className="text-slate-350 text-sm font-semibold mb-6">출결관리 시스템</p>
+                <h3 className="text-2xl font-black mb-2 text-white">전국학원/소상공인을 위한</h3>
+                <p className="text-slate-350 text-sm font-semibold mb-6">출결관리/CCTV관제시스템</p>
                 <a onClick={() => setShowPrepModal(true)} className="text-emerald-450 hover:text-emerald-350 font-extrabold text-xs flex items-center gap-1.5 cursor-pointer">
                   자세히 보기
                   <span className="text-sm">→</span>
@@ -440,362 +433,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Benefits Section */}
-      <section id="benefits" className="pt-10 pb-20 bg-[#0f172a] text-white border-t border-slate-900 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header */}
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-center pb-6 border-b border-slate-800 mb-10 gap-6 text-center md:text-left w-full">
-            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 flex-wrap justify-center md:justify-start w-full md:w-auto">
-              <h2 className="text-[19px] sm:text-4xl font-black text-white tracking-tight text-center md:text-left w-full md:w-auto">
-                월 12만원의 <span className="text-blue-400">압도적 종합 혜택</span>
-              </h2>
-              <span className="bg-blue-500/15 text-blue-300 border border-blue-400/30 text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md mx-auto md:mx-0">
-                지출이 아닌 자산형성
-              </span>
-            </div>
-
-            {/* Interactive Payment Switcher */}
-            <div className="bg-slate-950 p-1.5 rounded-2xl border border-slate-800 flex gap-2">
-              <button
-                onClick={() => setPaymentMethod('sangjo')}
-                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all ${
-                  paymentMethod === 'sangjo'
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                상조로 결제하는 방법
-              </button>
-              <button
-                onClick={() => setPaymentMethod('insurance')}
-                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all ${
-                  paymentMethod === 'insurance'
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                보험으로 결제하는 방법
-              </button>
-            </div>
-          </div>
-
-          {/* Split Content Layout - Centered single card */}
-          <div className="max-w-3xl mx-auto w-full">
-            
-            {/* Left Card: 개별 마케팅 솔루션 제안 */}
-            <div className="bg-slate-950/70 p-8 sm:p-10 rounded-[2.5rem] border border-slate-800 shadow-2xl flex flex-col justify-between h-full">
-              <div>
-                <div className="flex items-center gap-2 text-blue-400 font-black text-lg mb-8 uppercase tracking-wide">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                  개별 마케팅 솔루션 제안
-                </div>
-
-                <div className="space-y-8">
-                  {/* Item 1 */}
-                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
-                    <div className="flex flex-col items-center sm:items-start w-full">
-                      <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">출결 및 CCTV 보안 관제</h4>
-                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
-                        <li className="flex items-start gap-2">
-                          <span className="text-blue-400 mt-1">•</span>
-                          24시간 원격 실시간 모니터링 및 클라우드 영상 저장
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-blue-450 mt-1">•</span>
-                          스마트 출결 알림 및 모바일 실시간 관리 시스템
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
-                      {paymentMethod === 'sangjo' ? '상조 1구좌(현금 또는 카드 30만원)' : '보험가입'}
-                    </span>
-                  </div>
-
-                  {/* Item 2 */}
-                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
-                    <div className="flex flex-col items-center sm:items-start w-full">
-                      <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">프리미엄 반응형 홈페이지</h4>
-                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
-                        <li className="flex items-start gap-2">
-                          <span className="text-blue-455 mt-1">•</span>
-                          SEO 최적화 및 모바일 기기 완벽 대응 UI/UX 설계
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-blue-455 mt-1">•</span>
-                          랜딩페이지형, 브로슈어 사이트 맞춤형 제작
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
-                      {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
-                    </span>
-                  </div>
-
-                  {/* Item 3 */}
-                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
-                    <div className="flex flex-col items-center sm:items-start w-full">
-                      <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">SNS 홍보 및 매출 성장</h4>
-                      <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
-                        <li className="flex items-start gap-2">
-                          <span className="text-blue-450 mt-1">•</span>
-                          네이버 블로그 월 4회 포스팅 및 유튜브 숏츠 월 2회 제작
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-blue-455 mt-1">•</span>
-                          매출 성장을 위한 플랫폼 활용 전문 코칭 지원
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
-                      {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Gradient Banner Box */}
-              <div className="mt-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-6 rounded-[2rem] text-white text-center shadow-xl shadow-blue-500/10">
-                <div className="text-xl font-black tracking-tight mb-1.5 flex items-center justify-center gap-2">
-                  <span>👑</span> 통합 ALL-IN-ONE 패키지
-                </div>
-                <div className="text-sm font-extrabold opacity-95 leading-relaxed">
-                  {paymentMethod === 'sangjo' ? (
-                    <>
-                      월 12만원 상당의 상조 상품 가입 시 (24개월 유지조건)<br />
-                      * 월 22,500원(1구좌) * 5구좌 = 112,500원<br />
-                      <span className="font-black text-base">위 모든 서비스 무료 구축 + 문자 발송 시스템 제공</span>
-                    </>
-                  ) : (
-                    <>
-                      월 12만원 이상 종신 / 건강 보험 가입 시 (24개월 의무 유지조건)<br />
-                      <span className="font-black text-base">위 모든 서비스 무료 구축 + 문자 발송 시스템 제공</span>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Section Footer Banner */}
-          <div className="mt-16 pt-8 border-t border-slate-900/80 flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm">
-            <div className="text-slate-350 font-semibold">
-              상담문의: 24시간 비즈니스 파트너 지원센터 | 상담 시 견적서 및 사업제안서 무료 제공
-            </div>
-            <div className="text-white font-black tracking-tight">
-              성공의 격을 높이는 선택, 지금 시작하세요!
-            </div>
-          </div>
-          
-        </div>
-      </section>
-
-      {/* 4. Portfolio Section (Solid White Theme based on screenshot) */}
-      <section id="portfolio" className="py-24 bg-white text-slate-900 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left w-full">
-            <div className="flex flex-col items-center md:items-start w-full md:w-auto">
-              <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-50 text-blue-600 font-extrabold tracking-widest text-xs border border-blue-100 mx-auto md:mx-0">
-                PORTFOLIO
-              </span>
-              <h2 className="text-[24px] sm:text-4xl font-black text-slate-900 tracking-tight text-center md:text-left">
-                제작사례 포트폴리오
-              </h2>
-              <p className="text-slate-500 text-sm mt-2 font-medium text-center md:text-left">
-                업종별로 맞춤화 및 최적화되어 제공되는 반응형 전면 홈페이지 목록입니다. 각 카드를 클릭하여 개별 홈페이지를 자세히 확인해보세요.
-              </p>
-            </div>
-            {/* Search Input */}
-            <div className="w-full md:w-80 relative">
-              <input
-                type="text"
-                placeholder="업종 또는 프로젝트 검색..."
-                className="w-full bg-slate-50 border border-slate-200 rounded-full px-6 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 transition-all text-slate-900 placeholder-slate-400 font-semibold shadow-inner"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-              />
-              <span className="absolute right-5 top-3.5 text-slate-400">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </span>
-            </div>
-          </div>
-
-          {/* Category Tabs */}
-          <div className="flex flex-wrap gap-2.5 mb-12 pb-4 border-b border-slate-100">
-            {CATEGORIES.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveTab(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all border ${
-                  activeTab === cat.id
-                    ? 'bg-blue-600 border-blue-500 text-white shadow-md'
-                    : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Cases Grid */}
-          {filteredCases.length === 0 ? (
-            <div className="text-center py-24 bg-slate-50 border border-slate-200/80 rounded-[2rem] p-10">
-              <p className="text-slate-400 text-lg font-semibold">검색 조건에 맞는 포트폴리오 항목이 존재하지 않습니다.</p>
-            </div>
-          ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {filteredCases.map(item => (
-                <a
-                  key={item.id}
-                  href={item.link === '#' ? undefined : item.link}
-                  onClick={item.link === '#' ? () => setShowPrepModal(true) : undefined}
-                  className="group bg-white p-8 rounded-2xl border border-slate-200/80 hover:border-blue-500/30 transition-all duration-300 shadow-md hover:shadow-xl flex flex-col justify-between min-h-[250px] hover:-translate-y-1 cursor-pointer"
-                >
-                  <div>
-                    <span className={`inline-block px-3 py-1 mb-4 rounded-md text-[9px] font-black border ${item.tagBg} ${item.tagColor}`}>
-                      {item.categoryLabel}
-                    </span>
-                    <h4 className="text-lg font-black text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {item.title}
-                    </h4>
-                    <p className="text-slate-550 text-xs sm:text-sm leading-relaxed font-semibold">
-                      {item.desc}
-                    </p>
-                  </div>
-                  <div className="mt-6 flex justify-between items-center text-slate-400 group-hover:text-blue-600 transition-colors border-t border-slate-100 pt-4">
-                    <span className="text-[9px] font-black tracking-widest uppercase">SAMPLE VIEW</span>
-                    <svg className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* 5. Inquiry Form Section (Light Gray Theme based on screenshot) */}
-      <section id="contact" className="py-20 bg-slate-50 text-slate-900 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-[3rem] border border-slate-200 shadow-2xl overflow-hidden flex flex-col md:flex-row">
-            
-            {/* Left Info Panel */}
-            <div className="md:w-5/12 bg-blue-600 p-10 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden text-center md:text-left items-center md:items-start">
-              <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
-              <div className="relative z-10 flex flex-col justify-between h-full items-center md:items-start text-center md:text-left w-full">
-                <div>
-                  <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-black uppercase tracking-wider backdrop-blur-sm mx-auto md:mx-0">
-                    Inquiry
-                  </div>
-                  <h3 className="text-[24px] sm:text-3xl font-black mb-4 leading-tight">제작 및 호스팅 문의</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
-                    가까운 대표님이나 지인을 소개해 주시면 최적의 솔루션과 더불어 파격적인 적금 및 마케팅 혜택을 설계해 드립니다.
-                  </p>
-                </div>
-                <div className="mt-8 border-t border-white/20 pt-8 w-full">
-                  <p className="text-[10px] text-blue-200 uppercase font-black tracking-widest mb-1">Direct Call</p>
-                  <a href="tel:010-9697-3927" className="text-2xl sm:text-3xl font-black text-white hover:text-cyan-300 transition-colors">
-                    010-9697-3927
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Input Form */}
-            <div className="md:w-7/12 p-10 sm:p-12">
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-xs sm:text-sm font-extrabold text-slate-700 mb-2">성함 <span className="text-red-500">*</span></label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-slate-900 placeholder-slate-400 font-semibold"
-                    placeholder="성함을 입력하세요"
-                  />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs sm:text-sm font-extrabold text-slate-700 mb-2">연락처 <span className="text-red-500">*</span></label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      required
-                      className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-slate-900 placeholder-slate-400 font-semibold"
-                      placeholder="010-0000-0000"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-extrabold text-slate-700 mb-2">이메일</label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-slate-900 placeholder-slate-400 font-semibold"
-                      placeholder="example@email.com"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs sm:text-sm font-extrabold text-slate-700 mb-2">문의내용</label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-slate-900 resize-none placeholder-slate-400 font-semibold"
-                    placeholder="문의하시고자 하는 내용을 적어주세요."
-                  />
-                </div>
-
-                {/* Form feedback message */}
-                {formState.success && (
-                  <div className="bg-emerald-550/10 border border-emerald-500/30 text-emerald-600 text-xs p-4 rounded-xl font-bold flex items-center gap-2">
-                    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>문의 접수가 완료되었습니다. 신속하게 연락 드리겠습니다! {formState.note && `(${formState.note})`}</span>
-                  </div>
-                )}
-                {formState.error && (
-                  <div className="bg-red-500/10 border border-red-500/30 text-red-650 text-xs p-4 rounded-xl font-bold flex items-center gap-2">
-                    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{formState.error}</span>
-                  </div>
-                )}
-
-                {/* Mobile integration guide text */}
-                <div className="text-[12px] sm:text-xs text-blue-700 flex items-start gap-2.5 bg-blue-50 p-4 rounded-xl border border-blue-100 mb-4 leading-relaxed font-semibold">
-                  <svg className="w-4.5 h-4.5 text-blue-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                  <span>접수 완료 시 기기연동을 통해 휴대폰 문자(SMS) 앱이 열리며, 작성하신 문의 내용이 자동으로 전송됩니다.</span>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isPending}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4.5 rounded-xl active:scale-95 transition shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 text-base"
-                >
-                  {isPending ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                      </svg>
-                      제출 중...
-                    </>
-                  ) : '문의 및 신청하기'}
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -27,8 +27,8 @@ export default function Header() {
   const navItems = [
     { label: '메인 페이지', path: '/' },
     { label: '제작사례 (포트폴리오)', path: '/portfolio' },
-    { label: '호스팅 혜택', path: '/benefits' },
-    { label: '제작/호스팅 문의', path: '/contact' }
+    { label: '서비스 방법', path: '/benefits' },
+    { label: '상담문의접수', path: '/contact' }
   ];
 
   return (
@@ -165,7 +165,7 @@ export default function Header() {
               </div>
               <div className="flex flex-col justify-center leading-none text-center lg:text-left items-center lg:items-start">
                 <span className="text-sm sm:text-base font-black text-slate-900 tracking-tight">
-                  EGDesk AI 웹 호스팅 서비스
+                  EGDesk AI Agent 서비스
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-black text-blue-600 tracking-widest mt-0.5 uppercase">
                   EGDESK AI PLATFORM

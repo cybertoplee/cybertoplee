@@ -45,7 +45,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-[#08134a] text-white font-sans selection:bg-blue-650 selection:text-white overflow-x-hidden">
         <Header />
-        <main className="flex-grow relative">{children}</main>
+        <main className="flex-grow relative flex flex-col">{children}</main>
         <Footer />
       </body>
     </html>

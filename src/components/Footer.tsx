@@ -21,8 +21,8 @@ export default function Footer() {
               QUUS CO., LTD 제주사업단 VALISE TECH COMPANY
             </p>
             <p className="leading-loose font-medium text-slate-300 max-w-md">
-              주소: 제주특별자치도 제주시 | 대표번호: 010-9697-3927<br />
-              사업자등록번호: 준비중 | 서비스명: EGDesk AI Server 호스팅
+              주소 : 제주특별자치도 제주시 | 대표번호 : 010-9697-3927<br />
+              사업자등록번호 : 준비중 | 서비스명 : EGDesk AI Server 호스팅
             </p>
           </div>
           

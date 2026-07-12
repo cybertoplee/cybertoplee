@@ -55,9 +55,22 @@ export default function ContactPage() {
                 <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-black uppercase tracking-wider backdrop-blur-sm mx-auto md:mx-0">
                   Inquiry
                 </div>
-                <h3 className="text-[24px] sm:text-3xl font-black mb-4 leading-tight">제작 및 호스팅 문의</h3>
+                <h3 className="text-[24px] sm:text-3xl font-black mb-4 leading-tight">홈페이지 제작 및 <br />업무 자동화 서비스 문의</h3>
                 <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
-                  가까운 대표님이나 지인을 소개해 주시면 최적의 솔루션과 더불어 파격적인 적금 및 마케팅 혜택을 설계해 드립니다.
+                  소상공인/중소기업/단체/공공기관<br />
+                  대표님 및 임직원 여러분<br />
+                  <br />
+                  세계 최초 <br />
+                  EGDesk AI Server Platform을<br />
+                  귀 사에 도입하셔서 업무 자동화<br />
+                  AI Agent 50인을 만나보세요.<br />
+                  <br />
+                  언제든지 요청만 하시면<br />
+                  귀 사를 방문해서 컴퓨터에<br />
+                  EGDesk AI Server 플랫폼을<br />
+                  설치하여 15일간 체험할 수 <br />
+                  있도록 설치하고, 업무자동화 <br />
+                  교육을 제공하겠습니다.
                 </p>
               </div>
               <div className="mt-8 border-t border-white/20 pt-8 w-full">
