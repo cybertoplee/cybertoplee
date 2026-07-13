@@ -37,8 +37,9 @@ export default function RootLayout({
               window.addEventListener('unhandledrejection', function(event) {
                 if (event.reason && (event.reason.code === 4001 || (event.reason.message && event.reason.message.indexOf('wallet') !== -1))) {
                   event.preventDefault();
+                  event.stopImmediatePropagation();
                 }
-              });
+              }, true);
             `
           }}
         />

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하나북카페 & 하나꽃집 프리미엄</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 하나북카페 섹션 -->
+    <section id="bookcafe" class="hero-section" style="background-image: url('image/cafe_bg.png');">
+        <div class="overlay"></div>
+        <div class="content-container">
+            <header class="header">
+                <div class="logo-area">
+                    <img src="image/cafe_logo.png" alt="하나북카페 로고" class="logo-img">
+                    <h1 class="logo-text">하나북카페</h1>
+                </div>
+            </header>
+
+            <div class="notice-banner">
+                <div class="notice-content">
+                    <span class="badge">민생에플러스+</span>
+                    <strong>고유가 피해지원금 사용 가능 매장 (신용·체크 카드)</strong>
+                    <p class="notice-desc">안내고유가 피해지원금 사용 가맹점 정보는 행정안전부(참여 신용카드사)와 사업주 분들께서 제공한 정보로, 실제 사용 가능 여부는 매장에 확인해주세요.</p>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <ul id="tab-nav">
+                    <li><button class="nav-btn tab-btn active" data-tab="home">홈</button></li>
+                    <li><button class="nav-btn tab-btn" data-tab="menu">메뉴</button></li>
+                    <li><button class="nav-btn tab-btn" data-tab="photo">사진</button></li>
+                    <li><button class="nav-btn tab-btn" data-tab="info">정보</button></li>
+                    <li><button class="nav-btn tab-btn" data-tab="review">리뷰</button></li>
+                </ul>
+            </nav>
+
+        </div>
+    </section>
+
+    <!-- 갤러리 및 네이버 플레이스 링크 섹션 -->
+    <section class="gallery-info-section">
+        <div class="content-container">
+            <h2 class="section-title">Photo & Information</h2>
+            
+            <!-- 4x3 갤러리 그리드 (12개) - 동적 렌더링 -->
+            <div class="gallery-grid" id="dynamic-gallery">
+                <!-- Javascript will render items here -->
+            </div>
+
+            <!-- 하단 네이버 플레이스 바로가기 버튼 -->
+            <div class="quick-links" id="dynamic-link-wrapper">
+                <!-- Javascript will render the big button here -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 하나꽃집 섹션 -->
+    <section id="flowershop" class="hero-section flower-section" style="background-image: url('image/flower_bg.png');">
+        <div class="overlay light-overlay"></div>
+        <div class="content-container">
+            <header class="header">
+                <div class="logo-area">
+                    <img src="image/flower_logo.png" alt="하나꽃집 로고" class="logo-img">
+                    <h1 class="logo-text text-dark">하나꽃집</h1>
+                </div>
+            </header>
+
+            <div class="intro-text">
+                <h2>당신의 일상에 향기를 더합니다</h2>
+                <p>프리미엄 플라워 & 힐링 공간</p>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="https://pcmap.place.naver.com/place/2005144997/home?fromPanelNum=1&additionalHeight=76&timestamp=202607112127&locale=ko&svcName=map_pcv5" target="_blank" class="nav-btn btn-light">홈 <i class="fas fa-external-link-alt"></i></a></li>
+                    <li><a href="https://pcmap.place.naver.com/place/2005144997/photo?fromPanelNum=1&additionalHeight=76&timestamp=202607112127&locale=ko&svcName=map_pcv5" target="_blank" class="nav-btn btn-light">사진 <i class="fas fa-external-link-alt"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 하단 푸터 베너 -->
+    <footer class="footer-banner">
+        <div class="footer-content">
+            <h3>Contact & Social</h3>
+            <div class="social-links">
+                <a href="http://place.map.kakao.com/772505588?referrer=daumsearch_local" target="_blank" class="social-btn daum">
+                    <i class="fas fa-map-marker-alt"></i> 다음
+                </a>
+                <a href="#" target="_blank" class="social-btn naver">
+                    <i class="fas fa-map"></i> 네이버플레이스
+                </a>
+                <a href="#" target="_blank" class="social-btn insta">
+                    <i class="fab fa-instagram"></i> 인스타그램
+                </a>
+                <a href="#" target="_blank" class="social-btn fb">
+                    <i class="fab fa-facebook-f"></i> 페이스북
+                </a>
+            </div>
+            <p class="copyright">© 하나북카페 & 하나꽃집. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 오른쪽 하단 나가기 버튼 -->
+    <a href="/portfolio/" class="exit-btn">
+        <i class="fas fa-sign-out-alt"></i> 나가기
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

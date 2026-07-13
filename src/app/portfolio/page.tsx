@@ -51,6 +51,16 @@ export default function PortfolioPage() {
       tagColor: 'bg-indigo-400/20 text-indigo-300 border-indigo-400/30'
     },
     {
+      id: 'flower',
+      title: '하나북카페 | 도심 속 힐링 공간',
+      category: 'fb_retail',
+      categoryLabel: 'Cafe & Space',
+      desc: '커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 랜딩 페이지',
+      link: `${basePath}/flower`,
+      bgGradient: 'from-amber-950 via-slate-900 to-amber-900',
+      tagColor: 'bg-amber-400/20 text-amber-300 border-amber-400/30'
+    },
+    {
       id: 'jejuowner',
       title: '(주)오너 / 제주오너센터',
       category: 'wellness_health',
@@ -151,12 +161,12 @@ export default function PortfolioPage() {
       tagColor: 'bg-purple-400/20 text-purple-300 border-purple-400/30'
     },
     {
-      id: 'korea_pest_control',
+      id: 'koreapestcontrol',
       title: '(주)한국방역공사 제주지사',
       category: 'service_const',
       categoryLabel: 'Pest Control',
       desc: '쾌적한 환경을 위한 완벽 방역 가이드 및 전문 서비스',
-      link: `${basePath}/korea_pest_control/index.html`,
+      link: `${basePath}/koreapestcontrol/index.html`,
       bgGradient: 'from-emerald-955 via-slate-900 to-slate-900',
       tagColor: 'bg-emerald-400/20 text-emerald-300 border-emerald-400/30'
     },
@@ -211,12 +221,12 @@ export default function PortfolioPage() {
       tagColor: 'bg-indigo-400/20 text-indigo-300 border-indigo-400/30'
     },
     {
-      id: 'insurance_mock',
+      id: 'insurancemock',
       title: '설계사 모의고사 문제은행',
       category: 'education',
       categoryLabel: 'AI Smart Learning',
       desc: '생명·손해보험 설계사 자격을 위한 실전 모의고사 시뮬레이터',
-      link: `${basePath}/insurance_mock/index.html`,
+      link: `${basePath}/insurancemock/index.html`,
       bgGradient: 'from-indigo-955 via-slate-900 to-blue-900',
       tagColor: 'bg-indigo-400/20 text-indigo-300 border-indigo-400/30'
     },
@@ -244,11 +254,11 @@ export default function PortfolioPage() {
       id: 'unione',
       title: 'UNIONE 유니원 금융 플랫폼 (WEB3)',
       category: 'finance_tech',
-      categoryLabel: 'Web3 Fintech',
+      categoryLabel: 'WEB3 FINTECH',
       desc: '글로벌 Web3 금융 플랫폼. 획기적인 일 0.5% 복복리 수익 시뮬레이터 연동',
-      link: '#',
-      bgGradient: 'from-slate-900 via-blue-955 to-slate-900',
-      tagColor: 'bg-cyan-400/20 text-cyan-300 border-cyan-400/30'
+      link: `${basePath}/unione/index.html`,
+      bgGradient: 'from-indigo-955 via-slate-900 to-indigo-900',
+      tagColor: 'bg-indigo-400/20 text-indigo-300 border-indigo-400/30'
     }
   ];
 

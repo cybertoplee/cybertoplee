@@ -58,6 +58,16 @@ export default function Home() {
       tagBg: 'bg-indigo-50'
     },
     {
+      id: 'flower',
+      title: '하나북카페 | 도심 속 힐링 공간',
+      category: 'fb_retail',
+      categoryLabel: 'CAFE & SPACE',
+      desc: '커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 랜딩 페이지',
+      link: `${basePath}/flower`,
+      tagColor: 'text-amber-600',
+      tagBg: 'bg-amber-50'
+    },
+    {
       id: 'jejuowner',
       title: '(주)오너 / 제주오너센터',
       category: 'wellness_health',
@@ -158,12 +168,12 @@ export default function Home() {
       tagBg: 'bg-purple-50'
     },
     {
-      id: 'korea_pest_control',
+      id: 'koreapestcontrol',
       title: '(주)한국방역공사 제주지사',
       category: 'service_const',
       categoryLabel: 'PEST CONTROL',
       desc: '쾌적한 환경을 위한 완벽 방역 가이드 및 전문 서비스',
-      link: `${basePath}/korea_pest_control/index.html`,
+      link: `${basePath}/koreapestcontrol/index.html`,
       tagColor: 'text-emerald-600',
       tagBg: 'bg-emerald-50'
     },
@@ -218,12 +228,12 @@ export default function Home() {
       tagBg: 'bg-indigo-50'
     },
     {
-      id: 'insurance_mock',
+      id: 'insurancemock',
       title: '설계사 모의고사 문제은행',
       category: 'education',
       categoryLabel: 'AI SMART LEARNING',
       desc: '생명·손해보험 설계사 자격을 위한 실전 모의고사 시뮬레이터',
-      link: `${basePath}/insurance_mock/index.html`,
+      link: `${basePath}/insurancemock/index.html`,
       tagColor: 'text-indigo-650',
       tagBg: 'bg-indigo-50'
     },
@@ -253,9 +263,9 @@ export default function Home() {
       category: 'finance_tech',
       categoryLabel: 'WEB3 FINTECH',
       desc: '글로벌 Web3 금융 플랫폼. 획기적인 일 0.5% 복복리 수익 시뮬레이터 연동',
-      link: '#',
-      tagColor: 'text-cyan-600',
-      tagBg: 'bg-cyan-50'
+      link: `${basePath}/unione/index.html`,
+      tagColor: 'text-indigo-650',
+      tagBg: 'bg-indigo-50'
     }
   ];
 
@@ -362,8 +372,8 @@ export default function Home() {
                 ) : (
                   <iframe
                     className="w-full h-full"
-                    src="https://www.youtube.com/embed/fv3cDrfW-GI?autoplay=1"
-                    title="BOSANG Platform Video"
+                    src="https://www.youtube.com/embed/BAjUyM6wZnY?autoplay=1"
+                    title="EGDesk Vibe Coding Video"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
