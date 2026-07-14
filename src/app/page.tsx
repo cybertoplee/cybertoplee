@@ -63,7 +63,7 @@ export default function Home() {
       category: 'fb_retail',
       categoryLabel: 'CAFE & SPACE',
       desc: '커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 랜딩 페이지',
-      link: `${basePath}/flower`,
+      link: `${basePath}/cmyongil/index.html`,
       tagColor: 'text-amber-600',
       tagBg: 'bg-amber-50'
     },
@@ -364,7 +364,7 @@ export default function Home() {
                 {!showVideo ? (
                   <div className="absolute inset-0 flex items-center justify-center relative group cursor-pointer bg-[#0b0f19]" onClick={() => setShowVideo(true)}>
                     <img 
-                      src="/assets/vibe_coding_intro.jpg" 
+                      src={`${basePath}/assets/vibe_coding_intro.jpg`} 
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500" 
                       alt="YouTube Intro Cover" 
                     />
@@ -409,7 +409,7 @@ export default function Home() {
               </div>
               <div className="w-28 h-28 rounded-2xl overflow-hidden border border-slate-800/80 shadow-inner shrink-0 transform group-hover:scale-105 group-hover:border-blue-500/30 transition-all duration-300 relative sm:ml-4">
                 <img 
-                  src="/assets/egdesk_sms_feature.png" 
+                  src={`${basePath}/assets/egdesk_sms_feature.png`} 
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" 
                   alt="EGDesk SMS Illustration" 
                 />
@@ -432,7 +432,7 @@ export default function Home() {
               </div>
               <div className="w-28 h-28 rounded-2xl overflow-hidden border border-slate-800/80 shadow-inner shrink-0 transform group-hover:scale-105 group-hover:border-emerald-500/30 transition-all duration-300 relative sm:ml-4">
                 <img 
-                  src="/assets/attendance_feature.png" 
+                  src={`${basePath}/assets/attendance_feature.png`} 
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" 
                   alt="Attendance Illustration" 
                 />

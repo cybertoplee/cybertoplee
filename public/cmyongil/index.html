@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하나북카페 & 하나꽃집 | 도심 속 힐링 공간</title>
+    
+    <!-- Tailwind CSS (CDN for rapid styling of premium modern interfaces) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts (Pretendard & Playfair Display for elegant branding) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Lora:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        brand: ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        cafe: {
+                            light: '#fdfbf7',
+                            primary: '#8b5a2b',
+                            dark: '#5c3a18',
+                            accent: '#a07855',
+                            bg: '#fbf9f4'
+                        },
+                        flower: {
+                            light: '#f4f8f5',
+                            primary: '#2d6a4f',
+                            dark: '#1b4332',
+                            accent: '#40916c',
+                            bg: '#eef5f0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-cafe antialiased font-sans transition-colors duration-500">
+
+    <!-- Top Navigation Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center gap-3">
+                    <div id="brand-logo" class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold transition-all duration-500 shadow-md">
+                        <i class="fa-solid fa-mug-hot text-lg logo-icon"></i>
+                    </div>
+                    <span id="brand-name" class="text-xl font-bold tracking-tight text-gray-800 transition-colors duration-500">하나북카페</span>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link active font-semibold text-sm transition-colors">홈</a>
+                    <a href="#menu" class="nav-link font-semibold text-sm transition-colors">메뉴</a>
+                    <a href="#photo" class="nav-link font-semibold text-sm transition-colors">사진</a>
+                    <a href="#info" class="nav-link font-semibold text-sm transition-colors">정보</a>
+                    <a href="#review" class="nav-link font-semibold text-sm transition-colors">리뷰</a>
+                    <a href="#reservation" class="nav-link font-semibold text-sm transition-colors">예약</a>
+                </nav>
+
+                <!-- Dual Theme Switcher Toggle -->
+                <div class="flex items-center gap-2">
+                    <div class="switcher-container bg-gray-100 p-1.5 rounded-full flex items-center gap-1 shadow-inner relative">
+                        <button id="switch-cafe" class="switcher-btn active px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 z-10">
+                            <i class="fa-solid fa-coffee"></i> 북카페
+                        </button>
+                        <button id="switch-flower" class="switcher-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 z-10">
+                            <i class="fa-solid fa-leaf"></i> 꽃집
+                        </button>
+                        <div class="switcher-bg absolute top-1.5 bottom-1.5 left-1.5 rounded-full transition-all duration-500 shadow-md"></div>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-gray-900 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+        <div class="absolute right-0 top-0 bottom-0 w-64 bg-white p-6 shadow-2xl flex flex-col gap-6 transform translate-x-full transition-transform duration-300">
+            <div class="flex justify-between items-center pb-4 border-b border-gray-100">
+                <span class="font-bold text-gray-800">메뉴 목록</span>
+                <button id="mobile-menu-close" class="p-2 text-gray-400 hover:text-gray-900 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-4">
+                <a href="#home" class="mobile-nav-link text-gray-600 font-semibold py-2">홈</a>
+                <a href="#menu" class="mobile-nav-link text-gray-600 font-semibold py-2">메뉴</a>
+                <a href="#photo" class="mobile-nav-link text-gray-600 font-semibold py-2">사진</a>
+                <a href="#info" class="mobile-nav-link text-gray-600 font-semibold py-2">정보</a>
+                <a href="#review" class="mobile-nav-link text-gray-600 font-semibold py-2">리뷰</a>
+                <a href="#reservation" class="mobile-nav-link text-gray-600 font-semibold py-2">예약</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN SECTIONS WRAPPER -->
+    <main class="pt-20">
+
+        <!-- 1. HOME / HERO SECTION -->
+        <section id="home" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+            <!-- Background Images (Crossfade) -->
+            <div id="hero-bg-cafe" class="absolute inset-0 bg-cover bg-center transition-all duration-1000 scale-105 active"></div>
+            <div id="hero-bg-flower" class="absolute inset-0 bg-cover bg-center transition-all duration-1000 scale-105"></div>
+            
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black/45 z-10 transition-colors duration-500" id="hero-overlay"></div>
+
+            <!-- Content -->
+            <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white mt-10">
+                <span id="hero-subtitle" class="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 animate-fade-in-up bg-white/10 backdrop-blur-md border border-white/20">
+                    Cafe & Space
+                </span>
+                <h1 id="hero-title" class="text-4xl sm:text-6xl font-bold tracking-tight mb-6 leading-tight animate-fade-in-up delay-100">
+                    하나북카페 | 도심 속 힐링 공간
+                </h1>
+                <p id="hero-desc" class="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-light animate-fade-in-up delay-200">
+                    커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 랜딩 페이지
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up delay-300">
+                    <a href="#menu" id="hero-primary-btn" class="px-8 py-4 rounded-xl font-bold shadow-lg transition-all duration-300 hover:scale-105">
+                        대표 메뉴 보기
+                    </a>
+                    <a href="#reservation" id="hero-secondary-btn" class="px-8 py-4 bg-white/15 backdrop-blur-md border border-white/20 text-white rounded-xl font-bold hover:bg-white/25 transition-all duration-300 hover:scale-105">
+                        실시간 예약하기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Wave / Accent Divider -->
+            <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+                <svg viewBox="0 0 1440 120" fill="none" class="w-full h-12 sm:h-20 text-gray-50 transition-colors duration-500" id="wave-svg">
+                    <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 2. MENU SECTION -->
+        <section id="menu" class="py-24 bg-gray-50 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">대표 메뉴</h2>
+                    <div class="w-16 h-1 mx-auto rounded theme-bar"></div>
+                    <p id="menu-section-desc" class="mt-4 text-gray-600 text-sm sm:text-base">가성비 넘치는 음료부터 든든한 간식까지 즐겨보세요.</p>
+                </div>
+
+                <!-- Menu Cards Grid (Rendered dynamically based on active mode) -->
+                <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Dynamic Javascript Rendering -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PHOTO / GALLERY SECTION -->
+        <section id="photo" class="py-24 bg-white transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <h2 class="section-title text-3xl font-bold text-gray-900 tracking-tight mb-3">갤러리 & 포토</h2>
+                        <div class="w-16 h-1 rounded theme-bar"></div>
+                    </div>
+                    <p id="gallery-count" class="text-sm font-semibold text-gray-500"></p>
+                </div>
+
+                <!-- Gallery Masonry/Grid -->
+                <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <!-- Dynamic Javascript Rendering -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. INFORMATION SECTION -->
+        <section id="info" class="py-24 bg-gray-50 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">상세 이용 정보</h2>
+                    <div class="w-16 h-1 mx-auto rounded theme-bar"></div>
+                    <p class="mt-4 text-gray-600 text-sm sm:text-base">매장의 편의시설, 이용 규칙 및 주차 정보를 안내해 드립니다.</p>
+                </div>
+
+                <!-- Cafe Info Template -->
+                <div id="info-cafe" class="space-y-8 active-info-block">
+                    <!-- Oil Support Fund Banner -->
+                    <div class="bg-amber-50 border border-amber-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+                        <div class="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center text-white text-2xl shrink-0">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">민생에플러스+</span>
+                                <span class="text-xs text-amber-700 font-bold">행정안전부 가맹 안내</span>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-bold text-amber-900 mb-2">고유가 피해지원금 사용 가능 매장 (신용·체크 카드)</h3>
+                            <p class="text-sm text-amber-800 leading-relaxed font-medium">
+                                고유가 피해지원금 사용 가맹점 정보는 행정안전부(참여 신용카드사)와 사업주분들께서 제공한 정보로, 실제 사용 가능 여부는 매장에 확인해 주세요.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Details Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-8">
+                            <!-- Amenities -->
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                                <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-gray-800">
+                                    <i class="fa-solid fa-concierge-bell text-cafe-primary"></i> 편의시설 및 서비스
+                                </h3>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-5 gap-x-4">
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-gift text-amber-500 w-5 text-center"></i> 생일/기념일 혜택</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-mug-hot text-amber-800 w-5 text-center"></i> 핸드드립</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-users text-blue-500 w-5 text-center"></i> 단체 이용 가능</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-box text-orange-500 w-5 text-center"></i> 포장 가능</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-motorcycle text-red-500 w-5 text-center"></i> 배달 가능</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-regular fa-calendar-check text-green-600 w-5 text-center"></i> 예약 가능</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-wifi text-blue-400 w-5 text-center"></i> 무선 인터넷</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-restroom text-gray-500 w-5 text-center"></i> 남/녀 화장실 구분</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-chair text-amber-700 w-5 text-center"></i> 유아의자</div>
+                                    <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-couch text-purple-500 w-5 text-center"></i> 대기공간</div>
+                                </div>
+
+                                <div class="mt-8 pt-6 border-t border-gray-100">
+                                    <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2 text-sm sm:text-base">
+                                        <i class="fa-brands fa-accessible-icon text-cafe-primary"></i> 장애인 편의시설
+                                    </h4>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                        <div class="flex items-center gap-2 text-gray-600"><i class="fa-solid fa-check text-green-600"></i> 화장실 휠체어 이용가능</div>
+                                        <div class="flex items-center gap-2 text-gray-600"><i class="fa-solid fa-check text-green-600"></i> 출입구 휠체어 이용가능</div>
+                                        <div class="flex items-center gap-2 text-gray-600"><i class="fa-solid fa-check text-green-600"></i> 좌석 휠체어 이용가능</div>
+                                        <div class="flex items-center gap-2 text-gray-600"><i class="fa-solid fa-check text-green-600"></i> 장애인 전용 주차구역</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Spaces & Rental -->
+                            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                                <h3 class="text-xl font-bold mb-4 text-gray-800 flex items-center gap-2">
+                                    <i class="fa-solid fa-building text-cafe-primary"></i> 좌석·공간 및 대관 안내
+                                </h3>
+                                <p class="text-gray-600 mb-6 text-sm sm:text-base">갤러리 및 모임 장소로 이용할 수 있는 다양한 대관 공간이 제공됩니다.</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-2 text-gray-700"><i class="fa-solid fa-circle-check text-cafe-primary"></i> <strong>대관 서비스:</strong> 갤러리 대관, 소규모 모임</div>
+                                        <div class="flex items-center gap-2 text-gray-700"><i class="fa-solid fa-users-line text-cafe-primary"></i> <strong>수용 인원:</strong> 최소 40명 ~ 최대 50명</div>
+                                        <div class="flex flex-wrap gap-2 pt-2">
+                                            <span class="px-3 py-1 bg-amber-50 text-cafe-primary text-xs font-bold rounded-full">좌식 공간</span>
+                                            <span class="px-3 py-1 bg-amber-50 text-cafe-primary text-xs font-bold rounded-full">카운터석</span>
+                                            <span class="px-3 py-1 bg-amber-50 text-cafe-primary text-xs font-bold rounded-full">단체석</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-cafe-light border border-amber-100 p-6 rounded-2xl text-center">
+                                        <span class="text-xs text-amber-700 block mb-1 font-bold">대관 및 모임 대관 예약 문의</span>
+                                        <a href="tel:064-757-5611" class="text-2xl font-bold text-cafe-primary hover:underline">064-757-5611</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Side Info column -->
+                        <div class="space-y-6">
+                            <!-- Parking Info -->
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-bold text-gray-800 text-lg">주차 안내</h3>
+                                    <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-md">무료 주차</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">매장 주변 무료 주차가 기본적으로 가능합니다.</p>
+                                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                    <div class="flex items-center gap-1.5 text-xs text-red-500 font-bold mb-2">
+                                        <i class="fa-solid fa-map-pin"></i> 인근 대체 무료 주차장 정보
+                                    </div>
+                                    <p class="text-xs text-gray-700 font-bold leading-normal mb-1">제주 제주시 용담1동 2-1</p>
+                                    <p class="text-[11px] text-gray-500">(매장에서 약 960m 거리에 있습니다)</p>
+                                </div>
+                            </div>
+
+                            <!-- Alcohol Rules -->
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                                <h3 class="font-bold text-gray-800 text-lg mb-3">주류 및 콜키지</h3>
+                                <div class="flex items-center gap-2.5 bg-red-50 text-red-700 p-4 rounded-2xl font-bold text-sm">
+                                    <i class="fa-solid fa-circle-ban text-lg"></i> 콜키지 반입 불가
+                                </div>
+                                <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+                                    * 외부 주류 반입은 엄격히 허용되지 않으므로 많은 양해 부탁드립니다.
+                                </p>
+                            </div>
+
+                            <!-- Payment Methods -->
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                                <h3 class="font-bold text-gray-800 text-lg mb-4">결제 수단</h3>
+                                <ul class="space-y-3 text-sm text-gray-600">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-credit-card text-gray-400 w-5"></i> 지역화폐 (카드형 가능)</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-mobile-screen-button text-gray-400 w-5"></i> 각종 간편결제 서비스</li>
+                                    <li class="flex items-center gap-2 font-semibold text-cafe-primary"><i class="fa-solid fa-money-bill-transfer w-5"></i> 고유가 피해지원금 (신용·체크)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flower Info Template -->
+                <div id="info-flower" class="space-y-8">
+                    <!-- Naver Place Redirect Card -->
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shrink-0">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-emerald-900 mb-2">네이버 스마트 플레이스 공식 정보</h3>
+                                <p class="text-sm text-emerald-800 leading-relaxed">
+                                    하나꽃집의 공식 상세 소식, 계절 꽃 추천, 리뷰를 네이버 플레이스에서 확인하세요.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://pcmap.place.naver.com/place/2005144997/home?fromPanelNum=1&additionalHeight=76&timestamp=202607130915&locale=ko&svcName=map_pcv5" target="_blank" class="px-6 py-3.5 bg-emerald-600 text-white rounded-xl font-bold shadow-md hover:bg-emerald-700 transition shrink-0 flex items-center gap-2 text-sm sm:text-base">
+                            플레이스 바로가기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6">
+                            <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-seedling text-flower-primary"></i> 하나꽃집 서비스 안내
+                            </h3>
+                            <div class="space-y-4 text-gray-600 text-sm sm:text-base">
+                                <p>🌸 **기념일 맞춤 디자인**: 꽃다발, 꽃바구니 맞춤 제작 (상담 예약 가능)</p>
+                                <p>🌿 **반려식물 큐레이팅**: 실내 인테리어 및 개업 축하 화분 추천</p>
+                                <p>🏡 **공간 스타일링**: 카페, 레스토랑, 사무실 등 꽃 데코레이션 컨설팅</p>
+                                <p>🗓️ **꽃 정기구독 서비스**: 일상에 활력을 주는 프리미엄 꽃 배송</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6">
+                            <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-info text-flower-primary"></i> 매장 이용 안내
+                            </h3>
+                            <div class="space-y-3 text-sm text-gray-600">
+                                <div class="flex justify-between py-2 border-b border-gray-100"><strong>운영 시간</strong> <span>매일 10:00 ~ 21:00</span></div>
+                                <div class="flex justify-between py-2 border-b border-gray-100"><strong>단체 대관</strong> <span>북카페와 함께 플라워 클래스 단체 예약 가능</span></div>
+                                <div class="flex justify-between py-2 border-b border-gray-100"><strong>픽업 서비스</strong> <span>전화 주문 후 바로 가져가는 픽업 서비스 제공</span></div>
+                                <div class="flex justify-between py-2"><strong>결제 안내</strong> <span>지역화폐(카드형), 네이버페이, 제로페이 가맹점</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. REVIEW SECTION -->
+        <section id="review" class="py-24 bg-white transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6">
+                    <div class="text-center sm:text-left">
+                        <h2 class="section-title text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">방문객 리뷰</h2>
+                        <div class="w-16 h-1 rounded theme-bar mx-auto sm:mx-0"></div>
+                        <p id="review-section-desc" class="mt-4 text-gray-600 text-sm sm:text-base">하나북카페를 방문해 주신 고객님들의 진솔한 목소리입니다.</p>
+                    </div>
+                    <button id="btn-write-review" class="px-6 py-3.5 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 text-sm shrink-0 self-center sm:self-end">
+                        <i class="fa-solid fa-pen-to-square"></i> 리뷰 작성하기
+                    </button>
+                </div>
+
+                <!-- Reviews Grid -->
+                <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Dynamic Reviews -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. RESERVATION SECTION -->
+        <section id="reservation" class="py-24 transition-colors duration-500 relative overflow-hidden">
+            <!-- Decorative circle blur background -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left">
+                        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">간편하고 빠른 예약 안내</h2>
+                        <p id="reservation-text" class="text-white/80 mb-8 text-sm sm:text-base leading-relaxed">
+                            소규모 모임, 테이블 대관, 꽃바구니 단체 제작 등 맞춤형 상담을 위해 편하게 문의하세요.
+                            언제든지 친절하고 완벽하게 상담해 드립니다.
+                        </p>
+                        
+                        <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-3xl w-full sm:w-auto text-left shadow-lg">
+                            <span class="text-xs text-white/70 block mb-2 font-bold uppercase tracking-wider">전화 예약 및 문의</span>
+                            <a href="tel:0507-1321-5611" id="reservation-phone-link" class="text-3xl sm:text-4xl font-bold tracking-wider hover:opacity-95 transition-opacity flex items-center gap-3">
+                                <i class="fa-solid fa-phone-volume text-2xl sm:text-3xl animate-bounce"></i>
+                                0507-1321-5611
+                            </a>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-white/20 text-white px-3.5 py-1.5 rounded-full text-xs font-bold">100% 만족 보장</span>
+                                <span class="bg-white/20 text-white px-3.5 py-1.5 rounded-full text-xs font-bold">즉시 전화상담</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Booking Card / Switcher card -->
+                    <div class="bg-white rounded-3xl p-3 shadow-2xl transition-transform duration-300">
+                        <div class="rounded-2xl p-6 sm:p-8 h-full border border-gray-100 flex flex-col justify-center text-center bg-gray-50 text-gray-800">
+                            <div id="res-card-icon" class="w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-white text-2xl mb-5 shadow-md">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <h3 id="res-card-title" class="text-2xl font-bold text-gray-900 mb-2">실시간 네이버 플레이스</h3>
+                            <p id="res-card-desc" class="text-gray-500 mb-6 text-sm">기념일 꽃바구니 제작 및 매장 플레이스 예약을 지원합니다.</p>
+                            
+                            <a href="https://pcmap.place.naver.com/place/2005144997/home?fromPanelNum=1&additionalHeight=76&timestamp=202607130915&locale=ko&svcName=map_pcv5" id="res-card-btn" target="_blank" rel="noreferrer" class="block w-full text-white py-4 rounded-2xl font-bold text-base sm:text-lg transition shadow-md flex items-center justify-center gap-2 hover:-translate-y-0.5">
+                                <i class="fa-solid fa-calendar-days"></i> 네이버 플레이스 바로가기
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Social Links Banner -->
+    <footer class="bg-gray-900 text-white py-16 transition-colors duration-500 border-t-[10px]" id="footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h4 class="text-lg font-bold mb-6 text-gray-400 uppercase tracking-widest text-xs">바로가기 및 공식 채널</h4>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="http://place.map.kakao.com/772505588?referrer=daumsearch_local" target="_blank" rel="noreferrer" class="flex items-center gap-2.5 bg-[#FFE812] text-[#3A1D1D] px-5 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition hover:-translate-y-0.5">
+                        <i class="fa-solid fa-map-location-dot"></i> 다음 카카오맵
+                    </a>
+                    <a href="https://pcmap.place.naver.com/place/2005144997/home" target="_blank" rel="noreferrer" class="flex items-center gap-2.5 bg-[#03C75A] text-white px-5 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition hover:-translate-y-0.5">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/></svg> 네이버 플레이스
+                    </a>
+                    <a href="#" class="flex items-center gap-2.5 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white px-5 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition hover:-translate-y-0.5">
+                        <i class="fa-brands fa-instagram text-base"></i> 인스타그램
+                    </a>
+                    <a href="#" class="flex items-center gap-2.5 bg-[#1877F2] text-white px-5 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition hover:-translate-y-0.5">
+                        <i class="fa-brands fa-facebook text-base"></i> 페이스북
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <div class="text-center md:text-left">
+                    <p class="mb-1"><strong>하나북카페 & 하나꽃집</strong> | 북카페/대관 문의: 064-757-5611 | 예약 문의: 0507-1321-5611</p>
+                    <p>본 사이트는 두 브랜드의 상생과 프리미엄 힐링 경험을 시연하기 위한 홈페이지입니다.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span>&copy; 2026 하나북카페 & 하나꽃집. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Right Exit Circular Floating Button -->
+    <a href="/portfolio/" class="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-2xl flex flex-col items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300 border-2 z-50 group hover:shadow-2xl" id="exit-btn">
+        <i class="fa-solid fa-right-from-bracket text-lg mb-0.5 group-hover:-translate-x-1 transition-transform"></i>
+        <span class="text-[9px] font-bold">나가기</span>
+    </a>
+
+    <!-- High-res Image Modal Viewer -->
+    <div id="image-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="modal-close-btn" class="absolute top-6 right-6 text-white/70 hover:text-white p-3 rounded-full hover:bg-white/10 transition text-2xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button id="modal-prev-btn" class="absolute left-4 sm:left-8 text-white/50 hover:text-white p-3 rounded-full hover:bg-white/10 transition text-3xl">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="modal-next-btn" class="absolute right-4 sm:right-8 text-white/50 hover:text-white p-3 rounded-full hover:bg-white/10 transition text-3xl">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="max-w-[85vw] max-h-[80vh] flex flex-col items-center gap-4">
+            <img id="modal-image" src="" alt="확대 이미지" class="max-w-full max-h-[72vh] object-contain rounded-lg shadow-2xl">
+            <p id="modal-caption" class="text-white/80 font-bold text-sm tracking-wide bg-black/35 px-4 py-1.5 rounded-full"></p>
+        </div>
+    </div>
+
+    <!-- Review Form Modal -->
+    <div id="review-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="review-modal-content">
+            <div class="flex justify-between items-center pb-4 border-b border-gray-100 mb-6">
+                <h3 class="text-2xl font-bold text-gray-900" id="review-modal-title">리뷰 작성하기</h3>
+                <button id="review-modal-close" class="text-gray-400 hover:text-gray-900 p-1.5 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <form id="review-form" class="space-y-5">
+                <input type="hidden" id="edit-review-id" value="">
+                
+                <!-- Star Rating -->
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">별점 선택</label>
+                    <div class="flex gap-1.5 text-2xl text-gray-300" id="star-rating-select">
+                        <i class="fa-solid fa-star cursor-pointer star-select-btn" data-value="1"></i>
+                        <i class="fa-solid fa-star cursor-pointer star-select-btn" data-value="2"></i>
+                        <i class="fa-solid fa-star cursor-pointer star-select-btn" data-value="3"></i>
+                        <i class="fa-solid fa-star cursor-pointer star-select-btn" data-value="4"></i>
+                        <i class="fa-solid fa-star cursor-pointer star-select-btn" data-value="5"></i>
+                    </div>
+                    <input type="hidden" id="selected-stars-value" value="5">
+                </div>
+
+                <!-- Author Name -->
+                <div>
+                    <label for="review-author" class="block text-sm font-bold text-gray-700 mb-2">작성자 이름</label>
+                    <input type="text" id="review-author" required placeholder="예: 홍길동" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-sm">
+                </div>
+
+                <!-- Review Content -->
+                <div>
+                    <label for="review-content" class="block text-sm font-bold text-gray-700 mb-2">리뷰 내용</label>
+                    <textarea id="review-content" required rows="4" placeholder="매장 방문 경험에 대해 솔직한 이야기를 들려주세요." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-sm resize-none"></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-3 pt-2">
+                    <button type="button" id="review-modal-cancel" class="flex-1 py-3.5 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition text-sm">취소</button>
+                    <button type="submit" id="review-modal-submit" class="flex-1 py-3.5 text-white font-bold rounded-xl transition text-sm shadow-md hover:-translate-y-0.5">등록하기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script connection -->
+    <script src="script.js"></script>
+</body>
+</html>

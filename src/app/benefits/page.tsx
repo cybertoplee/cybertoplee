@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 export default function BenefitsPage() {
   const [paymentMethod, setPaymentMethod] = useState<'sangjo' | 'insurance'>('sangjo');
+  const [showPrepModal, setShowPrepModal] = useState(false);
 
   return (
     <div className="relative pt-12 pb-24 z-10">
@@ -27,7 +28,11 @@ export default function BenefitsPage() {
           {/* Interactive Payment Switcher */}
           <div className="bg-slate-950 p-1.5 rounded-2xl border border-slate-800 flex gap-2">
             <button
-              onClick={() => setPaymentMethod('sangjo')}
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setPaymentMethod('sangjo');
+              }}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all ${
                 paymentMethod === 'sangjo'
                   ? 'bg-blue-600 text-white shadow-lg'
@@ -37,14 +42,18 @@ export default function BenefitsPage() {
               상조로 결제하는 방법
             </button>
             <button
-              onClick={() => setPaymentMethod('insurance')}
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPrepModal(true);
+              }}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all ${
                 paymentMethod === 'insurance'
                   ? 'bg-blue-600 text-white shadow-lg'
                   : 'text-slate-350 hover:text-white'
               }`}
             >
-              보험으로 결제하는 방법
+              기타 결제방법
             </button>
           </div>
         </div>
@@ -150,6 +159,21 @@ export default function BenefitsPage() {
           </div>
         </div>
       </div>
+      {/* Preparation Modal */}
+      {showPrepModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/70 backdrop-blur-md transition-opacity duration-300" onClick={() => setShowPrepModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-sm w-[90%] text-center border border-slate-200 shadow-2xl transform scale-100 transition-all duration-300" onClick={e => e.stopPropagation()}>
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-5">
+              <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2">준비 중인 서비스</h3>
+            <p className="text-sm text-slate-500 leading-relaxed mb-6">현재 데모 페이지에서는 제공되지 않는 기능입니다.<br />무료 제작 및 가입 문의는 아래 문의 폼을 이용해 주세요!</p>
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all" onClick={() => setShowPrepModal(false)}>확인</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

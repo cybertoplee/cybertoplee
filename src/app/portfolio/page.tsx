@@ -42,7 +42,7 @@ export default function PortfolioPage() {
     },
     {
       id: 'preed',
-      title: '웅진프리드라이프 제주오라사업점',
+      title: '웅진프리드라이프 제주오라(의전)',
       category: 'finance_tech',
       categoryLabel: 'FINANCE & LIFE CARE',
       desc: '업계 1위 웅진프리드라이프 제주지점 공식 리뉴얼 홈페이지 및 정밀 수당 계산기 시뮬레이터 연동',
@@ -56,7 +56,7 @@ export default function PortfolioPage() {
       category: 'fb_retail',
       categoryLabel: 'Cafe & Space',
       desc: '커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 랜딩 페이지',
-      link: `${basePath}/flower`,
+      link: `${basePath}/cmyongil/index.html`,
       bgGradient: 'from-amber-950 via-slate-900 to-amber-900',
       tagColor: 'bg-amber-400/20 text-amber-300 border-amber-400/30'
     },
