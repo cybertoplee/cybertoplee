@@ -51,13 +51,23 @@ export default function PortfolioPage() {
       tagColor: 'bg-indigo-400/20 text-indigo-300 border-indigo-400/30'
     },
     {
+      id: 'marijoa',
+      title: '마리조아 본점 | 명품 말고기 전문점',
+      category: 'fb_retail',
+      categoryLabel: 'Premium F&B',
+      desc: '제주 말고기 코스요리 명가 마리조아 본점의 고급 정통 말고기 전문점 랜딩 페이지',
+      link: `${basePath}/marijoa/index.html`,
+      bgGradient: 'from-amber-955 via-slate-900 to-red-955',
+      tagColor: 'bg-amber-400/20 text-amber-300 border-amber-400/30'
+    },
+    {
       id: 'flower',
       title: '하나북카페 | 도심 속 힐링 공간',
       category: 'fb_retail',
       categoryLabel: 'Cafe & Space',
       desc: '커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 랜딩 페이지',
       link: `${basePath}/cmyongil/index.html`,
-      bgGradient: 'from-amber-950 via-slate-900 to-amber-900',
+      bgGradient: 'from-amber-955 via-slate-900 to-amber-950',
       tagColor: 'bg-amber-400/20 text-amber-300 border-amber-400/30'
     },
     {
