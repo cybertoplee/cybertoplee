@@ -13,48 +13,61 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             menu: [
                 {
-                    title: '프리미엄 핸드드립',
-                    desc: '전문 바리스타가 정성을 다해 직접 내리는 최고급 향의 스페셜티 드립 커피',
-                    tag: 'Best',
-                    price: '변동',
-                    img: 'image/cafe/KakaoTalk_20260713_194740926_02.jpg'
+                    title: '어쿠스틱 북 데이트',
+                    desc: '아늑한 소파석에서 낭만적인 기타 선율과 책이 어우러지는 감성 데이트 코스',
+                    tag: '감성추천',
+                    price: '이용권 별도',
+                    img: 'image/cafe/menu_1.jpg'
                 },
                 {
-                    title: '가성비 업 커피',
-                    desc: '착한 가격에 시원하게 들이킬 수 있는 메가 사이즈 데일리 아메리카노',
-                    tag: '착한가격',
-                    price: '가성비 최고',
-                    img: 'image/cafe/KakaoTalk_20260713_194740926_03.jpg'
+                    title: '북토크 & 디저트 테이블',
+                    desc: '넓고 편안한 원목 테이블에서 향긋한 아메리카노와 달콤한 마카롱을 곁들이며 나누는 북토크',
+                    tag: '커플인기',
+                    price: '디저트 세트',
+                    img: 'image/cafe/menu_2.jpg'
+                },
+                {
+                    title: '프라이빗 창가 힐링석',
+                    desc: '아기자기한 별빛 조명 아래, 나란히 앉아 책과 커피를 즐길 수 있는 로맨틱한 창가 자리',
+                    tag: '분위기최고',
+                    price: '창가석 예약',
+                    img: 'image/cafe/menu_3.jpg'
+                },
+                {
+                    title: '달콤한 디저트 타임',
+                    desc: '풍성한 생딸기 수플레 팬케이크와 시원한 음료로 당 충전하는 달콤한 데이트',
+                    tag: '베스트셀러',
+                    price: '시그니처 세트',
+                    img: 'image/cafe/menu_4.jpg'
                 },
                 {
                     title: '즉석 한강라면',
-                    desc: '책을 읽다 출출할 때 즉석 조리기로 끓여 먹는 가장 맛있는 꼬들 라면',
-                    tag: '인기',
-                    price: '별미 추천',
-                    img: 'image/cafe/KakaoTalk_20260713_194740926_04.jpg'
+                    desc: '출출할 때 즉석 조리기로 직접 끓여 먹는 가장 맛있는 꼬들 라면',
+                    tag: '별미추천',
+                    price: '가성비 굿',
+                    img: 'image/cafe/menu_5.jpg'
                 },
                 {
-                    title: '100% 생과일 쥬스',
-                    desc: '신선한 천연 과일만을 듬뿍 갈아 만든 달콤하고 건강한 프리미엄 주스',
-                    tag: '건강추천',
-                    price: '100% 생즙',
-                    img: 'image/cafe/KakaoTalk_20260713_194740926_05.jpg'
+                    title: '다함께 독서 모임',
+                    desc: '남녀노소 누구나 모여 넓은 테이블에서 맛있는 음료와 함께 책을 나눌 수 있는 단체석',
+                    tag: '모임추천',
+                    price: '단체 환영',
+                    img: 'image/cafe/menu_6.jpg'
                 }
             ],
             photos: [
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_10.jpg', caption: 'REVIEW_10 - 아늑한 서재 존' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_11.jpg', caption: 'REVIEW_11 - 싱그러운 카페 창가자리' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_12.jpg', caption: '업체_12 - 소규모 모임용 단체 테이블' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_13.jpg', caption: '업체_13 - 감각적인 화이트 데스크 힐링석' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_14.jpg', caption: '업체_14 - 프리미엄 북 컬렉션 서가' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_15.jpg', caption: 'REVIEW_15 - 따스한 조명의 소파석' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_16.jpg', caption: 'REVIEW_16 - 독서 삼매경 전용 스터디존' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_17.jpg', caption: 'REVIEW_17 - 핸드드립 바 테이블 전경' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_18.jpg', caption: '업체_18 - 초록 식물과 함께하는 감성 인테리어' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_19.jpg', caption: '업체_19 - 갤러리 대관 전시용 미술 작품 월' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_20.jpg', caption: 'REVIEW_20 - 맛있는 음료와 디저트 세트' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_21.jpg', caption: 'REVIEW_21 - 힐링 공간 독서 테이블' },
-                { src: 'image/cafe/KakaoTalk_20260713_194740926_22.jpg', caption: 'REVIEW_22 - 하나북카페 프리미엄 로고 월' }
+                { src: 'image/cafe/gallery_1.jpg', caption: '싱그러운 화분 좌석' },
+                { src: 'image/cafe/gallery_2.jpg', caption: '편안한 우드 데스크' },
+                { src: 'image/cafe/gallery_3.jpg', caption: '아늑한 힐링 공간' },
+                { src: 'image/cafe/gallery_4.jpg', caption: '창가석 힐링 뷰' },
+                { src: 'image/cafe/gallery_5.jpg', caption: '여유로운 독서 공간' },
+                { src: 'image/cafe/gallery_6.jpg', caption: '넓은 다목적 홀' },
+                { src: 'image/cafe/gallery_7.jpg', caption: '가득한 책과 쉼' },
+                { src: 'image/cafe/gallery_8.jpg', caption: '아늑한 몰입석' },
+                { src: 'image/cafe/gallery_9.jpg', caption: '디저트 쇼케이스' },
+                { src: 'image/cafe/gallery_10.jpg', caption: '탁 트인 창가 바' },
+                { src: 'image/cafe/gallery_11.jpg', caption: '풍성한 스낵 코너' },
+                { src: 'image/cafe/gallery_12.jpg', caption: '감성 가득 카페 홀' }
             ],
             defaultReviews: [
                 {
@@ -102,44 +115,61 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             menu: [
                 {
-                    title: '기념일 맞춤 꽃다발',
-                    desc: '최고 등급의 생화로 제작해 감동을 전하는 로맨틱 맞춤형 프리미엄 꽃다발',
-                    tag: 'Premium',
-                    price: '주문제작',
-                    img: 'image/flower/KakaoTalk_20260713_194816093_01.jpg'
+                    title: '실내 화분 쇼핑',
+                    desc: '다양한 공기정화 식물과 예쁜 화분을 직접 고르고 데이트하며 즐기는 실내 식물 쇼핑',
+                    tag: '베스트',
+                    price: '다양한 화분',
+                    img: 'image/flower/flower_menu_1.jpg'
                 },
                 {
-                    title: '고급 크리스탈 플라워박스',
-                    desc: '아름다운 보석 상자처럼 투명하고 영롱하게 담아낸 스페셜 선물용 플라워 박스',
+                    title: '야외 테라스 정원',
+                    desc: '햇살 가득한 외부 미니 정원에서 싱그러운 야외 식물들을 둘러볼 수 있는 데이트 코스',
+                    tag: '데이트추천',
+                    price: '관엽식물',
+                    img: 'image/flower/flower_menu_2.jpg'
+                },
+                {
+                    title: '플라워 블록 세트',
+                    desc: '시들지 않는 아름다움, 둘이서 함께 직접 조립하며 추억을 만들 수 있는 인기 플라워 블록',
                     tag: '인기선물',
-                    price: '주문제작',
-                    img: 'image/flower/KakaoTalk_20260713_194816093_02.jpg'
+                    price: '블록 패키지',
+                    img: 'image/flower/flower_menu_3.jpg'
                 },
                 {
-                    title: '인테리어 개업 화분',
-                    desc: '대박을 기원하는 싱그럽고 세련된 공기 정화 반려식물 및 인테리어 화분',
-                    tag: '강력추천',
-                    price: '다양한 식물',
-                    img: 'image/flower/KakaoTalk_20260713_194816093_03.jpg'
+                    title: '온 가족 실내 식물원',
+                    desc: '남녀노소 가족 모두가 함께 방문하여 다채로운 대형 관엽식물과 화분들을 구경하는 대형 실내 식물 공간',
+                    tag: '가족추천',
+                    price: '대형 화분',
+                    img: 'image/flower/flower_menu_4.jpg'
                 },
                 {
-                    title: '테이블 플라워 정기구독',
-                    desc: '일상 공간의 무드를 바꾸기 위해 매주 전문 플로리스트가 엄선해 배송하는 꽃 구독',
-                    tag: '정기구독',
-                    price: '매주 배송',
-                    img: 'image/flower/KakaoTalk_20260713_194816093_04.jpg'
+                    title: '다함께 야외 정원 나들이',
+                    desc: '따스한 햇살 아래 다양한 계절꽃과 모종들을 아이들과 함께 고르며 즐기는 야외 정원 나들이',
+                    tag: '인기코스',
+                    price: '야외 모종',
+                    img: 'image/flower/flower_menu_5.jpg'
+                },
+                {
+                    title: '스페셜 하트 포토존',
+                    desc: '로맨틱한 분위기를 자아내는 하트 모양의 스탠드와 예쁜 다육이, 플라워 베어가 장식된 포토존',
+                    tag: '인증샷필수',
+                    price: '선물용 소품',
+                    img: 'image/flower/flower_menu_6.jpg'
                 }
             ],
             photos: [
-                { src: 'image/flower/KakaoTalk_20260713_194816093.jpg', caption: '꽃집 갤러리 1 - 감성 리시안셔스 다발' },
-                { src: 'image/flower/KakaoTalk_20260713_194816093_01.jpg', caption: '꽃집 갤러리 2 - 프리미엄 핑크 수국 꽃다발' },
-                { src: 'image/flower/KakaoTalk_20260713_194816093_02.jpg', caption: '꽃집 갤러리 3 - 럭셔리 라일락 로즈 믹스 박스' },
-                { src: 'image/flower/KakaoTalk_20260713_194816093_03.jpg', caption: '꽃집 갤러리 4 - 푸르른 가든 몬스테라 반려 화분' },
-                { src: 'image/flower/KakaoTalk_20260713_194816093_04.jpg', caption: '꽃집 갤러리 5 - 노란 튤립 테이블 장식' },
-                { src: 'image/flower/KakaoTalk_20260713_194816093_05.jpg', caption: '꽃집 갤러리 6 - 우아한 플로랄 아치 오브제' },
-                { src: 'image/flower/KakaoTalk_20260713_194816093_06.jpg', caption: '꽃집 갤러리 7 - 화이트 로즈 가든 센터피스' },
-                { src: 'image/flower/KakaoTalk_20260713_194816093_07.jpg', caption: '꽃집 갤러리 8 - 싱그러운 유칼립투스 리스' },
-                { src: 'image/flower/KakaoTalk_20260713_194829033.mp4', caption: '꽃집 갤러리 9 - 프리미엄 힐링 플라워 메이킹 필름', isVideo: true }
+                { src: 'image/flower/KakaoTalk_20260713_194816093.jpg', caption: '감성 리시안셔스 다발' },
+                { src: 'image/flower/KakaoTalk_20260713_194816093_01.jpg', caption: '핑크 수국과 반려식물' },
+                { src: 'image/flower/KakaoTalk_20260713_194816093_02.jpg', caption: '로맨틱 하트 포토존' },
+                { src: 'image/flower/KakaoTalk_20260713_194816093_03.jpg', caption: '화사한 매장 입구' },
+                { src: 'image/flower/KakaoTalk_20260713_194816093_04.jpg', caption: '노란 튤립 테이블 장식' },
+                { src: 'image/flower/KakaoTalk_20260713_194816093_05.jpg', caption: '우아한 플로랄 아치' },
+                { src: 'image/flower/KakaoTalk_20260713_194816093_06.jpg', caption: '화이트 로즈 센터피스' },
+                { src: 'image/flower/KakaoTalk_20260713_194816093_07.jpg', caption: '싱그러운 유칼립투스' },
+                { src: 'image/flower/KakaoTalk_20260713_194829033.mp4', caption: '플라워 메이킹 필름', isVideo: true },
+                { src: 'image/flower/flower_menu_1.jpg', caption: '다양한 실내 공기정화' },
+                { src: 'image/flower/flower_menu_2.jpg', caption: '프리미엄 감동 꽃다발' },
+                { src: 'image/flower/flower_menu_3.jpg', caption: '즐거운 플라워 클래스' }
             ],
             defaultReviews: [
                 {
@@ -447,11 +477,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 div.innerHTML = `
                     <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <div>
-                            <span class="text-xs text-white/80 font-bold block mb-1">${themeKey === 'cafe' ? 'Book Cafe' : 'Flower'} 포토</span>
-                            <h4 class="text-white font-bold text-sm sm:text-base">${photo.caption}</h4>
-                        </div>
+                    <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-3 pointer-events-none">
+                        <span class="text-white text-[11px] sm:text-xs font-semibold tracking-wide drop-shadow-md">${photo.caption}</span>
                     </div>
                 `;
             }

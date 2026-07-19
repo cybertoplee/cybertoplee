@@ -147,10 +147,10 @@ body.theme-flower #switch-flower {
 
 /* Local Image paths */
 #hero-bg-cafe {
-    background-image: url('image/cafe/KakaoTalk_20260713_194740926_01.jpg');
+    /* Background handled dynamically with split layout in HTML */
 }
 #hero-bg-flower {
-    background-image: url('image/flower/KakaoTalk_20260713_194816093.jpg');
+    /* Background handled dynamically with split layout in HTML */
 }
 
 #hero-primary-btn {

@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
+import { getEgdeskBasePath } from '../../egdesk-helpers';
 
 export default function FlowerPage() {
+    const basePath = getEgdeskBasePath();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isExitModalOpen, setIsExitModalOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -92,12 +94,6 @@ export default function FlowerPage() {
                 ::-webkit-scrollbar-track { background: #f1f1f1; }
                 ::-webkit-scrollbar-thumb { background: #8b5a2b; border-radius: 4px; }
                 ::-webkit-scrollbar-thumb:hover { background: #5c3a18; }
-                .hero-bg {
-                    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=2000');
-                    background-size: cover;
-                    background-position: center;
-                    background-attachment: fixed;
-                }
                 .no-scrollbar::-webkit-scrollbar { display: none; }
                 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
                 @keyframes float {
@@ -157,8 +153,21 @@ export default function FlowerPage() {
             {/* Home Section */}
             <section id="home" className="pt-20">
                 {/* Hero Banner */}
-                <div className="relative h-[70vh] min-h-[500px] flex items-center justify-center hero-bg">
-                    <div className="text-center px-4 relative z-10">
+                <div className="relative h-[75vh] min-h-[550px] flex items-center justify-center overflow-hidden group">
+                    {/* Background Images with smooth scale effect */}
+                    <div className="absolute inset-0 flex w-full h-full z-0">
+                        <div 
+                            className="w-1/2 h-full bg-cover bg-center border-r-[2px] border-white/20 transition-transform duration-[20000ms] ease-out group-hover:scale-110" 
+                            style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('${basePath}/flower/hero_left.jpg')` }}
+                        ></div>
+                        <div 
+                            className="w-1/2 h-full bg-cover bg-center transition-transform duration-[20000ms] ease-out group-hover:scale-110" 
+                            style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('${basePath}/flower/hero_right.jpg')` }}
+                        ></div>
+                    </div>
+                    
+                    {/* Hero Content */}
+                    <div className="text-center px-4 relative z-10 drop-shadow-lg">
                         <span className="inline-block py-1 px-3 rounded-full bg-brand/80 text-white text-sm mb-4 backdrop-blur">도심 속 작은 여유</span>
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                             커피와 책, 그리고 쉼<br />

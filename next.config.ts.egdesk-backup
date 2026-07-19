@@ -28,7 +28,7 @@ const getLocalIPs = () => {
 };
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: process.env.NODE_ENV === 'development' ? undefined : 'export',
   trailingSlash: true,
   eslint: {
     // Always skip ESLint errors to prevent blocking on auto-generated files
