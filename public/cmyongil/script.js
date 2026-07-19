@@ -432,20 +432,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100/50 hover:shadow-2xl transition-all duration-300 card-hover-effect flex flex-col h-full';
             card.innerHTML = `
-                <div class="h-56 overflow-hidden relative">
+                <div class="h-72 sm:h-80 overflow-hidden relative">
                     <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    <span class="absolute top-3.5 right-3.5 text-xs font-bold text-white px-3 py-1 rounded-full shadow-md select-none" style="background-color: var(--primary-color);">
+                    <span class="absolute top-4 right-4 text-sm font-bold text-white px-4 py-1.5 rounded-full shadow-md select-none" style="background-color: var(--primary-color);">
                         ${item.tag}
                     </span>
                 </div>
-                <div class="p-6 flex flex-col justify-between flex-grow">
+                <div class="p-8 flex flex-col justify-between flex-grow">
                     <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">${item.title}</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">${item.desc}</p>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">${item.title}</h3>
+                        <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">${item.desc}</p>
                     </div>
-                    <div class="font-extrabold text-lg flex items-center justify-between" style="color: var(--primary-color);">
+                    <div class="font-extrabold text-xl sm:text-2xl flex items-center justify-between" style="color: var(--primary-color);">
                         <span>${item.price}</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
                     </div>
                 </div>
             `;
