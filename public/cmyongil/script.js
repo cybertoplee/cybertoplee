@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Data Config
+    // 1. Data Configuration for Hana Book Cafe & Hana Flower Shop
     const siteData = {
         cafe: {
             brandName: '하나북카페',
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero: {
                 subtitle: 'Cafe & Space',
                 title: '하나북카페 | 도심 속 힐링 공간',
-                desc: '커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 랜딩 페이지',
+                desc: '커피와 책, 그리고 쉼이 있는 하나북카페 프리미엄 공간',
                 btnText: '대표 메뉴 보기'
             },
             menu: [
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: 'image/cafe/gallery_12.jpg', caption: '감성 가득 카페 홀' }
             ],
             defaultReviews: [
+                // ROW 1
                 {
                     id: 'cafe_default_1',
                     content: '분위기가 너무 좋고, 한강라면 먹으면서 책 읽으니 천국이 따로 없네요! 주차도 편해서 자주 올 것 같아요.',
@@ -89,6 +90,50 @@ document.addEventListener('DOMContentLoaded', () => {
                     content: '핸드드립 커피 향이 예술이에요. 정부 지원금 결제도 되니까 부담 없이 맛있는 커피 즐겼습니다.',
                     author: '박*현 방문객',
                     date: '2026-06-15',
+                    stars: 5
+                },
+                // ROW 2 (ADDED ROW 1)
+                {
+                    id: 'cafe_default_4',
+                    content: '창가 석에서 노을 바라보며 수플레 팬케이크랑 라떼 먹는데 너무 힐링됐어요. 데이트 코스로 최고입니다!',
+                    author: '최*아 방문객',
+                    date: '2026-06-08',
+                    stars: 5
+                },
+                {
+                    id: 'cafe_default_5',
+                    content: '독서 모임 장소로 10명이 예약하고 방문했는데 테이블이 크고 조용해서 집중하기 아주 좋았습니다. 사장님도 친절하세요!',
+                    author: '정*우 방문객',
+                    date: '2026-05-28',
+                    stars: 5
+                },
+                {
+                    id: 'cafe_default_6',
+                    content: '아이들과 주말 나들이로 들렀는데 책 종류도 다양하고 에이드랑 아이스크림도 너무 맛있어서 온 가족이 대만족했습니다.',
+                    author: '강*희 방문객',
+                    date: '2026-05-19',
+                    stars: 5
+                },
+                // ROW 3 (ADDED ROW 2)
+                {
+                    id: 'cafe_default_7',
+                    content: '연북로 근처에서 제일 분위기 있는 북카페예요. 조용하게 작업하거나 책 읽기에 딱 좋습니다. 재방문 의사 200%!',
+                    author: '윤*호 방문객',
+                    date: '2026-05-10',
+                    stars: 5
+                },
+                {
+                    id: 'cafe_default_8',
+                    content: '어쿠스틱 북 데이트 코스로 방문했어요. 잔잔한 음악과 커피, 감성적인 인테리어 덕분에 특별한 추억 만들고 갑니다.',
+                    author: '임*영 방문객',
+                    date: '2026-05-02',
+                    stars: 5
+                },
+                {
+                    id: 'cafe_default_9',
+                    content: '즉석 조리기 라면 끓여먹고 원두커피 마시니까 신선한 조합인데 의외로 너무 맛있어서 놀랐어요 ㅋㅋㅋ 자주 올게요!',
+                    author: '한*솔 방문객',
+                    date: '2026-04-25',
                     stars: 5
                 }
             ],
@@ -110,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero: {
                 subtitle: 'Flower & Gardening',
                 title: '하나꽃집 | 일상에 향기를 더합니다',
-                desc: '프리미엄 플라워 디자인과 싱그러운 반려 식물이 함께하는 프리미엄 꽃집',
+                desc: '프리미엄 플라워 디자인과 싱그러운 반려 식물이 함께하는 전용 꽃집',
                 btnText: '추천 상품 보기'
             },
             menu: [
@@ -192,6 +237,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     author: '정*서 방문객',
                     date: '2026-06-18',
                     stars: 5
+                },
+                {
+                    id: 'flower_default_4',
+                    content: '친구 개업식 축하 화분으로 몬스테라 주문했는데 잎이 엄청 무성하고 튼튼해요. 배달도 시간 맞춰 정확히 도착했습니다.',
+                    author: '송*우 방문객',
+                    date: '2026-06-05',
+                    stars: 5
+                },
+                {
+                    id: 'flower_default_5',
+                    content: '원데이 플라워 클래스 듣고 왔는데 선생님이 차근차근 잘 가르쳐 주셔서 멋진 작품 만들었어요. 주말 클래스 강추!',
+                    author: '임*희 방문객',
+                    date: '2026-05-22',
+                    stars: 5
+                },
+                {
+                    id: 'flower_default_6',
+                    content: '프로포즈용 100송이 장미 꽃다발 문의드렸는데 포장까지 완성도 높게 준비해 주셔서 성공적으로 프로포즈 마쳤습니다!',
+                    author: '배*현 방문객',
+                    date: '2026-05-14',
+                    stars: 5
+                },
+                {
+                    id: 'flower_default_7',
+                    content: '집안 분위기 바꾸려고 테이블용 서양란 화분 샀는데 유기농 흙이랑 관리 방법까지 써주셔서 너무 감사해요.',
+                    author: '권*미 방문객',
+                    date: '2026-05-04',
+                    stars: 5
+                },
+                {
+                    id: 'flower_default:8',
+                    content: '여자친구 생일날 리시안셔스 다발 선물했는데 색감이 은은하고 진짜 오래 가네요. 신선도가 대박입니다.',
+                    author: '조*성 방문객',
+                    date: '2026-04-28',
+                    stars: 5
+                },
+                {
+                    id: 'flower_default_9',
+                    content: '매장 안 구경만 해도 숲속에 온 것 같아요. 공기정화 다육이 세트 몇 개 사왔는데 볼 때마다 기분 좋아집니다.',
+                    author: '윤*진 방문객',
+                    date: '2026-04-18',
+                    stars: 5
                 }
             ],
             reservation: {
@@ -208,657 +295,153 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let activeTheme = 'cafe';
-    let currentGallery = [];
-    let modalIndex = 0;
+    // Determine Theme Based on Current File (flower.html -> flower, else cafe)
+    const isFlowerPage = window.location.pathname.endsWith('flower.html');
+    const activeTheme = isFlowerPage ? 'flower' : 'cafe';
+    const data = siteData[activeTheme];
 
     // 2. DOM Elements
-    const bodyEl = document.body;
-    const brandLogoEl = document.getElementById('brand-logo');
-    const brandNameEl = document.getElementById('brand-name');
-    const heroSubtitleEl = document.getElementById('hero-subtitle');
-    const heroTitleEl = document.getElementById('hero-title');
-    const heroDescEl = document.getElementById('hero-desc');
-    const heroPrimaryBtnEl = document.getElementById('hero-primary-btn');
-    const heroBgCafeEl = document.getElementById('hero-bg-cafe');
-    const heroBgFlowerEl = document.getElementById('hero-bg-flower');
     const menuGridEl = document.getElementById('menu-grid');
-    const menuSectionDescEl = document.getElementById('menu-section-desc');
     const galleryGridEl = document.getElementById('gallery-grid');
     const galleryCountEl = document.getElementById('gallery-count');
-    const reviewSectionDescEl = document.getElementById('review-section-desc');
     const reviewsGridEl = document.getElementById('reviews-grid');
-    const reservationTextEl = document.getElementById('reservation-text');
-    const resCardIconEl = document.getElementById('res-card-icon');
-    const resCardTitleEl = document.getElementById('res-card-title');
-    const resCardDescEl = document.getElementById('res-card-desc');
-    const resCardBtnEl = document.getElementById('res-card-btn');
-
-    // Switch buttons
-    const btnSwitchCafe = document.getElementById('switch-cafe');
-    const btnSwitchFlower = document.getElementById('switch-flower');
-
-    // Info Blocks
-    const infoCafeBlock = document.getElementById('info-cafe');
-    const infoFlowerBlock = document.getElementById('info-flower');
-
-    // Review Interactive Elements
-    const btnWriteReview = document.getElementById('btn-write-review');
-    const reviewModal = document.getElementById('review-modal');
-    const reviewModalContent = document.getElementById('review-modal-content');
-    const btnReviewModalClose = document.getElementById('review-modal-close');
-    const btnReviewModalCancel = document.getElementById('review-modal-cancel');
-    const reviewForm = document.getElementById('review-form');
-    const editReviewIdEl = document.getElementById('edit-review-id');
-    const reviewAuthorEl = document.getElementById('review-author');
-    const reviewContentEl = document.getElementById('review-content');
-    const starRatingSelect = document.getElementById('star-rating-select');
-    const selectedStarsValue = document.getElementById('selected-stars-value');
-    const reviewModalTitle = document.getElementById('review-modal-title');
-    const reviewModalSubmit = document.getElementById('review-modal-submit');
-
-    // 3. LocalStorage Review Operations
-    function getReviews(theme) {
-        const key = `cmyongil_reviews_${theme}`;
-        const localData = localStorage.getItem(key);
-        if (localData) {
-            try {
-                return JSON.parse(localData);
-            } catch (e) {
-                return siteData[theme].defaultReviews;
-            }
-        } else {
-            // Seed default reviews
-            const defaults = siteData[theme].defaultReviews;
-            localStorage.setItem(key, JSON.stringify(defaults));
-            return defaults;
-        }
-    }
-
-    function saveReviews(theme, reviewsList) {
-        const key = `cmyongil_reviews_${theme}`;
-        localStorage.setItem(key, JSON.stringify(reviewsList));
-    }
-
-    function addReview(theme, reviewObj) {
-        const list = getReviews(theme);
-        list.push(reviewObj);
-        saveReviews(theme, list);
-    }
-
-    function updateReview(theme, id, updatedObj) {
-        let list = getReviews(theme);
-        list = list.map(item => item.id === id ? { ...item, ...updatedObj } : item);
-        saveReviews(theme, list);
-    }
-
-    function removeReview(theme, id) {
-        let list = getReviews(theme);
-        list = list.filter(item => item.id !== id);
-        saveReviews(theme, list);
-    }
-
-    // 4. Render Reviews List
-    function renderReviewsList() {
-        reviewsGridEl.innerHTML = '';
-        const list = getReviews(activeTheme);
-
-        // Sort by date descending (latest first)
-        list.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        if (list.length === 0) {
-            reviewsGridEl.innerHTML = `
-                <div class="col-span-full text-center py-10 text-gray-400">
-                    <i class="fa-solid fa-comments text-5xl mb-3 block"></i>
-                    작성된 리뷰가 없습니다. 첫 리뷰를 작성해 보세요!
-                </div>
-            `;
-            return;
-        }
-
-        list.forEach(review => {
-            const reviewCard = document.createElement('div');
-            reviewCard.className = 'bg-gray-50 rounded-3xl p-6 sm:p-8 border border-gray-100 hover:shadow-xl transition-all duration-350 relative flex flex-col justify-between group/card';
-            
-            let starHtml = '';
-            for (let i = 0; i < 5; i++) {
-                if (i < review.stars) {
-                    starHtml += '<i class="fa-solid fa-star text-amber-400"></i>';
-                } else {
-                    starHtml += '<i class="fa-solid fa-star text-gray-200"></i>';
-                }
-            }
-            
-            // Format date for UI (e.g. 2026-07-13 -> 2026.07.13)
-            const uiDate = review.date ? review.date.replace(/-/g, '.') : '';
-            
-            reviewCard.innerHTML = `
-                <div>
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="flex text-xs">
-                            ${starHtml}
-                        </div>
-                        <!-- Actions Container (hidden by default, visible on hover) -->
-                        <div class="review-card-actions opacity-0 group-hover/card:opacity-100 transition-opacity duration-200">
-                            <button class="review-action-btn edit" data-id="${review.id}" title="리뷰 수정">
-                                <i class="fa-solid fa-pen"></i>
-                            </button>
-                            <button class="review-action-btn delete" data-id="${review.id}" title="리뷰 삭제">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="relative z-10">
-                        <i class="fa-solid fa-quote-left text-3xl opacity-5 absolute -top-4 -left-3" style="color: var(--primary-color);"></i>
-                        <p class="text-gray-700 text-sm leading-relaxed mb-6 font-medium whitespace-pre-line">
-                            "${review.content}"
-                        </p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full text-white flex items-center justify-center font-bold text-sm shadow-md" style="background-color: var(--primary-color);">
-                        ${review.author.charAt(0)}
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-gray-900 text-sm">${review.author}</h5>
-                        <span class="text-xs text-gray-400 block mt-0.5">${uiDate}</span>
-                    </div>
-                </div>
-            `;
-
-            // Attach event listeners for edit and delete inside card
-            const btnEdit = reviewCard.querySelector('.review-action-btn.edit');
-            const btnDelete = reviewCard.querySelector('.review-action-btn.delete');
-
-            btnEdit.addEventListener('click', (e) => {
-                e.stopPropagation();
-                openReviewFormForEdit(review.id);
-            });
-
-            btnDelete.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if(confirm('리뷰를 정말로 삭제하시겠습니까?')) {
-                    removeReview(activeTheme, review.id);
-                    renderReviewsList();
-                }
-            });
-
-            reviewsGridEl.appendChild(reviewCard);
-        });
-    }
-
-    // 5. Main Renderer Functions
-    function renderTheme(themeKey) {
-        activeTheme = themeKey;
-        const data = siteData[themeKey];
-        
-        // Body theme class
-        if (themeKey === 'cafe') {
-            bodyEl.classList.remove('theme-flower');
-            bodyEl.classList.add('theme-cafe');
-            btnSwitchCafe.classList.add('active');
-            btnSwitchFlower.classList.remove('active');
-            heroBgCafeEl.classList.add('active');
-            heroBgFlowerEl.classList.remove('active');
-            infoCafeBlock.classList.add('active-info-block');
-            infoFlowerBlock.classList.remove('active-info-block');
-            btnWriteReview.style.backgroundColor = 'var(--primary-color)';
-        } else {
-            bodyEl.classList.remove('theme-cafe');
-            bodyEl.classList.add('theme-flower');
-            btnSwitchCafe.classList.remove('active');
-            btnSwitchFlower.classList.add('active');
-            heroBgCafeEl.classList.remove('active');
-            heroBgFlowerEl.classList.add('active');
-            infoCafeBlock.classList.remove('active-info-block');
-            infoFlowerBlock.classList.add('active-info-block');
-            btnWriteReview.style.backgroundColor = 'var(--primary-color)';
-        }
-
-        // Header Brand Update
-        brandNameEl.textContent = data.brandName;
-        brandLogoEl.innerHTML = `<i class="fa-solid ${data.logoIcon} text-lg logo-icon"></i>`;
-
-        // Hero Update
-        heroSubtitleEl.textContent = data.hero.subtitle;
-        heroTitleEl.textContent = data.hero.title;
-        heroDescEl.textContent = data.hero.desc;
-        heroPrimaryBtnEl.textContent = data.hero.btnText;
-
-        // Render Menu Cards
-        menuSectionDescEl.textContent = themeKey === 'cafe' ? '가성비 넘치는 음료부터 든든한 간식까지 즐겨보세요.' : '우아한 플로랄 디자인과 향기로운 선물 세트를 만나보세요.';
-        menuGridEl.innerHTML = '';
-        data.menu.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100/50 hover:shadow-2xl transition-all duration-300 card-hover-effect flex flex-col h-full';
-            card.innerHTML = `
-                <div class="h-72 sm:h-80 overflow-hidden relative">
-                    <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    <span class="absolute top-4 right-4 text-sm font-bold text-white px-4 py-1.5 rounded-full shadow-md select-none" style="background-color: var(--primary-color);">
-                        ${item.tag}
-                    </span>
-                </div>
-                <div class="p-8 flex flex-col justify-between flex-grow">
-                    <div>
-                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">${item.title}</h3>
-                        <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">${item.desc}</p>
-                    </div>
-                    <div class="font-extrabold text-xl sm:text-2xl flex items-center justify-between" style="color: var(--primary-color);">
-                        <span>${item.price}</span>
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </div>
-                </div>
-            `;
-            menuGridEl.appendChild(card);
-        });
-
-        // Render Photo Gallery
-        currentGallery = data.photos;
-        galleryCountEl.textContent = `총 ${currentGallery.length}개 포토`;
-        galleryGridEl.innerHTML = '';
-        currentGallery.forEach((photo, idx) => {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
-            div.addEventListener('click', () => openModal(idx));
-            
-            if (photo.isVideo) {
-                div.innerHTML = `
-                    <video src="${photo.src}" class="w-full h-full object-cover" muted loop autoplay></video>
-                    <div class="absolute top-3 right-3 text-white text-xs bg-black/50 px-2 py-0.5 rounded-md flex items-center gap-1">
-                        <i class="fa-solid fa-video"></i> 동영상
-                    </div>
-                    <div class="gallery-overlay">
-                        <div>
-                            <span class="text-xs text-white/80 font-bold block mb-1">Flower 스케치</span>
-                            <h4 class="text-white font-bold text-sm sm:text-base">${photo.caption}</h4>
-                        </div>
-                    </div>
-                `;
-            } else {
-                div.innerHTML = `
-                    <img src="${photo.src}" alt="${photo.caption}" class="w-full h-full object-cover">
-                    <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-3 pointer-events-none">
-                        <span class="text-white text-[11px] sm:text-xs font-semibold tracking-wide drop-shadow-md">${photo.caption}</span>
-                    </div>
-                `;
-            }
-            galleryGridEl.appendChild(div);
-        });
-
-        // Render Reviews
-        renderReviewsList();
-
-        // Reservation Section Update
-        reservationTextEl.textContent = data.reservation.text;
-        resCardIconEl.innerHTML = `<i class="fa-solid ${data.reservation.card.icon}"></i>`;
-        resCardIconEl.style.backgroundColor = 'var(--primary-color)';
-        resCardTitleEl.textContent = data.reservation.card.title;
-        resCardDescEl.textContent = data.reservation.card.desc;
-        resCardBtnEl.textContent = data.reservation.card.btnText;
-        resCardBtnEl.href = data.reservation.card.url;
-        resCardBtnEl.style.backgroundColor = 'var(--primary-color)';
-        
-        // Modal Submit Button Background Apply
-        reviewModalSubmit.style.backgroundColor = 'var(--primary-color)';
-    }
-
-    // 6. Switcher Handlers
-    btnSwitchCafe.addEventListener('click', () => {
-        if (activeTheme !== 'cafe') {
-            renderTheme('cafe');
-        }
-    });
-
-    btnSwitchFlower.addEventListener('click', () => {
-        if (activeTheme !== 'flower') {
-            renderTheme('flower');
-        }
-    });
-
-    // 7. Interactive Review Form Handlers
     
-    // Open review modal for adding
-    btnWriteReview.addEventListener('click', () => {
-        // Reset form
-        editReviewIdEl.value = '';
-        reviewForm.reset();
-        selectedStarsValue.value = '5';
-        updateStarsUI(5);
-        
-        // Modal Header Styling
-        reviewModalTitle.textContent = '리뷰 작성하기';
-        reviewModalSubmit.textContent = '등록하기';
-        reviewModalSubmit.style.backgroundColor = 'var(--primary-color)';
-        
-        // Open
-        reviewModal.classList.remove('opacity-0', 'pointer-events-none');
-        reviewModalContent.classList.remove('scale-95');
-        reviewModalContent.classList.add('scale-100');
-        bodyEl.style.overflow = 'hidden';
-    });
-
-    // Open review modal for editing
-    function openReviewFormForEdit(id) {
-        const list = getReviews(activeTheme);
-        const review = list.find(item => item.id === id);
-        if(!review) return;
-
-        // Populate fields
-        editReviewIdEl.value = review.id;
-        reviewAuthorEl.value = review.author;
-        reviewContentEl.value = review.content;
-        selectedStarsValue.value = review.stars;
-        updateStarsUI(review.stars);
-
-        // Modal Header Styling
-        reviewModalTitle.textContent = '리뷰 수정하기';
-        reviewModalSubmit.textContent = '수정 완료';
-        reviewModalSubmit.style.backgroundColor = 'var(--primary-color)';
-
-        // Open
-        reviewModal.classList.remove('opacity-0', 'pointer-events-none');
-        reviewModalContent.classList.remove('scale-95');
-        reviewModalContent.classList.add('scale-100');
-        bodyEl.style.overflow = 'hidden';
-    }
-
-    function closeReviewModal() {
-        reviewModal.classList.add('opacity-0', 'pointer-events-none');
-        reviewModalContent.classList.remove('scale-100');
-        reviewModalContent.classList.add('scale-95');
-        bodyEl.style.overflow = '';
-    }
-
-    btnReviewModalClose.addEventListener('click', closeReviewModal);
-    btnReviewModalCancel.addEventListener('click', closeReviewModal);
-    reviewModal.addEventListener('click', (e) => {
-        if(e.target === reviewModal) closeReviewModal();
-    });
-
-    // Star Selection Logic
-    const starIcons = starRatingSelect.querySelectorAll('.star-select-btn');
-    
-    function updateStarsUI(rating) {
-        starIcons.forEach(star => {
-            const value = parseInt(star.getAttribute('data-value'));
-            if (value <= rating) {
-                star.classList.add('active', 'text-amber-400');
-                star.classList.remove('text-gray-300');
-            } else {
-                star.classList.remove('active', 'text-amber-400');
-                star.classList.add('text-gray-300');
-            }
-        });
-    }
-
-    starIcons.forEach(star => {
-        star.addEventListener('click', () => {
-            const value = star.getAttribute('data-value');
-            selectedStarsValue.value = value;
-            updateStarsUI(parseInt(value));
-        });
-
-        star.addEventListener('mouseover', () => {
-            const value = parseInt(star.getAttribute('data-value'));
-            starIcons.forEach(s => {
-                const val = parseInt(s.getAttribute('data-value'));
-                if (val <= value) {
-                    s.classList.add('text-amber-400');
-                    s.classList.remove('text-gray-300');
-                } else {
-                    s.classList.remove('text-amber-400');
-                    s.classList.add('text-gray-300');
-                }
-            });
-        });
-    });
-
-    starRatingSelect.addEventListener('mouseleave', () => {
-        const currentRating = parseInt(selectedStarsValue.value);
-        updateStarsUI(currentRating);
-    });
-
-    // Submit Review (Add or Edit)
-    reviewForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const reviewId = editReviewIdEl.value;
-        const author = reviewAuthorEl.value.trim();
-        const content = reviewContentEl.value.trim();
-        const stars = parseInt(selectedStarsValue.value);
-        const todayStr = new Date().toISOString().substring(0, 10); // Format YYYY-MM-DD
-
-        if (reviewId) {
-            // Edit mode
-            updateReview(activeTheme, reviewId, {
-                author,
-                content,
-                stars
-            });
-        } else {
-            // Add mode
-            const newId = `user_${activeTheme}_${Date.now()}`;
-            addReview(activeTheme, {
-                id: newId,
-                author,
-                content,
-                stars,
-                date: todayStr
-            });
-        }
-
-        closeReviewModal();
-        renderReviewsList();
-    });
-
-    // 8. Image Modal Viewer Handlers
-    const imageModal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalCaption = document.getElementById('modal-caption');
-    const btnModalClose = document.getElementById('modal-close-btn');
-    const btnModalPrev = document.getElementById('modal-prev-btn');
-    const btnModalNext = document.getElementById('modal-next-btn');
-
-    function openModal(target, caption = '') {
-        const videoEl = document.getElementById('modal-video-playing');
-
-        if (typeof target === 'number') {
-            modalIndex = target;
-            const item = currentGallery[modalIndex];
-            
-            // Show navigation buttons
-            btnModalPrev.style.display = 'block';
-            btnModalNext.style.display = 'block';
-
-            // Set content
-            if (item.isVideo) {
-                modalImage.style.display = 'none';
-                if(!videoEl) {
-                    const newVideoEl = document.createElement('video');
-                    newVideoEl.id = 'modal-video-playing';
-                    newVideoEl.className = 'max-w-full max-h-[72vh] object-contain rounded-lg shadow-2xl';
-                    newVideoEl.controls = true;
-                    newVideoEl.autoplay = true;
-                    modalImage.parentNode.insertBefore(newVideoEl, modalCaption);
-                } else {
-                    const freshVideo = document.getElementById('modal-video-playing');
-                    freshVideo.style.display = 'block';
-                    freshVideo.src = item.src;
-                }
-            } else {
-                const freshVideo = document.getElementById('modal-video-playing');
-                if (freshVideo) freshVideo.style.display = 'none';
-                modalImage.style.display = 'block';
-                modalImage.src = item.src;
-            }
-            modalCaption.textContent = item.caption;
-        } else {
-            // Single image mode (from any clicked IMG tag)
-            modalIndex = -1;
-            
-            // Hide navigation buttons
-            btnModalPrev.style.display = 'none';
-            btnModalNext.style.display = 'none';
-            
-            // Hide video
-            const freshVideo = document.getElementById('modal-video-playing');
-            if (freshVideo) freshVideo.style.display = 'none';
-            
-            // Set image
-            modalImage.style.display = 'block';
-            modalImage.src = target;
-            modalCaption.textContent = caption;
-        }
-        
-        // Show modal
-        imageModal.classList.remove('opacity-0', 'pointer-events-none');
-        bodyEl.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        imageModal.classList.add('opacity-0', 'pointer-events-none');
-        bodyEl.style.overflow = '';
-        const videoEl = document.getElementById('modal-video-playing');
-        if (videoEl) {
-            videoEl.pause();
-            videoEl.src = '';
-        }
-    }
-
-    function nextModal() {
-        if (modalIndex === -1) return;
-        modalIndex = (modalIndex + 1) % currentGallery.length;
-        openModal(modalIndex);
-    }
-
-    function prevModal() {
-        if (modalIndex === -1) return;
-        modalIndex = (modalIndex - 1 + currentGallery.length) % currentGallery.length;
-        openModal(modalIndex);
-    }
-
-    btnModalClose.addEventListener('click', closeModal);
-    btnModalNext.addEventListener('click', nextModal);
-    btnModalPrev.addEventListener('click', prevModal);
-    imageModal.addEventListener('click', (e) => {
-        if (e.target === imageModal) closeModal();
-    });
-
-    // Delegated click handler for any image tags outside gallery
-    document.addEventListener('click', (e) => {
-        if (e.target.tagName === 'IMG' && !e.target.closest('.gallery-item') && e.target.id !== 'modal-image') {
-            const src = e.target.src;
-            const caption = e.target.alt || e.target.title || '이미지 확대';
-            openModal(src, caption);
-        }
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (!imageModal.classList.contains('opacity-0')) {
-            if (e.key === 'Escape') closeModal();
-            if (e.key === 'ArrowRight') nextModal();
-            if (e.key === 'ArrowLeft') prevModal();
-        }
-    });
-
-    // 9. Navigation Link Highlighting on Scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Mobile Drawer Menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const headerEl = document.getElementById('header');
 
-    window.addEventListener('scroll', () => {
-        let currentSectionId = 'home';
-        
-        // Header styling on scroll
-        if (window.scrollY > 50) {
-            headerEl.classList.add('shadow-md', 'bg-white/95');
-            headerEl.classList.remove('bg-white/80');
-        } else {
-            headerEl.classList.remove('shadow-md', 'bg-white/95');
-            headerEl.classList.add('bg-white/80');
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            const drawer = mobileMenu.querySelector('div');
+            if (drawer) drawer.classList.remove('translate-x-full');
+        });
+    }
+
+    const closeDrawer = () => {
+        if (mobileMenu) {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            const drawer = mobileMenu.querySelector('div');
+            if (drawer) drawer.classList.add('translate-x-full');
+        }
+    };
+
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeDrawer);
+    mobileNavLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+    // 3. Render Menu Cards
+    if (menuGridEl && data.menu) {
+        menuGridEl.innerHTML = data.menu.map(item => `
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col justify-between">
+                <div>
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold ${activeTheme === 'cafe' ? 'text-amber-800' : 'text-emerald-800'} shadow-sm">
+                            ${item.tag}
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:${activeTheme === 'cafe' ? 'text-amber-700' : 'text-emerald-700'} transition-colors">${item.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">${item.desc}</p>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-50 mt-4">
+                    <span class="text-xs font-bold text-gray-400">구분: ${item.price}</span>
+                    <a href="#reservation" class="text-xs font-bold ${activeTheme === 'cafe' ? 'text-amber-700 hover:text-amber-900' : 'text-emerald-700 hover:text-emerald-900'} flex items-center gap-1">
+                        예약 문의 <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // 4. Render Gallery & Lightbox Modal
+    if (galleryGridEl && data.photos) {
+        if (galleryCountEl) galleryCountEl.textContent = `총 ${data.photos.length}개의 고화질 갤러리`;
+
+        galleryGridEl.innerHTML = data.photos.map((item, idx) => `
+            <div class="gallery-item cursor-pointer rounded-2xl overflow-hidden relative group aspect-square shadow-sm hover:shadow-md transition-all duration-300" data-index="${idx}">
+                ${item.isVideo ? `
+                    <video src="${item.src}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" muted loop autoplay playsinline></video>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                        <i class="fa-solid fa-circle-play text-white text-3xl opacity-80 group-hover:scale-125 transition-transform"></i>
+                    </div>
+                ` : `
+                    <img src="${item.src}" alt="${item.caption}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-white text-xs font-bold">${item.caption}</span>
+                    </div>
+                `}
+            </div>
+        `).join('');
+
+        // Lightbox Popup Modal
+        const galleryModal = document.getElementById('gallery-modal');
+        const modalMediaContainer = document.getElementById('modal-media-container');
+        const modalCaption = document.getElementById('modal-caption');
+        const modalClose = document.getElementById('modal-close');
+        let currentModalIdx = 0;
+
+        function openGalleryModal(idx) {
+            currentModalIdx = idx;
+            const photo = data.photos[idx];
+            if (!photo || !galleryModal) return;
+
+            if (photo.isVideo) {
+                modalMediaContainer.innerHTML = `<video src="${photo.src}" controls autoplay class="max-h-[75vh] max-w-full rounded-2xl shadow-2xl"></video>`;
+            } else {
+                modalMediaContainer.innerHTML = `<img src="${photo.src}" alt="${photo.caption}" class="max-h-[75vh] max-w-full rounded-2xl shadow-2xl object-contain">`;
+            }
+            if (modalCaption) modalCaption.textContent = photo.caption;
+            galleryModal.classList.remove('hidden');
+            galleryModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
         }
 
-        sections.forEach(sec => {
-            const secTop = sec.offsetTop - 120;
-            const secHeight = sec.offsetHeight;
-            if (window.scrollY >= secTop && window.scrollY < secTop + secHeight) {
-                currentSectionId = sec.getAttribute('id');
-            }
+        function closeGalleryModal() {
+            if (!galleryModal) return;
+            galleryModal.classList.add('hidden');
+            galleryModal.classList.remove('flex');
+            modalMediaContainer.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.gallery-item').forEach(el => {
+            el.addEventListener('click', () => {
+                const idx = parseInt(el.getAttribute('data-index') || '0', 10);
+                openGalleryModal(idx);
+            });
         });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('active');
-            }
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.classList.remove('text-gray-900', 'font-bold');
-            link.classList.add('text-gray-600');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.remove('text-gray-600');
-                link.classList.add('text-gray-900', 'font-bold');
-            }
-        });
-    });
-
-    // Smooth Scroll Offset
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-                window.scrollTo({
-                    top: targetEl.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // 10. Mobile Drawer Trigger
-    const btnMobileMenu = document.getElementById('mobile-menu-btn');
-    const btnMobileClose = document.getElementById('mobile-menu-close');
-    const drawerEl = document.getElementById('mobile-menu');
-    const drawerContentEl = drawerEl.querySelector('div');
-
-    function openMobileMenu() {
-        drawerEl.classList.remove('opacity-0', 'pointer-events-none');
-        drawerContentEl.classList.remove('translate-x-full');
+        if (modalClose) modalClose.addEventListener('click', closeGalleryModal);
+        if (galleryModal) {
+            galleryModal.addEventListener('click', (e) => {
+                if (e.target === galleryModal) closeGalleryModal();
+            });
+        }
     }
 
-    function closeMobileMenu() {
-        drawerEl.classList.add('opacity-0', 'pointer-events-none');
-        drawerContentEl.classList.add('translate-x-full');
+    // 5. Render Reviews (9 reviews: 3 columns x 3 rows)
+    if (reviewsGridEl && data.defaultReviews) {
+        reviewsGridEl.innerHTML = data.defaultReviews.map(r => `
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            ${'<i class="fa-solid fa-star"></i>'.repeat(r.stars)}
+                        </div>
+                        <span class="text-xs text-gray-400 font-medium">${r.date}</span>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed mb-6 font-medium">"${r.content}"</p>
+                </div>
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 font-bold">
+                    <span>${r.author}</span>
+                    <span class="${activeTheme === 'cafe' ? 'text-amber-700 bg-amber-50 px-2 py-1 rounded-md' : 'text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md'}">인증 방문자</span>
+                </div>
+            </div>
+        `).join('');
     }
 
-    btnMobileMenu.addEventListener('click', openMobileMenu);
-    btnMobileClose.addEventListener('click', closeMobileMenu);
-    drawerEl.addEventListener('click', (e) => {
-        if (e.target === drawerEl) closeMobileMenu();
-    });
-
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            closeMobileMenu();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: targetEl.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }, 300);
-            }
-        });
-    });
-
-    // 11. Initial Theme Render
-    renderTheme('cafe');
 });

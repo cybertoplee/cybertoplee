@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>별밤지기노래타운 중문점 - 제주 중문단지 유일의 프리미엄 노래주점</title>
+  <meta name="description" content="제주 롯데호텔 바로 옆 위치! 제주 중문단지 유일한 프리미엄 노래주점 별밤지기노래타운 중문점. 50명 단체 예약, 최첨단 음향, 고급 안주 완비.">
+  <meta name="keywords" content="중문노래방, 중문노래타운, 중문가요주점, 제주도가요주점, 제주노래방, 별밤지기노래타운 중문점">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="별밤지기노래타운 중문점">
+  <meta property="og:description" content="제주 롯데호텔 바로 옆! 50인 단체룸 & 최첨단 음향 완비 프리미엄 노래주점">
+  <meta property="og:image" content="./images/hero_main.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+            display: ['Orbitron', 'sans-serif']
+          },
+          colors: {
+            night: {
+              950: '#06060c',
+              900: '#0b0b18',
+              850: '#111125',
+              800: '#181835',
+              700: '#23234d'
+            },
+            neon: {
+              purple: '#b026ff',
+              pink: '#ff2a8d',
+              cyan: '#00f0ff',
+              gold: '#ffd700'
+            }
+          },
+          boxShadow: {
+            'neon-purple': '0 0 25px rgba(176, 38, 255, 0.45)',
+            'neon-pink': '0 0 25px rgba(255, 42, 141, 0.45)',
+            'neon-gold': '0 0 25px rgba(255, 215, 0, 0.4)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #06060c;
+      color: #f3f4f6;
+    }
+    .glass-header {
+      background: rgba(11, 11, 24, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(176, 38, 255, 0.2);
+    }
+    .glass-card {
+      background: rgba(24, 24, 53, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(176, 38, 255, 0.4);
+      box-shadow: 0 10px 30px -10px rgba(176, 38, 255, 0.3);
+    }
+    .neon-text-purple {
+      text-shadow: 0 0 12px rgba(176, 38, 255, 0.7);
+    }
+    .neon-text-gold {
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+    }
+    /* Modal Animation */
+    .modal-backdrop {
+      transition: opacity 0.3s ease-out;
+    }
+    .modal-box {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-out;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-purple-500 selection:text-white">
+
+  <!-- TOP HEADER / NAV -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-header transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO & BRAND NAME -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-400 p-0.5 shadow-neon-purple group-hover:scale-105 transition-transform duration-300">
+          <div class="w-full h-full bg-night-950 rounded-[10px] flex items-center justify-center">
+            <!-- Custom Star & Mic Logo SVG -->
+            <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.8 2.5.9-5.3-3.8-3.7 5.3-.8z"/>
+              <path d="M12 17v5"/>
+              <path d="M9 22h6"/>
+            </svg>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-amber-300 via-purple-300 to-pink-400 bg-clip-text text-transparent">
+            별밤지기노래타운
+          </span>
+          <span class="text-xs font-semibold text-purple-400 tracking-wider">
+            중문점 · JEJU JUNGMUN
+          </span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#home" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-amber-400 hover:bg-purple-950/40 rounded-lg transition-colors">홈</a>
+        <a href="#news" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-amber-400 hover:bg-purple-950/40 rounded-lg transition-colors">소식</a>
+        <a href="#reviews" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-amber-400 hover:bg-purple-950/40 rounded-lg transition-colors">리뷰</a>
+        <a href="#photos" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-amber-400 hover:bg-purple-950/40 rounded-lg transition-colors">사진</a>
+        <a href="#info" class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-amber-400 hover:bg-purple-950/40 rounded-lg transition-colors">정보</a>
+      </nav>
+
+      <!-- CTA RESERVATION BUTTON -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="tel:064-738-4001" class="px-5 py-2.5 text-sm font-bold text-night-950 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500 rounded-full shadow-neon-gold hover:opacity-95 transition-all flex items-center gap-2 transform active:scale-95">
+          <i data-lucide="phone-call" class="w-4 h-4"></i>
+          <span>064-738-4001</span>
+        </a>
+      </div>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl text-gray-300 hover:bg-purple-900/30 border border-purple-500/20">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-purple-900/40 bg-night-950/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
+      <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-lg text-gray-200 hover:bg-purple-900/30 font-medium">홈</a>
+      <a href="#news" class="mobile-nav-link block px-4 py-3 rounded-lg text-gray-200 hover:bg-purple-900/30 font-medium">소식</a>
+      <a href="#reviews" class="mobile-nav-link block px-4 py-3 rounded-lg text-gray-200 hover:bg-purple-900/30 font-medium">리뷰</a>
+      <a href="#photos" class="mobile-nav-link block px-4 py-3 rounded-lg text-gray-200 hover:bg-purple-900/30 font-medium">사진</a>
+      <a href="#info" class="mobile-nav-link block px-4 py-3 rounded-lg text-gray-200 hover:bg-purple-900/30 font-medium">정보</a>
+      <div class="pt-2">
+        <a href="tel:064-738-4001" class="w-full py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-night-950 font-bold rounded-xl text-center flex items-center justify-center gap-2 shadow-neon-gold">
+          <i data-lucide="phone-call" class="w-5 h-5"></i>
+          <span>전화 예약 문의 (064-738-4001)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="./images/hero_main.png" alt="별밤지기노래타운 중문점 메인" class="w-full h-full object-cover opacity-35 scale-105 filter blur-[1px] transform transition-transform duration-1000">
+        <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/70 to-night-950/40"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/30 via-transparent to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/40 border border-purple-500/40 text-amber-300 text-sm font-semibold mb-6 shadow-neon-purple animate-pulse">
+          <i data-lucide="map-pin" class="w-4 h-4 text-pink-400"></i>
+          <span>제주 롯데호텔 바로 옆 (도보 1분) · 중문단지 유일의 노래주점</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-6">
+          <span class="block text-gray-100 mb-2">제주 중문 최고의 밤을 완성하는</span>
+          <span class="bg-gradient-to-r from-amber-300 via-pink-400 to-purple-400 bg-clip-text text-transparent neon-text-purple">
+            별밤지기노래타운 중문점
+          </span>
+        </h1>
+
+        <p class="text-lg sm:text-2xl text-gray-300 max-w-3xl mx-auto font-light mb-10 leading-relaxed">
+          프리미엄 최첨단 음향 시설 · 최대 <strong class="text-amber-400 font-bold">50석 VIP 대형 단체룸</strong> 완비<br class="hidden sm:inline">
+          가족 모임, 단체 회식, 여행 뒤풀이를 위한 최상의 단독 프라이빗 공간
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <a href="tel:064-738-4001" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500 text-night-950 font-black text-lg rounded-2xl shadow-neon-gold hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3">
+            <i data-lucide="phone-call" class="w-6 h-6"></i>
+            <span>실시간 예약 및 방 문의</span>
+          </a>
+          <a href="#info" class="w-full sm:w-auto px-8 py-4 glass-card border border-purple-500/30 text-gray-200 font-bold text-lg rounded-2xl hover:bg-purple-900/30 hover:border-purple-400 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="map-pin" class="w-5 h-5 text-purple-400"></i>
+            <span>오시는 길 & 위치 안내</span>
+          </a>
+        </div>
+
+        <!-- Quick Info Pills -->
+        <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div class="glass-card p-4 rounded-xl text-center">
+            <i data-lucide="users" class="w-6 h-6 mx-auto mb-2 text-purple-400"></i>
+            <span class="block text-sm font-bold text-gray-200">50명 단체 이용</span>
+            <span class="text-xs text-gray-400">대형 VIP룸 완비</span>
+          </div>
+          <div class="glass-card p-4 rounded-xl text-center">
+            <i data-lucide="parking-circle" class="w-6 h-6 mx-auto mb-2 text-pink-400"></i>
+            <span class="block text-sm font-bold text-gray-200">무료 주차 가능</span>
+            <span class="text-xs text-gray-400">넓은 주차 공간</span>
+          </div>
+          <div class="glass-card p-4 rounded-xl text-center">
+            <i data-lucide="utensils" class="w-6 h-6 mx-auto mb-2 text-amber-400"></i>
+            <span class="block text-sm font-bold text-gray-200">고급 수제 안주</span>
+            <span class="text-xs text-gray-400">풍성한 음료/세트</span>
+          </div>
+          <div class="glass-card p-4 rounded-xl text-center">
+            <i data-lucide="sparkles" class="w-6 h-6 mx-auto mb-2 text-cyan-400"></i>
+            <span class="block text-sm font-bold text-gray-200">최첨단 클럽 음향</span>
+            <span class="text-xs text-gray-400">최신곡 일일 업데이트</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWS SECTION (소식 - 한 줄에 3개씩 총 3줄 = 9개 뉴스 카드 배치) -->
+    <section id="news" class="py-20 relative bg-night-900/60 border-y border-purple-900/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-purple-400 font-semibold tracking-wider uppercase text-sm block mb-2">Notice & Events</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-100">
+            별밤지기 중문점 <span class="bg-gradient-to-r from-amber-300 to-pink-400 bg-clip-text text-transparent">최신 소식</span>
+          </h2>
+          <p class="text-gray-400 mt-3 text-base">중문 단지 투숙객 및 방문 고객님을 위한 최신 소식과 이벤트를 확인해보세요.</p>
+        </div>
+
+        <!-- 3 COLUMNS x 3 ROWS = 9 NEWS ITEMS TOTAL -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- News 1 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-pink-500 text-night-950 text-xs font-black px-4 py-1.5 rounded-bl-xl shadow-md">
+              HOT NOTICE
+            </div>
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-amber-400 mb-5 border border-purple-500/20">
+                <i data-lucide="crown" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.07.20</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-amber-300 transition-colors">
+                최대 50인 수용! 최신 대형 VIP 단체룸 리뉴얼 오픈
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                제주 서귀포 중문 단지에서 가장 크고 쾌적한 단체룸! 가족 연회, 회사 워크숍, 뒤풀이 행사를 위한 대형 스크린과 단독 음향 시스템이 완비되었습니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#단체예약 #50석대형룸</span>
+              <span class="text-amber-400 font-semibold">사전 예약 필수</span>
+            </div>
+          </div>
+
+          <!-- News 2 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-pink-400 mb-5 border border-purple-500/20">
+                <i data-lucide="music-2" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.07.15</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-pink-300 transition-colors">
+                2026 최신 POP & K-POP 음원 및 무선마이크 무제한 지원
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                매일 최신곡 무제한 업데이트! 최고급 무선 마이크 세트 4채널 도입과 곡 분위기에 맞춰 반응하는 미러볼 클럽 조명을 완비했습니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#최첨단음향 #무선마이크</span>
+              <span class="text-pink-400 font-semibold">최고 음질 보장</span>
+            </div>
+          </div>
+
+          <!-- News 3 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-cyan-400 mb-5 border border-purple-500/20">
+                <i data-lucide="hotel" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.07.10</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-cyan-300 transition-colors">
+                롯데호텔 바로 옆! 중문관광단지 호텔 투숙객 특별 혜택
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                롯데호텔 바로 옆 도보 1분거리! 신라호텔, 그랜드조선 등 중문 단지 투숙객 여러분을 위한 안주 서비스 및 주차 지원 안내를 드립니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#롯데호텔옆 #주차완비</span>
+              <span class="text-cyan-400 font-semibold">도보 1분거리</span>
+            </div>
+          </div>
+
+          <!-- News 4 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-amber-400 mb-5 border border-purple-500/20">
+                <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.07.05</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-amber-300 transition-colors">
+                휴가철 맞이 신선한 과일 화채 & 고급 모둠 안주 세트
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                여름철 무더위를 날려줄 신선한 계절 과일 화채와 수제 얼큰 오뎅탕, 바삭한 모둠 튀김 안주 세트 신메뉴를 본격 제공합니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#고급수제안주 #시원한음료</span>
+              <span class="text-amber-400 font-semibold">신메뉴 전격출시</span>
+            </div>
+          </div>
+
+          <!-- News 5 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-pink-400 mb-5 border border-purple-500/20">
+                <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.06.28</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-pink-300 transition-colors">
+                가족 및 아이 동반 방문객 전용 완전 방음 프라이빗룸
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                아이 동반 가족분들이 안심하고 쾌적하게 즐기실 수 있도록 강력한 공기청정 흡음 설비와 프라이빗 도어 시스템을 구축했습니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#가족모임환영 #완전방음룸</span>
+              <span class="text-pink-400 font-semibold">쾌적한 클린존</span>
+            </div>
+          </div>
+
+          <!-- News 6 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-cyan-400 mb-5 border border-purple-500/20">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.06.20</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-cyan-300 transition-colors">
+                클럽 스타일의 스마트 미러볼 레이저 조명 추가 설치
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                신나는 댄스 곡 연주 시 무대 감성을 200% 더해주는 최첨단 미러볼 무대 조명을 전 룸에 추가 도입하여 흥을 극대화했습니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#무대조명 #클럽감성</span>
+              <span class="text-cyan-400 font-semibold">신나는 연출</span>
+            </div>
+          </div>
+
+          <!-- News 7 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-amber-400 mb-5 border border-purple-500/20">
+                <i data-lucide="briefcase" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.06.12</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-amber-300 transition-colors">
+                기업 워크숍 & 골프 동호회 뒤풀이 사전 맞춤 예약 접수
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                중문단지 내 골프 라운딩이나 단체 워크숍 행사를 마친 단체 고객님들을 위한 대형룸 맞춤 예약 및 이동 안내 서비스를 지원합니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#기업워크숍 #동호회뒤풀이</span>
+              <span class="text-amber-400 font-semibold">맞춤 연회 상담</span>
+            </div>
+          </div>
+
+          <!-- News 8 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-pink-400 mb-5 border border-purple-500/20">
+                <i data-lucide="mic-vocal" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.06.01</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-pink-300 transition-colors">
+                최고급 사운드 튜닝 및 에코 마이크 믹서 전면 정비
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                가수급의 맑고 울림 있는 사운드를 경험하실 수 있도록 전문 사운드 엔지니어가 직접 전 룸의 스피커 튜닝을 완료했습니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#사운드튜닝 #가창력보장</span>
+              <span class="text-pink-400 font-semibold">명품 사운드</span>
+            </div>
+          </div>
+
+          <!-- News 9 -->
+          <div class="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-900/40 flex items-center justify-center text-cyan-400 mb-5 border border-purple-500/20">
+                <i data-lucide="gift" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs text-purple-400 font-semibold">2026.05.25</span>
+              <h3 class="text-xl font-bold text-gray-100 mt-1 mb-3 group-hover:text-cyan-300 transition-colors">
+                네이버 리뷰 & 영수증 작성 시 서비스 음료/안주 증정
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                방문 후 네이버 플레이스 리뷰를 남겨주시는 모든 고객님께 현장에서 시원한 음료 또는 추가 안주 혜택을 증정해 드립니다.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+              <span>#네이버리뷰이벤트 #서비스증정</span>
+              <span class="text-cyan-400 font-semibold">리뷰 혜택</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- NAVER FEED / NEWS DETAILED LINK BANNER BUTTON -->
+        <div class="mt-12 text-center">
+          <a href="https://pcmap.place.naver.com/place/1081862238/feed?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-400 text-white font-black text-base rounded-2xl shadow-neon-purple hover:scale-105 transition-all">
+            <i data-lucide="rss" class="w-5 h-5"></i>
+            <span>네이버 플레이스 소식 피드 자세히 보기</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REVIEWS SECTION (리뷰 - 한 줄에 3개씩 총 3줄 = 9개 리뷰 카드 배치) -->
+    <section id="reviews" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span class="text-pink-400 font-semibold tracking-wider uppercase text-sm block mb-2">Customer Testimonials</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-100">
+              실제 방문 고객님들의 <span class="bg-gradient-to-r from-pink-400 to-amber-300 bg-clip-text text-transparent">생생한 리뷰</span>
+            </h2>
+          </div>
+          
+          <!-- Naver Rating Badge -->
+          <div class="glass-card px-6 py-4 rounded-2xl flex items-center gap-4 border border-amber-400/30">
+            <div class="text-center">
+              <span class="text-xs text-gray-400 font-medium">네이버 방문자 평점</span>
+              <div class="flex items-center gap-1.5 mt-0.5">
+                <span class="text-2xl font-black text-amber-400">5.0</span>
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+              </div>
+            </div>
+            <div class="h-8 w-px bg-gray-800"></div>
+            <div class="text-xs text-gray-300 font-semibold">
+              제주 서귀포 중문<br>인기 최상위 노래주점
+            </div>
+          </div>
+        </div>
+
+        <!-- Keyword Tags Cloud -->
+        <div class="flex flex-wrap gap-2.5 mb-10">
+          <span class="px-3.5 py-1.5 rounded-full bg-purple-900/40 border border-purple-500/30 text-purple-300 text-xs font-semibold">#분위기가좋아요</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-pink-900/40 border border-pink-500/30 text-pink-300 text-xs font-semibold">#음향이최고예요</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-amber-900/40 border border-amber-500/30 text-amber-300 text-xs font-semibold">#안주가맛있어요</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-cyan-900/40 border border-cyan-500/30 text-cyan-300 text-xs font-semibold">#롯데호텔바로옆</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-purple-900/40 border border-purple-500/30 text-purple-300 text-xs font-semibold">#단체모임강력추천</span>
+          <span class="px-3.5 py-1.5 rounded-full bg-emerald-900/40 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">#사장님이매우친절해요</span>
+        </div>
+
+        <!-- 3 COLUMNS x 3 ROWS = 9 REVIEWS TOTAL -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Review Item 1 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 영수증 인증</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "제주 롯데호텔에서 가족 여행 숙박 중에 밤에 노래 부르고 싶어서 바로 옆 별밤지기노래타운 방문했습니다! 방이 정말 깨끗하고 무선 마이크 에코랑 음질이 최고예요. 사장님 서비스도 감동이었습니다!"
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">김*민 님 (가족 방문)</span>
+              <span class="text-gray-500">2026.07.18</span>
+            </div>
+          </div>
+
+          <!-- Review Item 2 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 블로그 후기</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "회사 워크숍 25명 단체 예약으로 이용했는데, 단체룸 크기가 엄청나게 넓고 사운드가 빵빵해서 다들 소리지르고 난리났습니다 ㅋㅋㅋ 안주로 나온 과일 세트랑 모둠 튀김 퀄리티도 대박!"
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">박*훈 님 (단체 워크숍)</span>
+              <span class="text-gray-500">2026.07.12</span>
+            </div>
+          </div>
+
+          <!-- Review Item 3 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 방문자 리뷰</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "중문관광단지 근처에서 제일 깔끔하고 조명 예쁜 노래주점이에요! 분위기 짱이고 하이볼이랑 시원한 음료 배치도 잘되어 있습니다. 다음 제주 여행 때도 무조건 재방문할 거예요!"
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">이*서 님 (커플 방문)</span>
+              <span class="text-gray-500">2026.07.05</span>
+            </div>
+          </div>
+
+          <!-- Review Item 4 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 방문자 리뷰</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "롯데호텔 바로 옆이라 술 한잔하고 도보로 편하게 이동할 수 있어서 최고였어요. 방 음향이 콘서트장 수준이고 소파도 엄청 폭신합니다. 강력 추천합니다!"
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">최*진 님 (친구 모임)</span>
+              <span class="text-gray-500">2026.06.29</span>
+            </div>
+          </div>
+
+          <!-- Review Item 5 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 영수증 인증</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "부모님 모시고 10명 가족 모임으로 방문했는데 방이 쾌적하고 공기청정기도 돌고 있어서 아주 쾌적했어요. 사장님이 서비스 안주까지 챙겨주셔서 너무 즐거웠습니다."
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">정*우 님 (가족 모임)</span>
+              <span class="text-gray-500">2026.06.22</span>
+            </div>
+          </div>
+
+          <!-- Review Item 6 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 블로그 후기</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "중문에서 골프 라운딩 마치고 뒤풀이 장소로 찾았는데 탁월한 선택이었습니다. 과일 화채랑 모둠 튀김 안주 퀄리티가 식당 이상으로 맛있네요!"
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">강*아 님 (골프 동호회)</span>
+              <span class="text-gray-500">2026.06.15</span>
+            </div>
+          </div>
+
+          <!-- Review Item 7 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 방문자 리뷰</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "30명 넘는 인원이 들어가는 대형룸이 중문 단지에 여기밖에 없어서 예약했는데 대만족입니다. 대형 스크린 두 개나 있어서 노래하기 아주 좋았습니다!"
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">한*수 님 (단체 회식)</span>
+              <span class="text-gray-500">2026.06.08</span>
+            </div>
+          </div>
+
+          <!-- Review Item 8 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 영수증 인증</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "신라호텔 숙박하면서 저녁 먹고 들렀는데 분위기도 신나고 마이크 소리가 정말 맑아요. 제주 여행 와서 밤에 놀기 제일 좋은 코스입니다."
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">윤*지 님 (커플 여행)</span>
+              <span class="text-gray-500">2026.05.30</span>
+            </div>
+          </div>
+
+          <!-- Review Item 9 -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex text-amber-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs text-gray-500">네이버 방문자 리뷰</span>
+              </div>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                "오랜만에 친구들과 제주도 여행 와서 목청껏 노래 부르고 스트레스 싹 풀었습니다. 주차장도 넓고 친절하셔서 기분 좋게 놀다 갑니다!"
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-4 border-t border-gray-800">
+              <span class="font-bold text-gray-200">임*호 님 (동창회 모임)</span>
+              <span class="text-gray-500">2026.05.20</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- NAVER REVIEWS DETAILED LINK BANNER BUTTON -->
+        <div class="mt-12 text-center">
+          <a href="https://pcmap.place.naver.com/place/1081862238/review?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-300 text-night-950 font-black text-base rounded-2xl shadow-neon-gold hover:scale-105 transition-all">
+            <i data-lucide="message-square-quote" class="w-5 h-5"></i>
+            <span>네이버 실시간 방문자 리뷰 전체보기</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHOTOS / GALLERY SECTION (사진 - 12개 배치: 한 줄에 3개씩 총 4줄) -->
+    <section id="photos" class="py-20 relative bg-night-900/60 border-t border-purple-900/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-cyan-400 font-semibold tracking-wider uppercase text-sm block mb-2">Gallery & Facilities</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-100">
+            별밤지기 중문점 <span class="bg-gradient-to-r from-cyan-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">시설 및 매장 갤러리</span>
+          </h2>
+          <p class="text-gray-400 mt-3 text-base">사진을 클릭하시면 <strong>2배 확대 팝업창</strong>으로 더 크고 선명하게 확인하실 수 있습니다.</p>
+        </div>
+
+        <!-- CATEGORY FILTER TABS -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+          <button class="gallery-tab active-tab px-5 py-2.5 rounded-full text-sm font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-neon-purple transition-all" data-category="all">
+            전체 보기
+          </button>
+          <button class="gallery-tab px-5 py-2.5 rounded-full text-sm font-medium glass-card text-gray-300 hover:text-white hover:border-purple-400 transition-all" data-category="room">
+            매장 & VIP룸
+          </button>
+          <button class="gallery-tab px-5 py-2.5 rounded-full text-sm font-medium glass-card text-gray-300 hover:text-white hover:border-purple-400 transition-all" data-category="food">
+            안주 & 음료
+          </button>
+          <button class="gallery-tab px-5 py-2.5 rounded-full text-sm font-medium glass-card text-gray-300 hover:text-white hover:border-purple-400 transition-all" data-category="facility">
+            시설 & 단체룸
+          </button>
+        </div>
+
+        <!-- GALLERY GRID (3 COLUMNS x 4 ROWS = 12 PHOTOS TOTAL) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+          
+          <!-- ROW 1 - PHOTO 1 (매장 & VIP룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="room" 
+               data-img="./images/exterior.png" 
+               data-title="별밤지기 중문점 야경 전경"
+               data-caption="별밤지기 중문점 야경 전경">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/exterior.png" alt="별밤지기 중문점 야경 전경" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <!-- CAPTION BADGE (EXACTLY UNDER 15 KOREAN CHARS AT BOTTOM CENTER EDGE) -->
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                별밤지기 중문점 야경 전경
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 1 - PHOTO 2 (매장 & VIP룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="room" 
+               data-img="./images/hero_main.png" 
+               data-title="별밤지기 메인 VIP 라운지"
+               data-caption="별밤지기 메인 VIP 라운지">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/hero_main.png" alt="별밤지기 메인 VIP 라운지" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                별밤지기 메인 VIP 라운지
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 1 - PHOTO 3 (매장 & VIP룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="room" 
+               data-img="./images/cozy_room.png" 
+               data-title="아늑한 가족 전용 소형룸"
+               data-caption="아늑한 가족 전용 소형룸">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/cozy_room.png" alt="아늑한 가족 전용 소형룸" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                아늑한 가족 전용 소형룸
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 2 - PHOTO 4 (매장 & VIP룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="room" 
+               data-img="./images/luxury_hall.png" 
+               data-title="화려한 미러볼 LED 복도"
+               data-caption="화려한 미러볼 LED 복도">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/luxury_hall.png" alt="화려한 미러볼 LED 복도" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                화려한 미러볼 LED 복도
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 2 - PHOTO 5 (안주 & 음료) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="food" 
+               data-img="./images/snack_set.png" 
+               data-title="수제 프리미엄 안주 세트"
+               data-caption="수제 프리미엄 안주 세트">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/snack_set.png" alt="수제 프리미엄 안주 세트" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                수제 프리미엄 안주 세트
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 2 - PHOTO 6 (안주 & 음료) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="food" 
+               data-img="./images/fruit_platter.png" 
+               data-title="신선한 계절 과일 안주"
+               data-caption="신선한 계절 과일 안주">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/fruit_platter.png" alt="신선한 계절 과일 안주" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                신선한 계절 과일 안주
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 3 - PHOTO 7 (안주 & 음료) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="food" 
+               data-img="./images/cocktail_drink.png" 
+               data-title="시원한 맥주 및 하이볼"
+               data-caption="시원한 맥주 및 하이볼">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/cocktail_drink.png" alt="시원한 맥주 및 하이볼" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                시원한 맥주 및 하이볼
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 3 - PHOTO 8 (안주 & 음료) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="food" 
+               data-img="./images/hot_soup.png" 
+               data-title="얼큰한 얼큰 오뎅탕 안주"
+               data-caption="얼큰한 얼큰 오뎅탕 안주">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/hot_soup.png" alt="얼큰한 얼큰 오뎅탕 안주" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                얼큰한 얼큰 오뎅탕 안주
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 3 - PHOTO 9 (시설 & 단체룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="facility" 
+               data-img="./images/vip_room.png" 
+               data-title="50인 수용 최첨단 단체룸"
+               data-caption="50인 수용 최첨단 단체룸">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/vip_room.png" alt="50인 수용 최첨단 단체룸" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                50인 수용 최첨단 단체룸
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 4 - PHOTO 10 (시설 & 단체룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="facility" 
+               data-img="./images/sound_system.png" 
+               data-title="최고급 무선 마이크 음향"
+               data-caption="최고급 무선 마이크 음향">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/sound_system.png" alt="최고급 무선 마이크 음향" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                최고급 무선 마이크 음향
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 4 - PHOTO 11 (시설 & 단체룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="facility" 
+               data-img="./images/stage_light.png" 
+               data-title="화려한 클럽 무대 조명"
+               data-caption="화려한 클럽 무대 조명">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/stage_light.png" alt="화려한 클럽 무대 조명" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                화려한 클럽 무대 조명
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 4 - PHOTO 12 (시설 & 단체룸) -->
+          <div class="gallery-item glass-card rounded-2xl overflow-hidden cursor-pointer group relative transition-all duration-300 hover:-translate-y-1" 
+               data-category="facility" 
+               data-img="./images/tambourine_party.png" 
+               data-title="흥겨운 무제한 템버린"
+               data-caption="흥겨운 무제한 템버린">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img src="./images/tambourine_party.png" alt="흥겨운 무제한 템버린" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-purple-950/40 backdrop-blur-xs">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-night-950 flex items-center justify-center font-bold shadow-neon-gold">
+                  <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                </div>
+              </div>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-night-950/90 border border-purple-500/40 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                흥겨운 무제한 템버린
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- NAVER PHOTO GALLERY DETAILED LINK BANNER BUTTON -->
+        <div class="mt-12 text-center">
+          <a href="https://pcmap.place.naver.com/place/1081862238/photo?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 text-white font-black text-base rounded-2xl shadow-neon-purple hover:scale-105 transition-all">
+            <i data-lucide="image" class="w-5 h-5"></i>
+            <span>네이버 플레이스 포토 갤러리 전체보기</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INFORMATION SECTION (정보) -->
+    <section id="info" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-amber-400 font-semibold tracking-wider uppercase text-sm block mb-2">Location & Details</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-100">
+            매장 정보 및 <span class="bg-gradient-to-r from-amber-300 via-pink-400 to-purple-400 bg-clip-text text-transparent">오시는 길</span>
+          </h2>
+          <p class="text-gray-400 mt-3 text-base">제주 서귀포시 중문관광단지 롯데호텔 바로 옆에 위치해 있습니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Detailed Info Cards -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6 border border-purple-500/20">
+              
+              <!-- Title & Badge -->
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-gray-800">
+                <div>
+                  <h3 class="text-2xl font-black text-gray-100">별밤지기노래타운 중문점</h3>
+                  <p class="text-sm text-purple-400 mt-1">제주 중문단지 유일한 노래주점 & 단체 예약 전문</p>
+                </div>
+                <span class="px-4 py-1.5 rounded-full bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs font-bold animate-pulse">
+                  영업중 · 매일 17:00~05:00
+                </span>
+              </div>
+
+              <!-- List Details -->
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-purple-950 text-amber-400 flex items-center justify-center shrink-0 border border-purple-500/30">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-400 font-semibold block">도로명 주소</span>
+                    <span class="text-base text-gray-100 font-bold block">제주 서귀포시 중문관광로72번길 29-9</span>
+                    <span class="text-xs text-amber-300 font-medium">※ 롯데호텔 바로 옆 위치 (도보 1분거리)</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-purple-950 text-pink-400 flex items-center justify-center shrink-0 border border-purple-500/30">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-400 font-semibold block">예약 및 문의 전화</span>
+                    <a href="tel:064-738-4001" class="text-lg text-amber-400 font-black hover:underline">064-738-4001</a>
+                    <span class="text-xs text-gray-400 block">(가족 모임 & 최대 50명 단체 예약 가능)</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-purple-950 text-cyan-400 flex items-center justify-center shrink-0 border border-purple-500/30">
+                    <i data-lucide="globe" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-400 font-semibold block">공식 블로그</span>
+                    <a href="https://blog.naver.com/26pcd" target="_blank" rel="noopener noreferrer" class="text-sm text-cyan-300 font-bold hover:underline flex items-center gap-1">
+                      <span>blog.naver.com/26pcd</span>
+                      <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AMENITIES LIST -->
+              <div class="pt-6 border-t border-gray-800">
+                <span class="text-xs text-gray-400 font-bold tracking-wider uppercase block mb-3">제공 편의 시설 & 서비스</span>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1.5 rounded-lg bg-purple-900/40 text-purple-200 text-xs font-semibold border border-purple-500/20 flex items-center gap-1.5">
+                    <i data-lucide="users" class="w-3.5 h-3.5 text-amber-400"></i> 단체 이용 가능 (50인)
+                  </span>
+                  <span class="px-3 py-1.5 rounded-lg bg-purple-900/40 text-purple-200 text-xs font-semibold border border-purple-500/20 flex items-center gap-1.5">
+                    <i data-lucide="car" class="w-3.5 h-3.5 text-pink-400"></i> 주차 시설 완비
+                  </span>
+                  <span class="px-3 py-1.5 rounded-lg bg-purple-900/40 text-purple-200 text-xs font-semibold border border-purple-500/20 flex items-center gap-1.5">
+                    <i data-lucide="calendar-check" class="w-3.5 h-3.5 text-cyan-400"></i> 사전 예약 가능
+                  </span>
+                  <span class="px-3 py-1.5 rounded-lg bg-purple-900/40 text-purple-200 text-xs font-semibold border border-purple-500/20 flex items-center gap-1.5">
+                    <i data-lucide="wifi" class="w-3.5 h-3.5 text-emerald-400"></i> 초고속 무선 인터넷
+                  </span>
+                  <span class="px-3 py-1.5 rounded-lg bg-purple-900/40 text-purple-200 text-xs font-semibold border border-purple-500/20 flex items-center gap-1.5">
+                    <i data-lucide="door-closed" class="w-3.5 h-3.5 text-purple-400"></i> 남/녀 화장실 구분
+                  </span>
+                </div>
+              </div>
+
+              <!-- KEYWORDS TAGS -->
+              <div class="pt-4 border-t border-gray-800">
+                <span class="text-xs text-gray-500 block mb-2">대표 검색 키워드</span>
+                <div class="text-xs text-gray-400 space-x-2">
+                  <span class="text-purple-300">#중문노래방</span>
+                  <span class="text-purple-300">#중문노래타운</span>
+                  <span class="text-purple-300">#중문가요주점</span>
+                  <span class="text-purple-300">#제주도가요주점</span>
+                  <span class="text-purple-300">#제주노래방</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Location Map Visual Box -->
+          <div class="lg:col-span-5">
+            <div class="glass-card p-6 rounded-3xl border border-amber-400/20 relative overflow-hidden">
+              <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden relative mb-6">
+                <img src="./images/exterior.png" alt="별밤지기 위치 전경" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/40 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-night-950/90 backdrop-blur-md border border-purple-500/30">
+                  <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                    <i data-lucide="navigation" class="w-4 h-4"></i>
+                    <span>롯데호텔 바로 옆 도보 1분거리</span>
+                  </div>
+                  <p class="text-xs text-gray-300 mt-1">제주 서귀포시 중문관광로72번길 29-9</p>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <a href="https://pcmap.place.naver.com/place/1081862238/information?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-center flex items-center justify-center gap-2 transition-all shadow-lg">
+                  <i data-lucide="info" class="w-5 h-5"></i>
+                  <span>네이버 상세 정보 페이지 바로가기</span>
+                </a>
+                <a href="https://naver.me/50BFXAk5" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-xl text-center flex items-center justify-center gap-2 transition-all shadow-lg">
+                  <i data-lucide="map" class="w-5 h-5"></i>
+                  <span>네이버 지도 / 길찾기 열기</span>
+                </a>
+                <a href="tel:064-738-4001" class="w-full py-3.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-night-950 font-black rounded-xl text-center flex items-center justify-center gap-2 transition-all shadow-neon-gold">
+                  <i data-lucide="phone-call" class="w-5 h-5"></i>
+                  <span>전화 바로 연결 (064-738-4001)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUICK LINK BANNERS (네이버 서비스 통합 배너 연결) -->
+    <section class="py-16 bg-gradient-to-b from-night-950 via-night-900 to-night-950 border-t border-purple-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-10">
+          <h3 class="text-2xl sm:text-3xl font-bold text-gray-100">공식 플랫폼 & 바로가기 서비스 배너</h3>
+          <p class="text-sm text-gray-400 mt-2">네이버 플레이스 각 카테고리별 공식 사이트로 바로 연결됩니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          
+          <!-- Naver Home Banner -->
+          <a href="https://pcmap.place.naver.com/place/1081862238/home?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all flex items-center justify-between group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30 group-hover:scale-110 transition-transform">
+                <i data-lucide="home" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-xs text-purple-400 font-bold uppercase tracking-wider">Naver Place</span>
+                <h4 class="text-base font-extrabold text-gray-100 group-hover:text-purple-300 transition-colors">네이버 홈 바로가기</h4>
+                <p class="text-xs text-gray-400 mt-0.5">기본 안내 및 공식 플레이스</p>
+              </div>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+
+          <!-- Naver Feed Banner -->
+          <a href="https://pcmap.place.naver.com/place/1081862238/feed?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl border border-pink-500/30 hover:border-pink-400 transition-all flex items-center justify-between group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center shrink-0 border border-pink-500/30 group-hover:scale-110 transition-transform">
+                <i data-lucide="rss" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-xs text-pink-400 font-bold uppercase tracking-wider">Naver Feed</span>
+                <h4 class="text-base font-extrabold text-gray-100 group-hover:text-pink-300 transition-colors">네이버 소식 바로가기</h4>
+                <p class="text-xs text-gray-400 mt-0.5">실시간 매장 소식 피드</p>
+              </div>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-pink-400 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+
+          <!-- Naver Review Banner -->
+          <a href="https://pcmap.place.naver.com/place/1081862238/review?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl border border-amber-500/30 hover:border-amber-400 transition-all flex items-center justify-between group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/30 group-hover:scale-110 transition-transform">
+                <i data-lucide="message-square-quote" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-xs text-amber-400 font-bold uppercase tracking-wider">Naver Reviews</span>
+                <h4 class="text-base font-extrabold text-gray-100 group-hover:text-amber-300 transition-colors">네이버 리뷰 바로가기</h4>
+                <p class="text-xs text-gray-400 mt-0.5">방문자 생생 리뷰 평점</p>
+              </div>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-amber-400 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+
+          <!-- Naver Photo Banner -->
+          <a href="https://pcmap.place.naver.com/place/1081862238/photo?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all flex items-center justify-between group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 border border-cyan-500/30 group-hover:scale-110 transition-transform">
+                <i data-lucide="image" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Naver Photos</span>
+                <h4 class="text-base font-extrabold text-gray-100 group-hover:text-cyan-300 transition-colors">네이버 사진 바로가기</h4>
+                <p class="text-xs text-gray-400 mt-0.5">매장 내부 및 메뉴 포토</p>
+              </div>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-cyan-400 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+
+          <!-- Naver Information Banner -->
+          <a href="https://pcmap.place.naver.com/place/1081862238/information?bk_query=%EC%A4%91%EB%AC%B8%EB%85%B8%EB%9E%98%ED%83%80%EC%9A%B4" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-400 transition-all flex items-center justify-between group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30 group-hover:scale-110 transition-transform">
+                <i data-lucide="info" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Naver Info</span>
+                <h4 class="text-base font-extrabold text-gray-100 group-hover:text-emerald-300 transition-colors">네이버 정보 바로가기</h4>
+                <p class="text-xs text-gray-400 mt-0.5">주소 · 영업시간 · 주차 안내</p>
+              </div>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-emerald-400 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+
+          <!-- Naver Official Blog Banner -->
+          <a href="https://m.blog.naver.com/26pcd/221510735840" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all flex items-center justify-between group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/30 group-hover:scale-110 transition-transform">
+                <i data-lucide="book-open" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-xs text-purple-400 font-bold uppercase tracking-wider">Naver Official Blog</span>
+                <h4 class="text-base font-extrabold text-gray-100 group-hover:text-purple-300 transition-colors">네이버 공식 블로그</h4>
+                <p class="text-xs text-gray-400 mt-0.5">별밤지기 공식 블로그 포스팅</p>
+              </div>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-purple-400 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (저작권 표시 하단 중앙) -->
+  <footer class="bg-night-950 border-t border-purple-900/30 py-12 text-center text-gray-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 space-y-4">
+      
+      <!-- Footer Logo & Store Name -->
+      <div class="flex items-center justify-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-amber-400 p-0.5 shadow-neon-purple">
+          <div class="w-full h-full bg-night-950 rounded-[6px] flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.8 2.5.9-5.3-3.8-3.7 5.3-.8z"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-lg font-bold text-gray-200">별밤지기노래타운 중문점</span>
+      </div>
+
+      <!-- Footer Info Lines -->
+      <div class="text-xs text-gray-500 space-y-1">
+        <p>상호명: 별밤지기노래타운 중문점 | 대표전화: <a href="tel:064-738-4001" class="text-amber-400 font-bold hover:underline">064-738-4001</a></p>
+        <p>주소: 제주 서귀포시 중문관광로72번길 29-9 (중문단지 롯데호텔 바로 옆)</p>
+      </div>
+
+      <!-- Copyright Centered -->
+      <div class="pt-4 border-t border-gray-900 text-xs font-medium text-gray-500">
+        © 별밤지기노래타운 중문점. All Rights Reserved.
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- LIGHTBOX MODAL POPUP (2X ENLARGED IMAGE POPUP WITH TOP-RIGHT CLOSE BUTTON) -->
+  <div id="image-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 md:p-10 modal-backdrop bg-night-950/90 backdrop-blur-xl">
+    
+    <!-- TOP RIGHT CLOSE BUTTON -->
+    <button id="modal-close-btn" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 p-3 rounded-full bg-purple-900/80 text-gray-200 hover:text-white hover:bg-pink-600 border border-purple-400/40 shadow-neon-pink transition-all">
+      <i data-lucide="x" class="w-7 h-7"></i>
+    </button>
+
+    <!-- Modal Card Box (Enlarged 2x view) -->
+    <div class="modal-box relative max-w-4xl w-full bg-night-900 border border-purple-500/30 rounded-3xl overflow-hidden shadow-2xl scale-95 opacity-0">
+      
+      <!-- Modal Image Container -->
+      <div class="relative w-full max-h-[75vh] bg-black flex items-center justify-center overflow-hidden">
+        <img id="modal-img" src="" alt="확대 이미지" class="w-full h-full object-contain max-h-[75vh]">
+      </div>
+
+      <!-- Modal Bottom Information Footer -->
+      <div class="p-6 bg-night-950 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-purple-900/40">
+        <div>
+          <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">상세 확대 이미지</span>
+          <h4 id="modal-title" class="text-xl font-bold text-gray-100">이미지 제목</h4>
+          <p id="modal-caption" class="text-sm text-amber-300 font-medium mt-0.5">캡션 내용</p>
+        </div>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="tel:064-738-4001" class="px-5 py-2.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-night-950 font-bold text-sm rounded-xl flex items-center gap-2 shadow-neon-gold">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>예약 문의</span>
+          </a>
+          <button id="modal-close-btn-bottom" class="px-4 py-2.5 glass-card text-gray-300 text-sm font-bold rounded-xl hover:bg-purple-900/40">
+            닫기
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT FOR INTERACTIVITY -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Gallery Category Filter
+    const filterTabs = document.querySelectorAll('.gallery-tab');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.getAttribute('data-category');
+
+        filterTabs.forEach(t => {
+          t.classList.remove('bg-gradient-to-r', 'from-purple-600', 'to-pink-600', 'text-white', 'shadow-neon-purple');
+          t.classList.add('glass-card', 'text-gray-300');
+        });
+
+        tab.classList.remove('glass-card', 'text-gray-300');
+        tab.classList.add('bg-gradient-to-r', 'from-purple-600', 'to-pink-600', 'text-white', 'shadow-neon-purple');
+
+        galleryItems.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Image Modal Lightbox Popup (2x Enlarged view)
+    const imageModal = document.getElementById('image-modal');
+    const modalBox = imageModal?.querySelector('.modal-box');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCaption = document.getElementById('modal-caption');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalCloseBtnBottom = document.getElementById('modal-close-btn-bottom');
+
+    function openModal(imgSrc, title, caption) {
+      modalImg.src = imgSrc;
+      modalTitle.textContent = title;
+      modalCaption.textContent = caption;
+
+      imageModal.classList.remove('hidden');
+      setTimeout(() => {
+        modalBox.classList.remove('scale-95', 'opacity-0');
+        modalBox.classList.add('scale-100', 'opacity-100');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalBox.classList.remove('scale-100', 'opacity-100');
+      modalBox.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        imageModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 200);
+    }
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const imgSrc = item.getAttribute('data-img');
+        const title = item.getAttribute('data-title');
+        const caption = item.getAttribute('data-caption');
+        openModal(imgSrc, title, caption);
+      });
+    });
+
+    modalCloseBtn?.addEventListener('click', closeModal);
+    modalCloseBtnBottom?.addEventListener('click', closeModal);
+    imageModal?.addEventListener('click', (e) => {
+      if (e.target === imageModal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  </script>
+
+  <!-- Floating Exit Button -->
+  <style>
+    .exit-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background-color: #111827; /* gray-900 */
+      color: #ffffff;
+      width: 56px; /* w-14 */
+      height: 56px; /* h-14 */
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+      transition: all 0.2s ease-in-out;
+      border: 2px solid rgba(255, 255, 255, 0.2); /* border-white/20 */
+      text-decoration: none;
+    }
+
+    .exit-button:hover {
+      background-color: #dc2626; /* red-600 */
+      transform: scale(1.1);
+      color: #ffffff;
+    }
+
+    .exit-button-text {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.05em; /* tracking-wider */
+    }
+  </style>
+  <a href="../#portfolio" class="exit-button" title="나가기">
+    <span class="exit-button-text">나가기</span>
+  </a>
+
+</body>
+</html>

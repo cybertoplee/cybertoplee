@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하나꽃집 | 답례품 & 선물 전문 브랜드</title>
+    <meta name="description" content="프리미엄 플라워 디자인, 단체 답례품, 기념일 꽃선물 및 싱그러운 반려 식물이 함께하는 하나꽃집 공식 홈페이지.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif']
+                    },
+                    colors: {
+                        flower: {
+                            light: '#f4f8f5',
+                            primary: '#2d6a4f',
+                            dark: '#1b4332',
+                            accent: '#40916c',
+                            bg: '#eef5f0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-subtle-pulse {
+            animation: subtlePulse 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-emerald-50/50 antialiased font-sans text-gray-800">
+
+    <!-- Top Navigation Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-emerald-900/10 shadow-xs transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Name -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-800 flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-leaf text-lg"></i>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-emerald-950">하나꽃집</span>
+                </a>
+
+                <!-- Navigation Menu (Includes '찾아오시는 길' & Special UI '🎁 답례품/선물코너') -->
+                <nav class="hidden lg:flex items-center gap-5 xl:gap-7">
+                    <a href="#home" class="font-bold text-sm text-gray-700 hover:text-emerald-800 transition-colors">홈</a>
+                    <a href="#menu" class="font-bold text-sm text-gray-700 hover:text-emerald-800 transition-colors">꽃상품/클래스</a>
+                    <a href="#photo" class="font-bold text-sm text-gray-700 hover:text-emerald-800 transition-colors">플라워 갤러리</a>
+                    <a href="#info" class="font-bold text-sm text-gray-700 hover:text-emerald-800 transition-colors">매장 정보</a>
+                    <a href="#review" class="font-bold text-sm text-gray-700 hover:text-emerald-800 transition-colors">구매 후기</a>
+                    <a href="#reservation" class="font-bold text-sm text-gray-700 hover:text-emerald-800 transition-colors">예약/주문</a>
+                    <a href="#location" class="px-3.5 py-2 bg-emerald-800 text-white rounded-full font-bold text-xs hover:bg-emerald-900 shadow-xs transition-all flex items-center gap-1">
+                        <i class="fa-solid fa-location-dot"></i> 찾아오시는 길
+                    </a>
+                    
+                    <!-- SPECIAL UI/UX MENU ITEM: 답례품/선물코너 -->
+                    <a href="#gift" class="px-4 py-2 bg-gradient-to-r from-amber-500 via-rose-500 to-emerald-600 text-white rounded-full font-black text-xs hover:shadow-lg transition-all animate-subtle-pulse flex items-center gap-1.5 shadow-md ring-2 ring-amber-300/50">
+                        <i class="fa-solid fa-gift text-sm"></i>
+                        <span>답례품/선물코너</span>
+                        <span class="bg-white/30 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">HOT</span>
+                    </a>
+                </nav>
+
+                <!-- Dual Page Switcher -->
+                <div class="flex items-center gap-3">
+                    <div class="bg-gray-100 p-1.5 rounded-full flex items-center gap-1 shadow-inner border border-gray-200">
+                        <a href="index.html" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-gray-600 hover:text-amber-800 transition-colors flex items-center gap-1.5">
+                            <i class="fa-solid fa-coffee"></i> 하나북카페
+                        </a>
+                        <a href="flower.html" class="px-3.5 py-1.5 rounded-full text-xs font-black bg-emerald-800 text-white shadow-md flex items-center gap-1.5">
+                            <i class="fa-solid fa-leaf"></i> 하나꽃집
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-xl">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+        <div class="absolute right-0 top-0 bottom-0 w-72 bg-white p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 overflow-y-auto">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-gray-100 mb-4">
+                    <span class="font-bold text-emerald-900 flex items-center gap-2">
+                        <i class="fa-solid fa-leaf"></i> 하나꽃집
+                    </span>
+                    <button id="mobile-menu-close" class="p-2 text-gray-400 hover:text-gray-900">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-3">
+                    <a href="#home" class="mobile-nav-link text-gray-700 font-bold py-2 hover:text-emerald-800">홈</a>
+                    <a href="#menu" class="mobile-nav-link text-gray-700 font-bold py-2 hover:text-emerald-800">꽃상품/클래스</a>
+                    <a href="#gift" class="mobile-nav-link text-amber-700 font-black py-2.5 px-3 bg-amber-50 rounded-xl flex items-center gap-2">
+                        <i class="fa-solid fa-gift text-rose-500"></i> 답례품/선물코너 <span class="bg-rose-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">NEW</span>
+                    </a>
+                    <a href="#photo" class="mobile-nav-link text-gray-700 font-bold py-2 hover:text-emerald-800">플라워 갤러리</a>
+                    <a href="#info" class="mobile-nav-link text-gray-700 font-bold py-2 hover:text-emerald-800">매장 정보</a>
+                    <a href="#review" class="mobile-nav-link text-gray-700 font-bold py-2 hover:text-emerald-800">구매 후기</a>
+                    <a href="#reservation" class="mobile-nav-link text-gray-700 font-bold py-2 hover:text-emerald-800">예약/주문</a>
+                    <a href="#location" class="mobile-nav-link text-emerald-800 font-black py-2 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot"></i> 찾아오시는 길
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="pt-4 border-t border-gray-100">
+                <a href="index.html" class="w-full py-3 bg-amber-800 text-white font-bold rounded-xl text-center flex items-center justify-center gap-2 shadow-md">
+                    <i class="fa-solid fa-coffee"></i> 하나북카페 이동하기
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <main class="pt-20">
+
+        <!-- 1. HERO SECTION -->
+        <section id="home" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 flex transition-all duration-1000 scale-105 group">
+                <div class="w-1/2 h-full bg-cover bg-[center_30%] border-r-[2px] border-white/20 transition-transform duration-[20000ms] ease-out group-hover:scale-110" style="background-image: url('image/flower/hero_flower_left.jpg');"></div>
+                <div class="w-1/2 h-full bg-cover bg-[center_30%] transition-transform duration-[20000ms] ease-out group-hover:scale-110" style="background-image: url('image/flower/hero_flower_right.jpg');"></div>
+            </div>
+            
+            <div class="absolute inset-0 bg-black/45 z-10"></div>
+
+            <div class="relative z-20 max-w-5xl mx-auto px-4 text-center text-white py-16">
+                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-white/15 backdrop-blur-md border border-white/20">
+                    Flower & Gardening & Gift
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight mb-6 leading-tight">
+                    하나꽃집 | 일상에 향기를 더합니다
+                </h1>
+                <p class="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                    프리미엄 플라워 디자인과 싱그러운 반려 식물, 맞춤 답례품 & 감동 선물을 경험하세요.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#gift" class="px-8 py-4 bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white rounded-xl font-black shadow-xl transition-all hover:scale-105 flex items-center gap-2">
+                        <i class="fa-solid fa-gift"></i> 답례품 & 선물 코너 구경하기
+                    </a>
+                    <a href="#location" class="px-8 py-4 bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-xl font-bold hover:bg-white/30 transition-all hover:scale-105 flex items-center gap-2">
+                        <i class="fa-solid fa-map-pin"></i> 찾아오시는 길
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. MENU SECTION -->
+        <section id="menu" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">하나꽃집 대표 상품 & 클래스</h2>
+                    <div class="w-16 h-1.5 bg-emerald-800 mx-auto rounded-full"></div>
+                    <p class="mt-4 text-gray-600 text-base">공기정화 식물, 감동의 꽃선물 및 원데이 플라워 클래스를 만나보세요.</p>
+                </div>
+
+                <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- JavaScript Dynamic Render -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SPECIAL GIFT & RETURN GIFT SECTION (답례품/선물 코너 - 12개 3칸x4줄 구성) -->
+        <section id="gift" class="py-24 bg-gradient-to-b from-amber-50/60 via-rose-50/40 to-emerald-50/50 border-y border-amber-900/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-amber-500 to-rose-500 text-white rounded-full text-xs font-black shadow-md mb-4 uppercase tracking-wider">
+                        <i class="fa-solid fa-gift"></i> Premium Gift Collection
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight mb-4">
+                        답례품 & 선물 전용 코너
+                    </h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-amber-500 to-emerald-600 mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-600 text-base max-w-2xl mx-auto leading-relaxed">
+                        결혼식, 돌잔치, 기업 행사를 위한 <strong class="text-amber-800">맞춤 답례품 코너</strong>부터 생일, 기념일, 승진, 프로포즈를 위한 <strong class="text-emerald-800">감동 선물 코너</strong>까지 한눈에 만나보세요!
+                    </p>
+                </div>
+
+                <!-- CATEGORY 1: 답례품 코너 (Return Gifts Corner - 6 items: 3 per row x 2 rows) -->
+                <div class="mb-20">
+                    <div class="flex items-center gap-3 mb-8 pb-3 border-b-2 border-amber-500/30">
+                        <div class="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
+                            <i class="fa-solid fa-gifts"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-gray-900">🎁 답례품 코너 (Return Gifts)</h3>
+                            <p class="text-xs text-gray-500">결혼식, 돌잔치, 회갑연, 기업 단체 행사 맞춤 선물</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Gift Item 1 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-amber-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/gift_wedding_return.png" alt="결혼식 하객 답례품" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        웨딩 답례품
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-amber-700 font-bold mb-2">
+                                        <span>대상: 하객 맞춤</span>
+                                        <span><i class="fa-solid fa-star text-amber-400"></i> 만족도 5.0</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-amber-700 transition-colors">결혼식 하객 답례품 (럭셔리 미니 화분)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">소중한 하객분들께 감사의 마음을 담아 전하는 고급 실크 리본 장식 미니 화분 세트</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-amber-800">수량: 대량/소량 제작</span>
+                                <a href="#reservation" class="px-4 py-2 bg-amber-500 text-white text-xs font-black rounded-xl hover:bg-amber-600 transition-colors shadow-sm">
+                                    답례품 문의
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Gift Item 2 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-amber-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/gift_first_birthday.png" alt="돌잔치 감사 답례품" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-rose-500 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        돌잔치 답례품
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-rose-700 font-bold mb-2">
+                                        <span>대상: 돌잔치 손님</span>
+                                        <span><i class="fa-solid fa-star text-amber-400"></i> 인기 폭발</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-rose-700 transition-colors">돌잔치 감사 답례품 (미니 다육이)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">아기의 첫 돌 축하 손님을 위한 사랑스러운 크라프트 파우치 미니 다육이 패키지</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-rose-800">포장: 아기 라벨 무료</span>
+                                <a href="#reservation" class="px-4 py-2 bg-rose-500 text-white text-xs font-black rounded-xl hover:bg-rose-600 transition-colors shadow-sm">
+                                    답례품 문의
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Gift Item 3 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-amber-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/KakaoTalk_20260713_194816093.jpg" alt="기업 행사 답례품" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        기업 답례품
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-blue-700 font-bold mb-2">
+                                        <span>대상: 임직원/고객</span>
+                                        <span><i class="fa-solid fa-briefcase"></i> 비즈니스 전용</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">기업 창립기념 답례품 (보틀 디퓨저)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">기업 로고 각인 라벨과 고급 프리저브드 플라워가 들어간 디퓨저 답례품 세트</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-blue-800">각인: 기업로고 지원</span>
+                                <a href="#reservation" class="px-4 py-2 bg-blue-600 text-white text-xs font-black rounded-xl hover:bg-blue-700 transition-colors shadow-sm">
+                                    답례품 문의
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Gift Item 4 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-amber-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/KakaoTalk_20260713_194816093_01.jpg" alt="회갑 고희연 답례품" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        가족 행사 답례품
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-purple-700 font-bold mb-2">
+                                        <span>대상: 어르신/가족</span>
+                                        <span><i class="fa-solid fa-heart"></i> 정성 가득</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">회갑·고희연 답례품 (보자기 수국)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">어르신들의 건강과 장수를 기원하는 우아한 한국식 전통 보자기 수국 포장 선물</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-purple-800">포장: 전통 보자기</span>
+                                <a href="#reservation" class="px-4 py-2 bg-purple-600 text-white text-xs font-black rounded-xl hover:bg-purple-700 transition-colors shadow-sm">
+                                    답례품 문의
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Gift Item 5 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-amber-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/KakaoTalk_20260713_194816093_06.jpg" alt="VIP 세미나 답례품" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-emerald-700 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        VIP 전용 답례품
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-emerald-800 font-bold mb-2">
+                                        <span>대상: VIP 초청객</span>
+                                        <span><i class="fa-solid fa-gem"></i> 프리미엄</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-emerald-800 transition-colors">VIP 초청 답례품 (원목 트레이 세트)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">원목 트레이와 고급 화이트 로즈 센트 보틀이 어우러진 최고급 수제 답례품</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-emerald-900">제작: 100% 수제</span>
+                                <a href="#reservation" class="px-4 py-2 bg-emerald-700 text-white text-xs font-black rounded-xl hover:bg-emerald-800 transition-colors shadow-sm">
+                                    답례품 문의
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Gift Item 6 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-amber-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/KakaoTalk_20260713_194816093_07.jpg" alt="소모임 단체 답례품" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-amber-700 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        소모임 답례품
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-amber-800 font-bold mb-2">
+                                        <span>대상: 동호회/동창회</span>
+                                        <span><i class="fa-solid fa-thumbs-up"></i> 가성비 최고</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-amber-800 transition-colors">소모임 답례품 (미니 유칼립투스 다발)</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">부담 없이 정성을 전달할 수 있는 싱그러운 미니 유칼립투스 & 엽서 답례품</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-amber-900">혜택: 메시지 카드 포함</span>
+                                <a href="#reservation" class="px-4 py-2 bg-amber-700 text-white text-xs font-black rounded-xl hover:bg-amber-800 transition-colors shadow-sm">
+                                    답례품 문의
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: 선물 코너 (Special Presents Corner - 6 items: 3 per row x 2 rows) -->
+                <div>
+                    <div class="flex items-center gap-3 mb-8 pb-3 border-b-2 border-emerald-600/30">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold shadow-md">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-gray-900">💝 선물 코너 (Special Presents)</h3>
+                            <p class="text-xs text-gray-500">생일, 기념일, 프로포즈, 승진, 어버이날 맞춤 명품 플라워 선물</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Present Item 7 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-emerald-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/flower_menu_2.jpg" alt="생일 축하 감동 꽃다발" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-emerald-700 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        생일 선물
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-emerald-800 font-bold mb-2">
+                                        <span>대상: 연인/가족</span>
+                                        <span><i class="fa-solid fa-crown text-amber-400"></i> BEST 선물</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors">생일 축하 대형 감동 꽃다발</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">특별한 생일을 영원히 기억하게 해주는 화사한 파스텔 생화 디자인 꽃다발</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-emerald-900">배송: 당일 픽업/배달</span>
+                                <a href="#reservation" class="px-4 py-2 bg-emerald-700 text-white text-xs font-black rounded-xl hover:bg-emerald-800 transition-colors shadow-sm">
+                                    선물 예약
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Present Item 8 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-emerald-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/KakaoTalk_20260713_194816093_02.jpg" alt="결혼기념일 플라워 박스" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-rose-600 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        기념일 선물
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-rose-700 font-bold mb-2">
+                                        <span>대상: 배우자/연인</span>
+                                        <span><i class="fa-solid fa-heart text-rose-500"></i> 로맨틱 극치</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-rose-700 transition-colors">결혼기념일 럭셔리 플라워 박스</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">박스를 연 순간 100% 프리미엄 생화 장미와 플라워 볼이 선물하는 잊지 못할 서프라이즈</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-rose-800">옵션: 용돈 박스 변경가능</span>
+                                <a href="#reservation" class="px-4 py-2 bg-rose-600 text-white text-xs font-black rounded-xl hover:bg-rose-700 transition-colors shadow-sm">
+                                    선물 예약
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Present Item 9 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-emerald-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/flower_menu_4.jpg" alt="어버이날 카네이션 바구니" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        어버이날 선물
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-amber-800 font-bold mb-2">
+                                        <span>대상: 부모님/선생님</span>
+                                        <span><i class="fa-solid fa-face-smile text-amber-500"></i> 감동 보장</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-amber-700 transition-colors">어버이날 명품 카네이션 바구니</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">부모님께 감사 마음을 표현하는 풍성한 수제 카네이션 & 공기정화 식물 바구니</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-amber-900">선물: 용돈 리본 장식</span>
+                                <a href="#reservation" class="px-4 py-2 bg-amber-600 text-white text-xs font-black rounded-xl hover:bg-amber-700 transition-colors shadow-sm">
+                                    선물 예약
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Present Item 10 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-emerald-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/KakaoTalk_20260713_194816093_04.jpg" alt="졸업식 축하 꽃다발" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-yellow-500 text-gray-950 px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        졸업/입학 선물
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-yellow-700 font-bold mb-2">
+                                        <span>대상: 학생/자녀</span>
+                                        <span><i class="fa-solid fa-camera"></i> 인생샷 보장</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">졸업식 감성 튤립 꽃다발</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">새 출발을 축하하는 화사한 노랑 튤립과 싱그러운 그린 소재가 가득한 졸업 꽃다발</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-yellow-800">추천: 학사모 피규어</span>
+                                <a href="#reservation" class="px-4 py-2 bg-yellow-500 text-gray-950 text-xs font-black rounded-xl hover:bg-yellow-400 transition-colors shadow-sm">
+                                    선물 예약
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Present Item 11 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-emerald-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/flower_menu_1.jpg" alt="승진 개업 난 화분" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-emerald-800 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        승진/개업 선물
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-emerald-800 font-bold mb-2">
+                                        <span>대상: 비즈니스/지인</span>
+                                        <span><i class="fa-solid fa-building"></i> 품격 최고</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-emerald-800 transition-colors">승진·개업 축하 서양란 & 고급 화분</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">사업의 대박과 승진을 축하하는 고급 도자기 화분에 담긴 명품 서양란 세트</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-emerald-950">리본: 리본 문구 무료</span>
+                                <a href="#reservation" class="px-4 py-2 bg-emerald-800 text-white text-xs font-black rounded-xl hover:bg-emerald-900 transition-colors shadow-sm">
+                                    선물 예약
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Present Item 12 -->
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-emerald-100 group flex flex-col justify-between">
+                            <div>
+                                <div class="h-64 overflow-hidden relative">
+                                    <img src="image/flower/flower_menu_6.jpg" alt="프로포즈 하트 포토존 선물" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                                        프로포즈 선물
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between text-xs text-pink-700 font-bold mb-2">
+                                        <span>대상: 프로포즈 상대</span>
+                                        <span><i class="fa-solid fa-ring"></i> 고백 성공률 100%</span>
+                                    </div>
+                                    <h4 class="text-xl font-black text-gray-900 mb-2 group-hover:text-pink-600 transition-colors">프로포즈 하트 로즈 & 베어 선물 패키지</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">고백하는 순간을 평생의 추억으로 만들어 주는 스페셜 하트 장미 스탠드 & 플라워 베어</p>
+                                </div>
+                            </div>
+                            <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-xs font-extrabold text-pink-800">특전: 하트 포토존 대관</span>
+                                <a href="#reservation" class="px-4 py-2 bg-pink-600 text-white text-xs font-black rounded-xl hover:bg-pink-700 transition-colors shadow-sm">
+                                    선물 예약
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. PHOTO / GALLERY SECTION -->
+        <section id="photo" class="py-24 bg-emerald-50/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight mb-3">하나꽃집 플라워 갤러리</h2>
+                        <div class="w-16 h-1.5 bg-emerald-800 rounded-full"></div>
+                    </div>
+                    <p id="gallery-count" class="text-sm font-bold text-gray-500"></p>
+                </div>
+
+                <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- JavaScript Dynamic Render -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. INFORMATION SECTION -->
+        <section id="info" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">매장 및 식물 안내</h2>
+                    <div class="w-16 h-1.5 bg-emerald-800 mx-auto rounded-full"></div>
+                    <p class="mt-4 text-gray-600 text-base">매장 서비스 및 편의시설 안내입니다.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Government Support Banner -->
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-xs">
+                        <div class="w-16 h-16 bg-emerald-800 rounded-2xl flex items-center justify-center text-white text-2xl shrink-0 shadow-md">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-emerald-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">민생에플러스+</span>
+                                <span class="text-xs text-emerald-900 font-bold">행정안전부 공식 가맹점</span>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-bold text-emerald-950 mb-2">고유가 피해지원금 사용 가능 매장 (신용·체크 카드)</h3>
+                            <p class="text-sm text-emerald-900 leading-relaxed">
+                                다양한 꽃선물 및 화분 구매 시 카드사 피해지원금 결제가 가능합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Amenities Grid -->
+                    <div class="bg-gray-50 p-8 rounded-3xl shadow-xs border border-gray-100">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-gray-900">
+                            <i class="fa-solid fa-seedling text-emerald-800"></i> 제공 편의시설 & 서비스
+                        </h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-5 gap-x-4">
+                            <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-store text-emerald-800 w-5"></i> <strong>건물 1층 위치</strong></div>
+                            <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-gift text-emerald-600 w-5"></i> 맞춤 답례품/선물 제작</div>
+                            <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-truck text-emerald-800 w-5"></i> 전국 꽃배달 서비스</div>
+                            <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-graduation-cap text-blue-500 w-5"></i> 플라워 원데이 클래스</div>
+                            <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-calendar-check text-green-600 w-5"></i> 기념일 사전 예약</div>
+                            <div class="flex items-center gap-2.5 text-gray-700 text-sm sm:text-base"><i class="fa-solid fa-wifi text-blue-400 w-5"></i> 무선 인터넷</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. REVIEWS SECTION -->
+        <section id="review" class="py-24 bg-emerald-50/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">고객 구매 후기</h2>
+                    <div class="w-16 h-1.5 bg-emerald-800 mx-auto rounded-full"></div>
+                    <p class="mt-4 text-gray-600 text-base">하나꽃집을 이용해주신 고객님들의 감동적인 후기입니다.</p>
+                </div>
+
+                <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <!-- JavaScript Dynamic Render (9 reviews: 3x3) -->
+                </div>
+
+                <!-- REVIEW BOTTOM ACTION LINK BANNER -->
+                <div class="max-w-4xl mx-auto">
+                    <a href="https://pcmap.place.naver.com/place/2005144997/review?fromPanelNum=1&additionalHeight=76&timestamp=202607130915&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer" class="relative group rounded-3xl overflow-hidden shadow-xl flex flex-col sm:flex-row items-center justify-between p-8 sm:p-10 border border-emerald-900/20 text-white transition-all transform hover:-translate-y-1">
+                        <div class="absolute inset-0 z-0">
+                            <img src="image/flower/KakaoTalk_20260713_194816093_03.jpg" alt="하나꽃집 배너 배경" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-900/80 to-emerald-950/90"></div>
+                        </div>
+
+                        <div class="relative z-10 space-y-2 text-center sm:text-left mb-6 sm:mb-0">
+                            <span class="inline-block px-3 py-1 bg-emerald-400 text-emerald-950 text-xs font-black rounded-full uppercase tracking-wider">Naver Place Review</span>
+                            <h3 class="text-2xl sm:text-3xl font-black text-white">네이버 실시간 추가 구매 후기 확인하기</h3>
+                            <p class="text-emerald-100 text-xs sm:text-sm font-medium">네이버 플레이스 공식 페이지에서 방문자들의 최근 구매 후기를 더 확인해 보세요.</p>
+                        </div>
+
+                        <div class="relative z-10 shrink-0">
+                            <span class="px-6 py-3.5 bg-emerald-400 text-emerald-950 font-black text-sm rounded-xl shadow-md hover:bg-emerald-300 transition-colors inline-flex items-center gap-2">
+                                <span>더많은 후기 보기</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. RESERVATION SECTION -->
+        <section id="reservation" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-emerald-900 text-white p-8 sm:p-12 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="max-w-2xl">
+                        <span class="text-xs font-bold text-emerald-300 uppercase tracking-widest block mb-2">Order & Flower Class</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold mb-4">답례품 대량 제작 & 감동 꽃선물 예약</h3>
+                        <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+                            건물 1층 하나꽃집의 맞춤 답례품 대량 주문, 기념일 꽃선물 제작 및 원데이 클래스를 네이버에서 쉽게 예약하세요.
+                        </p>
+                    </div>
+                    <a href="https://pcmap.place.naver.com/place/2005144997/home?fromPanelNum=1&additionalHeight=76&timestamp=202607130915&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-emerald-400 text-emerald-950 font-extrabold text-base rounded-2xl shadow-lg hover:bg-emerald-300 transition-all shrink-0 flex items-center gap-2">
+                        <i class="fa-solid fa-gift"></i> 네이버 답례품/선물 예약
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. LOCATION & DIRECTIONS SECTION (찾아오시는 길) -->
+        <section id="location" class="py-24 bg-emerald-50/50 border-t border-emerald-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-emerald-800 font-bold text-xs uppercase tracking-widest block mb-2">Location & Map</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">찾아오시는 길</h2>
+                    <div class="w-16 h-1.5 bg-emerald-800 mx-auto rounded-full"></div>
+                    <p class="mt-4 text-gray-600 text-base">하나꽃집 위치 및 주차 안내입니다. <strong>(하나꽃집은 건물 1층에 위치해 있습니다)</strong></p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Info Card -->
+                    <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-emerald-100 space-y-6 shadow-xs">
+                        <div class="flex items-center gap-3 pb-6 border-b border-gray-100">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-800 text-white flex items-center justify-center text-xl shadow-md">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">하나꽃집 <span class="text-emerald-800 font-extrabold">(1층)</span></h3>
+                                <p class="text-xs text-emerald-800 font-semibold">일상에 향기를 더합니다 · 건물 1층</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-gray-700">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-800 mt-1 w-5 text-center text-base"></i>
+                                <div>
+                                    <strong class="block text-gray-900 font-bold">매장 주소 및 층수</strong>
+                                    <span class="text-base text-emerald-950 font-black">제주특별자치도 제주시 연북로 건물 1층</span>
+                                    <span class="text-xs text-gray-500 block">※ 1층은 하나꽃집, 2층은 하나북카페입니다.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-phone text-emerald-800 mt-1 w-5 text-center text-base"></i>
+                                <div>
+                                    <strong class="block text-gray-900 font-bold">대표 전화</strong>
+                                    <a href="tel:0507-1321-5611" class="text-emerald-900 font-extrabold hover:underline text-base">0507-1321-5611</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-clock text-emerald-800 mt-1 w-5 text-center text-base"></i>
+                                <div>
+                                    <strong class="block text-gray-900 font-bold">영업 시간</strong>
+                                    <span>매일 10:00 ~ 20:00 (일요일 예약제 운영)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-square-parking text-emerald-800 mt-1 w-5 text-center text-base"></i>
+                                <div>
+                                    <strong class="block text-gray-900 font-bold">주차 안내</strong>
+                                    <span>매장 앞 주차 및 식물 수령 시 픽업 전용 주차 가능</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-100">
+                            <a href="https://pcmap.place.naver.com/place/2005144997/home?fromPanelNum=1&additionalHeight=76&timestamp=202607130915&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-center flex items-center justify-center gap-2 shadow-md transition-all">
+                                <i class="fa-solid fa-map"></i> 네이버 지도 길찾기 (1층)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map Box -->
+                    <div class="lg:col-span-7 bg-gray-100 rounded-3xl overflow-hidden shadow-md border border-gray-200 aspect-[16/10] relative">
+                        <img src="image/flower/KakaoTalk_20260713_194816093_03.jpg" alt="하나꽃집 1층 매장 전경" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center p-6 text-center text-white">
+                            <div class="bg-white/90 backdrop-blur-md text-gray-900 p-6 rounded-2xl shadow-xl max-w-sm space-y-3">
+                                <i class="fa-solid fa-location-dot text-emerald-800 text-3xl"></i>
+                                <h4 class="font-black text-lg text-gray-900">하나꽃집 (건물 1층)</h4>
+                                <p class="text-xs text-gray-600">제주 제주시 연북로 건물 1층 위치</p>
+                                <a href="https://pcmap.place.naver.com/place/2005144997/home?fromPanelNum=1&additionalHeight=76&timestamp=202607130915&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-emerald-800 text-white font-bold text-xs rounded-xl shadow-md hover:bg-emerald-900 transition-colors">
+                                    네이버 지도로 크게 보기
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-emerald-950 text-emerald-200 py-12 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <div class="flex items-center justify-center gap-2 text-base font-bold text-white">
+                <i class="fa-solid fa-leaf text-emerald-400"></i> 하나꽃집
+            </div>
+            <p>대표전화: 0507-1321-5611 | 주소: 제주특별자치도 제주시 연북로 (건물 1층)</p>
+            <div class="pt-4 border-t border-emerald-900/60 text-emerald-400 font-medium">
+                © 하나꽃집. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- GALLERY LIGHTBOX MODAL POPUP -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md items-center justify-center p-4">
+        <button id="modal-close" class="absolute top-6 right-6 text-white hover:text-emerald-400 text-3xl font-bold p-2 z-50">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="relative max-w-4xl w-full text-center">
+            <div id="modal-media-container" class="mb-4 flex justify-center"></div>
+            <p id="modal-caption" class="text-white font-bold text-base bg-black/60 px-4 py-2 rounded-full inline-block"></p>
+        </div>
+    </div>
+
+    <!-- Floating Exit Button -->
+    <style>
+        .exit-button {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            background-color: #111827; /* gray-900 */
+            color: #ffffff;
+            width: 56px; /* w-14 */
+            height: 56px; /* h-14 */
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+            transition: all 0.2s ease-in-out;
+            border: 2px solid rgba(255, 255, 255, 0.2); /* border-white/20 */
+            text-decoration: none;
+        }
+
+        .exit-button:hover {
+            background-color: #dc2626; /* red-600 */
+            transform: scale(1.1);
+            color: #ffffff;
+        }
+
+        .exit-button-text {
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.05em; /* tracking-wider */
+        }
+    </style>
+    <a href="../#portfolio" class="exit-button" title="나가기">
+        <span class="exit-button-text">나가기</span>
+    </a>
+
+    <script>
+        function openStepModal(imgSrc, caption) {
+            const galleryModal = document.getElementById('gallery-modal');
+            const modalMediaContainer = document.getElementById('modal-media-container');
+            const modalCaption = document.getElementById('modal-caption');
+            if (!galleryModal || !modalMediaContainer) return;
+            modalMediaContainer.innerHTML = `<img src="${imgSrc}" alt="${caption}" class="max-h-[82vh] max-w-full rounded-2xl shadow-2xl object-contain border border-emerald-400/40">`;
+            if (modalCaption) modalCaption.textContent = caption;
+            galleryModal.classList.remove('hidden');
+            galleryModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

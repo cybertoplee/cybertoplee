@@ -4,6 +4,7 @@ import React, { useState, useTransition } from 'react';
 import Link from 'next/link';
 import { getEgdeskBasePath } from '../../egdesk-helpers';
 import { submitInquiry } from './actions';
+import { getPortfolioCases } from './portfolio/casesData';
 
 interface CaseItem {
   id: string;
@@ -27,6 +28,7 @@ const CATEGORIES = [
 
 export default function Home() {
   const basePath = getEgdeskBasePath();
+  const portfolioCases = getPortfolioCases();
   const [activeTab, setActiveTab] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isPending, startTransition] = useTransition();
@@ -353,7 +355,7 @@ export default function Home() {
                   </svg>
                 </Link>
                  <Link href="/portfolio" className="w-full sm:w-auto px-10 py-4.5 bg-transparent hover:bg-white/10 text-white rounded-xl font-bold text-[21px] border border-white/20 transition-all flex items-center justify-center">
-                   포트폴리오(22종)
+                   포트폴리오({portfolioCases.length}종)
                  </Link>
               </div>
             </div>

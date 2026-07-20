@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
-import { getEgdeskBasePath } from '../../egdesk-helpers';
+import { getEgdeskBasePath } from '../../../egdesk-helpers';
 
 export default function FlowerPage() {
     const basePath = getEgdeskBasePath();
