@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             reservation: {
                 text: '소규모 모임, 테이블 대관, 북카페 공간 예약 등 맞춤형 상담을 위해 편하게 연락 주세요. 친절하게 안내해 드립니다.',
-                phone: '0507-1321-5611',
+                phone: '064-757-5611 / 010-3013-5611',
                 card: {
                     icon: 'fa-calendar-check',
                     title: '실시간 네이버 예약',
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             reservation: {
                 text: '프리미엄 꽃선물 제작 예약 및 원데이 플라워 클래스, 대관 문의 등 정성껏 상담해 드립니다. 아래 예약 버튼을 통해 쉽게 신청하세요.',
-                phone: '0507-1321-5611',
+                phone: '064-757-5611 / 010-3013-5611',
                 card: {
                     icon: 'fa-seedling',
                     title: '네이버 예약 바로가기',
@@ -337,8 +337,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col justify-between">
                 <div>
                     <div class="h-60 overflow-hidden relative">
-                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold ${activeTheme === 'cafe' ? 'text-amber-800' : 'text-emerald-800'} shadow-sm">
+                        ${item.video 
+                            ? '<div class="relative w-full h-full"><iframe src="' + item.video + '" class="w-full h-full object-cover pointer-events-none" title="' + item.title + '" frameborder="0"></iframe><div class="absolute inset-0 z-10 cursor-pointer" onclick="window.open(\'' + item.video + '\', \'YoutubePopup\', \'width=540,height=960,left=200,top=100\')"></div></div>'
+                            : '<img src="' + item.img + '" alt="' + item.title + '" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">'
+                        }
+                        <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold pointer-events-none ${activeTheme === 'cafe' ? 'text-amber-800' : 'text-emerald-800'} shadow-sm">
                             ${item.tag}
                         </div>
                     </div>
