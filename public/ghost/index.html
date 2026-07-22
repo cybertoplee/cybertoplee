@@ -651,5 +651,83 @@
     });
   </script>
 
+
+  <!-- Floating Exit Button -->
+  <style>
+    .exit-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background-color: #111827; /* gray-900 */
+      color: #ffffff;
+      width: 56px; /* w-14 */
+      height: 56px; /* h-14 */
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+      transition: all 0.2s ease-in-out;
+      border: 2px solid rgba(255, 255, 255, 0.2); /* border-white/20 */
+      text-decoration: none;
+    }
+
+    .exit-button:hover {
+      background-color: #dc2626; /* red-600 */
+      transform: scale(1.1);
+      color: #ffffff;
+    }
+
+    .exit-button-text {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.05em; /* tracking-wider */
+    }
+  </style>
+  <a href="../#portfolio" class="exit-button" title="나가기">
+    <span class="exit-button-text">나가기</span>
+  </a>
+
+  <!-- Floating TOP Button -->
+  <style>
+    .top-button {
+      position: fixed;
+      bottom: 90px;
+      right: 24px;
+      z-index: 9999;
+      background-color: #10b981; /* emerald-500 */
+      color: #ffffff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease-in-out;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .top-button:hover {
+      background-color: #059669; /* emerald-600 */
+      transform: scale(1.1);
+      color: #ffffff;
+    }
+
+    .top-button-text {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.05em; /* tracking-wider */
+    }
+  </style>
+  <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="top-button" title="맨 위로">
+    <i class="fa-solid fa-arrow-up text-xl mb-0.5"></i>
+    <span class="top-button-text">TOP</span>
+  </a>
 </body>
 </html>

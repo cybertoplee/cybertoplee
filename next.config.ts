@@ -27,7 +27,7 @@ const getLocalIPs = () => {
   }
 };
 
-const nextConfig: NextConfig = {
+const nextConfig: any = {
   output: process.env.NODE_ENV === 'development' ? undefined : 'export',
   trailingSlash: true,
   eslint: {

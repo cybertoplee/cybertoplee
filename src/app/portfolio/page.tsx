@@ -50,15 +50,15 @@ export default function PortfolioPage() {
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left w-full">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 gap-6 text-center md:text-left w-full">
           <div className="flex flex-col items-center md:items-start w-full md:w-auto">
             <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-500/15 text-blue-300 font-extrabold tracking-widest text-xs border border-blue-400/30 mx-auto md:mx-0">
               PORTFOLIO
             </span>
-            <h2 className="text-[24px] sm:text-4xl font-black text-white tracking-tight">
-              제작사례 포트폴리오({cases.length}종)
+            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+              제작사례 포트폴리오 ({cases.length}종)
             </h2>
-            <p className="text-slate-300 text-sm mt-2 font-medium">
+            <p className="text-slate-300 text-base sm:text-lg mt-2 font-semibold">
               보상 플랫폼이 구축한 업종별 프리미엄 비즈니스 시안 채널입니다.
             </p>
           </div>
@@ -67,11 +67,11 @@ export default function PortfolioPage() {
             <input
               type="text"
               placeholder="업종 또는 프로젝트 검색..."
-              className="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-3.5 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all text-white placeholder-slate-400 font-semibold"
+              className="w-full bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4 text-base focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all text-white placeholder-slate-400 font-semibold"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
             />
-            <span className="absolute right-4 top-4 text-slate-400">
+            <span className="absolute right-4 top-4.5 text-slate-400">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -80,12 +80,12 @@ export default function PortfolioPage() {
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap gap-2.5 mb-12 pb-4 border-b border-slate-900">
+        <div className="flex flex-wrap gap-3 mb-10 pb-4 border-b border-slate-900">
           {CATEGORIES.map(cat => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-5 py-3 rounded-full text-xs sm:text-sm font-extrabold transition-all border ${
+              className={`px-5 py-3 rounded-2xl text-sm sm:text-base font-extrabold transition-all border ${
                 activeTab === cat.id
                   ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/20'
                   : 'bg-slate-900 border-slate-800 text-slate-200 hover:text-white hover:border-slate-700'
@@ -96,34 +96,45 @@ export default function PortfolioPage() {
           ))}
         </div>
 
-        {/* Cases Grid */}
+        {/* Cases Grid - 1 column on mobile, 2 on sm, 3 on lg */}
         {filteredCases.length === 0 ? (
-          <div className="text-center py-24 bg-slate-900/40 border border-slate-800 rounded-[2rem] p-10">
-            <p className="text-slate-400 text-lg font-semibold">검색 조건에 맞는 포트폴리오 항목이 존재하지 않습니다.</p>
+          <div className="text-center py-20 bg-slate-900/40 border border-slate-800 rounded-[2rem] p-8">
+            <p className="text-slate-300 text-lg font-semibold">검색 조건에 맞는 포트폴리오 항목이 존재하지 않습니다.</p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
             {filteredCases.map(item => (
               <a
                 key={item.id}
                 href={item.link === '#' ? undefined : item.link}
+                target={item.link.includes('.html') || item.link.startsWith('http') ? '_blank' : undefined}
+                rel="noopener noreferrer"
                 onClick={item.link === '#' ? () => setShowPrepModal(true) : undefined}
-                className={`group relative overflow-hidden bg-gradient-to-br ${item.bgGradient} p-8 rounded-[2rem] border border-slate-850 hover:border-slate-600 transition-all duration-300 shadow-xl flex flex-col justify-between min-h-[280px] hover:-translate-y-1.5 cursor-pointer`}
+                className={`group relative overflow-hidden bg-gradient-to-br ${item.bgGradient} p-6 sm:p-8 rounded-[2rem] border border-slate-800 hover:border-amber-400/80 transition-all duration-300 shadow-xl flex flex-col justify-between min-h-[260px] hover:-translate-y-1.5 cursor-pointer`}
               >
                 <div>
-                  <span className={`inline-block px-3 py-1.5 rounded-full text-[10px] font-bold border ${item.tagColor} mb-5`}>
-                    {item.categoryLabel}
-                  </span>
-                  <h4 className="text-lg sm:text-xl font-extrabold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span className={`inline-block px-3.5 py-1.5 rounded-full text-xs font-black border ${item.tagColor}`}>
+                      {item.categoryLabel}
+                    </span>
+                    {item.id === 'starhouse' && (
+                      <span className="px-3 py-1 rounded-full text-[10px] font-black bg-amber-500 text-slate-955 shadow-md uppercase">
+                        ⭐ 추천 대표 사이트
+                      </span>
+                    )}
+                  </div>
+                  <h4 className="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-amber-300 transition-colors">
                     {item.title}
                   </h4>
-                  <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
+                  <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
                     {item.desc}
                   </p>
                 </div>
-                <div className="mt-8 flex justify-between items-center text-slate-350 group-hover:text-white transition-colors">
-                  <span className="text-[10px] font-black tracking-widest uppercase">SAMPLE VIEW</span>
-                  <svg className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mt-8 flex justify-between items-center text-amber-400 group-hover:text-amber-300 transition-colors">
+                  <span className="text-xs font-black tracking-widest uppercase flex items-center gap-1.5">
+                    공식 홈페이지 바로가기 <i className="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                  </span>
+                  <svg className="w-6 h-6 group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
                   </svg>
                 </div>

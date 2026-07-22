@@ -168,15 +168,15 @@ export default function FlowerPage() {
                     
                     {/* Hero Content */}
                     <div className="text-center px-4 relative z-10 drop-shadow-lg">
-                        <span className="inline-block py-1 px-3 rounded-full bg-brand/80 text-white text-sm mb-4 backdrop-blur">도심 속 작은 여유</span>
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                        <span className="inline-block py-1.5 px-4 rounded-full bg-brand/80 text-white text-xs sm:text-sm font-bold mb-4 backdrop-blur">도심 속 작은 여유</span>
+                        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
                             커피와 책, 그리고 쉼<br />
                             <span className="text-amber-300">하나북카페</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                        <p className="text-base sm:text-xl text-gray-100 mb-8 max-w-2xl mx-auto font-medium">
                             하나카페, 북카페, 가성비 커피, 한강라면, 생과일쥬스까지.<br />당신의 하루를 채워줄 모든 것이 준비되어 있습니다.
                         </p>
-                        <button onClick={() => scrollToSection('info')} className="inline-flex items-center gap-2 bg-white text-brand px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300 shadow-lg">
+                        <button onClick={() => scrollToSection('info')} className="inline-flex items-center gap-2 bg-white text-brand px-8 py-3.5 rounded-full font-extrabold hover:bg-gray-100 transition duration-300 shadow-lg text-base">
                             자세히 보기 <i className="fa-solid fa-arrow-down"></i>
                         </button>
                     </div>
@@ -191,19 +191,19 @@ export default function FlowerPage() {
 
                 {/* Notice Banner */}
                 <div className="max-w-4xl mx-auto px-4 -mt-10 relative z-20">
-                    <div className="bg-white rounded-2xl shadow-xl p-6 border-l-4 border-blue-500 flex flex-col md:flex-row items-center gap-6">
+                    <div className="bg-white rounded-2xl shadow-xl p-6 border-l-4 border-blue-500 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
                         <div className="bg-blue-50 p-4 rounded-full text-blue-500 text-3xl shrink-0">
                             <i className="fa-solid fa-bullhorn"></i>
                         </div>
                         <div>
-                            <div className="flex flex-wrap items-center gap-2 mb-2">
-                                <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded">행정안전부</span>
-                                <span className="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-0.5 rounded">민생플러스+</span>
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-2">
+                                <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded">행정안전부</span>
+                                <span className="bg-green-100 text-green-800 text-xs font-bold px-2.5 py-1 rounded">민생플러스+</span>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-1">고유가 피해지원금 사용 가능 매장</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="text-xl sm:text-2xl font-black text-gray-900 mb-1">고유가 피해지원금 사용 가능 매장</h3>
+                            <p className="text-sm sm:text-base text-gray-600 font-medium">
                                 본 매장은 신용·체크카드를 통한 고유가 피해지원금 결제가 가능합니다. <br className="hidden md:block" />
-                                <span className="text-xs text-gray-400">* 가맹점 정보는 사업주 및 카드사 제공 정보이며, 방문 전 매장에 확인 부탁드립니다.</span>
+                                <span className="text-xs text-gray-400 font-normal">* 가맹점 정보는 사업주 및 카드사 제공 정보이며, 방문 전 매장에 확인 부탁드립니다.</span>
                             </p>
                         </div>
                     </div>

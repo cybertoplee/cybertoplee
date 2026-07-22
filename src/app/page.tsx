@@ -40,6 +40,16 @@ export default function Home() {
 
   const cases: CaseItem[] = [
     {
+      id: 'starhouse',
+      title: '제주 아크.스타하우스 (Ark.StarHouse)',
+      category: 'service_const',
+      categoryLabel: 'HOTEL & VENUE',
+      desc: '제주 애월 20개 객실, 게스트하우스, 50인 세미나실, 60평 수제공방 및 300평 야외 바베큐 파티장 복합 공간',
+      link: `${basePath}/starhouse/index.html`,
+      tagColor: 'text-amber-600',
+      tagBg: 'bg-amber-50'
+    },
+    {
       id: 'suyong',
       title: '차귀도 수용배낚시',
       category: 'service_const',
@@ -328,41 +338,41 @@ export default function Home() {
       )}
 
       {/* 1. Hero Section (Dark theme based on screenshot) */}
-      <section className="relative pt-6 md:pt-10 pb-6 bg-[#0f172a] text-white">
+      <section className="relative pt-8 md:pt-14 pb-8 bg-[#0f172a] text-white">
         <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-blue-900/20 via-slate-900/10 to-transparent pointer-events-none z-0" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left aligned info */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 mb-8 rounded-full bg-blue-650/15 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-extrabold tracking-widest uppercase shadow-md">
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                THIS WEBSITE WAS CREATED WITH EGDESK AI PLATFORM
+              <div className="inline-flex items-center gap-2 px-5 py-3 mb-6 rounded-full bg-blue-650/15 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-extrabold tracking-widest uppercase shadow-md mx-auto lg:mx-0">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
+                EGDESK AI PLATFORM
               </div>
-              <h1 className="text-[19.2px] sm:text-[2.4rem] md:text-[2.88rem] lg:text-[2.944rem] font-black leading-[1.2] mb-8 tracking-tight text-white">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[2.944rem] font-black leading-[1.3] mb-6 tracking-tight text-white">
                 성공을 위한 AI 업무 자동화<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">EGDesk AI Agent</span> 서비스
               </h1>
-              <p className="text-lg sm:text-xl text-slate-200 mb-12 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-xl text-slate-200 mb-8 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
                 최고의 기술력과 안정적인 인프라를 바탕으로 최적화된 홈페이지 및 모바일 웹 호스팅 서비스를 지원합니다. 또한 이지데스크 AI 업무 자동화를 위한 바이브 코딩 전문교육을 지원합니다.
               </p>
               
               {/* CTAs styled with clean rounded buttons matching screenshot */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <Link href="/contact" className="w-full sm:w-auto px-10 py-4.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-black text-[21px] shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 group">
+                <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg sm:text-xl shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 group">
                   상담문의
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </Link>
-                 <Link href="/portfolio" className="w-full sm:w-auto px-10 py-4.5 bg-transparent hover:bg-white/10 text-white rounded-xl font-bold text-[21px] border border-white/20 transition-all flex items-center justify-center">
-                   포트폴리오({portfolioCases.length}종)
-                 </Link>
+                <Link href="/portfolio" className="w-full sm:w-auto px-8 py-4 bg-slate-900/80 hover:bg-slate-800 text-white rounded-2xl font-extrabold text-lg sm:text-xl border border-slate-700 transition-all flex items-center justify-center">
+                  포트폴리오({portfolioCases.length}종)
+                </Link>
               </div>
             </div>
 
             {/* Right aligned YouTube Screen Mockup */}
             <div className="relative flex justify-center w-full max-w-lg mx-auto lg:max-w-none">
-              <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
+              <div className="relative w-full aspect-[4/3] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
                 {!showVideo ? (
                   <div className="absolute inset-0 flex items-center justify-center relative group cursor-pointer bg-[#0b0f19]" onClick={() => setShowVideo(true)}>
                     <img 

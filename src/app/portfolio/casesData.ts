@@ -15,6 +15,16 @@ export function getPortfolioCases(): CaseItem[] {
   const basePath = getEgdeskBasePath();
   return [
     {
+      id: 'starhouse',
+      title: '제주 아크.스타하우스 (Ark.StarHouse)',
+      category: 'service_const',
+      categoryLabel: 'HOTEL & VENUE',
+      desc: '제주 애월 20개 객실, 게스트하우스, 50인 세미나실, 60평 수제공방 및 300평 야외 바베큐 파티장 복합 공간',
+      link: `${basePath}/starhouse/index.html`,
+      bgGradient: 'from-amber-900 via-slate-900 to-amber-950',
+      tagColor: 'bg-amber-400/20 text-amber-300 border-amber-400/30'
+    },
+    {
       id: 'flower',
       title: '하나북카페 | 도심 속 힐링 공간',
       category: 'fb_retail',

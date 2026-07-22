@@ -45,19 +45,19 @@ export default function ContactPage() {
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-[3rem] border border-slate-800 shadow-2xl overflow-hidden flex flex-col md:flex-row">
+        <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-[2.5rem] sm:rounded-[3rem] border border-slate-800 shadow-2xl overflow-hidden flex flex-col md:flex-row">
           
           {/* Left Info Panel */}
-          <div className="md:w-5/12 bg-blue-600 p-10 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden text-center md:text-left items-center md:items-start">
+          <div className="w-full md:w-5/12 bg-blue-600 p-8 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden text-center md:text-left items-center md:items-start">
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
             <div className="relative z-10 flex flex-col justify-between h-full items-center md:items-start text-center md:text-left w-full">
               <div>
-                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-black uppercase tracking-wider backdrop-blur-sm mx-auto md:mx-0">
-                  Inquiry
+                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/15 border border-white/30 text-white text-xs font-black uppercase tracking-wider backdrop-blur-sm mx-auto md:mx-0">
+                  INQUIRY
                 </div>
-                <h3 className="text-[24px] sm:text-3xl font-black mb-4 leading-tight">홈페이지 제작 및 <br />업무 자동화 서비스 문의</h3>
-                <p className="text-blue-100 text-sm leading-relaxed mb-8 font-medium">
-                  소상공인/중소기업/단체/공공기관<br />
+                <h3 className="text-2xl sm:text-3xl font-black mb-4 leading-tight">홈페이지 제작 및 <br className="hidden sm:inline" />업무 자동화 서비스 문의</h3>
+                <p className="text-blue-50 text-base leading-relaxed mb-8 font-medium">
+                  소상공인 / 중소기업 / 단체 / 공공기관<br />
                   대표님 및 임직원 여러분<br />
                   <br />
                   세계 최초 <br />
@@ -73,8 +73,8 @@ export default function ContactPage() {
                   교육을 제공하겠습니다.
                 </p>
               </div>
-              <div className="mt-8 border-t border-white/20 pt-8 w-full">
-                <p className="text-[10px] text-blue-200 uppercase font-black tracking-widest mb-1">Direct Call</p>
+              <div className="mt-6 border-t border-white/20 pt-6 w-full text-center md:text-left">
+                <p className="text-xs text-blue-200 uppercase font-black tracking-widest mb-1">Direct Call</p>
                 <a href="tel:010-9697-3927" className="text-2xl sm:text-3xl font-black text-white hover:text-cyan-300 transition-colors">
                   010-9697-3927
                 </a>
@@ -83,61 +83,61 @@ export default function ContactPage() {
           </div>
 
           {/* Right Input Form */}
-          <div className="md:w-7/12 p-10 sm:p-12">
+          <div className="w-full md:w-7/12 p-8 sm:p-12">
             <form onSubmit={handleFormSubmit} className="space-y-6">
               <div>
-                <label className="block text-xs sm:text-sm font-extrabold text-slate-300 mb-2">성함 <span className="text-red-500">*</span></label>
+                <label className="block text-sm sm:text-base font-extrabold text-slate-200 mb-2">성함 <span className="text-red-400">*</span></label>
                 <input
                   type="text"
                   name="name"
                   required
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-white placeholder-slate-500 font-semibold"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-base focus:outline-none focus:border-blue-500 transition text-white placeholder-slate-500 font-semibold"
                   placeholder="성함을 입력하세요"
                 />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs sm:text-sm font-extrabold text-slate-300 mb-2">연락처 <span className="text-red-500">*</span></label>
+                  <label className="block text-sm sm:text-base font-extrabold text-slate-200 mb-2">연락처 <span className="text-red-400">*</span></label>
                   <input
                     type="tel"
                     name="phone"
                     required
-                    className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-white placeholder-slate-500 font-semibold"
+                    className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-base focus:outline-none focus:border-blue-500 transition text-white placeholder-slate-500 font-semibold"
                     placeholder="010-0000-0000"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-extrabold text-slate-300 mb-2">이메일</label>
+                  <label className="block text-sm sm:text-base font-extrabold text-slate-200 mb-2">이메일</label>
                   <input
                     type="email"
                     name="email"
-                    className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-white placeholder-slate-500 font-semibold"
+                    className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-base focus:outline-none focus:border-blue-500 transition text-white placeholder-slate-500 font-semibold"
                     placeholder="example@email.com"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-xs sm:text-sm font-extrabold text-slate-300 mb-2">문의내용</label>
+                <label className="block text-sm sm:text-base font-extrabold text-slate-200 mb-2">문의내용</label>
                 <textarea
                   name="message"
                   rows={4}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition text-white resize-none placeholder-slate-500 font-semibold"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-5 py-4 text-base focus:outline-none focus:border-blue-500 transition text-white resize-none placeholder-slate-500 font-semibold"
                   placeholder="문의하시고자 하는 내용을 적어주세요."
                 />
               </div>
 
               {/* Form feedback message */}
               {formState.success && (
-                <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs p-4 rounded-xl font-bold flex items-center gap-2">
-                  <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm p-4.5 rounded-2xl font-bold flex items-center gap-2.5">
+                  <svg className="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span>문의 접수가 완료되었습니다. 신속하게 연락 드리겠습니다! {formState.note && `(${formState.note})`}</span>
                 </div>
               )}
               {formState.error && (
-                <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-xs p-4 rounded-xl font-bold flex items-center gap-2">
-                  <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm p-4.5 rounded-2xl font-bold flex items-center gap-2.5">
+                  <svg className="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span>{formState.error}</span>
@@ -145,8 +145,8 @@ export default function ContactPage() {
               )}
 
               {/* Mobile integration guide text */}
-              <div className="text-[12px] sm:text-xs text-blue-100 flex items-start gap-2.5 bg-blue-600/10 p-4 rounded-xl border border-blue-500/30 mb-4 leading-relaxed font-semibold">
-                <svg className="w-4.5 h-4.5 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-xs sm:text-sm text-blue-100 flex items-start gap-3 bg-blue-600/10 p-4.5 rounded-2xl border border-blue-500/30 mb-4 leading-relaxed font-semibold">
+                <svg className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <span>접수 완료 시 기기연동을 통해 휴대폰 문자(SMS) 앱이 열리며, 작성하신 문의 내용이 자동으로 전송됩니다.</span>
@@ -155,7 +155,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4.5 rounded-xl active:scale-95 transition shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 text-base"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4.5 rounded-2xl active:scale-95 transition shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 text-lg"
               >
                 {isPending ? (
                   <>

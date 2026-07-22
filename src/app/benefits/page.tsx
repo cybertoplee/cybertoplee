@@ -16,24 +16,24 @@ export default function BenefitsPage() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center pb-6 border-b border-slate-800 mb-10 gap-6 text-center w-full">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap w-full">
-            <h2 className="text-[19px] sm:text-4xl font-black text-white tracking-tight">
-              月 약12만원의 <span className="text-blue-400">압도적 종합 혜택</span>
+          <div className="flex flex-col items-center justify-center gap-3 w-full">
+            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+              月 약 12만원의 <span className="text-blue-400">압도적 종합 혜택</span>
             </h2>
-            <span className="bg-blue-500/15 text-blue-300 border border-blue-400/30 text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+            <span className="bg-blue-500/15 text-blue-300 border border-blue-400/30 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">
               지출이 아닌 자산형성
             </span>
           </div>
 
           {/* Interactive Payment Switcher */}
-          <div className="bg-slate-950 p-1.5 rounded-2xl border border-slate-800 flex gap-2">
+          <div className="bg-slate-950 p-2 rounded-2xl border border-slate-800 flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             <button
               type="button"
               onClick={(e) => {
                 e.preventDefault();
                 setPaymentMethod('sangjo');
               }}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all ${
+              className={`w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm sm:text-base font-black transition-all ${
                 paymentMethod === 'sangjo'
                   ? 'bg-blue-600 text-white shadow-lg'
                   : 'text-slate-350 hover:text-white'
@@ -47,7 +47,7 @@ export default function BenefitsPage() {
                 e.preventDefault();
                 setShowPrepModal(true);
               }}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all ${
+              className={`w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm sm:text-base font-black transition-all ${
                 paymentMethod === 'insurance'
                   ? 'bg-blue-600 text-white shadow-lg'
                   : 'text-slate-350 hover:text-white'
@@ -62,10 +62,10 @@ export default function BenefitsPage() {
         <div className="max-w-3xl mx-auto w-full">
           
           {/* Left Card: 개별 마케팅 솔루션 제안 */}
-          <div className="bg-slate-950/70 p-8 sm:p-10 rounded-[2.5rem] border border-slate-800 shadow-2xl flex flex-col justify-between h-full">
+          <div className="bg-slate-950/70 p-6 sm:p-10 rounded-[2.5rem] border border-slate-800 shadow-2xl flex flex-col justify-between h-full">
             <div>
-              <div className="flex items-center gap-2 text-blue-400 font-black text-lg mb-8 uppercase tracking-wide">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center justify-center sm:justify-start gap-2.5 text-blue-400 font-black text-xl mb-8 uppercase tracking-wide">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
                 개별 마케팅 솔루션 제안
@@ -73,81 +73,81 @@ export default function BenefitsPage() {
 
               <div className="space-y-8">
                 {/* Item 1 */}
-                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
-                  <div className="flex flex-col items-center sm:items-start w-full">
-                    <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">출결 및 CCTV 보안 관제</h4>
-                    <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-400 mt-1">•</span>
+                <div className="flex flex-col justify-between items-stretch gap-4 text-left border-b border-slate-900 pb-6">
+                  <div className="flex flex-col items-start w-full">
+                    <h4 className="text-lg sm:text-xl font-black text-white mb-3">출결 및 CCTV 보안 관제</h4>
+                    <ul className="space-y-2.5 text-sm sm:text-base text-slate-200 font-medium text-left">
+                      <li className="flex items-start gap-2.5">
+                        <span className="text-blue-400 font-bold">•</span>
                         24시간 원격 실시간 모니터링 및 클라우드 영상 저장
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-455 mt-1">•</span>
+                      <li className="flex items-start gap-2.5">
+                        <span className="text-blue-400 font-bold">•</span>
                         스마트 출결 알림 및 모바일 실시간 관리 시스템
                       </li>
                     </ul>
                   </div>
-                  <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
-                    {paymentMethod === 'sangjo' ? '상조 1구좌(현금 또는 카드 30만원)' : '보험가입'}
+                  <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-sm font-black px-4 py-3 rounded-xl text-center shadow-sm w-full">
+                    {paymentMethod === 'sangjo' ? '상조 1구좌 (현금 또는 카드 30만원)' : '보험가입'}
                   </span>
                 </div>
 
                 {/* Item 2 */}
-                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
-                  <div className="flex flex-col items-center sm:items-start w-full">
-                    <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">프리미엄 반응형 홈페이지</h4>
-                    <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-455 mt-1">•</span>
+                <div className="flex flex-col justify-between items-stretch gap-4 text-left border-b border-slate-900 pb-6">
+                  <div className="flex flex-col items-start w-full">
+                    <h4 className="text-lg sm:text-xl font-black text-white mb-3">프리미엄 반응형 홈페이지</h4>
+                    <ul className="space-y-2.5 text-sm sm:text-base text-slate-200 font-medium text-left">
+                      <li className="flex items-start gap-2.5">
+                        <span className="text-blue-400 font-bold">•</span>
                         SEO 최적화 및 모바일 기기 완벽 대응 UI/UX 설계
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-455 mt-1">•</span>
+                      <li className="flex items-start gap-2.5">
+                        <span className="text-blue-400 font-bold">•</span>
                         랜딩페이지형, 브로슈어 사이트 맞춤형 제작
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-455 mt-1">•</span>
+                      <li className="flex items-start gap-2.5">
+                        <span className="text-blue-400 font-bold">•</span>
                         네이버 블로그 포스팅 2회, 유튜브 숏츠 제작 2회 서비스
                       </li>
                     </ul>
                   </div>
-                  <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
-                    {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
+                  <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-sm font-black px-4 py-3 rounded-xl text-center shadow-sm w-full">
+                    {paymentMethod === 'sangjo' ? '상조 2구좌 (현금 또는 카드 50만원)' : '보험가입'}
                   </span>
                 </div>
 
                 {/* Item 3 */}
-                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 text-center sm:text-left">
-                  <div className="flex flex-col items-center sm:items-start w-full">
-                    <h4 className="text-base sm:text-lg font-extrabold text-white mb-2.5">SNS 홍보 및 매출 성장</h4>
-                    <ul className="space-y-2 text-xs sm:text-sm text-slate-100 font-medium text-left">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-450 mt-1">•</span>
+                <div className="flex flex-col justify-between items-stretch gap-4 text-left pb-2">
+                  <div className="flex flex-col items-start w-full">
+                    <h4 className="text-lg sm:text-xl font-black text-white mb-3">SNS 홍보 및 매출 성장</h4>
+                    <ul className="space-y-2.5 text-sm sm:text-base text-slate-200 font-medium text-left">
+                      <li className="flex items-start gap-2.5">
+                        <span className="text-blue-400 font-bold">•</span>
                         네이버 블로그 월 4회 포스팅 및 유튜브 숏츠 월 2회 제작
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-455 mt-1">•</span>
+                      <li className="flex items-start gap-2.5">
+                        <span className="text-blue-400 font-bold">•</span>
                         매출 성장을 위한 플랫폼 활용 전문 코칭 지원
                       </li>
                     </ul>
                   </div>
-                  <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-xs sm:text-sm font-black px-4 py-2 rounded-xl text-center shadow-sm w-full sm:w-auto">
-                    {paymentMethod === 'sangjo' ? '상조 2구좌(현금 또는 카드 50만원)' : '보험가입'}
+                  <span className="shrink-0 bg-slate-900 border border-slate-800 text-blue-300 text-sm font-black px-4 py-3 rounded-xl text-center shadow-sm w-full">
+                    {paymentMethod === 'sangjo' ? '상조 2구좌 (현금 또는 카드 50만원)' : '보험가입'}
                   </span>
                 </div>
               </div>
             </div>
 
             {/* Gradient Banner Box */}
-            <div className="mt-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-6 rounded-[2rem] text-white text-center shadow-xl shadow-blue-500/10">
-              <div className="text-xl font-black tracking-tight mb-1.5 flex items-center justify-center gap-2">
+            <div className="mt-10 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-6 sm:p-8 rounded-[2rem] text-white text-center shadow-xl shadow-blue-500/10">
+              <div className="text-xl sm:text-2xl font-black tracking-tight mb-2 flex items-center justify-center gap-2">
                 <span>👑</span> 통합 ALL-IN-ONE 패키지
               </div>
-              <div className="text-sm font-extrabold opacity-95 leading-relaxed">
+              <div className="text-base sm:text-lg font-extrabold opacity-95 leading-relaxed">
                 {paymentMethod === 'sangjo' ? (
                   <>
                     월 12만원 상당의 상조 상품 가입 시 (24개월 유지조건)<br />
-                    * 월 22,500원(1구좌) * 5구좌 = 112,500원
+                    * 월 22,500원(1구좌) × 5구좌 = 112,500원
                   </>
                 ) : (
                   <>
