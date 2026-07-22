@@ -198,7 +198,15 @@
                     </h2>
                     <div class="w-24 h-1.5 bg-gradient-to-r from-amber-500 to-emerald-600 mx-auto rounded-full mb-6"></div>
                     <p class="text-gray-600 text-base max-w-2xl mx-auto leading-relaxed">
-                        결혼식, 돌잔치, 기업 행사를 위한 <strong class="text-amber-800">맞춤 답례품 코너</strong>부터 생일, 기념일, 승진, 프로포즈를 위한 <strong class="text-emerald-800">감동 선물 코너</strong>까지 한눈에 만나보세요!
+                        결혼식, 돌잔치, 기업 행사를 위한 <strong class="text-amber-800">맞춤 답례품 코너</strong>부터<br/>
+                        <div class="flex flex-wrap items-center justify-center gap-3 my-3">
+                            <a href="#reservation" class="px-5 py-2 bg-[#f43f5e] text-white font-black text-sm rounded-full shadow hover:bg-rose-600 transition-colors flex items-center justify-center" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">답례품 문의</a>
+                            <span class="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 font-bold rounded-full border border-blue-200 shadow-sm">
+                                ✨ 개업 답례품 · 기념품 납품 · 기업 납품 ✨
+                            </span>
+                            <a href="#reservation" class="px-5 py-2 bg-[#059669] text-white font-black text-sm rounded-full shadow hover:bg-emerald-700 transition-colors flex items-center justify-center" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">선물 예약</a>
+                        </div><br/>
+                        생일, 기념일, 승진, 프로포즈를 위한 <strong class="text-emerald-800">감동 선물 코너</strong>까지 한눈에 만나보세요!
                     </p>
                 </div>
 
@@ -694,7 +702,7 @@
                                 <i class="fa-solid fa-location-dot text-emerald-800 mt-1 w-5 text-center text-base"></i>
                                 <div>
                                     <strong class="block text-gray-900 font-bold">매장 주소 및 층수</strong>
-                                    <span class="text-base text-emerald-950 font-black">제주특별자치도 제주시 연북로 건물 1층</span>
+                                    <span class="text-base text-emerald-950 font-black">제주특별자치도 제주시 서사로 40</span>
                                     <span class="text-xs text-gray-500 block">※ 1층은 하나꽃집, 2층은 하나북카페입니다.</span>
                                 </div>
                             </div>
@@ -702,14 +710,14 @@
                                 <i class="fa-solid fa-phone text-emerald-800 mt-1 w-5 text-center text-base"></i>
                                 <div>
                                     <strong class="block text-gray-900 font-bold">대표 전화</strong>
-                                    <a href="tel:0507-1321-5611" class="text-emerald-900 font-extrabold hover:underline text-base">0507-1321-5611</a>
+                                    <a href="tel:064-757-5611" class="text-emerald-900 font-extrabold hover:underline text-base">064-757-5611 / 010-3013-5611</a>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
                                 <i class="fa-solid fa-clock text-emerald-800 mt-1 w-5 text-center text-base"></i>
                                 <div>
                                     <strong class="block text-gray-900 font-bold">영업 시간</strong>
-                                    <span>매일 10:00 ~ 20:00 (일요일 예약제 운영)</span>
+                                    <span>매일 07:00~20:00(연중무휴)</span>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -735,7 +743,7 @@
                             <div class="bg-white/90 backdrop-blur-md text-gray-900 p-6 rounded-2xl shadow-xl max-w-sm space-y-3">
                                 <i class="fa-solid fa-location-dot text-emerald-800 text-3xl"></i>
                                 <h4 class="font-black text-lg text-gray-900">하나꽃집 (건물 1층)</h4>
-                                <p class="text-xs text-gray-600">제주 제주시 연북로 건물 1층 위치</p>
+                                <p class="text-xs text-gray-600">제주특별자치도 제주시 서사로 40</p>
                                 <a href="https://pcmap.place.naver.com/place/2005144997/home?fromPanelNum=1&additionalHeight=76&timestamp=202607130915&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-emerald-800 text-white font-bold text-xs rounded-xl shadow-md hover:bg-emerald-900 transition-colors">
                                     네이버 지도로 크게 보기
                                 </a>
@@ -755,7 +763,7 @@
             <div class="flex items-center justify-center gap-2 text-base font-bold text-white">
                 <i class="fa-solid fa-leaf text-emerald-400"></i> 하나꽃집
             </div>
-            <p>대표전화: 0507-1321-5611 | 주소: 제주특별자치도 제주시 연북로 (건물 1층)</p>
+            <p>대표전화: 064-757-5611 / 010-3013-5611 | 주소: 제주특별자치도 제주시 서사로 40</p>
             <div class="pt-4 border-t border-emerald-900/60 text-emerald-400 font-medium">
                 © 하나꽃집. All Rights Reserved.
             </div>
@@ -775,6 +783,33 @@
 
     <!-- Floating Exit Button -->
     <style>
+        .top-button {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            z-index: 9999;
+            background-color: #10b981; /* emerald-500 */
+            color: #ffffff;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease-in-out;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .top-button:hover {
+            background-color: #059669; /* emerald-600 */
+            transform: scale(1.1);
+            color: #ffffff;
+        }
+
         .exit-button {
             position: fixed;
             bottom: 24px;
@@ -807,6 +842,10 @@
             letter-spacing: 0.05em; /* tracking-wider */
         }
     </style>
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="top-button" title="맨 위로">
+        <i class="fa-solid fa-arrow-up text-xl mb-0.5"></i>
+        <span class="exit-button-text">TOP</span>
+    </a>
     <a href="../#portfolio" class="exit-button" title="나가기">
         <span class="exit-button-text">나가기</span>
     </a>
