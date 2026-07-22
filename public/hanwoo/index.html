@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한우천국 공항점</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .hero-bg { background-image: url('./images/hero.jpg'); background-size: cover; background-position: center; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="./images/logo.png" alt="한우천국 로고" class="h-10 w-10 object-cover rounded-full shadow-sm" onerror="this.src='https://via.placeholder.com/40?text=Logo'">
+                <h1 class="text-2xl font-black text-gray-900 tracking-tight">한우천국 공항점</h1>
+            </div>
+            <nav class="hidden md:flex gap-8 font-semibold text-gray-600">
+                <a href="#home" class="hover:text-red-600 transition-colors">홈</a>
+                <a href="#photos" class="hover:text-red-600 transition-colors">사진</a>
+                <a href="#info" class="hover:text-red-600 transition-colors">정보</a>
+                <a href="#review" class="hover:text-red-600 transition-colors">리뷰</a>
+                <a href="#reserve" class="px-5 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors shadow-md">예약</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen hero-bg flex items-center justify-center">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+        <div class="relative z-10 text-center text-white px-4 mt-16">
+            <span class="px-4 py-1.5 bg-red-600/90 rounded-full text-sm font-bold tracking-widest uppercase mb-6 inline-block backdrop-blur-sm">새로오픈</span>
+            <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">화려한 샹들리에 아래<br>즐기는 프리미엄 한우</h2>
+            <p class="text-xl md:text-2xl font-light text-gray-200 mb-10 max-w-2xl mx-auto">제주공항 근처 최고의 고기요리를 경험하세요.</p>
+            <div class="flex gap-4 justify-center">
+                <a href="#reserve" class="px-8 py-4 bg-red-600 hover:bg-red-700 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-xl">네이버 예약</a>
+                <a href="#menu" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full font-bold text-lg border border-white/30 transition-transform hover:scale-105">메뉴 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-black mb-4">매장 정보</h3>
+                <p class="text-gray-500">고유가 피해지원금 사용 가능 매장 (신용·체크 카드)</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm">
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 text-red-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">주소</h4>
+                            <p class="text-gray-600">제주 제주시 비룡길 28 1층</p>
+                            <p class="text-sm text-gray-500 mt-1">제주공항 출발 : 용담해안도로 방향으로 오시면 편리합니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 text-red-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">영업시간</h4>
+                            <p class="text-gray-600 font-semibold text-green-600">영업 중</p>
+                            <p class="text-gray-600">21:00에 라스트오더</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 text-red-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">전화번호</h4>
+                            <p class="text-gray-600 font-medium text-lg">064-702-5000</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-lg mb-4">편의 시설</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">포장</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">예약</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">무선 인터넷</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">유아의자</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">대기공간</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">남/녀 화장실 구분</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">단체 이용 가능</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">주차</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">간편결제</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">휠체어 출입 가능</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu & Photos -->
+    <section id="menu" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-black mb-4">대표 메뉴</h3>
+                <p class="text-gray-400">프리미엄 한우의 참맛을 느낄 수 있는 메뉴들입니다.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="photos">
+                <!-- Menu 1 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden group border border-gray-700 hover:border-red-500 transition-colors">
+                    <div class="aspect-square relative overflow-hidden">
+                        <img src="./images/menu1.jpg" alt="돌솥한우갈비탕" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400?text=Menu'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">돌솥한우갈비탕</h4>
+                        <p class="text-red-400 font-black text-2xl">10,000원</p>
+                    </div>
+                </div>
+                
+                <!-- Menu 2 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden group border border-gray-700 hover:border-red-500 transition-colors">
+                    <div class="aspect-square relative overflow-hidden">
+                        <img src="./images/menu2.jpg" alt="돌솥한우우거지탕" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400?text=Menu'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">돌솥한우우거지탕</h4>
+                        <p class="text-red-400 font-black text-2xl">10,000원</p>
+                    </div>
+                </div>
+                
+                <!-- Menu 3 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden group border border-gray-700 hover:border-red-500 transition-colors">
+                    <div class="aspect-square relative overflow-hidden">
+                        <img src="./images/menu3.jpg" alt="육회비빔밥" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400?text=Menu'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">육회비빔밥</h4>
+                        <p class="text-red-400 font-black text-2xl">10,000원</p>
+                    </div>
+                </div>
+                
+                <!-- Menu 4 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden group border border-gray-700 hover:border-red-500 transition-colors">
+                    <div class="aspect-square relative overflow-hidden">
+                        <img src="./images/menu4.jpg" alt="한우등심" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400?text=Menu'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">한우등심 (500g)</h4>
+                        <p class="text-red-400 font-black text-2xl">38,000원</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="review" class="py-20 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h3 class="text-3xl font-black mb-2">방문자 리뷰</h3>
+                    <div class="flex items-center gap-2">
+                        <span class="flex text-yellow-400">
+                            ★★★★★
+                        </span>
+                        <span class="font-bold">4.9</span>
+                        <span class="text-gray-500">(리뷰 31)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                        <div>
+                            <p class="font-bold text-sm">tob****</p>
+                            <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">고기가 너무 신선하고 맛있습니다. 샹들리에 인테리어도 멋져요!</p>
+                </div>
+                <!-- Review Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                        <div>
+                            <p class="font-bold text-sm">kwo****</p>
+                            <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">가족 모임으로 갔는데 다들 만족하셨습니다. 육회비빔밥 최고에요.</p>
+                </div>
+                <!-- Review Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                        <div>
+                            <p class="font-bold text-sm">김탄14</p>
+                            <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">제주도 여행 와서 들렀는데, 공항이랑 가깝고 주차도 편해서 좋네요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation -->
+    <section id="reserve" class="py-20 bg-red-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h3 class="text-4xl font-black mb-6">네이버 예약</h3>
+            <p class="text-xl mb-10 opacity-90">날짜, 시간, 인원으로 편리하게 예약하세요.</p>
+            
+            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 max-w-xl mx-auto border border-white/20">
+                <h4 class="text-2xl font-bold mb-4">일반 예약</h4>
+                <p class="mb-8 opacity-80">5인 이상은 매장으로 문의 바랍니다.</p>
+                <button class="w-full py-4 bg-white text-red-600 font-black text-xl rounded-xl hover:bg-gray-100 transition-colors shadow-lg active:scale-95 transform duration-150">
+                    실시간 예약하기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl font-black text-white mb-4">한우천국 공항점</h2>
+            <p class="mb-2">제주 제주시 비룡길 28 1층 | 대표전화: 064-702-5000</p>
+            <p class="text-sm opacity-60">© 2026 한우천국 공항점. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+<!-- AUTOMATED MOBILE RESPONSIVENESS & HAMBURGER DRAWER INJECTION -->
+<script>
+(function() {
+    // 1. Viewport Meta Configuration
+    let metaViewport = document.querySelector('meta[name="viewport"]');
+    if (!metaViewport) {
+        metaViewport = document.createElement('meta');
+        metaViewport.name = 'viewport';
+        document.head.appendChild(metaViewport);
+    }
+    metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=5.0';
+
+    // 2. CSS Stylesheet Injection (Centering & Responsive Optimization)
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+            /* Enforce centering on main block layouts */
+            .max-w-7xl, .container, main, section, header, footer, div {
+                max-width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+            /* Centering text and headings for balanced smartphone display */
+            h1, h2, h3, h4, h5, h6, .title, .headline {
+                word-break: keep-all !important;
+                line-height: 1.3 !important;
+                text-align: center !important;
+            }
+            /* Align grid items and flex boxes centrally on mobile */
+            .flex, .flex-col, .grid {
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            /* Enable smooth vertical scroll and disable horizontal overflow */
+            html, body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+            }
+        }
+
+        /* Hamburger button styling */
+        .auto-mobile-toggle {
+            display: none;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            z-index: 10001;
+            position: fixed;
+            right: 16px;
+            top: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        @media (max-width: 1023px) {
+            .auto-mobile-toggle {
+                display: flex;
+            }
+            /* Hide desktop navigation link containers */
+            nav .hidden.lg\\:flex,
+            nav .hidden.md\\:flex,
+            header nav,
+            nav .flex.space-x-8,
+            nav .flex.space-x-12 {
+                display: none !important;
+            }
+        }
+
+        /* Slide-out Drawer */
+        .auto-mobile-drawer {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 100000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .auto-mobile-drawer.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .auto-mobile-drawer-content {
+            position: fixed;
+            top: 0; right: 0; bottom: 0;
+            width: 285px;
+            background: #0f172a;
+            color: #f8fafc;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            z-index: 100001;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .auto-mobile-drawer.active .auto-mobile-drawer-content {
+            transform: translateX(0);
+        }
+
+        .auto-mobile-drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-b: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 24px;
+        }
+        .auto-mobile-drawer-close {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 26px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+        .auto-mobile-drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+        }
+        .auto-mobile-drawer-link {
+            display: block;
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+        }
+        .auto-mobile-drawer-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+    `;
+    document.head.appendChild(style);
+
+    function initMobileMenu() {
+        if (document.getElementById('mobile-menu-toggle')) return;
+
+        // Try to identify header or navbar
+        const header = document.querySelector('header, nav, [role="navigation"], .navbar');
+        if (!header) return;
+
+        // Create toggle button
+        const toggle = document.createElement('button');
+        toggle.id = 'mobile-menu-toggle';
+        toggle.className = 'auto-mobile-toggle';
+        toggle.setAttribute('aria-label', '메뉴 열기');
+        toggle.innerHTML = '<svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+        document.body.appendChild(toggle);
+
+        // Create Drawer
+        const drawer = document.createElement('div');
+        drawer.className = 'auto-mobile-drawer';
+        drawer.innerHTML = `
+            <div class="auto-mobile-drawer-content">
+                <div class="auto-mobile-drawer-header">
+                    <span style="font-weight:900; font-size:18px; color:#ffffff;">전체 메뉴</span>
+                    <button class="auto-mobile-drawer-close">&times;</button>
+                </div>
+                <div class="auto-mobile-drawer-links"></div>
+            </div>
+        `;
+        document.body.appendChild(drawer);
+
+        const linksContainer = drawer.querySelector('.auto-mobile-drawer-links');
+        const closeBtn = drawer.querySelector('.auto-mobile-drawer-close');
+
+        // Extract links from desktop navigation
+        const desktopLinks = header.querySelectorAll('a, button, .nav-item, .nav-link');
+        const addedHrefs = new Set();
+
+        desktopLinks.forEach(link => {
+            if (link.closest('#mobile-menu-toggle') || link.closest('.auto-mobile-drawer')) return;
+            
+            const text = (link.textContent || link.innerText).trim();
+            if (!text || text.length > 20) return; // Skip logo text or too long text
+            
+            let href = link.getAttribute('href');
+            let onclick = link.getAttribute('onclick');
+            
+            const key = href || onclick || text;
+            if (addedHrefs.has(key)) return;
+            addedHrefs.add(key);
+
+            const mLink = document.createElement(href ? 'a' : 'button');
+            mLink.className = 'auto-mobile-drawer-link';
+            mLink.innerText = text;
+            
+            if (href) {
+                mLink.setAttribute('href', href);
+            }
+            if (onclick) {
+                mLink.setAttribute('onclick', onclick);
+            }
+            
+            mLink.addEventListener('click', () => {
+                link.click();
+                closeDrawer();
+            });
+            linksContainer.appendChild(mLink);
+        });
+
+        function openDrawer() {
+            drawer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDrawer() {
+            drawer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggle.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        drawer.addEventListener('click', (e) => {
+            if (e.target === drawer) closeDrawer();
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileMenu();
+            let attempts = 0;
+            const interval = setInterval(() => {
+                initMobileMenu();
+                attempts++;
+                if (attempts > 12 || document.getElementById('mobile-menu-toggle')) {
+                    clearInterval(interval);
+                }
+            }, 500);
+        });
+    } else {
+        initMobileMenu();
+        let attempts = 0;
+        const interval = setInterval(() => {
+            initMobileMenu();
+            attempts++;
+            if (attempts > 12 || document.getElementById('mobile-menu-toggle')) {
+                clearInterval(interval);
+            }
+        }, 500);
+    }
+})();
+</script>
+
+</body>
+</html>

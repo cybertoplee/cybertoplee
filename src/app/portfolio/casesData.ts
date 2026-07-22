@@ -15,6 +15,26 @@ export function getPortfolioCases(): CaseItem[] {
   const basePath = getEgdeskBasePath();
   return [
     {
+      id: 'hanwoo_airport',
+      title: '한우천국 공항점',
+      category: 'fb_retail',
+      categoryLabel: 'PREMIUM F&B',
+      desc: '화려한 샹들리에 아래 즐기는 명품 고기요리와 프리미엄 한우 전문점',
+      link: `${basePath}/hanwoo_airport/index.html`,
+      bgGradient: 'from-red-955 via-slate-900 to-amber-955',
+      tagColor: 'bg-red-400/20 text-red-300 border-red-400/30'
+    },
+    {
+      id: 'youngsook_manmul',
+      title: '영숙이네 만물백화점 & 찬양의 집',
+      category: 'service_const',
+      categoryLabel: 'LIVING & STAY',
+      desc: '정겨운 동네 만물백화점과 편안하고 따뜻한 휴식을 선사하는 게스트하우스',
+      link: `${basePath}/youngsook_manmul/index.html`,
+      bgGradient: 'from-amber-900 via-slate-900 to-amber-950',
+      tagColor: 'bg-amber-400/20 text-amber-300 border-amber-400/30'
+    },
+    {
       id: 'starhouse',
       title: '제주 아크.스타하우스 (Ark.StarHouse)',
       category: 'service_const',
@@ -253,6 +273,16 @@ export function getPortfolioCases(): CaseItem[] {
       link: `${basePath}/insurancemock/index.html`,
       bgGradient: 'from-indigo-955 via-slate-900 to-blue-900',
       tagColor: 'bg-indigo-400/20 text-indigo-300 border-indigo-400/30'
+    },
+    {
+      id: 'insurance',
+      title: '보험설계사 문제은행',
+      category: 'education',
+      categoryLabel: 'AI SMART LEARNING',
+      desc: '생명·손해보험 설계사 시험 합격을 위한 맞춤형 문제은행 및 학습 서비스',
+      link: `${basePath}/insurance/index.html`,
+      bgGradient: 'from-blue-955 via-slate-900 to-indigo-900',
+      tagColor: 'bg-blue-400/20 text-blue-300 border-blue-400/30'
     },
     {
       id: 'jokbo',

@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>보험설계사 문제은행</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -262,6 +264,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     <!-- Floating Exit Button -->
+    <style>
+      .top-button {
+        position: fixed;
+        bottom: 90px;
+        right: 24px;
+        z-index: 9999;
+        background-color: #10b981; /* emerald-500 */
+        color: #ffffff;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transition: all 0.2s ease-in-out;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .top-button:hover {
+        background-color: #059669; /* emerald-600 */
+        transform: scale(1.1);
+        color: #ffffff;
+      }
+
+      .exit-button-text {
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.05em; /* tracking-wider */
+      }
+    </style>
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="top-button" title="맨 위로">
+      <i class="fa-solid fa-arrow-up text-xl mb-0.5"></i>
+      <span class="exit-button-text">TOP</span>
+    </a>
     <a href="../#portfolio" class="fixed bottom-6 right-6 z-[9999] bg-gray-900 text-white w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-2xl hover:bg-red-600 hover:scale-110 transition-all group border-2 border-white/20" title="나가기" style="text-decoration: none;">
       <span class="text-[12px] font-black tracking-wider">나가기</span>
     </a>
